@@ -16,12 +16,12 @@ Call `bundle exec fastlane create_apps`. You will need admin rights for this, if
 
 Initialize CocoaPods by calling `bundle exec pod init`. To the Podfile, always add  SwiftLint and FuntastyKit and make sure the latest tagged version is referenced:
  
-	```
-	pod 'FuntastyKit', git: 'https://github.com/thefuntasty/FuntastyKit.git', tag: 'v1.1.1'
-	pod 'SwiftLint'
+```
+pod 'FuntastyKit', git: 'https://github.com/thefuntasty/FuntastyKit.git', tag: 'v1.1.1'
+pod 'SwiftLint'
+```
 	
-	```
-	Unless stated differently, add *PromiseKit* pod, when localization is needed, add *BartyCrouch* pod.
+Unless stated differently, add *PromiseKit* pod, when localization is needed, add *BartyCrouch* pod.
 
 ## 4. Configure SwiftLint
 
