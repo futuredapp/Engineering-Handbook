@@ -8,7 +8,7 @@ The `master` branch is the stable branch, keeping the most recently released ver
 
 Feature branches, prefixed with `feature/`, are used to implement one specific feature defined in Jira task. When a feature is merged and a fix is required by Jira task (eg. from tester), a `fix/` branch is used. Similarly, a `hotfix/` branch is used if urgent fix of a released version is needed and should be merged only to the `master` branch.
 
-Branches prefixed with `feature/`, `fix/` and `hotfix/` requires Jira task ID and a short description, as defined by the following reqular expression `(feature|hotfix|fix)\/([A-Z]{2,}-\d+)`.
+Branches prefixed with `feature/`, `fix/` and `hotfix/` requires Jira task ID and a short description, as defined by the following regular expression `(feature|hotfix|fix)\/([A-Z]{2,}-\d+)`.
 
 For housekeep commits such as a dependency update, a `housekeep/` branch should be used. Releases should be prepared in a `release/` branch, which should then be merged to master.
 

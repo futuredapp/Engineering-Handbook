@@ -49,7 +49,7 @@ Use Fastlane Match to create an Enterprise provisioning profile. The command can
 
 `bundle exec fastlane match enterprise -a com.thefuntasty.PROJECT.beta -u ops@thefuntasty.com -b YVMX5P3692`
 
-In Xcode, go to Project Info screen. In Configurations section, add a new configuration by duplicating the Release configuration and name it `Enterprise`. On Build Settings tab, look for Product Bundle Identifier, expand it to see preferences for Debug, Enterprise and Release configurations and for the Enterprise one, add suffux `.beta`.
+In Xcode, go to Project Info screen. In Configurations section, add a new configuration by duplicating the Release configuration and name it `Enterprise`. On Build Settings tab, look for Product Bundle Identifier, expand it to see preferences for Debug, Enterprise and Release configurations and for the Enterprise one, add suffix `.beta`.
 
 In Target's General tab, keep the Automatically manage signing checkbox unchecked and select appropriate certificate in the Signing (Enterprise) section. The certificate should be already there, if not, make sure Enterprise certificate and provisioning profile was correctly installed using the Fastlane Match.
 
@@ -61,7 +61,7 @@ Create a new Bitrise app by connecting to the GitHub repo. Paste our GitHub SSH 
 
 In Team tab, select `thefuntasty-ops` as the Service credential User and make sure The `Funtasty Digital s.r.o.` is the owner of the project.
 
-In Code tab, make sure Incoming Webhooks are set to `Github (Code Push, Pull Request, Tag Push)`, then go to GitHub repo and set up the webook for the url shown on Bitrise. Activate the hook for *Pull requests* and *Pushes* events.
+In Code tab, make sure Incoming Webhooks are set to `Github (Code Push, Pull Request, Tag Push)`, then go to GitHub repo and set up the webhook for the url shown on Bitrise. Activate the hook for *Pull requests* and *Pushes* events.
 
 Instead of manually configuring the workflows using the GUI, paste the [initial bitrise.yml file](https://wiki.thefuntasty.com/doku.php?id=ios:bitrise) to the editor. Configure the *MATCH_PASSWORD* and *FASTLANE_PASSWORD* Secrets.
 

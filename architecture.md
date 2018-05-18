@@ -1,6 +1,6 @@
 # Architecture
 
-In The Funtasty, we enforce our customized version of architecture described as MVVM-C (Model-View-ViewModel Coordinator). Only occassionally a different architecture is used, if product requires it or as a way to experiment and explore.
+In The Funtasty, we enforce our customized version of architecture described as MVVM-C (Model-View-ViewModel Coordinator). Only occasionally a different architecture is used, if product requires it or as a way to experiment and explore.
 
 ## MVVM-C
 
@@ -37,6 +37,6 @@ The key parts:
 
 ### Asynchronous programming
 
-We use [PromiseKit](https://github.com/mxcl/PromiseKit) as a way to simplify asynchronous programming. Promises are powerful, easy to learn mechanisms, allowing us to get rid of completition handlers without bringing the complexity of a reactive framework.
+We use [PromiseKit](https://github.com/mxcl/PromiseKit) as a way to simplify asynchronous programming. Promises are powerful, easy to learn mechanisms, allowing us to get rid of competition handlers without bringing the complexity of a reactive framework.
 
 Where appropriate, we're also open to more declarative approaches such as [RxSwift](https://github.com/ReactiveX/RxSwift).
