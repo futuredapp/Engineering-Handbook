@@ -9,3 +9,7 @@ This handbook describes the best practices and guidelines we use for developing 
 * [Architecture](/architecture.md) 
 * [Code style & project structure](/code-style.md)
 * [Release checklist](/releases.md)
+
+#### Building blocks
+
+* [Table views and Collection views](/table-views.md)
