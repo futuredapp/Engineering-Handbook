@@ -53,11 +53,13 @@ In Xcode, go to Project Info screen. In Configurations section, add a new config
 
 In Target's General tab, keep the Automatically manage signing checkbox unchecked and select appropriate certificate in the Signing (Enterprise) section. The certificate should be already there, if not, make sure Enterprise certificate and provisioning profile was correctly installed using the Fastlane Match.
 
+In Manage Schemes, set root project scheme as Shared.
+
 An app have to have an icon before deploying a build to Funtaster. Add some at this point.
 
 ## 7. Configure Bitrise CI
 
-Create a new Bitrise app by connecting to the GitHub repo. Paste our GitHub SSH key dedicated to Bitrise. 
+Create a new Bitrise app by manually inserting GitHub SSH URL. Use "Add own SSH" option and paste our Bitrise-dedicated GitHub SSH key (can be found in 1Password vault). In Project build configuration step, select the manual one since our unified configuration will be pasted manually later.
 
 In Team tab, select `thefuntasty-ops` as the Service credential User and make sure The `Funtasty Digital s.r.o.` is the owner of the project.
 
