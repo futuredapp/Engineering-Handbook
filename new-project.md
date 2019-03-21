@@ -6,18 +6,21 @@ Start with the "Single View App" template. Make sure Organization Name is *The F
 
 ## 2. Configure Ruby environment and Fastlane
 
-Copy contents of the [thefuntasty/fastlane](https://github.com/thefuntasty/fastlane) repo to the project dir. Call `bundle install` to install gems. 
+Update your system Ruby, preferably using `brew install ruby` and install latest version of dependency manager `gem install bundler`.
 
-Edit `fastlane/Appfile` and specify `ENV['APP_IDENTIFIER']`, `ENV['APP_NAME']`, `ENV['APP_SCHEME']`. If customer's Apple Developer account is already known, specify also `ENV['APP_IDENTIFIER_CUSTOMER']` and `ENV['TEAM_ID_CUSTOMER']`.
+Import Fastfile from [thefuntasty/fastlane](https://github.com/thefuntasty/fastlane) repo to the project directory. Call `bundle install` to install gems.
+
+Edit `fastlane/Fastfile` and specify `ENV['APP_IDENTIFIER']`, `ENV['APP_NAME']`, `ENV['APP_SCHEME']`. If customer's Apple Developer account is already known, specify also `ENV['APP_IDENTIFIER_CUSTOMER']` and `ENV['TEAM_ID_CUSTOMER']`.
 
 Call `bundle exec fastlane create_apps`. You will need admin rights for this, if you are not admin, ask someone to do this for you.
 
 ## 3. CocoaPods
 
-Initialize CocoaPods by calling `bundle exec pod init`. To the Podfile, always add  SwiftLint and FuntastyKit and make sure the latest tagged version is referenced:
+Initialize CocoaPods by calling `bundle exec pod init`. To the Podfile, always add SwiftLint, FuntastyKit (and if the app is communicating with API FTAPIKit) and make sure the latest tagged version is referenced:
  
 ```
-pod 'FuntastyKit', git: 'https://github.com/thefuntasty/FuntastyKit.git', tag: 'v1.1.1'
+pod 'FuntastyKit', '~> 1.3'
+pod 'FTAPIKit', '~> 0.4'
 pod 'SwiftLint'
 ```
 	
