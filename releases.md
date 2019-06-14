@@ -3,7 +3,7 @@
 1. Create a branch `release/[version]`, where *[version]* is the new build number to be released.
 2. Bump the build number and version number. Build numbers are incremental, starting with 1. Version numbers have *x.y(.z)* format, where *x* represents major, *y* minor and *z* patch number.
 	
-	Fastlane can be used for this by calling `fastlane bump_patch`, `fastlane bump_minor`, `fastlane bump_major`.
+	Fastlane must be used for this by calling `fastlane bump_patch`, `fastlane bump_minor`, `fastlane bump_major`.
 3. Commit and push changes. Send a pull request from *release/[version]* to *master*.
 4. When merged, create a new tag on *master* with `[version]` value. 
 5. Create a pull request from *master* to *develop*.
