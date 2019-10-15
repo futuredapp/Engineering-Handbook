@@ -32,7 +32,7 @@ Update your system Ruby, preferably using `brew install ruby` and install latest
 - [ ] Edit `fastlane/Fastfile` to specify proper environment variables according to [imported Fastlane README](https://github.com/thefuntasty/fastlane). 
 - [ ] Call `bundle exec fastlane create_apps`. You will need operations rights for this. If you are not in operations group, ask someone to do this for you.
 
-## 3. Add dependencies
+## 4. Add dependencies
 
 If Swift Package manager will be used for dependecy management:
 
@@ -49,7 +49,7 @@ If CocoaPods will be used for dependecy management:
 - [ ] Edit `Podfile` and remove dependencies which are not relevant to the project.
 - [ ] Install fresh dependencies using `bundle exec pod update`.
 
-## 4. Configure SwiftLint
+## 5. Configure SwiftLint
 
 - [ ] Add a new Run Script Phase that executes the script:
 
@@ -61,7 +61,7 @@ else
 fi
 ```
 
-## 5. Configure the project for Continuous Deployment
+## 6. Configure the project for Continuous Deployment
 
 - [ ] In Target's General tab, keep the Automatically manage signing checkbox unchecked.
 - [ ] In Manage Schemes, set root project scheme as Shared.
