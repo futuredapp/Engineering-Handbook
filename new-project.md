@@ -1,77 +1,101 @@
 # New project checklist
 
-## 1. Create a new Xcode project
+## 1. Create new repository
 
-Start with the "Single View App" template. Make sure Organization Name is *The Funtasty, s.r.o.* and Organization Identifier is *com.thefuntasty*. Leave *Use Core Data* unchecked and *Include Unit Tests* and *Include UI Tests* checked.
+- [ ] Open [iOS project template](https://github.com/thefuntasty/iOS-project-template) and use it to create new repository. Preferred repo name is *[productname]-[platform]*, where *[productname]* includes only name of the product, without client name (like Skoda).
+- [ ] Create `develop` branch and set is as a default branch.
+- [ ] Disable **Wiki**, **Issues**, **Projects** features we do not use.
+- [ ] Enable **Automatically delete head branches** so there is no need to delete branches manually after each PR merge.
+- [ ] Add labels:
+	- Do not review – #0e8a16
+	- Do not merge – #d93f0b
+	- Merge immediately – #4260bc
 
-## 2. Configure Ruby environment and Fastlane
+![GitHub labels](attachments/GitHub_labels.png)
+
+- [ ] Set branch protection rules to `develop` and `master` branches exactly as shown in the following screenshot:
+
+![GitHub branch protection](attachments/GitHub_branch_protection.png)
+
+- [ ] Create new branch `feature/PROJ-1-setup-project` where everything will be setup in next steps.
+
+
+## 2. Create a new Xcode project
+
+- [ ] Start with the "Single View App" template. Make sure Organization Name is *FUNTASTY Digital s.r.o.* and Organization Identifier is *com.thefuntasty*. Leave *Use Core Data* unchecked (persistence is usually implemented in much later phase of development) and *Include Unit Tests* and *Include UI Tests* checked.
+
+## 3. Configure Ruby environment and Fastlane
 
 Update your system Ruby, preferably using `brew install ruby` and install latest version of dependency manager `gem install bundler`.
 
-Import Fastfile from [thefuntasty/fastlane](https://github.com/thefuntasty/fastlane) repo to the project directory. Call `bundle install` to install gems.
+- [ ] Call `bundle install` to install gems.
+- [ ] Edit `fastlane/Fastfile` to specify proper environment variables according to [imported Fastlane README](https://github.com/thefuntasty/fastlane). 
+- [ ] Call `bundle exec fastlane create_apps`. You will need operations rights for this. If you are not in operations group, ask someone to do this for you.
 
-Edit `fastlane/Fastfile` and specify `ENV['APP_IDENTIFIER']`, `ENV['APP_NAME']`, `ENV['APP_SCHEME']`. If customer's Apple Developer account is already known, specify also `ENV['APP_IDENTIFIER_CUSTOMER']` and `ENV['TEAM_ID_CUSTOMER']`.
+## 3. Add dependencies
 
-Call `bundle exec fastlane create_apps`. You will need admin rights for this, if you are not admin, ask someone to do this for you.
+If Swift Package manager will be used for dependecy management:
 
-## 3. CocoaPods
+- [ ] Remove `Podfile`.
+- [ ] Open Xcode and add all relevant packages to the project from this list:
+  - <https://github.com/mxcl/PromiseKit> (Our standard for async execution)
+  - <https://github.com/thefuntasty/FTTestingKit> (UIKit project)
+  - <https://github.com/thefuntasty/CellKit> (For app extensively using table/collection views)
+  - <https://github.com/thefuntasty/FTAPIKit> (REST API using project)
+  - <https://github.com/thefuntasty/FTTestingKit> (only to test target)
 
-Initialize CocoaPods by calling `bundle exec pod init`. To the Podfile, always add SwiftLint, FuntastyKit (and if the app is communicating with API FTAPIKit) and make sure the latest tagged version is referenced:
- 
-```
-pod 'FuntastyKit', '~> 1.3'
-pod 'FTAPIKit', '~> 0.4'
-pod 'SwiftLint'
-```
-	
-Unless stated differently, add *PromiseKit* pod, when localization is needed, add *BartyCrouch* pod.
+If CocoaPods will be used for dependecy management:
+
+- [ ] Edit `Podfile` and remove dependencies which are not relevant to the project.
+- [ ] Install fresh dependencies using `bundle exec pod update`.
 
 ## 4. Configure SwiftLint
 
-Add a new script Build Phase below `[CP] Check Pods Manifest.lock` that executes the script:
+- [ ] Add a new Run Script Phase that executes the script:
 
 ```
-if which ${PODS_ROOT}/SwiftLint/swiftlint >/dev/null; then
-    ${PODS_ROOT}/SwiftLint/swiftlint
+if which swiftlint >/dev/null; then
+    swiftlint
 else
-    echo "error: SwiftLint not installed, run `pod install`"
+    echo "error: SwiftLint not installed, run: brew install swiftlint"
 fi
 ```
 
-Create a `.swiftlint.yml` in the project dir with contents of [this file](.swiftlint.yml).
+## 5. Configure the project for Continuous Deployment
 
-## 5. Create GitHub repo
-
-Preferred repo name is *[productname]-[platform]*, where *[productname]* include only name of the product, without client name (like Skoda). Set `develop` branch as a default branch and set Branch protecting rules to `develop` and `master` branches exactly as shown in the image.
-
-![](attachments/GitHub_config.png)
-
-## 6. Configure the project for Continuous Deployment
-
-Use Fastlane Match to create an Enterprise provisioning profile. The command can look like this, make sure the bundle identifier match with the intended identifier for Enterprise deployment.
-
-`bundle exec fastlane match enterprise -a com.thefuntasty.PROJECT.beta -u ops@thefuntasty.com -b YVMX5P3692`
-
-In Xcode, go to Project Info screen. In Configurations section, add a new configuration by duplicating the Release configuration and name it `Enterprise`. On Build Settings tab, look for Product Bundle Identifier, expand it to see preferences for Debug, Enterprise and Release configurations and for the Enterprise one, add suffix `.beta`.
-
-In Target's General tab, keep the Automatically manage signing checkbox unchecked and select appropriate certificate in the Signing (Enterprise) section. The certificate should be already there, if not, make sure Enterprise certificate and provisioning profile was correctly installed using the Fastlane Match.
-
-In Manage Schemes, set root project scheme as Shared.
-
-An app have to have an icon before deploying a build to Funtaster. Add some at this point.
+- [ ] In Target's General tab, keep the Automatically manage signing checkbox unchecked.
+- [ ] In Manage Schemes, set root project scheme as Shared.
+- [ ] Run `bundle exec fastlane test` to check whether test can be run on both CI and locally.
+- [ ] In Xcode, go to Project Info screen. In Configurations section, add a new configuration by duplicating the **Release** configuration and rename it to **Enterprise**.
+- [ ] On Build Settings tab, look for Product Bundle Identifier, expand it to see preferences for Debug, Enterprise and Release configurations and for the Enterprise one, add suffix `.beta`.
+- [ ] Select appropriate certificates, provisioning profiles for all configurations in the Signing section.
+- [ ] Run `bundle exec fastlane enterprise` to check whether enteprise builds to App Center succeed.
 
 ## 7. Configure Bitrise CI
 
-Create a new Bitrise app by manually inserting GitHub SSH URL. Use "Add own SSH" option and paste our Bitrise-dedicated GitHub SSH key (can be found in 1Password vault). In Project build configuration step, select the manual one since our unified configuration will be pasted manually later.
+- [ ] Create a new Bitrise app by manually inserting GitHub SSH URL. Use "Add own SSH" option and paste our Bitrise-dedicated GitHub SSH key (can be found in 1Password vault).
+- [ ] In Project build configuration step, select the manual one since our unified configuration will be pasted manually later.
+- [ ] In Team tab, select `thefuntasty-ops` as the Service credential User and make sure The `Funtasty Digital s.r.o.` is the owner of the project.
+- [ ] Add Funtasty **Developers** group as developers to the project.
+- [ ] Instead of manually configuring the workflows using the GUI, paste the initial [bitrise.yml](bitrise.yml) file.
+- [ ] Configure Secret Environment Variables:
+	- `MATCH_PASSWORD`
+	- `FASTLANE_PASSWORD`
+	- `APPCENTER_API_TOKEN`
+	- `DANGER_GITHUB_API_TOKEN`
 
-In Team tab, select `thefuntasty-ops` as the Service credential User and make sure The `Funtasty Digital s.r.o.` is the owner of the project.
+- [ ] Finally, run test builds on Bitrise.
 
-In Code tab, make sure Incoming Webhooks are set to `Github (Code Push, Pull Request, Tag Push)`, then go to GitHub repo and set up the webhook for the url shown on Bitrise. Activate the hook for *Pull requests* and *Pushes* events.
+## 8. Setup App Center
 
-Instead of manually configuring the workflows using the GUI, paste the [initial bitrise.yml file](https://wiki.thefuntasty.com/doku.php?id=ios:bitrise) to the editor. Configure the *MATCH_PASSWORD* and *FASTLANE_PASSWORD* Secrets.
+- [ ] Change owner to our organization.
+- [ ] Add all internal teams as collaborators.
+- [ ] Create distribution group for the client and invite them.
 
-Finally, run a test build. Before seeing the build in Funtaster, you have to enable it in Funtaster administration.
+## 9. Open pull request with the project setup
 
-> TODO: when configuring a new Bitrise app, make the guide more detailed
+- [ ] Update CODEOWNERS file.
+- [ ] Update project README and fill in all the strike-through points.
+- [ ] Commit everything and open PR and add this filled checklist to description.
 
-## 8. Enjoy!
+## 10. Enjoy!
