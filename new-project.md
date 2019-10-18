@@ -6,10 +6,6 @@
 - [ ] Create `develop` branch and set is as a default branch.
 - [ ] Disable **Wiki**, **Issues**, **Projects** features we do not use.
 - [ ] Enable **Automatically delete head branches** so there is no need to delete branches manually after each PR merge.
-- [ ] Add labels:
-	- Do not review – #0e8a16
-	- Do not merge – #d93f0b
-	- Merge immediately – #4260bc
 
 ![GitHub labels](attachments/GitHub_labels.png)
 
