@@ -25,7 +25,7 @@
 Update your system Ruby, preferably using `brew install ruby` and install latest version of dependency manager `gem install bundler`.
 
 - [ ] Call `bundle install` to install gems.
-- [ ] Edit `fastlane/Fastfile` to specify proper environment variables according to [imported Fastlane README](https://github.com/thefuntasty/fastlane). 
+- [ ] Edit `fastlane/Fastfile` to specify proper environment variables according to [imported Fastlane README](https://github.com/thefuntasty/fastlane).
 - [ ] Call `bundle exec fastlane create_apps`. You will need operations rights for this. If you are not in operations group, ask someone to do this for you.
 
 ## 4. Add dependencies
@@ -35,7 +35,7 @@ If Swift Package manager will be used for dependecy management:
 - [ ] Remove `Podfile`.
 - [ ] Open Xcode and add all relevant packages to the project from this list:
   - <https://github.com/mxcl/PromiseKit> (Our standard for async execution)
-  - <https://github.com/thefuntasty/FTTestingKit> (UIKit project)
+  - <https://github.com/thefuntasty/FuntastyKit> (UIKit project)
   - <https://github.com/thefuntasty/CellKit> (For app extensively using table/collection views)
   - <https://github.com/thefuntasty/FTAPIKit> (REST API using project)
   - <https://github.com/thefuntasty/FTTestingKit> (only to test target)
