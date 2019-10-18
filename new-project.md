@@ -7,8 +7,6 @@
 - [ ] Disable **Wiki**, **Issues**, **Projects** features we do not use.
 - [ ] Enable **Automatically delete head branches** so there is no need to delete branches manually after each PR merge.
 
-![GitHub labels](attachments/GitHub_labels.png)
-
 - [ ] Set branch protection rules to `develop` and `master` branches exactly as shown in the following screenshot:
 
 ![GitHub branch protection](attachments/GitHub_branch_protection.png)
