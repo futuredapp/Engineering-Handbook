@@ -47,10 +47,11 @@ If CocoaPods will be used for dependecy management:
 
 ## 5. Configure SwiftLint
 
-- [ ] Add a new Run Script Phase that executes the script:
+- [ ] Add a new Run Script Phase that executes the script (remove `swiftlint autocorrect` if you want to fix linting issues manually):
 
 ```
 if which swiftlint >/dev/null; then
+    swiftlint autocorrect
     swiftlint
 else
     echo "error: SwiftLint not installed, run: brew install swiftlint"
