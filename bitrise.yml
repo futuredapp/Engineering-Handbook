@@ -19,13 +19,12 @@ workflows:
     steps:
     - activate-ssh-key:
         run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
-    - cache-pull: {}
     - git-clone: {}
+    - cache-pull: {}
     - fastlane:
         inputs:
         - lane: test
         - work_dir: "$FASTLANE_WORK_DIR"
-    - cache-push: {}
     - slack:
         run_if: ".IsBuildFailed"
         is_always_run: false
@@ -56,6 +55,7 @@ workflows:
             echo "Gem cache directory: $RBENV_DIR"
             envman add --key GEM_CACHE_PATH --value $RBENV_DIR
     - git-clone: {}
+    - cache-pull: {}
     - fastlane:
         inputs:
         - work_dir: "$FASTLANE_WORK_DIR"
@@ -74,19 +74,25 @@ workflows:
         - from_username_on_error: Bitrise
         - message_on_error: "*Build failed* [$BITRISE_GIT_BRANCH]\\n$BITRISE_BUILD_URL"
         - from_username: Bitrise
+    - cache-push:
+        inputs:
+        - cache_paths: |
+            ./Pods -> ./Podfile.lock
+            ~/Library/Developer/Xcode/DerivedData
+            $GEM_CACHE_PATH
+            $BITRISE_CACHE_DIR
     before_run: 
     after_run: 
   enterprise:
     steps:
     - activate-ssh-key:
         run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
-    - cache-pull: {}
     - git-clone: {}
+    - cache-pull: {}
     - fastlane:
         inputs:
         - lane: enterprise
         - work_dir: "$FASTLANE_WORK_DIR"
-    - cache-push: {}
     - deploy-to-bitrise-io:
         inputs:
         - is_enable_public_page: 'false'
