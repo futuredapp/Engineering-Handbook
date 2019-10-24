@@ -41,7 +41,7 @@ workflows:
         - from_username: Bitrise
     before_run: 
     after_run: 
-  beta:
+  enterprise:
     steps:
     - activate-ssh-key:
         run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
@@ -54,39 +54,6 @@ workflows:
             RBENV_DIR="`cd $(rbenv which ruby)/../..;pwd`"
             echo "Gem cache directory: $RBENV_DIR"
             envman add --key GEM_CACHE_PATH --value $RBENV_DIR
-    - git-clone: {}
-    - cache-pull: {}
-    - fastlane:
-        inputs:
-        - work_dir: "$FASTLANE_WORK_DIR"
-        - lane: beta
-    - slack:
-        run_if: ".IsBuildFailed"
-        is_always_run: false
-        inputs:
-        - webhook_url: "$SLACK_HOOK_URL"
-        - channel: "$SLACK_CHANNEL"
-        - icon_url: https://bitrise-public-content-production.s3.amazonaws.com/slack/bitrise-slack-icon-128.png
-        - icon_url_on_error: https://bitrise-public-content-production.s3.amazonaws.com/slack/bitrise-slack-icon-128.png
-        - emoji_on_error: 
-        - emoji: 
-        - message: "*Build success* [$BITRISE_GIT_BRANCH]\\n$BITRISE_BUILD_URL"
-        - from_username_on_error: Bitrise
-        - message_on_error: "*Build failed* [$BITRISE_GIT_BRANCH]\\n$BITRISE_BUILD_URL"
-        - from_username: Bitrise
-    - cache-push:
-        inputs:
-        - cache_paths: |
-            ./Pods -> ./Podfile.lock
-            ~/Library/Developer/Xcode/DerivedData
-            $GEM_CACHE_PATH
-            $BITRISE_CACHE_DIR
-    before_run: 
-    after_run: 
-  enterprise:
-    steps:
-    - activate-ssh-key:
-        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
     - git-clone: {}
     - cache-pull: {}
     - fastlane:
@@ -110,6 +77,43 @@ workflows:
         - from_username_on_error: Bitrise
         - message_on_error: "*Build failed* [$BITRISE_GIT_BRANCH]\\n$BITRISE_BUILD_URL"
         - from_username: Bitrise
+    - cache-push:
+        inputs:
+        - cache_paths: |
+            ./Pods -> ./Podfile.lock
+            ~/Library/Developer/Xcode/DerivedData
+            $GEM_CACHE_PATH
+            $BITRISE_CACHE_DIR
+    before_run: 
+    after_run: 
+  release:
+    steps:
+    - activate-ssh-key:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone: {}
+    - cache-pull: {}
+    - fastlane:
+        inputs:
+        - work_dir: "$FASTLANE_WORK_DIR"
+        - lane: beta
+    - deploy-to-bitrise-io:
+        inputs:
+        - is_enable_public_page: 'false'
+        - notify_user_groups: none
+    - slack:
+        run_if: ".IsBuildFailed"
+        is_always_run: false
+        inputs:
+        - webhook_url: "$SLACK_HOOK_URL"
+        - channel: "$SLACK_CHANNEL"
+        - icon_url: https://bitrise-public-content-production.s3.amazonaws.com/slack/bitrise-slack-icon-128.png
+        - icon_url_on_error: https://bitrise-public-content-production.s3.amazonaws.com/slack/bitrise-slack-icon-128.png
+        - emoji_on_error: 
+        - emoji: 
+        - message: "*Build success* [$BITRISE_GIT_BRANCH]\\n$BITRISE_BUILD_URL"
+        - from_username_on_error: Bitrise
+        - message_on_error: "*Build failed* [$BITRISE_GIT_BRANCH]\\n$BITRISE_BUILD_URL"
+        - from_username: Bitrise
     before_run: 
     after_run: 
 trigger_map:
@@ -118,4 +122,7 @@ trigger_map:
 - pull_request_target_branch: "*"
   workflow: test
 - tag: "*"
-  workflow: beta
+  workflow: release
+meta:
+  bitrise.io:
+    machine_type: standard
