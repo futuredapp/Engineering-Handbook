@@ -19,13 +19,6 @@ workflows:
     steps:
     - activate-ssh-key:
         run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
-    - script:
-        inputs:
-        - content: |-
-            #!/bin/bash
-            set -ev
-            envman add --key GEM_HOME --value "$(gem environment gemdir)"
-        title: Add Gem environment variable for caching
     - cache-pull: {}
     - git-clone: {}
     - fastlane:
@@ -54,12 +47,14 @@ workflows:
     - activate-ssh-key:
         run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
     - script:
+        title: Set GEM_CACHE_PATH env var for caching
         inputs:
         - content: |-
             #!/bin/bash
-            set -ev
-            envman add --key GEM_HOME --value "$(gem environment gemdir)"
-        title: Setup GEM HOME variable
+            set -ex
+            RBENV_DIR="`cd $(rbenv which ruby)/../..;pwd`"
+            echo "Gem cache directory: $RBENV_DIR"
+            envman add --key GEM_CACHE_PATH --value $RBENV_DIR
     - git-clone: {}
     - fastlane:
         inputs:
@@ -85,13 +80,6 @@ workflows:
     steps:
     - activate-ssh-key:
         run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
-    - script:
-        inputs:
-        - content: |-
-            #!/bin/bash
-            set -ev
-            envman add --key GEM_HOME --value "$(gem environment gemdir)"
-        title: Setup GEM HOME environment for caching
     - cache-pull: {}
     - git-clone: {}
     - fastlane:
