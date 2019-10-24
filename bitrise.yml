@@ -13,6 +13,7 @@ app:
   - SLACK_CHANNEL: "..."
   - opts:
       is_expand: false
+    FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT: '1000'
 workflows:
   test:
     steps:
