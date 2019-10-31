@@ -83,6 +83,7 @@ workflows:
         - cache_paths: |
             ./Pods -> ./Podfile.lock
             ~/Library/Developer/Xcode/DerivedData
+            ~/Library/Caches/Homebrew/
             $GEM_CACHE_PATH
             $BITRISE_CACHE_DIR
     before_run: 
