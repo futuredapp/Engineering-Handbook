@@ -79,6 +79,7 @@ workflows:
         - from_username: Bitrise
     - cache-push:
         inputs:
+        - fingerprint_method: file-mod-time
         - cache_paths: |
             ./Pods -> ./Podfile.lock
             ~/Library/Developer/Xcode/DerivedData
