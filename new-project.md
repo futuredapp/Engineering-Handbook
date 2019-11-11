@@ -78,6 +78,7 @@ fi
 	- `FASTLANE_PASSWORD`
 	- `APPCENTER_API_TOKEN`
 	- `DANGER_GITHUB_API_TOKEN`
+	- `SLACK_HOOK_URL`
 
 - [ ] Finally, run test builds on Bitrise.
 
