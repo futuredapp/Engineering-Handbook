@@ -9,7 +9,6 @@ app:
   - opts:
       is_expand: true
     BITRISE_DEPLOY_DIR: "/Users/vagrant/git/build_output"
-  - SLACK_HOOK_URL: "..."
   - SLACK_CHANNEL: "..."
   - opts:
       is_expand: false
