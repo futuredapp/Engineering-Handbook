@@ -5,6 +5,7 @@ This handbook describes the best practices and guidelines we use for developing 
 ### Generic
 
 * [GitFlow](/generic/git-flow.md)
+* [AppCenter - How to add access to partners](/generic/appcenter-how-to-add-partner-account.md)
 
 ### iOS
 
