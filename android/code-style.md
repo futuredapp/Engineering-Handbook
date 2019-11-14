@@ -50,7 +50,7 @@ project-android
 |   |-- debug.jks
 |   |-- client.jks
 |   `-- release.jks
-|-- .gitinore
+|-- .gitignore
 |-- .editorconfig
 |-- Dangerfile
 |-- detekt.yml

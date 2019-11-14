@@ -22,7 +22,7 @@
 
 > (NOTE: Status checks (Bitrise, Danger, etc.) become visible after first created pull request. Do not forget to set them afterwards.
 
-- [ ] Create new branch `feature/PROJ-1-setup-project` where everything will be setup in next steps.
+- [ ] Create new branch `feature/PROJ-1-setup-project` where everything will be set up in next steps.
 
 ## 2. Create application in App Center
 

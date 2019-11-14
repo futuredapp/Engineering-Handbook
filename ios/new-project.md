@@ -11,7 +11,7 @@
 
 ![GitHub branch protection](../generic/attachments/GitHub_branch_protection.png)
 
-- [ ] Create new branch `feature/PROJ-1-setup-project` where everything will be setup in next steps.
+- [ ] Create new branch `feature/PROJ-1-setup-project` where everything will be set up in next steps.
 
 
 ## 2. Create a new Xcode project
