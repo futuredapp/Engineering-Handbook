@@ -2,14 +2,21 @@
 
 This handbook describes the best practices and guidelines we use for developing apps in The Funtasty. It's purpose is to serve both new members as an introduction and current members as a guide, particularly for the tedious tasks such as creating a new project. More broadly, general public can take a look on how we do things, learn, discuss and propose improvements.
 
-### TOC
+## Table of contents
 
-* [Git flow](/git-flow.md)
-* [New project checklist](/new-project.md)
-* [Architecture](/architecture.md) 
-* [Code style & project structure](/code-style.md)
-* [Release checklist](/releases.md)
+### Generic
+
+* [GitFlow](/generic/git-flow.md)
+
+### iOS
+
+* [New project checklist](/ios/new-project.md)
+* [Architecture](/ios/architecture.md) 
+* [Code style & Project structure](/ios/code-style.md)
+* [Release checklist](/ios/releases.md)
 
 #### Building blocks
 
-* [Table views and Collection views](/table-views.md)
+* [Table views and Collection views](/ios/table-views.md)
+
+## Android

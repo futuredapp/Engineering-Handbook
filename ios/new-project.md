@@ -9,7 +9,7 @@
 
 - [ ] Set branch protection rules to `develop` and `master` branches exactly as shown in the following screenshot:
 
-![GitHub branch protection](attachments/GitHub_branch_protection.png)
+![GitHub branch protection](../generic/attachments/GitHub_branch_protection.png)
 
 - [ ] Create new branch `feature/PROJ-1-setup-project` where everything will be setup in next steps.
 
