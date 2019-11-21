@@ -9,9 +9,9 @@
 
 - [ ] Set branch protection rules to `develop` and `master` branches exactly as shown in the following screenshot:
 
-![GitHub branch protection](attachments/GitHub_branch_protection.png)
+![GitHub branch protection](../generic/attachments/GitHub_branch_protection.png)
 
-- [ ] Create new branch `feature/PROJ-1-setup-project` where everything will be setup in next steps.
+- [ ] Create new branch `feature/PROJ-1-setup-project` where everything will be set up in next steps.
 
 
 ## 2. Create a new Xcode project
@@ -72,7 +72,7 @@ fi
 - [ ] In Project build configuration step, select the manual one since our unified configuration will be pasted manually later.
 - [ ] In Team tab, select `thefuntasty-ops` as the Service credential User and make sure The `Funtasty Digital s.r.o.` is the owner of the project.
 - [ ] Add Funtasty **Developers** group as developers to the project.
-- [ ] Instead of manually configuring the workflows using the GUI, paste the initial [bitrise.yml](bitrise.yml) file.
+- [ ] Instead of manually configuring the workflows using the GUI, paste the initial [bitrise.yml](attachments/bitrise.yml) file.
 - [ ] Configure Secret Environment Variables:
 	- `MATCH_PASSWORD`
 	- `FASTLANE_PASSWORD`
