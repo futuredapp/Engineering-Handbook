@@ -18,7 +18,7 @@
 
 - [ ] Set branch protection rules to `develop` and `master` branches exactly as shown in the following screenshot:
 
-![GitHub branch protection](../generic/attachments/GitHub_branch_protection.png)
+![GitHub branch protection](../general/attachments/GitHub_branch_protection.png)
 
 > (NOTE: Status checks (Bitrise, Danger, etc.) become visible after first created pull request. Do not forget to set them afterwards.
 
@@ -30,7 +30,7 @@
 
 - [ ] Assign all teams (Developers, QA, PMs) to new application in Settings > People section:
 
-![AppCenter Assign teams](../generic/attachments/appcenter_permissions.png)
+![AppCenter Assign teams](../general/attachments/appcenter_permissions.png)
 
 - [ ] If necessary add partners following the [AppCenter - How to add access to partners](https://github.com/thefuntasty/developer-handbook/blob/master/appcenter-how-to-add-partner-account.md) guide. 
 
