@@ -1,6 +1,6 @@
 # Architecture
 
-In The Futured, we enforce our customized version of architecture described as MVVM-C (Model-View-ViewModel Coordinator). Only occasionally a different architecture is used, if product requires it or as a way to experiment and explore.
+In Futured, we enforce our customized version of architecture described as MVVM-C (Model-View-ViewModel Coordinator). Only occasionally a different architecture is used, if product requires it or as a way to experiment and explore.
 
 ## MVVM-C
 
