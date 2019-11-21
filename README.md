@@ -1,6 +1,6 @@
-# The Funtasty Engineering Handbook
+# Futured Engineering Handbook
 
-This handbook describes the best practices and guidelines we use for app development in The Funtasty. It's purpose is to serve both new members as an introduction and current members as a guide, particularly for the tedious tasks such as creating a new project. More broadly, general public can take a look on how we do things, learn, discuss and propose improvements.
+This handbook describes the best practices and guidelines we use for app development in Futured. It's purpose is to serve both new members as an introduction and current members as a guide, particularly for the tedious tasks such as creating a new project. More broadly, general public can take a look on how we do things, learn, discuss and propose improvements.
 
 ## General
 
