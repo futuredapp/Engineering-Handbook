@@ -1,6 +1,6 @@
 ## Code style
 
-Code style file is located [here](https://github.com/thefuntasty/android-treasure/blob/master/codestyle/funtasty_code_style.xml).
+Code style file is located [here](attachments/futured_code_style.xml).
 
 ### How To install
 1. Download file `funstasty_code_style.xml`
