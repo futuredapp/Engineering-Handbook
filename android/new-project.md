@@ -32,13 +32,13 @@
 
 ![AppCenter Assign teams](../general/attachments/appcenter_permissions.png)
 
-- [ ] If necessary add partners following the [AppCenter - How to add access to partners](https://github.com/thefuntasty/developer-handbook/blob/master/appcenter-how-to-add-partner-account.md) guide. 
+- [ ] If necessary add partners following the [AppCenter - How to add access to partners](../general/appcenter-how-to-add-partner-account.md) guide. 
 
 ## 3. Configure Bitrise CI
 
 - [ ] Create a new Bitrise app by manually inserting GitHub SSH URL. Use "Add own SSH" option and paste our Bitrise-dedicated GitHub SSH key (can be found in 1Password vault). In Project build configuration step, select the manual one since our unified configuration will be pasted manually later. Skip the Webhook registration it will be added later too. 
 
-- [ ] In **Team tab**, select `thefuntasty-ops` as the Service credential User and make sure The `Funtasty Digital s.r.o.` is the owner of the project. Add `Funtasty Developers` group as developers to the project.
+- [ ] In **Team tab**, select `thefuntasty-ops` as the Service credential User and make sure `Futured` is the owner of the project. Add `Futured Developers` group as developers to the project.
 
 - [ ] In **Code tab**, make sure Incoming Webhooks are set to `Github (Code Push, Pull Request, Tag Push)`, then go to GitHub repo and set up the webhook for the url shown on Bitrise. Activate the hook for *Pull requests* and *Pushes* events.
 
