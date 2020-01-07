@@ -16,7 +16,7 @@
 
 ## 2. Create a new Xcode project
 
-- [ ] Start with the "Single View App" template. Make sure Organization Name is *FUNTASTY Digital s.r.o.* and Organization Identifier is *com.thefuntasty*. Leave *Use Core Data* unchecked (persistence is usually implemented in much later phase of development) and *Include Unit Tests* and *Include UI Tests* checked.
+- [ ] Start with the "Single View App" template. Make sure Organization Name is *Futured* and Organization Identifier is *app.futured*. Leave *Use Core Data* unchecked (persistence is usually implemented in much later phase of development) and *Include Unit Tests* and *Include UI Tests* checked.
 
 ## 3. Configure Ruby environment and Fastlane
 
@@ -70,7 +70,7 @@ fi
 
 - [ ] Create a new Bitrise app by manually inserting GitHub SSH URL. Use "Add own SSH" option and paste our Bitrise-dedicated GitHub SSH key (can be found in 1Password vault).
 - [ ] In Project build configuration step, select the manual one since our unified configuration will be pasted manually later.
-- [ ] In Team tab, select `thefuntasty-ops` as the Service credential User and make sure The `Funtasty Digital s.r.o.` is the owner of the project.
+- [ ] In Team tab, select `thefuntasty-ops` as the Service credential User and make sure `Futured` is the owner of the project.
 - [ ] Add Futured **Developers** group as developers to the project.
 - [ ] Instead of manually configuring the workflows using the GUI, paste the initial [bitrise.yml](attachments/bitrise.yml) file.
 - [ ] Configure Secret Environment Variables:
