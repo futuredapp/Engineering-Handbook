@@ -16,7 +16,7 @@
 
 ## 2. Create a new Xcode project
 
-- [ ] Start with the "Single View App" template. Make sure Organization Name is *Futured* and Organization Identifier is *app.futured*. Leave *Use Core Data* unchecked (persistence is usually implemented in much later phase of development) and *Include Unit Tests* and *Include UI Tests* checked.
+- [ ] Start with the "Single View App" template. Make sure Organization Name is *Futured apps s.r.o.* and Organization Identifier is *app.futured*. Leave *Use Core Data* unchecked (persistence is usually implemented in much later phase of development) and *Include Unit Tests* and *Include UI Tests* checked.
 
 ## 3. Configure Ruby environment and Fastlane
 
