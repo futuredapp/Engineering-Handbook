@@ -66,7 +66,15 @@ fi
 - [ ] Select appropriate certificates, provisioning profiles for all configurations in the Signing section.
 - [ ] Run `bundle exec fastlane enterprise` to check whether enteprise builds to App Center succeed.
 
-## 7. Configure Bitrise CI
+## 7. Configure the project for automatic versioning
+
+- [ ] Set proper values in Versioning part of Build Settings:
+  - [ ] Change Marketing Version to `1.0.0` (only for new apps, add patch version if it is not present).
+  - [ ] Change Current Project Version to `0` (only for new apps).
+  - [ ] Change Versioning System to `Apple Generic`.
+- [ ] Run `bundle exec fastlane increment_build_number` to see if everything is set up correctly and automatic increments work.
+
+## 8. Configure Bitrise CI
 
 - [ ] Create a new Bitrise app by manually inserting GitHub SSH URL. Use "Add own SSH" option and paste our Bitrise-dedicated GitHub SSH key (can be found in 1Password vault).
 - [ ] In Project build configuration step, select the manual one since our unified configuration will be pasted manually later.
@@ -82,16 +90,16 @@ fi
 
 - [ ] Finally, run test builds on Bitrise.
 
-## 8. Setup App Center
+## 9. Setup App Center
 
 - [ ] Change owner to our organization.
 - [ ] Add all internal teams as collaborators.
 - [ ] Create distribution group for the client and invite them.
 
-## 9. Open pull request with the project setup
+## 10. Open pull request with the project setup
 
 - [ ] Update CODEOWNERS file.
 - [ ] Update project README and fill in all the strike-through points.
 - [ ] Commit everything and open PR and add this filled checklist to description.
 
-## 10. Enjoy!
+## 11. Enjoy!
