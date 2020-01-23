@@ -92,6 +92,8 @@ fi
 
 ## 9. Setup App Center
 
+*Note: The app should be automatically created and submitted to App Center during step 6 by running `bundle exec fastlane enterprise` in Terminal.
+
 - [ ] Change owner to our organization.
 - [ ] Add all internal teams as collaborators.
 - [ ] Create distribution group for the client and invite them.
