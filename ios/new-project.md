@@ -78,6 +78,7 @@ fi
 
 - [ ] Create a new Bitrise app by manually inserting GitHub SSH URL. Use "Add own SSH" option and paste our Bitrise-dedicated GitHub SSH key (can be found in 1Password vault).
 - [ ] In Project build configuration step, select the manual one since our unified configuration will be pasted manually later.
+- [ ] Let Bitrise to setup GitHub webhooks automatically.
 - [ ] In Team tab, select `thefuntasty-ops` as the Service credential User and make sure `Futured` is the owner of the project.
 - [ ] Add Futured **Developers** group as developers to the project.
 - [ ] Instead of manually configuring the workflows using the GUI, paste the initial [bitrise.yml](attachments/bitrise.yml) file.
