@@ -36,7 +36,7 @@
 
 ## 3. Configure GitHub Actions
 
-- [ ] If you created a new project using [Android project template](https://github.com/thefuntasty/android-project-template), the GitHub Actions workflow files whould be already present in your repository under `.github/workflows` folder. If not, copy them over from [here](https://github.com/futuredapp/android-project-template/tree/master/.github/workflows).
+- [ ] If you created a new project using [Android project template](https://github.com/thefuntasty/android-project-template), the GitHub Actions workflow files are already present in your repository under `.github/workflows` folder. If not, copy them over from [here](https://github.com/futuredapp/android-project-template/tree/master/.github/workflows).
 - [ ] In **Settings** tab of your repository, go to **Secrets** and configure following secrets:
   1. `DANGER_GITHUB_API_TOKEN`
   2. `SLACK_WEB_HOOK`
