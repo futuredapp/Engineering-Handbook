@@ -10,7 +10,7 @@
     - Change applicationId
     - Change packages from `com.thefuntasty.androidprojecttemplate` to real packages based on applicationId
 
-- [ ] Create `develop` branch and set is as a default branch.
+- [ ] Create `develop` branch and set it as a default branch.
 
 - [ ] Disable **Wiki**, **Issues**, **Projects** features we do not use.
 
@@ -20,7 +20,7 @@
 
 ![GitHub branch protection](../general/attachments/GitHub_branch_protection.png)
 
-> (NOTE: Status checks (Bitrise, Danger, etc.) become visible after first created pull request. Do not forget to set them afterwards.
+> (NOTE: Status checks (GitHub Actions, Danger, etc.) become visible after first created pull request. Do not forget to set them afterwards.
 
 - [ ] Create new branch `feature/PROJ-1-setup-project` where everything will be set up in next steps.
 
@@ -34,33 +34,16 @@
 
 - [ ] If necessary add partners following the [AppCenter - How to add access to partners](../general/appcenter-how-to-add-partner-account.md) guide. 
 
-## 3. Configure Bitrise CI
+## 3. Configure GitHub Actions
 
-- [ ] Create a new Bitrise app by manually inserting GitHub SSH URL. Use "Add own SSH" option and paste our Bitrise-dedicated GitHub SSH key (can be found in 1Password vault). In Project build configuration step, select the manual one since our unified configuration will be pasted manually later. Skip the Webhook registration it will be added later too. 
-
-- [ ] In **Team tab**, select `thefuntasty-ops` as the Service credential User and make sure `Futured` is the owner of the project. Add `Futured Developers` group as developers to the project.
-
-- [ ] In **Code tab**, make sure Incoming Webhooks are set to `Github (Code Push, Pull Request, Tag Push)`, then go to GitHub repo and set up the webhook for the url shown on Bitrise. Activate the hook for *Pull requests* and *Pushes* events.
-
-- [ ] In **Settings tab** disable all of the email notifications.
-
-- [ ] In **Workflow tab**, instead of manually configuring the workflows using the GUI, use the initial [bitrise.yml](attachments/bitrise.yml) file.
-
-- [ ] Configure following Secret Environment Variables:
-    - `AWS_SECRET_KEY`
-    - `AWS_ACCESS_KEY`
-    - `KEY_PASSWORD`
-    - `STORE_PASSWORD`
-    - `DANGER_GITHUB_API_TOKEN`
-    - `APPCENTER_API_TOKEN`
-    - `SLACK_HOOK_URL`
-
-- [ ] Configure Environment Variables:
-    - `PACKAGE_NAME`
-    - `SLACK_CHANNEL`
-    - `APPCENTER_NAME`
-    - `APP_CENTER_DISTRIBUTION_GROUPS`
-
-- [ ] Finally, run test builds on Bitrise.
+- [ ] If you created a new project using [Android project template](https://github.com/thefuntasty/android-project-template), the GitHub Actions workflow files whould be already present in your repository under `.github/workflows` folder. If not, copy them over from [here](https://github.com/futuredapp/android-project-template/tree/master/.github/workflows).
+- [ ] In **Settings** tab of your repository, go to **Secrets** and configure following secrets:
+  1. `DANGER_GITHUB_API_TOKEN`
+  2. `SLACK_WEB_HOOK`
+  3. `APP_CENTER_TOKEN`
+- [ ] For each workflow configuration file, configure the environment variables marked with `TODO` comment:
+  1. `SLACK_CHANNEL`
+  2. `APPCENTER_APP_NAME`
+- [ ] Make a pull request from `feature/PROJ-1-setup-project` to `develop` to ensure that GitHub Actions work properly
 
 ## 4. Enjoy!
