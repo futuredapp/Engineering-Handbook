@@ -25,7 +25,7 @@ Examples of pretty branch names:
 
 ## Commits
 
-Commit messages should be in the imperative present tense, start with a capital letter and have no period at the end. Keep your commits short.
+Commit messages should be in the imperative present tense, start with a capital letter and have no period at the end. Keep your commits short. For more guidance read [this blog post](https://chris.beams.io/posts/git-commit/).
 
 ```
 // Preferred
