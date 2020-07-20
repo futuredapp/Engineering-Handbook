@@ -2,7 +2,7 @@
 
 ## 1. Create new repository
 
-- [ ] Open [iOS project template](https://github.com/thefuntasty/iOS-project-template) and use it to create new repository. Preferred repo name is *[productname]-[platform]*, where *[productname]* includes only name of the product, without client name (like Skoda).
+- [ ] Open [iOS project template](https://github.com/futuredapp/iOS-project-template) and use it to create new repository. Preferred repo name is *[productname]-[platform]*, where *[productname]* includes only name of the product, without client name (like Skoda).
 - [ ] Create `develop` branch and set is as a default branch.
 - [ ] Disable **Wiki**, **Issues**, **Projects** features we do not use.
 - [ ] Enable **Automatically delete head branches** so there is no need to delete branches manually after each PR merge.
@@ -23,7 +23,7 @@
 Update your system Ruby, preferably using `brew install ruby` and install latest version of dependency manager `gem install bundler`.
 
 - [ ] Call `bundle install` to install gems.
-- [ ] Edit `fastlane/Fastfile` to specify proper environment variables according to [imported Fastlane README](https://github.com/thefuntasty/fastlane).
+- [ ] Edit `fastlane/Fastfile` to specify proper environment variables according to [imported Fastlane README](https://github.com/futuredapp/fastlane).
 - [ ] Call `bundle exec fastlane create_apps`. You will need operations rights for this. If you are not in operations group, ask someone to do this for you.
 
 ## 4. Add dependencies
@@ -33,10 +33,10 @@ If Swift Package manager will be used for dependecy management:
 - [ ] Remove `Podfile`.
 - [ ] Open Xcode and add all relevant packages to the project from this list:
   - <https://github.com/mxcl/PromiseKit> (Our standard for async execution)
-  - <https://github.com/thefuntasty/FuntastyKit> (UIKit project)
-  - <https://github.com/thefuntasty/CellKit> (For app extensively using table/collection views)
-  - <https://github.com/thefuntasty/FTAPIKit> (REST API using project)
-  - <https://github.com/thefuntasty/FTTestingKit> (only to test target)
+  - <https://github.com/futuredapp/FuntastyKit> (UIKit project)
+  - <https://github.com/futuredapp/CellKit> (For app extensively using table/collection views)
+  - <https://github.com/futuredapp/FTAPIKit> (Project using REST API)
+  - <https://github.com/futuredapp/FTTestingKit> (only to test target)
 
 If CocoaPods will be used for dependecy management:
 
@@ -74,12 +74,20 @@ fi
   - [ ] Change Versioning System to `Apple Generic`.
 - [ ] Run `bundle exec fastlane increment_build_number` to see if everything is set up correctly and automatic increments work.
 
-## 8. Configure Bitrise CI
+## 8. Configure continuous integration
+
+Choose your CI service, we currently prefer Github Actions. We are slowly deprecating Bitrise.
+
+### GitHub Actions
+
+Most of the configuration is already part of the [iOS project template](https://github.com/futuredapp/iOS-project-template). All the secrets are provided by the organization. If they are not available ask someone with admin permissions to provide them to your repository.
+
+### Bitrise
 
 - [ ] Create a new Bitrise app by manually inserting GitHub SSH URL. Use "Add own SSH" option and paste our Bitrise-dedicated GitHub SSH key (can be found in 1Password vault).
 - [ ] In Project build configuration step, select the manual one since our unified configuration will be pasted manually later.
 - [ ] Let Bitrise to setup GitHub webhooks automatically.
-- [ ] In Team tab, select `thefuntasty-ops` as the Service credential User and make sure `Futured` is the owner of the project.
+- [ ] In Team tab, select `futured-bot` as the Service credential User and make sure `Futured` is the owner of the project.
 - [ ] Add Futured **Developers** group as developers to the project.
 - [ ] Instead of manually configuring the workflows using the GUI, paste the initial [bitrise.yml](attachments/bitrise.yml) file.
 - [ ] Configure Secret Environment Variables:
