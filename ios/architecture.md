@@ -1,11 +1,11 @@
 # Architecture
 
-In Futured, we prefer our customized version of architecture described as MVVM-C (Model-View-ViewModel-Coordinator)
+At Futured, we prefer our customized version of architecture described as MVVM-C (Model-View-ViewModel-Coordinator)
 when using UIKit.
 
 Our team is used to it. This means it dramatically improves our time to kick-off a project and maintain its development.
 We can easily substitute developers. Onboarding of developers on a new project is faster too.
-We only occasionally use a different architecture, if the product requires it or as a way to experiment and explore.
+We occasionally use a different architecture, if the product requires it or as a way to experiment and explore.
 
 ## Future directions
 
@@ -70,7 +70,7 @@ The key parts:
 ### Asynchronous programming
 
 We use [PromiseKit](https://github.com/mxcl/PromiseKit) as a way to simplify asynchronous programming.
-Promises are powerful, easy to learn mechanisms, allowing us to get rid of competition handlers without bringing
+Promises are powerful, easy to learn mechanisms, allowing us to get rid of completion handlers without bringing
 the complexity of a reactive framework.
 
 Where appropriate, we're also open to more declarative approaches
