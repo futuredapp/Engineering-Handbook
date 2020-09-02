@@ -2,6 +2,16 @@
 
 In Futured, we enforce our customized version of architecture described as MVVM-C (Model-View-ViewModel Coordinator). Only occasionally a different architecture is used, if product requires it or as a way to experiment and explore.
 
+## Future directions
+
+We are currently internally experimenting with uni-directional architectures in SwiftUI, namely:
+
+- https://github.com/mkj-is/Elementary
+- https://github.com/pointfreeco/swift-composable-architecture
+
+We aim to formalize our process of developing SwiftUI applications during
+the development of a first production SwiftUI for a client.
+
 ## MVVM-C
 
 The basic MVC architecture introduced by Apple is in some cases really cumbersome and the view controller often becomes omnipotent and has too much responsibilities. Therefore this architecture introduces another layers called view model and coordinator.
