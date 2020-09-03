@@ -22,7 +22,7 @@ Using Google Sheets as an alternative approach has a few minor pros and cons:
   + No need to pay for POEditor.
   + Versioning.
 - Cons:
-  - Sheet can be broken when the user is not careful (but the chages are reversible).
+  - Sheet can be broken when the user is not careful (but the changes are reversible).
 
 Setup using the guide provided in [ACKLocalization](https://github.com/AckeeCZ/ACKLocalization).
 
