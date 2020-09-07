@@ -25,9 +25,9 @@ many responsibilities. Therefore this architecture introduces two more layers ca
 
 The view model is responsible for logic of each screen. The view controller should not handle any logic and only setup
 the interface and present the data received from view model. Also the view controller sends all actions to view model
-so it can handle them. The view model is the only layer, that handles state changes and the only place where the models
-are held. The models are retrieved from services which are injected using simple dependency injection container called
-the service holder.
+so it can handle them. The view model is the only layer, that handles state changes and the primary place where the models
+are held. Services working with models are injected using simple dependency injection container called the service holder.
+Models are generally passed as dependencies and held in the coordinator during the presentation.
 
 Services are mainly used for encapsulating some low-level frameworks like communication with server or persistence.
 They create higher-level API and enable simpler testing by mocking them.
