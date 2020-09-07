@@ -15,6 +15,7 @@ This handbook describes the best practices and guidelines we use for app develop
 * [New project checklist](/ios/new-project.md)
 * [Architecture](/ios/architecture.md) 
 * [Code style & Project structure](/ios/code-style.md)
+* [Localization](/ios/Localization.md)
 * [Release checklist](/ios/releases.md)
 
 ### Building blocks
