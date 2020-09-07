@@ -20,7 +20,7 @@ the development of a first production SwiftUI for a client.
 ## MVVM-C
 
 The basic MVC architecture introduced by Apple is defined pretty vaguely. If the developer is not careful
-and has not strong sense of self-control the view controller often becomes omni-potent and has too
+and has not a strong sense of self-control the view controller often becomes omnipotent and has too
 many responsibilities. Therefore this architecture introduces two more layers called view model and coordinator.
 
 The view model is responsible for logic of each screen. The view controller should not handle any logic and only setup
