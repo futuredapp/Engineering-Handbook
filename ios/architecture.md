@@ -24,7 +24,7 @@ and has not a strong sense of self-control the view controller often becomes omn
 many responsibilities. Therefore this architecture introduces two more layers called view model and coordinator.
 
 The view model is responsible for logic of each screen. The view controller should not handle any logic and only setup
-the interface and present the data received from view model. Also the view controller sends all actions to view model
+the interface and present the data received from view model. Also, the view controller sends all actions to view model
 so it can handle them. The view model is the only layer, that handles state changes and the primary place where the models
 are held. Services working with models are injected using simple dependency injection container called the service holder.
 Models are generally passed as dependencies and held in the coordinator during the presentation.
