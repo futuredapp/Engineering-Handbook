@@ -27,7 +27,7 @@ Keep in mind that to make it work properly you need to do few things:
   2. Add `HEROKU_API_KEY` to repository secrets.
   3. Run `yarn` to create up-to-date `yarn.lock` file.
   4. Replace `project-name` in `Makefile` with your new hyphenated project name.
-  5. Enable GitHub Pages for `master` branch where possible. (Be aware, it is publicly accessible, which might be a security risk for some projects.)
+  5. Enable GitHub Pages for `main` branch where possible. (Be aware, it is publicly accessible, which might be a security risk for some projects.)
 - Optional (but recommended) steps:
   1. Replace the project name in title tag in the `index.html` file to make your documentation usable better in a browser.
   2. Update deployed server addresses in `api.yml`.
