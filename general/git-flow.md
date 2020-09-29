@@ -2,7 +2,7 @@
 
 ## Branches
 
-We use `develop` as the main branch to which the development increments (pull requests) are being integrated. 
+We use `develop` as the main branch to which the development increments (pull requests) are being integrated.
 
 The `master` branch is the stable branch, keeping the most recently released version. Each merge to `master` should be appropriately tagged with build number of the release (see [Release checklist - iOS](../ios/releases.md)). 
 
@@ -47,7 +47,7 @@ Attachments and more detailed information about the PR is welcomed, such as:
 
 ### Code review
 
-Code review is obligatory before merging the pull request. A pull request should get at least one approval from another member of a team to get merged. If possible, cross-reviewing from a member of a different team is preferred. 
+Code review is obligatory before merging the pull request. A pull request should get at least one approval from another member of a team to get merged. If possible, cross-reviewing from a member of a different team is preferred.
 
 While doing code review, be nice and respect the work of another team member. Pay attention to the functional, structural and style issues. GitHub offers some of a good advice on offering and responding to feedback [in their blog post](https://blog.github.com/2015-01-21-how-to-write-the-perfect-pull-request/).
 

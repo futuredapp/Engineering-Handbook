@@ -26,13 +26,13 @@
 
 ## 2. Create application in App Center
 
-- [ ] Add new application in [App Center admin](https://appcenter.ms/apps/create?os=Android). Owner should be set to Futured. Release type should be set to Enterprise. 
+- [ ] Add new application in [App Center admin](https://appcenter.ms/apps/create?os=Android). Owner should be set to Futured. Release type should be set to Enterprise.
 
 - [ ] Assign all teams (Developers, QA, PMs) to new application in Settings > People section:
 
 ![AppCenter Assign teams](../general/attachments/appcenter_permissions.png)
 
-- [ ] If necessary add partners following the [AppCenter - How to add access to partners](../general/appcenter-how-to-add-partner-account.md) guide. 
+- [ ] If necessary add partners following the [AppCenter - How to add access to partners](../general/appcenter-how-to-add-partner-account.md) guide.
 
 ## 3. Configure GitHub Actions
 
