@@ -2,17 +2,17 @@
 
 ## Branches
 
-We use `develop` as the main branch to which the development increments (pull requests) are being integrated. 
+We use `develop` as the main branch to which the development increments (pull requests) are being integrated.
 
-The `master` branch is the stable branch, keeping the most recently released version. Each merge to `master` should be appropriately tagged with build number of the release (see [Release checklist - iOS](../ios/releases.md)). 
+The `main` branch is the stable branch, keeping the most recently released version. Each merge to `main` should be appropriately tagged with build number of the release (see [Release checklist - iOS](../ios/releases.md)).
 
-Feature branches, prefixed with `feature/`, are used to implement one specific feature defined in Jira task. When a feature is merged and a fix is required by Jira task (eg. from tester), a `fix/` branch is used. Similarly, a `hotfix/` branch is used if urgent fix of a released version is needed and should be merged only to the `master` branch.
+Feature branches, prefixed with `feature/`, are used to implement one specific feature defined in Jira task. When a feature is merged and a fix is required by Jira task (eg. from tester), a `fix/` branch is used. Similarly, a `hotfix/` branch is used if urgent fix of a released version is needed and should be merged only to the `main` branch.
 
 Branches prefixed with `feature/`, `fix/` and `hotfix/` require Jira task ID and a short description, as defined by the following regular expression `(feature|hotfix|fix)\/([A-Z]{2,}-\d+)`.
 
-For housekeep commits such as a dependency update, a `housekeep/` branch should be used. Releases should be prepared in a `release/` branch, which should then be merged to `master`.
+For housekeep commits such as a dependency update, a `housekeep/` branch should be used. Releases should be prepared in a `release/` branch, which should then be merged to `main`.
 
-`master` and `develop` branches are protected and merging to them is only available using the pull request.
+`main` and `develop` branches are protected and merging to them is only available using the pull request.
 
 Examples of pretty branch names:
 
@@ -37,7 +37,7 @@ Added image view to display image for employee in employees table view controlle
 
 ## Pull requests
 
-All pull request should point to `develop` branch, except `release/` and `hotfix/`, which are intended to `master`. 
+All pull request should point to `develop` branch, except `release/` and `hotfix/`, which are intended to `main`.
 
 Attachments and more detailed information about the PR is welcomed, such as:
 
@@ -47,7 +47,7 @@ Attachments and more detailed information about the PR is welcomed, such as:
 
 ### Code review
 
-Code review is obligatory before merging the pull request. A pull request should get at least one approval from another member of a team to get merged. If possible, cross-reviewing from a member of a different team is preferred. 
+Code review is obligatory before merging the pull request. A pull request should get at least one approval from another member of a team to get merged. If possible, cross-reviewing from a member of a different team is preferred.
 
 While doing code review, be nice and respect the work of another team member. Pay attention to the functional, structural and style issues. GitHub offers some of a good advice on offering and responding to feedback [in their blog post](https://blog.github.com/2015-01-21-how-to-write-the-perfect-pull-request/).
 

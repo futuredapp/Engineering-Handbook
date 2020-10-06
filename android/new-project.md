@@ -16,7 +16,7 @@
 
 - [ ] Enable **Automatically delete head branches** so there is no need to delete branches manually after each PR merge.
 
-- [ ] Set branch protection rules to `develop` and `master` branches exactly as shown in the following screenshot:
+- [ ] Set branch protection rules to `develop` and `main` branches exactly as shown in the following screenshot:
 
 ![GitHub branch protection](../general/attachments/GitHub_branch_protection.png)
 
@@ -26,17 +26,17 @@
 
 ## 2. Create application in App Center
 
-- [ ] Add new application in [App Center admin](https://appcenter.ms/apps/create?os=Android). Owner should be set to Futured. Release type should be set to Enterprise. 
+- [ ] Add new application in [App Center admin](https://appcenter.ms/apps/create?os=Android). Owner should be set to Futured. Release type should be set to Enterprise.
 
 - [ ] Assign all teams (Developers, QA, PMs) to new application in Settings > People section:
 
 ![AppCenter Assign teams](../general/attachments/appcenter_permissions.png)
 
-- [ ] If necessary add partners following the [AppCenter - How to add access to partners](../general/appcenter-how-to-add-partner-account.md) guide. 
+- [ ] If necessary add partners following the [AppCenter - How to add access to partners](../general/appcenter-how-to-add-partner-account.md) guide.
 
 ## 3. Configure GitHub Actions
 
-- [ ] If you created a new project using [Android project template](https://github.com/thefuntasty/android-project-template), the GitHub Actions workflow files are already present in your repository under `.github/workflows` folder. If not, copy them over from [here](https://github.com/futuredapp/android-project-template/tree/master/.github/workflows).
+- [ ] If you created a new project using [Android project template](https://github.com/thefuntasty/android-project-template), the GitHub Actions workflow files are already present in your repository under `.github/workflows` folder. If not, copy them over from [here](https://github.com/futuredapp/android-project-template/tree/main/.github/workflows).
 - [ ] In **Settings** tab of your repository, go to **Secrets** and configure following secrets:
   1. `DANGER_GITHUB_API_TOKEN`
   2. `SLACK_WEB_HOOK`
