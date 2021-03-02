@@ -9,6 +9,9 @@ This handbook describes the best practices and guidelines we use for app develop
 * [GitFlow](/general/git-flow.md)
 * [App Center - How to add access to partners](/general/appcenter-how-to-add-partner-account.md)
 * [API specification](/general/api-specification.md)
+* Documentation
+  * [READMEs](/general/Documentation/READMEs.md)
+  * [ADRs](/general/Documentation/ADRs.md)
 
 ## iOS
 
