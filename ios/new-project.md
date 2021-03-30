@@ -92,7 +92,7 @@ Most of the configuration is already part of the [iOS project template](https://
 - [ ] Instead of manually configuring the workflows using the GUI, paste the initial [bitrise.yml](attachments/bitrise.yml) file.
 - [ ] Configure Secret Environment Variables:
 	- `MATCH_PASSWORD`
-	- `FASTLANE_PASSWORD`
+	- `APP_STORE_CONNECT_API_KEY_KEY`
 	- `APPCENTER_API_TOKEN`
 	- `DANGER_GITHUB_API_TOKEN`
 	- `SLACK_HOOK_URL`
