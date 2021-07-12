@@ -30,7 +30,9 @@ Keep in mind that to make it work properly you need to do few things:
   4. Replace `project-name-mock` in `Makefile` with your new hyphenated project name.
 - Optional (but recommended) steps:
 
-### Publish publicly accessible specifciation (Be aware, it is publicly accessible, which might be a security risk for some projects.)
+### Publish publicly accessible specification
+
+_Be aware: It is publicly accessible, which might be a security risk for some projects._
   1. Enable GitHub Pages for `main` branch.
 
 ### Publish specifciation with simple authorization
