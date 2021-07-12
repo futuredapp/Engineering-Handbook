@@ -48,5 +48,4 @@ _Be aware: It is publicly accessible, which might be a security risk for some pr
   2. Update deployed server addresses in `api.yml`.
   3. Update you API name in `api.yml`.
 
-
 Now you are ready to start documenting your API!
