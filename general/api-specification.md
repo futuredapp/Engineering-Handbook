@@ -35,7 +35,7 @@ Keep in mind that to make it work properly you need to do few things:
 _Be aware: It is publicly accessible, which might be a security risk for some projects._
   1. Enable GitHub Pages for `main` branch.
 
-### Publish specifciation with simple authorization
+### Publish specifciation with basic authentication
   1. Create api dyno on Heroku.
   2. Add `HEROKU_API_KEY` to repository secrets. (This is the same secreate as for the mock server)
   3. Replace `project-name-api` in `Makefile` with your new hyphenated project name.
