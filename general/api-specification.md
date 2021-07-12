@@ -22,13 +22,28 @@ The OpenAPI template contains has basic setup for linting, generating documentat
 
 Keep in mind that to make it work properly you need to do few things:
 
+### Create mock server
 - Required steps:
   1. Create mock dyno on Heroku.
   2. Add `HEROKU_API_KEY` to repository secrets.
   3. Run `yarn` to create up-to-date `yarn.lock` file.
-  4. Replace `project-name` in `Makefile` with your new hyphenated project name.
-  5. Enable GitHub Pages for `main` branch where possible. (Be aware, it is publicly accessible, which might be a security risk for some projects.)
+  4. Replace `project-name-mock` in `Makefile` with your new hyphenated project name.
 - Optional (but recommended) steps:
+
+### Publish publicly accessible specification
+
+_Be aware: It is publicly accessible, which might be a security risk for some projects._
+  1. Enable GitHub Pages for `main` branch.
+
+### Publish specifciation with basic authentication
+  1. Create API dyno on Heroku.
+  2. Add `HEROKU_API_KEY` to repository secrets. (This is the same secret as for the mock server)
+  3. Replace `project-name-api` in `Makefile` with your new hyphenated project name.
+  4. Uncomment deploy-api job in the `./github/workflows/deploy.yml`
+  5. Run `bundle install` to create up-to-date `Gemfile.lock` file.
+  6. Create heroku environment variables USERNAME and PASSWORD
+
+### Recommended steps
   1. Replace the project name in title tag in the `index.html` file to make your documentation usable better in a browser.
   2. Update deployed server addresses in `api.yml`.
   3. Update you API name in `api.yml`.
