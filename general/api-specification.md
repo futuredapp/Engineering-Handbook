@@ -37,7 +37,7 @@ _Be aware: It is publicly accessible, which might be a security risk for some pr
 
 ### Publish specifciation with basic authentication
   1. Create API dyno on Heroku.
-  2. Add `HEROKU_API_KEY` to repository secrets. (This is the same secreate as for the mock server)
+  2. Add `HEROKU_API_KEY` to repository secrets. (This is the same secret as for the mock server)
   3. Replace `project-name-api` in `Makefile` with your new hyphenated project name.
   4. Uncomment deploy-api job in the `./github/workflows/deploy.yml`
   5. Run `bundle install` to create up-to-date `Gemfile.lock` file.
