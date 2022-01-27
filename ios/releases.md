@@ -14,7 +14,7 @@
 2. Bump the build number and version number. Build numbers are incremental, starting with `1`. Version numbers have `x.y.z` format,
    where `x` represents major, `y` minor and `z` patch number.
 
-   Fastlane must be used for this by calling `bundle exec fastlane bump`, `bundle exec fastlane bump type:minor`, `bundle exec fastlane bump type:major`.
+   Fastlane must be used for this by calling `bundle exec fastlane bump`, `bundle exec fastlane bump type:major`, `bundle exec fastlane bump type:minor`, `bundle exec fastlane bump type:patch`.
 3. Commit and push changes. Send a pull request from `release/[version]` to `main`.
 4. When merged, create a new tag on `main` with `[version]` value. 
 5. Create a pull request from `main` to `develop`.
