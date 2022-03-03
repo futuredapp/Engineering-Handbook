@@ -1,8 +1,6 @@
-## Code style & Project Structure
+# Project Structure & Code Style
 
-Code style is mostly defined by [SwiftLint rules](.swiftlint.yml).
-
-### Project structure
+## Project structure
 
 ```
 Project
@@ -26,7 +24,7 @@ Project
 
 ### Templates
 
-For simple and consistent implementation of scenes we use Xcode templates for modal scene, push scene, root scene and simple service. Scene templates consist of:
+For the simple and consistent implementation of scenes, we use Xcode templates for the modal scene, push scene, root scene, and simple service. Scene templates consist of:
 
 - Storyboard and storyboard definition
 - View controller
