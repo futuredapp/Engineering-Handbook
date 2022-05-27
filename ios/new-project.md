@@ -16,32 +16,24 @@
 
 ## 2. Create a new Xcode project
 
-- [ ] Start with the "Single View App" template. Make sure Organization Name is *Futured apps s.r.o.* and Organization Identifier is *app.futured*. Leave *Use Core Data* unchecked (persistence is usually implemented in much later phase of development) and *Include Unit Tests* and *Include UI Tests* checked.
+- [ ] Write product name in CamelCased style. Organization Identifier is *app.futured*. Leave *Use Core Data* unchecked (persistence is usually implemented in much later phase of development) and *Include Unit Tests* and *Include UI Tests* checked.
+- [ ] Change bundle identifier to kebab-cased style `app.futured.kebab-case-app-name`.
 
 ## 3. Configure Ruby environment and Fastlane
 
-Update your system Ruby, preferably using `brew install ruby` and install latest version of dependency manager `gem install bundler`.
+Update your Ruby using your preferred ruby version manager. and install latest version of dependency manager `gem install bundler`.
 
 - [ ] Call `bundle install` to install gems.
 - [ ] Edit `fastlane/Fastfile` to specify proper environment variables according to [imported Fastlane README](https://github.com/futuredapp/fastlane).
-- [ ] Call `bundle exec fastlane create_apps`. You will need operations rights for this. If you are not in operations group, ask someone to do this for you.
+- [ ] Call `bundle exec fastlane create_apps`. This requires operations rights and you'll need to pass two factor authorization.
 
 ## 4. Add dependencies
 
 If Swift Package manager will be used for dependecy management:
 
-- [ ] Remove `Podfile`.
-- [ ] Open Xcode and add all relevant packages to the project from this list:
-  - <https://github.com/mxcl/PromiseKit> (Our standard for async execution)
-  - <https://github.com/futuredapp/FuntastyKit> (UIKit project)
-  - <https://github.com/futuredapp/CellKit> (For app extensively using table/collection views)
+  - <https://github.com/futuredapp/FuturedKit> (SwiftUI project)
   - <https://github.com/futuredapp/FTAPIKit> (Project using REST API)
   - <https://github.com/futuredapp/FTTestingKit> (only to test target)
-
-If CocoaPods will be used for dependecy management:
-
-- [ ] Edit `Podfile` and remove dependencies which are not relevant to the project.
-- [ ] Install fresh dependencies using `bundle exec pod update`.
 
 ## 5. Configure SwiftLint
 
@@ -58,7 +50,7 @@ fi
 
 ## 6. Configure the project for Continuous Deployment
 
-- [ ] In Target's General tab, keep the Automatically manage signing checkbox unchecked.
+- [ ] In Target's Signing & Capabilities tab, keep the Automatically manage signing checkbox unchecked.
 - [ ] In Manage Schemes, set root project scheme as Shared.
 - [ ] Run `bundle exec fastlane test` to check whether test can be run on both CI and locally.
 - [ ] In Xcode, go to Project Info screen. In Configurations section, add a new configuration by duplicating the **Release** configuration and rename it to **Enterprise**.
