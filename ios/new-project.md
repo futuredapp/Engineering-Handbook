@@ -5,7 +5,7 @@
 - [ ] Open [iOS project template](https://github.com/futuredapp/iOS-project-template) and use it to create new repository. Preferred repo name is *[productname]-[platform]*, where *[productname]* includes only name of the product, without client name (like Skoda).
 - [ ] Create `develop` branch and set is as a default branch.
 - [ ] Disable **Wiki**, **Issues**, **Projects** features we do not use.
-- [ ] Enable **Automatically delete head branches** so there is no need to delete branches manually after each PR merge.
+- [ ] Enable **Automatically delete head branches** so there is no need to delete branches manually after each PR merge. (repo - general settings)
 
 - [ ] Set branch protection rules to `develop` and `main` branches exactly as shown in the following screenshot:
 
@@ -16,7 +16,7 @@
 
 ## 2. Create a new Xcode project
 
-- [ ] Write product name in CamelCased style. Organization Identifier is *app.futured*. Leave *Use Core Data* unchecked (persistence is usually implemented in much later phase of development) and *Include Unit Tests* and *Include UI Tests* checked.
+- [ ] Write product name in CamelCased style. Organization Identifier is *app.futured*. Leave *Use Core Data* unchecked (persistence is usually implemented in much later phase of development) and *Include Unit Tests* and *Include UI Tests* checked. (CI requires tests run)
 - [ ] Change bundle identifier to kebab-cased style `app.futured.kebab-case-app-name`.
 
 ## 3. Configure Ruby environment and Fastlane
@@ -64,36 +64,19 @@ fi
   - [ ] Change Marketing Version to `1.0.0` (only for new apps, add patch version if it is not present).
   - [ ] Change Current Project Version to `0` (only for new apps).
   - [ ] Change Versioning System to `Apple Generic`.
-- [ ] Run `bundle exec fastlane increment_build_number` to see if everything is set up correctly and automatic increments work.
+- [ ] Run `bundle exec fastlane run increment_build_number` to see if everything is set up correctly and automatic increments work.
 
 ## 8. Configure continuous integration
 
-Choose your CI service, we currently prefer Github Actions. We are slowly deprecating Bitrise.
+Choose your CI service, we currently prefer Github Actions.
 
 ### GitHub Actions
 
 Most of the configuration is already part of the [iOS project template](https://github.com/futuredapp/iOS-project-template). All the secrets are provided by the organization. If they are not available ask someone with admin permissions to provide them to your repository.
 
-### Bitrise
-
-- [ ] Create a new Bitrise app by manually inserting GitHub SSH URL. Use "Add own SSH" option and paste our Bitrise-dedicated GitHub SSH key (can be found in 1Password vault).
-- [ ] In Project build configuration step, select the manual one since our unified configuration will be pasted manually later.
-- [ ] Let Bitrise to setup GitHub webhooks automatically.
-- [ ] In Team tab, select `futured-bot` as the Service credential User and make sure `Futured` is the owner of the project.
-- [ ] Add Futured **Developers** group as developers to the project.
-- [ ] Instead of manually configuring the workflows using the GUI, paste the initial [bitrise.yml](attachments/bitrise.yml) file.
-- [ ] Configure Secret Environment Variables:
-	- `MATCH_PASSWORD`
-	- `APP_STORE_CONNECT_API_KEY_KEY`
-	- `APPCENTER_API_TOKEN`
-	- `DANGER_GITHUB_API_TOKEN`
-	- `SLACK_HOOK_URL`
-
-- [ ] Finally, run test builds on Bitrise.
-
 ## 9. Setup App Center
 
-***Note:** The app should be automatically created and submitted to App Center during step 6 by running `bundle exec fastlane enterprise` in Terminal.*
+***Note:** The app should be automatically created and submitted to App Center to your account during step 6 by running `bundle exec fastlane enterprise` in Terminal.*
 
 - [ ] Change owner to our organization.
 - [ ] Add all internal teams as collaborators.
