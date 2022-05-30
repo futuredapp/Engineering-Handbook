@@ -1,4 +1,5 @@
 # New project checklist
+***Note:** For more information check our [Project tools wiki](https://www.notion.so/futured/Project-tools-wiki-451531fedb8e4e1093e5e45bc4704227)*
 
 ## 1. Create new repository
 
