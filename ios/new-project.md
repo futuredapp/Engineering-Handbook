@@ -42,7 +42,6 @@ If Swift Package manager will be used for dependecy management:
 
 ```
 if which swiftlint >/dev/null; then
-    swiftlint autocorrect
     swiftlint
 else
     echo "error: SwiftLint not installed, run: brew install swiftlint"
@@ -59,15 +58,7 @@ fi
 - [ ] Select appropriate certificates, provisioning profiles for all configurations in the Signing section.
 - [ ] Run `bundle exec fastlane enterprise` to check whether enteprise builds to App Center succeed.
 
-## 7. Configure the project for automatic versioning
-
-- [ ] Set proper values in Versioning part of Build Settings:
-  - [ ] Change Marketing Version to `1.0.0` (only for new apps, add patch version if it is not present).
-  - [ ] Change Current Project Version to `0` (only for new apps).
-  - [ ] Change Versioning System to `Apple Generic`.
-- [ ] Run `bundle exec fastlane run increment_build_number` to see if everything is set up correctly and automatic increments work.
-
-## 8. Configure continuous integration
+## 7. Configure continuous integration
 
 Choose your CI service, we currently prefer Github Actions.
 
@@ -75,7 +66,7 @@ Choose your CI service, we currently prefer Github Actions.
 
 Most of the configuration is already part of the [iOS project template](https://github.com/futuredapp/iOS-project-template). All the secrets are provided by the organization. If they are not available ask someone with admin permissions to provide them to your repository.
 
-## 9. Setup App Center
+## 8. Setup App Center
 
 ***Note:** The app should be automatically created and submitted to App Center to your account during step 6 by running `bundle exec fastlane enterprise` in Terminal.*
 
@@ -83,10 +74,10 @@ Most of the configuration is already part of the [iOS project template](https://
 - [ ] Add all internal teams as collaborators.
 - [ ] Create distribution group for the client and invite them.
 
-## 10. Open pull request with the project setup
+## 9. Open pull request with the project setup
 
 - [ ] Update CODEOWNERS file.
 - [ ] Update project README and fill in all the strike-through points.
 - [ ] Commit everything and open PR and add this filled checklist to description.
 
-## 11. Enjoy!
+## 10. Enjoy!
