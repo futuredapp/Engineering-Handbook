@@ -12,6 +12,12 @@
 
 ![GitHub branch protection](../general/attachments/GitHub_branch_protection.png)
 
+***Note:** Status checks may not be available yet. You will set them later.
+
+![GitHub branch protection1](../general/attachments/GitHub_branch_protection1.png)
+
+![GitHub branch protection2](../general/attachments/GitHub_branch_protection2.png)
+
 - [ ] Create new branch `feature/PROJ-1-setup-project` where everything will be set up in next steps.
 
 
@@ -79,5 +85,6 @@ Most of the configuration is already part of the [iOS project template](https://
 - [ ] Update CODEOWNERS file.
 - [ ] Update project README and fill in all the strike-through points.
 - [ ] Commit everything and open PR and add this filled checklist to description.
+- [ ] After CI checks the PR, status checks are now available to be added in Branch protections settings. Add them.
 
 ## 10. Enjoy!
