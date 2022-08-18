@@ -5,10 +5,11 @@
 
 - [ ] Open [iOS project template](https://github.com/futuredapp/iOS-project-template) and use it to create new repository. Preferred repo name is *[productname]-[platform]*, where *[productname]* includes only name of the product, without client name (like Skoda).
 - [ ] Create `develop` branch and set is as a default branch.
-- [ ] Disable **Wiki**, **Issues**, **Projects** features we do not use.
-- [ ] Enable **Automatically delete head branches** so there is no need to delete branches manually after each PR merge. (repo - general settings)
+- [ ] Go to Settings tab > General and disable **Wiki**, **Issues**, **Projects** features we do not use.
+- [ ] Enable **Automatically delete head branches** so there is no need to delete branches manually after each PR merge.
+- [ ] Add `futuredapp/ios` team in Access > Collaborators and teams.
 
-- [ ] Set branch protection rules to `develop` and `main` branches exactly as shown in the following screenshot:
+- [ ] In Code and Automation > Branches, add branch protection rules to patterns `develop` and `main` branches exactly as shown in the following screenshot:
 
 ![GitHub branch protection](../general/attachments/GitHub_branch_protection.png)
 
@@ -23,7 +24,7 @@
 
 ## 2. Create a new Xcode project
 
-- [ ] Write product name in CamelCased style. Organization Identifier is *app.futured*. Leave *Use Core Data* unchecked (persistence is usually implemented in much later phase of development) and *Include Unit Tests* and *Include UI Tests* checked. (CI requires tests run)
+- [ ] Write product name in CamelCased style. Organization Identifier is *app.futured*. Leave *Use Core Data* unchecked (persistence is usually implemented in much later phase of development) and *Include Tests* checked. (CI requires tests run)
 - [ ] Change bundle identifier to kebab-cased style `app.futured.kebab-case-app-name`.
 
 ## 3. Configure Ruby environment and Fastlane
@@ -36,7 +37,7 @@ Update your Ruby using your preferred ruby version manager. and install latest v
 
 ## 4. Add dependencies
 
-If Swift Package manager will be used for dependecy management:
+Add following dependecies using Swift Package manager:
 
   - <https://github.com/futuredapp/FuturedKit> (SwiftUI project)
   - <https://github.com/futuredapp/FTAPIKit> (Project using REST API)
@@ -48,6 +49,7 @@ If Swift Package manager will be used for dependecy management:
 
 ```
 if which swiftlint >/dev/null; then
+    swiftlint autocorrect
     swiftlint
 else
     echo "error: SwiftLint not installed, run: brew install swiftlint"
@@ -56,29 +58,29 @@ fi
 
 ## 6. Configure the project for Continuous Deployment
 
-- [ ] In Target's Signing & Capabilities tab, keep the Automatically manage signing checkbox unchecked.
-- [ ] In Manage Schemes, set root project scheme as Shared.
+- [ ] In Target's Signing & Capabilities tab, uncheck the *Automatically manage signing* checkbox.
+- [ ] In Manage Schemes..., set root project scheme as Shared.
 - [ ] Run `bundle exec fastlane test` to check whether test can be run on both CI and locally.
 - [ ] In Xcode, go to Project Info screen. In Configurations section, add a new configuration by duplicating the **Release** configuration and rename it to **Enterprise**.
-- [ ] On Build Settings tab, look for Product Bundle Identifier, expand it to see preferences for Debug, Enterprise and Release configurations and for the Enterprise one, add suffix `.beta`.
-- [ ] Select appropriate certificates, provisioning profiles for all configurations in the Signing section.
+- [ ] On Build Settings tab for target (not project), look for Product Bundle Identifier, expand it to see preferences for Debug, Enterprise and Release configurations and for the Enterprise one, add suffix `.beta`.
+- [ ] Select appropriate certificates, provisioning profiles for all configurations in the Target's Signing & Capabilities tab.
 - [ ] Run `bundle exec fastlane enterprise` to check whether enteprise builds to App Center succeed.
 
-## 7. Configure continuous integration
+## 7. Setup App Center
+
+***Note:** The app should be automatically created and submitted to App Center to your account during step 6 by running `bundle exec fastlane enterprise` in Terminal.*
+
+- [ ] Find the app under your account, go to its Settings, in top right corner find three dots and *Transfer app to organization* (select Futured).
+- [ ] Add all internal teams as collaborators.
+- [ ] Create distribution group for the client and invite them.
+
+## 8. Configure continuous integration
 
 Choose your CI service, we currently prefer Github Actions.
 
 ### GitHub Actions
 
 Most of the configuration is already part of the [iOS project template](https://github.com/futuredapp/iOS-project-template). All the secrets are provided by the organization. If they are not available ask someone with admin permissions to provide them to your repository.
-
-## 8. Setup App Center
-
-***Note:** The app should be automatically created and submitted to App Center to your account during step 6 by running `bundle exec fastlane enterprise` in Terminal.*
-
-- [ ] Change owner to our organization.
-- [ ] Add all internal teams as collaborators.
-- [ ] Create distribution group for the client and invite them.
 
 ## 9. Open pull request with the project setup
 
