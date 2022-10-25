@@ -70,7 +70,7 @@ fi
 - [ ] In Xcode, go to Project Info screen. In Configurations section, add a new configuration by duplicating the **Release** configuration and rename it to **Enterprise**.
 - [ ] On Build Settings tab for target (not project), look for Product Bundle Identifier, expand it to see preferences for Debug, Enterprise and Release configurations and for the Enterprise one, add suffix `.beta`.
 - [ ] Select appropriate certificates, provisioning profiles for all configurations in the Target's Signing & Capabilities tab.
-- [ ] Run `bundle exec fastlane enterprise` to check whether enteprise builds to App Center succeed.
+- [ ] Run `bundle exec fastlane enterprise` to check whether enteprise builds to App Center succeed (See [where to find an API token](https://intercom.help/appcenter/en/articles/1841885-how-to-use-app-center-s-api)).
 
 ## 7. Setup App Center
 
