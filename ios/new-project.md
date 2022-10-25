@@ -7,7 +7,7 @@
 - [ ] Create `develop` branch and set is as a default branch.
 - [ ] Go to Settings tab > General and disable **Wiki**, **Issues**, **Projects** features we do not use.
 - [ ] Enable **Automatically delete head branches** so there is no need to delete branches manually after each PR merge.
-- [ ] Add `futuredapp/ios` team in Access > Collaborators and teams.
+- [ ] Add `Write` role to `futuredapp/ios` team in Access > Collaborators and teams.
 
 - [ ] In Code and Automation > Branches, add branch protection rules to patterns `develop` and `main` branches exactly as shown in the following screenshot:
 
@@ -45,11 +45,17 @@ Add following dependecies using Swift Package manager:
 
 ## 5. Configure SwiftLint
 
-- [ ] Add a new Run Script Phase that executes the script (remove `swiftlint autocorrect` if you want to fix linting issues manually):
+- [ ] Add a new Run Script Phase that executes the script (remove `swiftlint --fix` if you want to fix linting issues manually):
 
 ```
+if test -d "/opt/homebrew/bin/"; then
+  PATH="/opt/homebrew/bin/:${PATH}"
+fi
+
+export PATH
+
 if which swiftlint >/dev/null; then
-    swiftlint autocorrect
+    swiftlint --fix
     swiftlint
 else
     echo "error: SwiftLint not installed, run: brew install swiftlint"
