@@ -2,7 +2,7 @@
 
 ## 1. Create new repository
 
-- [ ] Open [Android project template](https://github.com/thefuntasty/android-project-template) and use it to create new repository. Preferred repo name is *[productname]-android*, where *[productname]* includes only name of the product, without client name.
+- [ ] Open [Android project template](https://github.com/futuredapp/android-project-template-compose) and use it to create new repository. Preferred repo name is *[productname]-android*, where *[productname]* includes only name of the product, without client name.
 
 - [ ] Change following in newly created repository:
     - Update Readme.md
