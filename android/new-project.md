@@ -16,7 +16,7 @@
 
 - [ ] Enable **Automatically delete head branches** so there is no need to delete branches manually after each PR merge.
 
-- [ ] Set branch protection rules to `develop` and `master` branches exactly as shown in the following screenshot:
+- [ ] Set branch protection rules to `develop` and `main` branches exactly as shown in the following screenshot:
 
 ![GitHub branch protection](../general/attachments/GitHub_branch_protection.png)
 
