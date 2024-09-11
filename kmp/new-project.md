@@ -51,7 +51,7 @@
 - There are two ways of authorizing upload to Firebase.
     - Service account json, which is a **preferred way**
         1. Create service account in Google Cloud Console
-        2. Select Firebase Products -> Firebase App Distribution Admin role
+        2. Select Firebase Products -> Firebase App Distribution Admin role (for this you need additional permissions, so either request them or let someone create the service account)
         3. Create new key with type `JSON`
         4. Create new repository secret `APP_DISTRIBUTION_SERVICE_ACCOUNT` with the json content
     - Using `FIREBASE_TOKEN`, which can be generated using Firebase CLI
