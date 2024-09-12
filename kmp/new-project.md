@@ -51,7 +51,8 @@
 - There are two ways of authorizing upload to Firebase.
     - Service account json, which is a **preferred way**
         1. Create service account in Google Cloud Console
-        2. Select Firebase Products -> Firebase App Distribution Admin role (for this you need additional permissions, so either request them or let someone create the service account)
+        2. Select Firebase Products -> Firebase App Distribution Admin role (for this you need additional permissions,
+           so either request them or let someone create the service account)
         3. Create new key with type `JSON`
         4. Create new repository secret `APP_DISTRIBUTION_SERVICE_ACCOUNT` with the json content
     - Using `FIREBASE_TOKEN`, which can be generated using Firebase CLI
@@ -59,10 +60,13 @@
 ## 3. Configure GitHub Actions
 
 - [ ] In **Settings** tab of your repository, go to **Secrets** and configure following secrets:
-    1. `APP_DISTRIBUTION_SERVICE_ACCOUNT`
+    1. `DANGER_GITHUB_API_TOKEN`
+    2. `SLACK_WEB_HOOK`
+    3. `APP_DISTRIBUTION_SERVICE_ACCOUNT`
 
 - [ ] For each workflow configuration file, configure the environment variables marked with `TODO` comment
     1. `SLACK_CHANNEL`
+    2. `APP_DISTRIBUTION_GROUPS`
 
 - [ ] Make a pull request from `feature/PROJ-1-setup-project` to `develop` to ensure that GitHub Actions work properly
 
