@@ -46,7 +46,7 @@
 
 - [ ] Select enterprise project and click on `Get started` button.
 
-- [ ] Add Tester group `Futured QA`. Create invite link and send it to the Slack channel.
+- [ ] Add Tester groups `Futured QA` and `Devs`. Create invite link and send it to the Slack channel.
 
 - There are two ways of authorizing upload to Firebase.
     - Service account json, which is a **preferred way**
