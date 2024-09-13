@@ -54,6 +54,8 @@
     4. Create new repository secret `APP_DISTRIBUTION_SERVICE_ACCOUNT` with the json content
   - Using `FIREBASE_TOKEN`, which can be generated using Firebase CLI
 
+> Make sure that you have enabled google services plugin, otherwise the plugin won't know the id of the app
+
 ## 3. Configure GitHub Actions
 
 - [ ] If you created a new project using [Android project template](https://github.com/thefuntasty/android-project-template), the GitHub Actions workflow files are already present in your repository under `.github/workflows` folder. If not, copy them over from [here](https://github.com/futuredapp/android-project-template/tree/main/.github/workflows).
