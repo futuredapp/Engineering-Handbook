@@ -57,7 +57,7 @@
         4. Create new repository secret `APP_DISTRIBUTION_SERVICE_ACCOUNT` with the json content
     - Using `FIREBASE_TOKEN`, which can be generated using Firebase CLI
 
-- [ ] Make sure that you have enabled google services plugin, otherwise the plugin won't know the id of the app
+> Make sure that you have enabled google services plugin, otherwise the plugin won't know the id of the app
 
 ## 3. Configure GitHub Actions
 
