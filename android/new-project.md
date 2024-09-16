@@ -2,7 +2,7 @@
 
 ## 1. Create new repository
 
-- [ ] Open [Android project template](https://github.com/thefuntasty/android-project-template) and use it to create new repository. Preferred repo name is *[productname]-android*, where *[productname]* includes only name of the product, without client name.
+- [ ] Open [Android project template](https://github.com/futuredapp/android-project-template-compose) and use it to create new repository. Preferred repo name is *[productname]-android*, where *[productname]* includes only name of the product, without client name.
 
 - [ ] Change following in newly created repository:
     - Update Readme.md
@@ -58,8 +58,7 @@
 
 ## 3. Configure GitHub Actions
 
-- [ ] If you created a new project using [Android project template](https://github.com/thefuntasty/android-project-template), the GitHub Actions workflow files are already present in your repository under `.github/workflows` folder. If not, copy them over from [here](https://github.com/futuredapp/android-project-template/tree/main/.github/workflows).
-
+- [ ] If you created a new project using [Android project template](https://github.com/futuredapp/android-project-template-compose), the GitHub Actions workflow files are already present in your repository under `.github/workflows` folder. If not, copy them over from [here](https://github.com/futuredapp/android-project-template-compose/tree/main/.github/workflows)).
 - [ ] In **Settings** tab of your repository, go to **Secrets** and configure following secrets:
   1. `DANGER_GITHUB_API_TOKEN`
   2. `SLACK_WEB_HOOK`

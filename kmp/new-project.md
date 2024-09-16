@@ -46,7 +46,7 @@
 
 - [ ] Select enterprise project and click on `Get started` button.
 
-- [ ] Add Tester group `Futured QA`. Create invite link and send it to the Slack channel.
+- [ ] Add Tester groups `Futured QA` and `Devs`. Create invite link and send it to the Slack channel.
 
 - There are two ways of authorizing upload to Firebase.
     - Service account json, which is a **preferred way**
@@ -56,6 +56,8 @@
         3. Create new key with type `JSON`
         4. Create new repository secret `APP_DISTRIBUTION_SERVICE_ACCOUNT` with the json content
     - Using `FIREBASE_TOKEN`, which can be generated using Firebase CLI
+
+> Make sure that you have enabled google services plugin, otherwise the plugin won't know the id of the app
 
 ## 3. Configure GitHub Actions
 
