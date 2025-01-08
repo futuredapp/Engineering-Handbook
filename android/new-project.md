@@ -35,24 +35,39 @@
 
 ## 2. Setup Firebase
 
-- [ ] Create new Firebase project or get access to an existing one from the client.
+- [ ] Create 2 new Firebase projects. First for: `Debug` + `Enterprise` and second for `Prod`. Or access an existing one from the client.
+- [ ] If you created 2 new Firebase projects from scratch, continue with this setup or individually if you have Firebase from the client:
+  - Debug + Enterprise
+    - Add Android app for `debug` and `enterprise` and set SHA-1 from debug keystore.
+  - Prod
+    - Add Android app for `prod` 
+    - Set Project Settings / Environment type to `Production`
+    - SHA-1: you will probably be using [Play App Signing](https://support.google.com/googleplay/android-developer/answer/9842756?hl=en) by Google, so the SHA-1 can be filled in later
 
-- [ ] Create android apps for all build types - usually Debug, Enterprise and Prod
-  - Make sure to set the package name correctly and add SHA certificate hashes
+> Tips:  
+> Get SHA-1 for `debug` keystore: `keytool -list -v -keystore debug.jks -alias androiddebugkey -storepass android`  
+> To create different package name with suffix, add buildTypes/applicationIdSuffix to gradle for all build types.  
+> If you want to generate release/upload keystore right now see [Generate an upload key and keystore](https://developer.android.com/studio/publish/app-signing#generate-key) and put password, alias and keystore to Bitwarden.  
+
+> Additional info:  
+> The Google Cloud project is created automatically with the created Firebase project.
+
 
 ### App distribution
 
-- [ ] Select enterprise project and click on `Get started` button.
+- [ ] Select `Debug + Enterprise` project and click on `Get started` button.
 
 - [ ] Add Tester groups `Futured QA` and `Devs`. Create invite link and send it to the Slack channel.
 
-- There are two ways of authorizing upload to Firebase.
-  - Service account json, which is a **preferred way**
-    1. Create service account in Google Cloud Console
-    2. Select Firebase Products -> Firebase App Distribution Admin role (for this you need additional permissions, so either request them or let someone create the service account)
-    3. Create new key with type `JSON`
-    4. Create new repository secret `APP_DISTRIBUTION_SERVICE_ACCOUNT` with the json content
-  - Using `FIREBASE_TOKEN`, which can be generated using Firebase CLI
+- [ ] Authorizing upload to Firebase. There are two ways of authorizing upload to Firebase.
+  - By Service account JSON, which is a **preferred way**
+    1. Go to Google Cloud Console and find your project by name
+    2. Go to APIs & Services / Credentials / Create Credentials / Service Account
+        - Set service account name (i.e.:Firebase App Distribution) and set description 
+        - Set role: `Firebase App Distribution Admin`
+    3. Create new key with type `JSON`: click on new created service account / Keys / Add key 
+    4. Create new repository secret `APP_DISTRIBUTION_SERVICE_ACCOUNT` with the JSON content
+  - By using `FIREBASE_TOKEN`, which can be generated using Firebase CLI
 
 > Make sure that you have enabled google services plugin, otherwise the plugin won't know the id of the app
 
