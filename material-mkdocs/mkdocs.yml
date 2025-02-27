@@ -1,0 +1,4 @@
+site_name: Futured Engineering Handbook
+site_url: https://futuredapp.github.io/Engineering-Handbook
+theme:
+  name: material
