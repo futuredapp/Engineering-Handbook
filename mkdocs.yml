@@ -1,4 +1,15 @@
 site_name: Futured Engineering Handbook
 site_url: https://futuredapp.github.io/Engineering-Handbook
 theme:
-  name: material
+    name: material
+    features:
+        - content.code.copy
+
+markdown_extensions:
+    - admonition
+    - attr_list
+    - md_in_html
+    - pymdownx.details
+    - pymdownx.superfences
+    - pymdownx.tabbed:
+        alternate_style: true
