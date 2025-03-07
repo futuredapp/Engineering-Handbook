@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 # For editors
 
 Material for MKDocs [documentation](https://squidfunk.github.io/mkdocs-material/getting-started/)

@@ -7,6 +7,7 @@ theme:
   language: en
   logo: assets/logo.svg
   favicon: assets/logo.svg
+
   font:
     text: Space Grotesk
     code: JetBrains Mono
@@ -23,8 +24,35 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
+
   features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.expand
+    - toc.integrate
     - content.code.copy
+
+plugins:
+  - search
+
+copyright: Made with ❤️‍🔥 at Futured
+
+extra:
+  social:
+    - icon: material/web
+      name: Web
+      link: https://www.futured.app
+    - icon: fontawesome/brands/github
+      name: GitHub
+      link: https://www.github.com/futuredapp
+    - icon: fontawesome/brands/linkedin
+      name: LinkedIn
+      link: https://www.linkedin.com/company/futuredapps
+    - icon: fontawesome/brands/instagram
+      name: Instagram
+      link: https://www.instagram.com/futuredapps
 
 extra_css:
   - stylesheets/extra.css

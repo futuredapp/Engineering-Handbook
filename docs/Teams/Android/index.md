@@ -1,3 +1,3 @@
-# Android Page
+# Android Team
 
-Here you can find how our Android team works!
+Here you can find about Android team processes.

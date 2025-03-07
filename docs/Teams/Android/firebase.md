@@ -1,0 +1,3 @@
+# Firebase setup
+
+TBD
