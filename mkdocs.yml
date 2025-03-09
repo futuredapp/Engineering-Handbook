@@ -1,38 +1,75 @@
+#$schema: https://squidfunk.github.io/mkdocs-material/schema.json
+
 site_name: Futured Engineering Handbook
 site_url: https://futuredapp.github.io/Engineering-Handbook
 theme:
-    name: material
-    features:
-        - content.code.copy
-    palette:
+  name: material
+  language: en
+  logo: assets/logo.svg
+  favicon: assets/logo.svg
 
-        # Palette toggle for automatic mode
-        - media: "(prefers-color-scheme)"
-          toggle:
-            icon: material/brightness-auto
-            name: Switch to light mode
+  font:
+    text: Space Grotesk
+    code: JetBrains Mono
 
-        # Palette toggle for light mode
-        - media: "(prefers-color-scheme: light)"
-          scheme: default
-          toggle:
-            icon: material/brightness-7
-            name: Switch to dark mode
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to auto mode
 
-        # Palette toggle for dark mode
-        - media: "(prefers-color-scheme: dark)"
-          scheme: slate
-          toggle:
-            icon: material/brightness-4
-            name: Switch to light mode
-            primary: black
-            accent: red
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.expand
+    - toc.integrate
+    - content.code.copy
+
+plugins:
+  - search
+
+copyright: Made with ❤️‍🔥 at Futured
+
+extra:
+  social:
+    - icon: material/web
+      name: Web
+      link: https://www.futured.app
+    - icon: fontawesome/brands/github
+      name: GitHub
+      link: https://www.github.com/futuredapp
+    - icon: fontawesome/brands/linkedin
+      name: LinkedIn
+      link: https://www.linkedin.com/company/futuredapps
+    - icon: fontawesome/brands/instagram
+      name: Instagram
+      link: https://www.instagram.com/futuredapps
+
+extra_css:
+  - stylesheets/extra.css
 
 markdown_extensions:
-    - admonition
-    - attr_list
-    - md_in_html
-    - pymdownx.details
-    - pymdownx.superfences
-    - pymdownx.tabbed:
-        alternate_style: true
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
