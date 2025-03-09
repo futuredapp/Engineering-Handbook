@@ -41,6 +41,16 @@ To establish our CI flow and be able to deliver builds to customer's App Store C
                 ![Step 4b](Resources/ios_customer_account_4b.png){ width="500" }
         
         - accept the invitation, you can find credentials in Futured's Bitwarden account (if you don't see it there please contact some senior developer)
+        
+        ??? tip "Fastlane errors troubleshooting"
+
+            **Multiple App Store Connect teams found, please enter the number of the team you want to use:**
+
+            If you don't see newly added organization for `ops@futured.app`
+
+            1. click `ops@futured.app` user in `User and Access` tab
+            2. in `Additional Resources` section, deselect `Access to Certificates, Identifiers & Profiles.` and click `Save` button
+            3. select `Access to Certificates, Identifiers & Profiles.` and click `Save` again
 
 2. create App Store Connect API key
 
