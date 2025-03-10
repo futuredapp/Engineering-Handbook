@@ -21,10 +21,6 @@ This handbook describes the best practices and guidelines we use for app develop
 * [Localization](/ios/Localization.md)
 * [Release checklist](/ios/releases.md)
 
-### Building blocks
-
-* [Table views and Collection views](/ios/table-views.md)
-
 ## Android
 
 * [New project checklist](/android/new-project.md)
