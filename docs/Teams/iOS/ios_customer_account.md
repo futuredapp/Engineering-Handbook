@@ -41,6 +41,16 @@ To establish our CI flow and be able to deliver builds to customer's App Store C
                 ![Step 4b](Resources/ios_customer_account_4b.png){ width="500" }
         
         - accept the invitation, you can find credentials in Futured's Bitwarden account (if you don't see it there please contact some senior developer)
+        
+        ??? tip "Fastlane errors troubleshooting"
+
+            **Multiple App Store Connect teams found, please enter the number of the team you want to use:**
+
+            If you don't see newly added organization for `ops@futured.app`
+
+            1. click `ops@futured.app` user in `User and Access` tab
+            2. in `Additional Resources` section, deselect `Access to Certificates, Identifiers & Profiles.` and click `Save` button
+            3. select `Access to Certificates, Identifiers & Profiles.` and click `Save` again
 
 2. create App Store Connect API key
 
@@ -54,7 +64,19 @@ To establish our CI flow and be able to deliver builds to customer's App Store C
             
         - select:
         
-            ![Step 5](Resources/ios_customer_account_5.png){ width="900" }
+            ![Step 2](Resources/ios_customer_account_5.png){ width="900" }
+            
+            ??? info "First App Store Connect API usage"
+            
+                In case you haven't granted App Store Connect API permission yet:
+        
+                - click `Request Access` button
+        
+                ![Step 3](Resources/ios_customer_account_6.png){ width="900" }
+            
+                - check the checkbox and click `Submit` button 
+            
+                ![Step 4](Resources/ios_customer_account_7.png){ width="500" }
         
             1. `Integrations`
             2. `App Store Connect API`
@@ -62,7 +84,7 @@ To establish our CI flow and be able to deliver builds to customer's App Store C
             4. copy `Issuer ID` and save it to company's Bitwarden (see for example `Futured App Store Connect API Key` entry, don't forget to select `iOS` and `Operations` collections)
             5. click `+` button, fill key name (there's no naming convention), `App Manager` access role and click `Generate` button
             
-                ![Step 6](Resources/ios_customer_account_6.png){ width="500" }
+                ![Step 5](Resources/ios_customer_account_8.png){ width="500" }
                 
                 !!! info "Access"
 
@@ -73,4 +95,4 @@ To establish our CI flow and be able to deliver builds to customer's App Store C
             6. new key will appear in the list, please copy `KEY ID` and save it to company's Bitwarden (to the same entry as in step `d.`)
             7. key is downloadable only once, please download it and save it to company's Bitwarden (to the same entry as in step `d.`)
             
-                ![Step 7](Resources/ios_customer_account_7.png){ width="500" }
+                ![Step 6](Resources/ios_customer_account_9.png){ width="500" }
