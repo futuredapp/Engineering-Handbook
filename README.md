@@ -15,9 +15,7 @@ This handbook describes the best practices and guidelines we use for app develop
 
 ## iOS
 
-* [New project checklist](/ios/new-project.md)
-* [Architecture](/ios/architecture.md) 
-* [Release checklist](/ios/releases.md)
+* [Architecture](/ios/architecture.md)
 
 ## Android
 
