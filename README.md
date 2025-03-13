@@ -7,7 +7,6 @@ This handbook describes the best practices and guidelines we use for app develop
 ## General
 
 * [GitFlow](/general/git-flow.md)
-* [App Center - How to add access to partners](/general/appcenter-how-to-add-partner-account.md)
 * [API specification](/general/api-specification.md)
 * [Security guidelines](/general/security-guidelines.md)
 * Documentation
@@ -16,15 +15,7 @@ This handbook describes the best practices and guidelines we use for app develop
 
 ## iOS
 
-* [New project checklist](/ios/new-project.md)
-* [Architecture](/ios/architecture.md) 
-* [Code style & Project structure](/ios/code-style.md)
-* [Localization](/ios/Localization.md)
-* [Release checklist](/ios/releases.md)
-
-### Building blocks
-
-* [Table views and Collection views](/ios/table-views.md)
+* [Architecture](/ios/architecture.md)
 
 ## Android
 
