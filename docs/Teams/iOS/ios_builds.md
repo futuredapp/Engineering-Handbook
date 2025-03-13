@@ -58,4 +58,4 @@ Production builds can be either distributed via Futured's or customer's App Stor
         - primary
         - secondary (optional)
 
-[**How to build a production build**](ios_release_checklist.md/#source-control-steps-to-release)
+[**How to build a production build**](ios_release.md/#source-control-steps-to-release)
