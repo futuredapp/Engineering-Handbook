@@ -22,6 +22,7 @@ Invite **ops@futured.app** to existing project. If there's only one existing pro
 
 ## App setup
 !!! warning "Work in progress"
+    - SHA-1 fingerprints
 
 Add Firebase to your project using [official docs](https://firebase.google.com/docs/android/setup).
 
