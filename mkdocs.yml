@@ -39,7 +39,6 @@ theme:
     - navigation.sections
     - navigation.indexes
     - navigation.expand
-    - toc.integrate
     - content.code.copy
 
 plugins:
