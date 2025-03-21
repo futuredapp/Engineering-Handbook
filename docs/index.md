@@ -27,4 +27,4 @@ We believe in open collaboration and sharing knowledge. By making our engineerin
 
 This handbook is a living document that evolves with our practices. If you notice outdated information feel free to [contribute](editors.md).
 
-We encourage all team members to contribute to keeping this handbook accurate and useful.
+We encourage all team members to contribute and keep this handbook accurate and useful.
