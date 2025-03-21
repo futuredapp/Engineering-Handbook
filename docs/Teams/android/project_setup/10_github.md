@@ -1,11 +1,11 @@
-# GitHub settings
+# GitHub Settings
 Let's set up a GitHub repository for your project.
 
-## General settings
-First off, lets start by configuring basic repository settings in `Settings > General`:
+## General Settings
+First, let's start by configuring basic repository settings in `Settings > General`:
 
-1. Create a `develop` branch and set it as default branch.
-2. Disable all features: Wikis, Issues, Sponsorships, Discussions and Projects
+1. Create a `develop` branch and set it as the default branch.
+2. Disable all features: Wikis, Issues, Sponsorships, Discussions and Projects.
 
     ![](../../../assets/android/android_github_features.png)
 
@@ -22,17 +22,17 @@ First off, lets start by configuring basic repository settings in `Settings > Ge
 
 ## Branch Rulesets
 
-Branch rulesets are important for protecting your codebase and ensuring code quality. They prevent accidental or unauthorized changes to `develop` branch and `main` branches.
+Branch rulesets are important for protecting your codebase and ensuring code quality. They prevent accidental or unauthorized changes to the `develop` and `main` branches.
 
 What is required:
 
-- Pull requests as only way to merge new code to any of protected branches.
-- Pull requests to be reviewed by at least one person (this rule can be adjusted based on project).
-- Status checks (CI) to pass before merging.
+- Pull requests are the only way to merge new code to any of the protected branches.
+- Pull requests must be reviewed by at least one person (this rule can be adjusted based on the project).
+- Status checks (CI) must pass before merging.
 
 ### Configuration
 
-Open up `Settings > Rules` and click `New Ruleset > New branch ruleset`
+Open `Settings > Rules` and click `New Ruleset > New branch ruleset`.
 
 1. Name: "Pull Requests" (or something more suitable if you're creative)
 2. Target branches:
@@ -51,6 +51,6 @@ Open up `Settings > Rules` and click `New Ruleset > New branch ruleset`
         - Select all CI status checks that run for pull requests
 
         !!! tip
-            Status checks become visible after they had been run at least once (after first created pull request). Do not forget to set them afterwards.
+            Status checks become visible after they have been run at least once (after the first created pull request). Do not forget to set them afterwards.
 
         ![](../../../assets/android/android_github_protection_ci.png)
