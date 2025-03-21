@@ -25,7 +25,7 @@ When creating new projects, follow the naming convention:
 
 For production project in `Project settings > General`, set the Environment type to `Production`.
 
-![](../../../assets/firebase/firebase_production_project.png){: style="height:auto;width:auto;max-height:200px"}
+![](../../Resources/firebase/firebase_production_project.png){: style="height:auto;width:auto;max-height:200px"}
 
 !!! info "Firebase vs. Google Cloud"
     Each Firebase project comes with Google Cloud project. When working with 3rd party integrations which require you to integrate with Google Cloud, be aware of this and use existing Google Cloud project if possible.
@@ -90,10 +90,10 @@ Our CI workflows authenticate with Firebase using [Service account credentials](
         If you're unsure which project to choose, you can open up your **Dev Firebase project**, go to `Project Settings > Service accounts` and click `Manage service account permissions 🔗` which will open up your project's Google Cloud Console, right at the Service accounts page.
 
 2. Create a new Service account with descriptive name and description
-   ![](../../../assets/firebase/firebase_service_acc_title.png){: style="height:auto;width:auto;max-height:420px"}
+   ![](../../Resources/firebase/firebase_service_acc_title.png){: style="height:auto;width:auto;max-height:420px"}
 
 3. Assign the "Firebase Admin" role to this account
-   ![](../../../assets/firebase/firebase_service_acc_roles.png){: style="height:auto;width:auto;max-height:420px"}
+   ![](../../Resources/firebase/firebase_service_acc_roles.png){: style="height:auto;width:auto;max-height:420px"}
 
 4. Click Done, navigate to that account, and create a new JSON key in `Keys > Add key`.
 5. Copy contents of this key into `APP_DISTRIBUTION_SERVICE_ACCOUNT` repository secret in GitHub and delete the JSON file from your disk.
@@ -113,7 +113,7 @@ The last thing to set up is Distribution groups. Create three App Distribution d
 
 Invite collaborators to distribution groups. You can also create an invite link. You will reference the devs and QA groups from CI/CD pipelines.
 
-![](../../../assets/firebase/firebase_app_distro_groups.png){: style="height:auto;width:auto;max-height:200px"}
+![](../../Resources/firebase/firebase_app_distro_groups.png){: style="height:auto;width:auto;max-height:200px"}
 
 ### Crashlytics
 
