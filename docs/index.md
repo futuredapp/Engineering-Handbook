@@ -1,7 +1,6 @@
 ---
 hide:
   - navigation
-  - heading
 ---
 
 ## Welcome 👋
