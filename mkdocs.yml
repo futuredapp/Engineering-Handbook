@@ -48,6 +48,7 @@ nav:
   - Home: index.md
   - Teams:  
     - Android & KMP:
+      - Overview: Teams/android/index.md
       - Project Setup:
         - First Steps: Teams/android/project_setup/00_new_repo.md
         - GitHub: Teams/android/project_setup/10_github.md
