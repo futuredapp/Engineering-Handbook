@@ -7,7 +7,7 @@ Create a new Firebase project, or gain access to existing project from client.
 
 Create `dev` and `prod` project using **ops@futured.app** email, invite developers.
 
-!!! question "Reasoning behind `dev` and `prod`"
+??? question "Why do we need two `dev` and `prod` Firebase projects?"
     TBD.
 
 !!! info "Firebase vs. Google Cloud"
