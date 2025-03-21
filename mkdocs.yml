@@ -40,7 +40,6 @@ theme:
     - navigation.indexes
     - navigation.expand
     - content.code.copy
-    
 
 plugins:
   - search
@@ -48,7 +47,7 @@ plugins:
 nav:
   - Home: index.md
   - Teams:  
-    - Android:
+    - Android & KMP:
       - Project Setup:
         - First Steps: Teams/android/project_setup/00_new_repo.md
         - GitHub: Teams/android/project_setup/10_github.md

@@ -1,7 +1,7 @@
 # First steps
 
 ## Creating repository
-Create new repository by using one of project templates, depending on the project type:
+Create new **private** repository by using one of project templates, depending on the project type:
 
 - [futuredapp/kmp-futured-template](https://github.com/futuredapp/kmp-futured-template) for Kotlin Multiplatform (KMP) projects
 - [futuredapp/android-project-template-compose](https://github.com/futuredapp/android-project-template-compose) for Android-only projects
