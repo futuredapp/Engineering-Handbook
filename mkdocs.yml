@@ -44,6 +44,33 @@ theme:
 plugins:
   - search
 
+nav:
+  - Home: index.md
+  - Teams:  
+    - Android & KMP:
+      - Overview: Teams/android/index.md
+      - Project Setup:
+        - First Steps: Teams/android/project_setup/00_new_repo.md
+        - GitHub: Teams/android/project_setup/10_github.md
+        - Firebase: Teams/android/project_setup/20_firebase.md
+        - CI/CD: Teams/android/project_setup/30_ci_cd.md
+      - Development:
+        - Git Flow: Teams/android/development/00_git_flow.md
+        - Code Style: Teams/android/development/10_code_style.md
+        - Build Distribution: Teams/android/development/20_build_distrubution.md
+      - Release:
+        - Google Play: Teams/android/release/00_google_play.md
+    - iOS:
+      - Overview: Teams/iOS/index.md
+      - Customer Account: Teams/iOS/ios_customer_account.md
+      - Builds: Teams/iOS/ios_builds.md
+      - Release: Teams/iOS/ios_release.md
+    # - Design:
+    #   - Overview: Teams/Design/design_page.md
+    # - QA:
+    #   - Overview: Teams/QA/qa_page.md
+  - Editors: editors.md
+
 copyright: Made with ❤️‍🔥 at Futured
 
 extra:
