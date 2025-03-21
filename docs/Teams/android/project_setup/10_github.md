@@ -43,10 +43,12 @@ Open up `Settings > Rules` and click `New Ruleset > New branch ruleset`
     - Enable `Require a pull request before merging`. Then under `Additional settings`:
         - Set Required approvals: `1` or more (this might be project-specific)
         - Enable `Dismiss stale pull request approvals when new commits are pushed` (this might be project-specific)
-
     - Enable `Require status checks to pass`. Then under `Additional settings`:
         - Select all CI status checks that run for pull requests
     - Enable `Block force pushes`
+
+    !!! tip
+        Status checks become visible after they had been run at least once (after first created pull request). Do not forget to set them afterwards.
 
     ![](../../../assets/android/android_github_protection_prs.png)
     ![](../../../assets/android/android_github_protection_ci.png)
