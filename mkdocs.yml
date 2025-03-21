@@ -64,10 +64,10 @@ nav:
       - Customer Account: Teams/iOS/ios_customer_account.md
       - Builds: Teams/iOS/ios_builds.md
       - Release: Teams/iOS/ios_release.md
-    - Design:
-      - Overview: Teams/Design/design_page.md
-    - QA:
-      - Overview: Teams/QA/qa_page.md
+    # - Design:
+    #   - Overview: Teams/Design/design_page.md
+    # - QA:
+    #   - Overview: Teams/QA/qa_page.md
   - Editors: editors.md
 
 copyright: Made with ❤️‍🔥 at Futured
