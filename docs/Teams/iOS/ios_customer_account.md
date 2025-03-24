@@ -54,7 +54,7 @@ To establish our CI flow and be able to deliver builds to customer's App Store C
 
 2. create App Store Connect API key
 
-    !!! note "Steps"
+    ??? note "Steps"
     
         - go to [App Store Connect](https://appstoreconnect.apple.com) and login
         - if your account is in more organizations make sure the correct one is selected

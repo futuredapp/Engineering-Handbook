@@ -62,80 +62,173 @@
                     2. enable `Dismiss stale pull request approvals when new commits are pushed`
                     
                 5. keep `Require status checks to pass` unchecked for the moment (we'll set it up later)
+                
+                    - don't forget to add the `test` action rule after opening your first PR (actions will appear in the list after their first run)
                     
                     ![Step 10](Resources/ios_new_project_10.png){ width="500" }
                     
                 6. click `Create` button, new ruleset appears in the list
                 
                     ![Step 11](Resources/ios_new_project_11.png){ width="500" }
+                    
+3. Configure Ruby environment and Fastlane
+
+    ??? note "Steps"
+    
+        - if you haven't setup ruby on your machine yet
+        
+            - follow manual steps of [this](https://www.moncefbelyamani.com/how-to-install-xcode-homebrew-git-rvm-ruby-on-mac/) tutorial
+            - install bundler from Terminal with `gem install bundler`
+            
+        - in Terminal, switch to repo root folder
+        - call `bundle install` to install gems
+        - edit `fastlane/Fastfile` to specify environment variables
+        - **TODO:**
+        
+            - add link to fastfile docs when ready
+            - for now contact Kuba for help (if needed)
 
 2. Create a new Xcode project
 
-    - create new branch `feature/PROJ-1-setup-project` where everything will be set up in next steps
-        - PROJ is your project Jira identificator
-        - 1 is Jira task number
-    - write product name in CamelCased style. Organization Identifier is *app.futured*. Leave *Use Core Data* unchecked (persistence is usually implemented in much later phase of development) and *Include Tests* checked. (CI requires tests run)
-    - change bundle identifier to kebab-cased style `app.futured.kebab-case-app-name`.
+    ??? note "Steps"
 
-3. Configure Ruby environment and Fastlane
+        - clone your project's repo
+        - create a new branch `feature/PROJ-1-Setup-project` where everything will be set up in next steps
+        
+            - PROJ is your project Jira identificator
+            - 1 is Jira task number (if you don't have Jira yet ask your PM)
 
-    Update your Ruby using your preferred ruby version manager. and install latest version of dependency manager `gem install bundler`.
+        - install `FuturedArchitecture` project template (if you haven’t done so yet)
+        
+            - paste the following script to Terminal and press enter
+            ```bash
+            bash << 'EOF'
+            #!/bin/bash
 
-    - Call `bundle install` to install gems.
-    - Edit `fastlane/Fastfile` to specify proper environment variables according to [imported Fastlane README](https://github.com/futuredapp/fastlane).
-    - Call `bundle exec fastlane create_apps`. This requires operations rights and you'll need to pass two factor authorization.
+            echo "Cloning repository..."
+            git clone --depth=1 git@github.com:futuredapp/FuturedKit.git
 
-4. Add dependencies
+            echo "Running make..."
+            (cd FuturedKit/Templates && make)
 
-    Add following dependecies using Swift Package manager:
+            echo "Cleaning up..."
+            rm -rf FuturedKit
 
-    - Open Xcode and add all relevant packages to the project
+            echo "Done!"
+            EOF
+            ```
+        
+        - open Xcode (or close and open again for refresh templates) and select`File` -> `New` -> `Project`
+        
+            ![Step 1](Resources/ios_new_project_12.png){ width="500" }
+            
+        - select `iOS` tab and `SwiftUI App` from `FuturedArchitecture` and click `Next` button
+        
+            ![Step 2](Resources/ios_new_project_13.png){ width="500" }
+            
+        - fill the project info and click `Next` button
 
-5. Configure SwiftLint
+            - write product name in CamelCased style
+            - organization identifier is `app.futured`
+            - leave *Include Tests* checked (CI requires tests run)
+            
+            ![Step 3](Resources/ios_new_project_14.png){ width="500" }
+            
+        - choose your repo folder and click `Create` button
 
-    - Add a new Run Script Phase that executes the script (remove `swiftlint --fix` if you want to fix linting issues manually):
+            - Xcode project will open
+            - close it and check the project's folder
+            - move content of `{ProjectName}` folder to the repo root (you need to rename it first to be able to move the content)
+            - delete `{ProjectName}` folder
+            - open Xcode project again
+            
+            ![Step 4](Resources/ios_new_project_15.png){ width="500" }
 
-    ```
-    if test -d "/opt/homebrew/bin/"; then
-      PATH="/opt/homebrew/bin/:${PATH}"
-    fi
+        - in Xcode:
+        
+            - change bundle identifier to kebab-cased style `app.futured.kebab-case-app-name`
 
-    export PATH
+                1. select `root`
+                2. select main project target
+                3. select `Signing & Capabilities` tab
+                4. change bundle id for all configurations
+                
+                ![Step 5](Resources/ios_new_project_16.png){ width="900" }
+                
+            - setup Futured's architecture
+            
+                - add `FuturedKit` package dependency - [https://github.com/futuredapp/FuturedKit.git](https://github.com/futuredapp/FuturedKit.git)
+                
+                    ![Step 6](Resources/ios_new_project_17.png){ width="500" }
+                                    
+                - add `FuturedArchitecture` to main project target
+                - optionally add `FuturedHelpers` to main project target if needed - see [docs](https://github.com/futuredapp/FuturedKit?tab=readme-ov-file#futuredhelpers)
+                
+                    ![Step 7](Resources/ios_new_project_18.png){ width="500" }
+                
+                - go to the `{project_name}App.swift` file and remove error at line 10
+                
+                    ```swift
+                    #error("Add https://github.com/futuredapp/FuturedKit.git to the project!")
+                    ```
+                
+                    ![Step 8](Resources/ios_new_project_19.png){ width="900" }
+                    
+                - select `Issue navigator`, click the `Macro target ...` warning and then click `Trust & Enable` button
+                
+                    ![Step 9](Resources/ios_new_project_20.png){ width="900" }
+                
+            - add [SwiftLint](https://github.com/realm/SwiftLint)
+            
+                - if you don't have installed SwiftLint locally call `brew install swiftlint` from Terminal
+                - go to `Build Phases` tab
+                - click `+` button
+                - click `New Run Script Phase`
+                - rename phase to `SwiftLint` and move it before `Compile sources` phase
+                - paste script bellow
 
-    if which swiftlint >/dev/null; then
-        swiftlint --fix
-        swiftlint
-    else
-        echo "error: SwiftLint not installed, run: brew install swiftlint"
-    fi
-    ```
+                ```bash
+                if test -d "/opt/homebrew/bin/"; then
+                  PATH="/opt/homebrew/bin/:${PATH}"
+                fi
 
-6. Configure the project for Continuous Deployment
+                export PATH
 
-    - In Target's Signing & Capabilities tab, uncheck the *Automatically manage signing* checkbox.
-    - In Manage Schemes..., set root project scheme as Shared.
-    - Run `bundle exec fastlane test` to check whether test can be run on both CI and locally.
-    - In Xcode, go to Project Info screen. In Configurations section, add a new configuration by duplicating the **Release** configuration and rename it to **Beta**.
-    - On Build Settings tab for target (not project), look for Product Bundle Identifier, expand it to see preferences for Debug, Beta and Release configurations and for the Beta one, add suffix `.beta`.
-    - Select appropriate certificates, provisioning profiles for all configurations in the Target's Signing & Capabilities tab.
-    - Set proper values in Versioning part of Build Settings:
-      - Change Marketing Version to `1.0.0`.
-      - Change Current Project Version to `1`.
-    - Run `bundle exec fastlane beta` to check whether beta builds to TestFlight succeed.
+                if which swiftlint >/dev/null; then
+                    swiftlint --fix # remove `swiftlint --fix` if you want to fix linting issues manually
+                    swiftlint
+                else
+                    echo "error: SwiftLint not installed, run: brew install swiftlint"
+                fi
+                ```
+                
+                ![Step 10](Resources/ios_new_project_21.png){ width="900" }
+                ![Step 11](Resources/ios_new_project_22.png){ width="900" }
+                
+            - configure the project for Continuous Deployment
 
-7. Configure continuous integration
+                - set proper values in `Versioning` part of `Build Settings`
+                
+                    - select all targets and remove `Marketing Version` value 
+                    - select project and fill `1.0.0` as `Marketing Version`
+                    
+                    ![Step 12](Resources/ios_new_project_23.png){ width="900" }
+                    ![Step 13](Resources/ios_new_project_24.png){ width="900" }
+                    
+                - select appropriate certificates, provisioning profiles for all configurations in the Target's Signing & Capabilities tab
+                
+            - build the project
 
-    Choose your CI service, we currently prefer Github Actions.
+4. Open pull request with the project setup
 
-    ### GitHub Actions
+    ??? note "Steps"
 
-    Most of the configuration is already part of the [iOS project template](https://github.com/futuredapp/iOS-project-template). All the secrets are provided by the organization. If they are not available ask someone with admin permissions to provide them to your repository.
+        - update `.github/CODEOWNERS` file
+            
+            - change `@futuredapp/ios` to `@{github_username}` of teammate/teammates (or person who will perform code reviews)
 
-8. Open pull request with the project setup
+        - update project README and fill in all the strike-through points
+        - commit everything and open PR
+        - after CI checks the PR, status checks are now available to be added in Branch protections settings. Add them.
 
-    - Update CODEOWNERS file.
-    - Update project README and fill in all the strike-through points.
-    - Commit everything and open PR and add this filled checklist to description.
-    - After CI checks the PR, status checks are now available to be added in Branch protections settings. Add them.
-
-9. Enjoy!
+5. Enjoy!
