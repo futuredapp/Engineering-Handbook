@@ -72,6 +72,8 @@
 2. Create a new Xcode project
 
     - create new branch `feature/PROJ-1-setup-project` where everything will be set up in next steps
+        - PROJ is your project Jira identificator
+        - 1 is Jira task number
     - write product name in CamelCased style. Organization Identifier is *app.futured*. Leave *Use Core Data* unchecked (persistence is usually implemented in much later phase of development) and *Include Tests* checked. (CI requires tests run)
     - change bundle identifier to kebab-cased style `app.futured.kebab-case-app-name`.
 
