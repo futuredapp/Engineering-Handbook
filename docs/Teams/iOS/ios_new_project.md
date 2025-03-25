@@ -237,6 +237,10 @@
                 ![Step 10](Resources/ios_new_project_21.png){ width="900" }
                 ![Step 11](Resources/ios_new_project_22.png){ width="900" }
                 
+                - disable `User Script Sandboxing` in `Build Settings`
+                
+                ![Step 12](Resources/ios_new_project_23.png){ width="500" }
+                
             - configure the project for Continuous Deployment
 
                 - set proper values in `Versioning` part of `Build Settings`
@@ -244,12 +248,12 @@
                     - select all targets and remove `Marketing Version` value 
                     - select project and fill `1.0.0` as `Marketing Version`
                     
-                    ![Step 12](Resources/ios_new_project_23.png){ width="900" }
                     ![Step 13](Resources/ios_new_project_24.png){ width="900" }
+                    ![Step 14](Resources/ios_new_project_25.png){ width="900" }
                     
                 - select appropriate provisioning profiles for all configurations in the Target's Signing & Capabilities tab
                 
-                    ![Step 14](Resources/ios_new_project_25.png){ width="900" }
+                    ![Step 15](Resources/ios_new_project_26.png){ width="900" }
                 
             - build the project
 
@@ -263,6 +267,14 @@
 
         - update project README and fill in all the strike-through points
         - commit everything and open PR
-        - after CI checks the PR, status checks are now available to be added in Branch protections settings. Add them.
+        - after CI checks the PR, `test` check is now available to be added in `default branch protection` ruleset
+        
+            - add `test/test` check
+            
+            ![Step 16](Resources/ios_new_project_27.png){ width="900" }
+            
+            - added check looks like this
+            
+            ![Step 17](Resources/ios_new_project_28.png){ width="500" }
 
 5. Enjoy!
