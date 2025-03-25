@@ -4,7 +4,7 @@ There are three build configurations.
     
 ## Debug builds
 
-Debug builds are created in Xcode by developers. **TODO: Add link to project setup**
+Debug builds are created in Xcode by developers. See project readme to find how you can create a debug build.
 
 ## Beta builds
 

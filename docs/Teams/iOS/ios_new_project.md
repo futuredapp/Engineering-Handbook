@@ -71,32 +71,64 @@
                 
                     ![Step 11](Resources/ios_new_project_11.png){ width="500" }
                     
-3. Configure Ruby environment and Fastlane
+2. Configure Ruby environment and Fastlane
 
     ??? note "Steps"
+    
+        - clone your project's repo
+        - create a new branch `feature/PROJ-1-Setup-project` where everything will be set up in next steps
+        
+            - PROJ is your project Jira identificator
+            - 1 is Jira task number (if you don't have Jira yet ask your PM)
     
         - if you haven't setup ruby on your machine yet
         
             - follow manual steps of [this](https://www.moncefbelyamani.com/how-to-install-xcode-homebrew-git-rvm-ruby-on-mac/) tutorial
             - install bundler from Terminal with `gem install bundler`
             
-        - in Terminal, switch to repo root folder
-        - call `bundle install` to install gems
-        - edit `fastlane/Fastfile` to specify environment variables
-        - **TODO:**
-        
-            - add link to fastfile docs when ready
-            - for now contact Kuba for help (if needed)
+        - in project folder
 
-2. Create a new Xcode project
+            - edit `fastlane/Fastfile` to specify environment variables
+            
+        - in Terminal
+
+            - switch to repo root folder
+            - call `bundle install` to install gems
+            - create app in Apple Developer and App Store Connect portals
+            
+                !!! warning "App Store Connect 2FA"
+                
+                    If you need a 2FA code for `ops@futured.app` account when running the following Fastlane commands, please contact someone from the iOS team for assistance.
+
+                ??? info "App released from customer's ASC account"
+                
+                    If you filled customer's environment variables in Fastfile
+                    
+                    - call `bundle exec fastlane create_apps`
+                    
+                        - if it's the first app for the account append `company_name:"My Company Inc"` parameter
+                        
+                    - call `bundle exec fastlane update_provisioning include_release:true create_branch:true`
+                    
+                        - `create_branch:true` parameter is needed only for the first time to create customer branch in our [Apple certificates repo](https://github.com/futuredapp/apple-certificates) 
+                    
+                ??? info "App released from Futured's ASC account"
+                
+                    - call `bundle exec fastlane create_apps`
+                    - call `bundle exec fastlane update_provisioning include_release:true`
+                    
+                ??? info "The app's release account is currently unknown"
+                
+                    You can setup release account later
+                
+                    - call `bundle exec fastlane create_apps skip_release_app:true`
+                    - call `bundle exec fastlane update_provisioning`
+                    
+                    Once you're familiar with the release process, rerun the above command (no need to worry about duplication)
+
+3. Create a new Xcode project
 
     ??? note "Steps"
-
-        - clone your project's repo
-        - create a new branch `feature/PROJ-1-Setup-project` where everything will be set up in next steps
-        
-            - PROJ is your project Jira identificator
-            - 1 is Jira task number (if you don't have Jira yet ask your PM)
 
         - install `FuturedArchitecture` project template (if you haven’t done so yet)
         
@@ -215,7 +247,9 @@
                     ![Step 12](Resources/ios_new_project_23.png){ width="900" }
                     ![Step 13](Resources/ios_new_project_24.png){ width="900" }
                     
-                - select appropriate certificates, provisioning profiles for all configurations in the Target's Signing & Capabilities tab
+                - select appropriate provisioning profiles for all configurations in the Target's Signing & Capabilities tab
+                
+                    ![Step 14](Resources/ios_new_project_25.png){ width="900" }
                 
             - build the project
 
