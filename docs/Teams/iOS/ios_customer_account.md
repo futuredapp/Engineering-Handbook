@@ -96,3 +96,24 @@ To establish our CI flow and be able to deliver builds to customer's App Store C
             7. key is downloadable only once, please download it and save it to company's Bitwarden (to the same entry as in step `d.`)
             
                 ![Step 6](Resources/ios_customer_account_9.png){ width="500" }
+                
+        - add customer's App Store Connect API key to project's repo secrets
+        
+            - go to your project GitHub repo
+
+                ![Step 7](Resources/ios_customer_account_10.png){ width="900" }
+            
+                1. open `Settings` (you need repo admin role to see `Settings` option)
+                2. select `Secrets and variables` section and `Actions` subsection
+                3. click `New repository secret` button
+            
+            - add following secrets (keep naming!):
+                - `APP_STORE_CONNECT_API_KEY_ISSUER_ID_CUSTOMER` = `Issuer ID`
+                - `APP_STORE_CONNECT_API_KEY_KEY_ID_CUSTOMER` = `KEY ID`
+                - `APP_STORE_CONNECT_API_KEY_KEY_CUSTOMER` = key content
+            
+            ![Step 8](Resources/ios_customer_account_11.png){ width="500" }
+            
+            - result:
+
+            ![Step 9](Resources/ios_customer_account_12.png){ width="500" }

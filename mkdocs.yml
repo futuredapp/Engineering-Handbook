@@ -62,6 +62,7 @@ nav:
         - Google Play: Teams/android/release/00_google_play.md
     - iOS:
       - Overview: Teams/iOS/index.md
+      - New project: Teams/iOS/ios_new_project.md
       - Customer Account: Teams/iOS/ios_customer_account.md
       - Builds: Teams/iOS/ios_builds.md
       - Release: Teams/iOS/ios_release.md
