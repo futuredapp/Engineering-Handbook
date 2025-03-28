@@ -1,6 +1,6 @@
 # Code Style
 
-In our effort to maintain a consistent code style across all our projects, we have integrated multiple tools that verify our code both in the Integrated Development Environment (IDE) and during Pull Request (PR) verification.
+In our effort to maintain a consistent code style across all our projects, we have integrated multiple tools that verify our code both in the Android Studio and during Pull Request (PR) verification.
 
 The tools we use are consistent across both Android-only and Kotlin Multiplatform (KMP) projects.
 
@@ -11,6 +11,7 @@ The tools we use are consistent across both Android-only and Kotlin Multiplatfor
 [KtLint](https://github.com/pinterest/ktlint) is an anti-bikeshedding Kotlin linter with a built-in formatter. It enforces a consistent code style and can report or automatically fix deviations from this style.
 
 We use this [Gradle plugin](https://github.com/JLLeitschuh/ktlint-gradle) for integration, which provides the following useful tasks:
+
 - `ktLintCheck`: Scans the entire project for issues (used for PR checks).
 - `ktLintFormat`: Works similarly to `ktLintCheck`, but also formats what is possible. Use this before making commits to ensure correct formatting.
 
