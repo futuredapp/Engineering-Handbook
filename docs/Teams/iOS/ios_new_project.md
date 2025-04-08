@@ -245,7 +245,7 @@
 
                 - set proper values in `Versioning` part of `Build Settings`
                 
-                    - select all targets and remove `Marketing Version` value 
+                    - select all targets and remove `Marketing Version` value by pressing `Delete` button on keyboard (`Marketing Version` text will change from bold to normal)
                     - select project and fill `1.0.0` as `Marketing Version`
                     
                     ![Step 13](Resources/ios_new_project_24.png){ width="900" }
