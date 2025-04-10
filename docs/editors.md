@@ -40,6 +40,13 @@ The documentation will be available at [http://127.0.0.1:8000/Engineering-Handbo
 4. Get at least one approval before merging
 5. After merging, the GitHub Action [Pages workflow](https://github.com/futuredapp/Engineering-Handbook/blob/main/.github/workflows/pages.yml) will automatically publish the updated documentation
 
+### Diagrams
+
+Some diagrams are created using [Excalidraw](https://excalidraw.com/). When exporting images, ensure following:
+
+- Embed scene into exported image, or commit source `.excalidraw` file to the repository so it can be edited later by someone else.
+- Respect light and dark themes. Use the `#only-light` and `#only-dark` suffixes to specify which theme the image is for. See [Light and dark mode](https://squidfunk.github.io/mkdocs-material/reference/images/#light-and-dark-mode) for more details.
+
 ### Markdown Syntax
 
 Material for MkDocs uses standard Markdown with some additional features
