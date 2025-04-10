@@ -11,6 +11,9 @@ The architecture is organized into layers, each with a specific responsibility, 
 - Better scalability and adaptability
 - Minimized component coupling
 
+![](../Resources/architecture/arch_kmp_light.png#only-light)
+![](../Resources/architecture/arch_kmp_dark.png#only-dark)
+
 ## Overall Architecture
 
 The architecture follows a multi-layered approach with platform-specific UI implementations on top of a shared KMP codebase.
