@@ -11,8 +11,8 @@ The architecture is organized into layers, each with a specific responsibility. 
 
 We use [Android Jetpack](https://developer.android.com/jetpack) libraries to simplify development and follow modern Android best practices. These libraries help create reliable and maintainable apps.
 
-![](../Resources/architecture/arch_native_light.png#only-light)
-![](../Resources/architecture/arch_native_dark.png#only-dark)
+![](../Resources/architecture/arch_native_light.png#only-light){data-gallery="light"}
+![](../Resources/architecture/arch_native_dark.png#only-dark){data-gallery="dark"}
 
 ## Overall Architecture
 

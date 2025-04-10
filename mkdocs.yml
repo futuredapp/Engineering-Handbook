@@ -43,7 +43,9 @@ theme:
 
 plugins:
   - search
-#  - glightbox
+  - glightbox:
+      background: light-dark(white, black)
+      shadow: false
 
 nav:
   - Home: index.md

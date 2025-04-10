@@ -11,8 +11,8 @@ The architecture is organized into layers, each with a specific responsibility, 
 - Better scalability and adaptability
 - Minimized component coupling
 
-![](../Resources/architecture/arch_kmp_light.png#only-light)
-![](../Resources/architecture/arch_kmp_dark.png#only-dark)
+![](../Resources/architecture/arch_kmp_light.png#only-light){data-gallery="light"}
+![](../Resources/architecture/arch_kmp_dark.png#only-dark){data-gallery="dark"}
 
 ## Overall Architecture
 
