@@ -17,7 +17,7 @@ This guide helps you contribute to the Engineering Handbook using Material for M
    
     !!! note
         The `mkdocs-material` and plugin dependencies must be installed in the same Python environment.  
-        Installing `mkdocs-material` using Homebrew and other plugins (`mkdocs-glightbox`) using `pip` might not work for you if you use `pyenv` or similar environment management tools.
+        Installing `mkdocs-material` from Homebrew and other plugins (`mkdocs-glightbox`) using `pip` might not work for you if you use `pyenv` or similar environment management tools.
 
 2. Clone the repository:
    ```bash
@@ -54,7 +54,7 @@ Some diagrams are created using [Excalidraw](https://excalidraw.com/). When expo
 - Use the [`data-gallery`](https://blueswen.github.io/mkdocs-glightbox/gallery/gallery/) attribute to group images into a light gallery. For example, `data-gallery="light"` for light mode images and `data-gallery="dark"` for dark mode images. This ensures that lightbox will not display dark mode images in light mode and vice versa.  
   Related issue: [blueswen/mkdocs-glightbox/issues/26](https://github.com/blueswen/mkdocs-glightbox/issues/26)
 
-Full example of diagram with light and dark mode images and lightbox support:
+Full example of diagram with transparent background in light and dark variant and lightbox support:
 
 ```markdown
 ![](../Resources/architecture/arch_kmp_light.png#only-light){data-gallery="light"}
