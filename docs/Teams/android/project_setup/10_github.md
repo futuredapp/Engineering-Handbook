@@ -7,18 +7,18 @@ First, let's start by configuring basic repository settings in `Settings > Gener
 1. Create a `develop` branch and set it as the default branch.
 2. Disable all features: Wikis, Issues, Sponsorships, Discussions and Projects.
 
-    ![](../../Resources/github/android_github_features.png)
+    ![](../Resources/github/android_github_features.png)
 
 3. Pull Request settings: 
     - Enable `Allow merge commits`
 
-    ![](../../Resources/github/android_github_pull_requests.png)
+    ![](../Resources/github/android_github_pull_requests.png)
 
     - Enable `Always suggest updating pull request branches`
     - Enable `Allow auto-merge`
     - Enable `Automatically delete head branches`
 
-    ![](../../Resources/github/android_github_merging.png)
+    ![](../Resources/github/android_github_merging.png)
 
 ## Branch Rulesets
 
@@ -44,7 +44,7 @@ Open `Settings > Rules` and click `New Ruleset > New branch ruleset`.
         - Set Required approvals: `1` or more (this might be project-specific)
         - Enable `Dismiss stale pull request approvals when new commits are pushed` (this might be project-specific)
 
-        ![](../../Resources/github/android_github_protection_prs.png)
+        ![](../Resources/github/android_github_protection_prs.png)
 
     - Enable `Block force pushes`
     - Enable `Require status checks to pass`. Then under `Additional settings`:
@@ -53,4 +53,4 @@ Open `Settings > Rules` and click `New Ruleset > New branch ruleset`.
         !!! tip
             Status checks become visible after they have been run at least once (after the first created pull request). Do not forget to set them afterwards.
 
-        ![](../../Resources/github/android_github_protection_ci.png)
+        ![](../Resources/github/android_github_protection_ci.png)
