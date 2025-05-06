@@ -15,6 +15,7 @@ We believe in open collaboration and sharing knowledge. By making our engineerin
 
 - **[Android & KMP](Teams/android/index.md)** - Everything about Android and Kotlin Multiplatform development
 - **[iOS](Teams/iOS/index.md)** - iOS development guidelines
+- **[Full-stack](Teams/fullstack/index.md)** - full-stack development guidelines and best practices
 <!-- - **[Design](Teams/Design/design_page.md)** - Design team practices and guidelines
 - **[QA](Teams/QA/qa_page.md)** - Quality Assurance processes and standards -->
 
