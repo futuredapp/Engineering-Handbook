@@ -41,7 +41,7 @@
             - Sometimes Android Studio keeps empty folder of old package name. You can remove it manually.
         - To check run: `./gradlew --continue lintCheck` and then `./gradlew assembleDevDebug`
     - Commit changes and create first PR to `develop`.
-    - If PR was sucessfull set *Set status checks* in [Setup repository](https://github.com/futuredapp/Engineering-Handbook/edit/main/android/new-project.md#2-setup-repository)
+    - If PR was sucessfull set *Set status checks* in [Setup repository](https://github.com/futuredapp/Engineering-Handbook/blob/main/android/new-project.md#2-setup-repository)
 
 
 ## 2. Setup Firebase
