@@ -18,8 +18,7 @@ The Full-stack team is responsible for developing and maintaining our web applic
 - [Git Flow](development/00_git_flow.md) - Our branching strategies and workflows
 - [Pull Request Guidelines](development/10_pull_request_guidelines.md) - How to create and review pull requests
 - [Code Review Process](development/20_code_review_process.md) - Steps and criteria for reviewing code
-- [Commit Message Conventions](development/30_commit_message_conventions.md) - Standards for writing commit messages
-- [Issue Tracking & Ticket Management](development/40_issue_tracking.md) - How to create, assign, and track work items
+- [Project Setup](development/30_project_setup.md) - Steps to set up a new project
 
 ## Tech Stack Overview
 
