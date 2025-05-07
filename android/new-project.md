@@ -5,7 +5,6 @@
 - [ ] Open [Android project template](https://github.com/futuredapp/android-project-template-compose) and create a new repository by **Use this template** button.
     - Set repository name. Preferred repository name is *[productname]-android*, where *[productname]* includes only name of the product, without client name.
     - Set owner to `futured.app`
-    - Set repository to `private`
 
 ## 2. Setup repository
 
@@ -28,7 +27,7 @@
 
 > NOTE: Status checks (GitHub Actions, Danger, etc.) become visible after first created pull request. Do not forget to set them afterwards.
 
-## 2. Setup project
+## 3. Setup project
 
 - [ ] Load project in Android Studio: *New* / *Project from Version Control*
 - [ ] Create new branch `feature/project-setup`
@@ -45,7 +44,7 @@
     - If PR was sucessfull set *Set status checks* in *2. Setup repository*.
 
 
-## 2. Setup Firebase
+## 4. Setup Firebase
 
 - [ ] Create 2 new Firebase projects. First for: `Debug` + `Enterprise` and second for `Prod`. Or access an existing one from the client.
 - [ ] If you created 2 new Firebase projects from scratch, continue with this setup or individually if you have Firebase from the client:
@@ -83,7 +82,7 @@
 
 > Make sure that you have enabled google services plugin, otherwise the plugin won't know the id of the app
 
-## 3. Configure GitHub Actions
+## 5. Configure GitHub Actions
 
 - [ ] If you created a new project using [Android project template](https://github.com/futuredapp/android-project-template-compose), the GitHub Actions workflow files are already present in your repository under `.github/workflows` folder. If not, copy them over from [here](https://github.com/futuredapp/android-project-template-compose/tree/main/.github/workflows)).
 - [ ] In **Settings** tab of your repository, go to **Secrets** and configure following secrets:
@@ -97,4 +96,4 @@
 
 - [ ] Make a pull request from `feature/PROJ-1-setup-project` to `develop` to ensure that GitHub Actions work properly
 
-## 4. Enjoy!
+## 6. Enjoy!
