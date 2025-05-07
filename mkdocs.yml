@@ -82,8 +82,7 @@ nav:
               - Git Flow: Teams/fullstack/development/00_git_flow.md
               - Pull Request Guidelines: Teams/fullstack/development/10_pull_request_guidelines.md
               - Code Review Process: Teams/fullstack/development/20_code_review_process.md
-              - Commit Message Conventions: Teams/fullstack/development/30_commit_message_conventions.md
-              - Issue Tracking: Teams/fullstack/development/40_issue_tracking.md
+              - Project Setup: Teams/fullstack/development/30_project_setup.md
           - Tech Stack:
               - Frontend: Teams/fullstack/tech_stack/00_frontend.md
               - Backend: Teams/fullstack/tech_stack/10_backend.md
