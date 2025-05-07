@@ -14,8 +14,9 @@ This area contains our team's guidelines, best practices, and workflows for Andr
 
 - [First Steps](project_setup/00_new_repo.md) - How to start a new project
 - [GitHub Configuration](project_setup/10_github.md) - Repository settings and branch protection rules
-- [Firebase Setup](project_setup/20_firebase.md) - Everything about Firebase setup
-- [CI/CD Pipeline](project_setup/30_ci_cd.md) - Continuous integration and delivery
+- [Project Setup](project_setup/20_project.md) - Project setup
+- [Firebase Setup](project_setup/30_firebase.md) - Everything about Firebase setup
+- [CI/CD Pipeline](project_setup/40_ci_cd.md) - Continuous integration and delivery
 
 ### Development
 
