@@ -9,3 +9,24 @@
   --md-primary-fg-color--light: #FF5F00;
   --md-primary-fg-color--dark:  #FF5F00;
 }
+
+a:hover, a:focus {
+    color: var(--md-primary-fg-color) !important;
+}
+
+.md-nav__link:hover {
+    color: var(--md-primary-fg-color) !important;
+}
+
+.md-sidebar__scrollwrap:hover {
+  scrollbar-color: var(--md-primary-fg-color) #0000;
+}
+
+.md-nav__link--active {
+  color: var(--md-primary-fg-color) !important;
+}
+
+.md-typeset a {
+    color: var(--md-primary-fg-color) !important;
+}
+
