@@ -73,6 +73,7 @@ nav:
           - Customer Account: Teams/iOS/ios_customer_account.md
           - Builds: Teams/iOS/ios_builds.md
           - Release: Teams/iOS/ios_release.md
+          - CI/CD: Teams/iOS/ios_ci_cd.md
     # - Design:
     #   - Overview: Teams/Design/design_page.md
     # - QA:
