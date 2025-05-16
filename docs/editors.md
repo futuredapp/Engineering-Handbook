@@ -9,31 +9,55 @@ This guide helps you contribute to the Engineering Handbook using Material for M
 
 ## Installation
 
-1. Install the required packages:
-   ```bash
-   pip install mkdocs-material
-   pip install mkdocs-glightbox
-   ```
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/futuredapp/Engineering-Handbook.git
+    cd Engineering-Handbook
+    ```
+
+2. Create a Virtual Environment:
+    ```bash
+    python3 -m venv myenv
+    ```
+
+3. Activate the Virtual Environment:
+    ```bash
+    source myenv/bin/activate
+    ```
+
+4. Install the required packages:
+    ```bash
+    pip install mkdocs-material
+    pip install mkdocs-glightbox
+    ```
    
     !!! note
         The `mkdocs-material` and plugin dependencies must be installed in the same Python environment.  
         Installing `mkdocs-material` from Homebrew and other plugins (`mkdocs-glightbox`) using `pip` might not work for you if you use `pyenv` or similar environment management tools.
 
-2. Clone the repository:
-   ```bash
-   git clone https://github.com/futuredapp/Engineering-Handbook.git
-   cd Engineering-Handbook
-   ```
+5. When you're done, you can deactivate the environment with:
+    ```bash
+    deactivate
+    ```
 
 ## Local Development
 
-Run the following command from the repository root to start a local development server with live-reloading:
+1. Activate the Virtual Environment:
+    ```bash
+    source myenv/bin/activate
+    ```
 
-```bash
-mkdocs serve
-```
+2. Run the following command from the repository root to start a local development server with live-reloading:
+    ```bash
+    mkdocs serve
+    ```
 
-The documentation will be available at [http://127.0.0.1:8000/Engineering-Handbook/](http://127.0.0.1:8000/Engineering-Handbook/).
+    The documentation will be available at [http://127.0.0.1:8000/Engineering-Handbook/](http://127.0.0.1:8000/Engineering-Handbook/).
+
+3. When you're done, you can deactivate the environment with:
+    ```bash
+    deactivate
+    ```
 
 ## Editing Guidelines
 
