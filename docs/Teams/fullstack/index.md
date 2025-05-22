@@ -88,7 +88,7 @@ The Full-stack team is responsible for developing and maintaining our web applic
 
 ## 🚧 Appendices
 
-- 🚧 [Glossary of Terms](appendices/00_glossary.md) - Definitions of technical terms and acronyms
+- [Glossary of Terms](appendices/00_glossary.md) - Definitions of technical terms and acronyms
 - 🚧 [Useful Scripts & Tools](appendices/10_scripts.md) - Handy scripts and utilities for daily work
 - 🚧 [FAQ](appendices/20_faq.md) - Answers to frequently asked questions
 - 🚧 [Templates](appendices/30_templates.md) - Reusable templates for common documents
