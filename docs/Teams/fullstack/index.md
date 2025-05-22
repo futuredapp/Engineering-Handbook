@@ -11,13 +11,13 @@ The Full-stack team is responsible for developing and maintaining our web applic
 - **Frontend**: Vue.js, TypeScript, React
 - **Backend**: Node.js, NestJS
 - **Database**: PostgreSQL, MongoDB
-- **Infrastructure**: Docker, Kubernetes, GCP, Digital Ocean
+- **Infrastructure**: Docker, GCP, Digital Ocean
 
 ## 🚧 Development Workflow
 
 - [Git Flow](development/00_git_flow.md) - Our branching strategies and workflows
 - [Pull Request Guidelines](development/10_pull_request_guidelines.md) - How to create and manage pull requests
-- 🚧 [Code Review Process](development/20_code_review_process.md) - Steps and criteria for reviewing code
+- [Code Review Process](development/20_code_review_process.md) - Steps and criteria for reviewing code
 - 🚧 [Project Setup](development/30_project_setup.md) - Steps to set up a new project
 
 ## 🚧 Tech Stack Overview
