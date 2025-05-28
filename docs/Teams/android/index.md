@@ -26,10 +26,10 @@ This area contains our team's guidelines, best practices, and workflows for Andr
 
 ### Release
 
-- [Google Play - account](release/00_google_play_account.md) - Setup Google Play account
-- [Google Play - app](release/10_google_play_app.md) - Setup release app in Google Play Console
-- [CI/CD](release/20_ci_cd.md) - Setup CI/CD to release app to Google Play Console
-- [Process overview](release/30_release_process.md) - Release process overview
+- [Google Play Account](release/00_google_play_account.md) - How to setup Google Play account
+- [Google Play App](release/10_google_play_app.md) - How to setup release app in Google Play Console
+- [CI/CD](release/20_ci_cd.md) - How to setup CI/CD to release app to Google Play Console
+- [Release Process Overview](release/30_release_process.md) - Overview of the release process
 
 ## Getting Started
 
