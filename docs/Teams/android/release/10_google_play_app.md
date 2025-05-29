@@ -26,28 +26,42 @@ This page describes **how to set up an app in the Google Play Console**.
 
 
 ## Upload and App Signing Key
-- The *Upload Key* is used by the developer to sign the app bundle before uploading it to the Play Console.
-- The *App Signing Key* is used by Google to re-sign the app bundle after upload, ensuring secure delivery to users.
+- The *Upload Key* is used by the developer to sign the APK/AAB before uploading it to the Play Console.
+- The *App Signing Key* is used by Google to re-sign the APK/AAB after upload, ensuring secure delivery to users.
 
 The *Upload Key* is managed by the developer, while Google manages the *App Signing Key*.
 
 ### Upload key
-This key is used for signing the APK/AAB before uploading to the Google Play Console.
 
-- [ ] Generate the upload key with the client's information and store the upload key in **Futured Bitwarden**.
-- [ ] **Futured Bitwarden** should contain:
+1. **Generate the upload key** with the client's information. Generating the upload key can be done in several ways:
+
+    - By Android Studio - **recommended**:
+        - Open the *Build* menu.
+        - Select *Generate Signed Bundle / APK*.
+        - Choose *Android App Bundle* or *APK* and click *Next*.
+        - Select *Create new...* under the *Key store path* field.
+        - Fill in the required fields and click *OK*.
+
+    - or you can use the `keytool` command to generate the key:
+         ```bash
+          keytool -genkey -v -keystore your-upload-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias your-alias-name
+         ```
+
+    !!! tip
+        Avoid using generic names for the upload key, such as *upload*, *android*, etc.
+
+2. **Store the upload key** in **Futured Bitwarden**. It should contain:
     - [ ] Upload key (`.jks` file).
     - [ ] Upload key password.
     - [ ] Alias name.
     - [ ] Alias password.
 
-!!! tip
-    Avoid using generic names for the upload key, such as *upload*, *android*, etc.
-
 ### App Signing key
 You can use *Play App Signing* to have Google generate the key, or you can provide it to Google when you first upload the application. **Using Play App Signing by Google is recommended.** See [Play App Signing](https://support.google.com/googleplay/android-developer/answer/9842756).
 
-- [ ] Add the SHA-1 of the production version of the app to `Firebase / Settings / Project settings / General tab`.
+- [ ] Add the SHA-1 of the production version of the app to the Firebase Console.
+    1. Go to *Google Play Console / Test and release / Setup / App signing / App signing key certificate* and copy `SHA-1 certificate fingerprint`.
+    2. Paste it into the *Firebase / Settings / Project settings / General tab* in the `SHA certificate fingerprints` field.
 
 !!! info "Important Note"
     Remember to configure 3rd party SDKs like Google Maps, Facebook login, etc., with the appropriate signing key information.
