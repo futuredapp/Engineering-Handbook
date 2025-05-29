@@ -13,9 +13,9 @@ This page describes how to **create and set up a Google Play account**.
 ## Client does not have a Google Play account
 Creating a Google Play account differs slightly depending on whether you want to create a **personal** or **organization account**.
 
-[Google Play account registration](https://play.google.com/console/signup) 
+Use the following link to begin the registration process: [Google Play account registration](https://play.google.com/console/signup)
 
-[Get started with Play Console manual](https://support.google.com/googleplay/android-developer/answer/6112435)
+For a comprehensive guide, refer to the [Get started with Play Console manual](https://support.google.com/googleplay/android-developer/answer/6112435).
 
 !!! info
     - There is a US$25 one-time registration fee for *personal* or *organization* usage, payable by credit/debit card.

@@ -33,11 +33,11 @@ The *Upload Key* is managed by the developer, while Google manages the *App Sign
 
 ### Upload key
 
-1. **Generate the upload key** with the client's information. Generating the upload key can be done in several ways:
+1. **Generate the upload key** using the client's information. You can generate the upload key in several ways:
 
-    - By Android Studio - **recommended**:
+    - Using Android Studio - **recommended**:
         - Open the *Build* menu.
-        - Select *Generate Signed Bundle / APK*.
+        - Choose *Generate Signed Bundle / APK*.
         - Choose *Android App Bundle* or *APK* and click *Next*.
         - Select *Create new...* under the *Key store path* field.
         - Fill in the required fields and click *OK*.
