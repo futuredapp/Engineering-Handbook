@@ -74,6 +74,67 @@ nav:
           - Builds: Teams/iOS/ios_builds.md
           - Release: Teams/iOS/ios_release.md
           - CI/CD: Teams/iOS/ios_ci_cd.md
+      - Full-stack:
+          - Overview: Teams/fullstack/index.md
+          - Introduction:
+              - Mission & Values: Teams/fullstack/intro/00_mission.md
+          - Development:
+              - Git Flow: Teams/fullstack/development/00_git_flow.md
+              - Pull Request Guidelines: Teams/fullstack/development/10_pull_request_guidelines.md
+              - Code Review Process: Teams/fullstack/development/20_code_review_process.md
+              - Project Setup: Teams/fullstack/development/30_project_setup.md
+          - Tech Stack:
+              - Frontend: Teams/fullstack/tech_stack/00_frontend.md
+              - Backend: Teams/fullstack/tech_stack/10_backend.md
+              - Database: Teams/fullstack/tech_stack/20_database.md
+              - DevOps: Teams/fullstack/tech_stack/30_devops.md
+              - Integrations: Teams/fullstack/tech_stack/40_integrations.md
+          - Coding Standards:
+              - Style Guides: Teams/fullstack/coding_standards/00_style_guides.md
+              - Linting: Teams/fullstack/coding_standards/10_linting.md
+              - Secure Coding: Teams/fullstack/coding_standards/20_secure_coding.md
+              - Testing: Teams/fullstack/coding_standards/30_testing.md
+              - Error Handling: Teams/fullstack/coding_standards/40_error_handling.md
+          - Development Environment:
+              - Local Setup: Teams/fullstack/dev_env/00_local_setup.md
+              - Tools: Teams/fullstack/dev_env/10_tools.md
+              - Secrets: Teams/fullstack/dev_env/20_secrets.md
+              - Troubleshooting: Teams/fullstack/dev_env/30_troubleshooting.md
+          - Deployment:
+              - Process: Teams/fullstack/deployment/00_deployment.md
+              - Rollback: Teams/fullstack/deployment/10_rollback.md
+              - Monitoring: Teams/fullstack/deployment/20_monitoring.md
+              - Incidents: Teams/fullstack/deployment/30_incidents.md
+          - Documentation:
+              - Code Documentation: Teams/fullstack/docs/00_code_docs.md
+              - API Documentation: Teams/fullstack/docs/10_api_docs.md
+          - Architecture:
+              - Diagrams: Teams/fullstack/architecture/00_diagrams.md
+              - Decisions: Teams/fullstack/architecture/10_decisions.md
+              - Patterns: Teams/fullstack/architecture/20_patterns.md
+              - Scalability: Teams/fullstack/architecture/30_scalability.md
+          - Security:
+              - Authentication: Teams/fullstack/security/00_auth.md
+              - Privacy: Teams/fullstack/security/10_privacy.md
+              - Dependencies: Teams/fullstack/security/20_dependencies.md
+              - Vulnerabilities: Teams/fullstack/security/30_vulnerabilities.md
+          - Quality Assurance:
+              - Testing Strategy: Teams/fullstack/qa/00_testing_strategy.md
+              - Testing: Teams/fullstack/qa/10_testing.md
+              - Checklist: Teams/fullstack/qa/20_checklist.md
+          - Continuous Improvement:
+              - Retrospectives: Teams/fullstack/improvement/00_retrospectives.md
+              - Technical Debt: Teams/fullstack/improvement/10_technical_debt.md
+              - Experimentation: Teams/fullstack/improvement/20_experimentation.md
+          - Learning:
+              - Reading: Teams/fullstack/learning/00_reading.md
+              - Tech Talks: Teams/fullstack/learning/10_tech_talks.md
+          - Appendices:
+              - Glossary: Teams/fullstack/appendices/00_glossary.md
+              - Scripts: Teams/fullstack/appendices/10_scripts.md
+              - FAQ: Teams/fullstack/appendices/20_faq.md
+              - Templates: Teams/fullstack/appendices/30_templates.md
+
     # - Design:
     #   - Overview: Teams/Design/design_page.md
     # - QA:
