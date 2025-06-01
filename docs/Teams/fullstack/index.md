@@ -32,7 +32,7 @@ The Full-stack team is responsible for developing and maintaining our web applic
 
 - [Typescript Style Guides](coding_standards/00_style_guides.md) - Coding conventions for TypeScript
 - [Linting & Formatting Tools](coding_standards/10_linting.md) - Tools used to enforce code style
-- 🚧 [Secure Coding Practices](coding_standards/20_secure_coding.md) - Guidelines for writing secure code
+- [Secure Coding Practices](coding_standards/20_secure_coding.md) - Guidelines for writing secure code
 - 🚧 [Testing Standards](coding_standards/30_testing.md) - Approaches and tools for testing code
 - 🚧 [Error Handling & Logging](coding_standards/40_error_handling.md) - Best practices for managing errors and logs
 

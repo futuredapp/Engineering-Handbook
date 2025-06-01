@@ -29,21 +29,21 @@ Here are some basic rules and practices we follow in our codebases, but we encou
 
 - **Variables and functions:** camelCase  
 
-```
+```typescript
 const userCount = 10
 function getUserById(id: string) { … }
 ```
 
 - **Classes and interfaces:** PascalCase
 
-```
+```typescript
 class UserService { … }
 interface UserData { … }
 ```
 
 - **Private members:** Prefix with underscore (optional, but consistent if used)
 
-```
+```typescript
 private _internalState: string;
 ```
 
@@ -51,7 +51,7 @@ private _internalState: string;
 
 - **Use `readonly` for immutable properties**
 
-```
+```typescript
 class User {
     readonly id: string
     constructor(id: string) { 
@@ -62,7 +62,7 @@ class User {
 
 - **Avoid `any`; prefer explicit types**
 
-```
+```typescript
 // Bad 
 function logValue(value: any) { … }
 // Good
@@ -73,7 +73,7 @@ function logValue(value: string | number) { … }
 
 - **Define GraphQL types as TypeScript classes**
 
-```
+```typescript
 @ObjectType()
 class User {
     @Field()
@@ -86,7 +86,7 @@ class User {
 
 - **Use auto-generated types for queries and mutations**
 
-```
+```typescript
 @Query(() => User)
 async getUsers(): Promise<User[]> { … }
 ```
@@ -96,7 +96,7 @@ async getUsers(): Promise<User[]> { … }
 - **Use `<script lang="ts">` in Single File Components**
 - **Define props with types**
 
-```
+```typescript
 props: {
     userId: { type: String as PropType, required: true }
 }
