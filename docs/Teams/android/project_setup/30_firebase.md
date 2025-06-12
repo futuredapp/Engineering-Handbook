@@ -70,7 +70,7 @@ Fingerprints can be obtained from the debug keystore.
 
 You will probably be using [Play App Signing](https://support.google.com/googleplay/android-developer/answer/9842756?hl=en) to sign the release build of your app. Don't forget to fill in the SHA-1 later. You'll be able to find the SHA-1 in the Google Play Console.
 
-Please refer to the [Setup app in Google Play Console](../release/10_setup_app_google_play_console.md) page for more info.
+Please refer to the [Setup app in Google Play Console](../release/10_google_play_app.md#app-signing-key) page for more info.
 
 ## Firebase features
 

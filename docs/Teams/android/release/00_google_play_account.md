@@ -56,4 +56,11 @@ Required information:
 - Developer email (will be visible in your Google Play profile)
 
 !!! warning
-    The main difference between a personal and organization account is that the personal account is not associated with a D-U-N-S number, **however your legal (personal) name and address will be publicly visible on Google Play**.
+    [Organization accounts](#organization-account-documentation) are preferred over personal accounts.
+
+    - The main difference between a personal and organization account is that the personal account is not associated with a D-U-N-S number, **however your legal (personal) name and address will be publicly visible on Google Play**.
+    - For personal accounts, before production release, you must complete a closed testing phase with the following requirements:
+        - Minimum of 12 testers
+        - Testers must be continuously opted-in for 14 days
+        - [Learn more](https://support.google.com/googleplay/android-developer/answer/14151465)
+    
