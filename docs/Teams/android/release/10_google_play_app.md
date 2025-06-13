@@ -26,7 +26,7 @@ This guide will help you set up your app in the Google Play Console, ensuring al
 ## Key Management
 
 You can use *Play App Signing* to have Google generate the key, or you can provide it to Google when you first upload the application.
-This guide uses [Play App Signing]((https://support.google.com/googleplay/android-developer/answer/9842756)).
+This guide uses [Play App Signing](https://support.google.com/googleplay/android-developer/answer/9842756).
 
 ### Understanding the Keys
 - **Upload Key**: Used by developers to sign APK/AAB before Play Console upload.
