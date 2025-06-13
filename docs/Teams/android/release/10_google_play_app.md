@@ -2,54 +2,31 @@
 
 This guide will help you set up your app in the Google Play Console, ensuring all requirements are met for testing and release.
 
-## Prerequisites
-
-### Essential Information
-- Application ID (permanent after creation), eg. `com.company.app`
-- App name (maximum 50 characters, editable later)
-- Content ratings questionnaire email (eg. `hello@company.com`)
-- App type and category ([Documentation](https://support.google.com/googleplay/android-developer/answer/9859673))
-- Appropriate labels
-- Age rating classification (18+ or made for kids)
-
-### Required Assets [(Documentation)](https://support.google.com/googleplay/android-developer/answer/9866151)
-
-The design team should provide the following assets:
-
-- **App Icon**
-    - Dimensions: 512x512 pixels
-    - Format: PNG with 32-bit alpha channel
-    - Maximum size: 1024KB
-    - [Design specifications](https://developer.android.com/distribute/google-play/resources/icon-design-specifications)
-
-- **App Description**
-    - Short description: 80 characters maximum
-    - Long description: 4000 characters maximum
-    - Required for all supported languages
-
-- **Screenshots**
-    - Quantity: 2-8 screenshots
-    - Format: JPEG or 24-bit PNG (no alpha channel)
-    - Maximum size: 8 MB
-    - Aspect ratio: 16:9 or 9:16
-
-- **Feature Graphic**
-    - Dimensions: 1024x500 pixels
-    - Format: JPEG or 24-bit PNG (no alpha channel)
-
-### Required Declarations
-- Advertising ID
-- Data safety
-- Health apps
-- Financial features
-- Additional relevant forms
+## Requirements to create an application
+- Application ID (package name) - cannot be changed later
+- App name (maximum 50 characters) - can be changed later
+- Assets (see [documentation](https://support.google.com/googleplay/android-developer/answer/9866151)):
+    - App icon: 512x512 px, PNG, 32-bit with alpha, maximum size: 1024KB (see [design specifications](https://developer.android.com/distribute/google-play/resources/icon-design-specifications))
+    - Description: short (80 characters) and long (maximum 4000 characters) for all supported languages
+    - Screenshots for phones or tablets: 2-8 screenshots, JPEG or 24-bit PNG (no alpha), maximum 8 MB, ratio: 16:9 or 9:16
+    - Feature graphic: JPEG or 24-bit PNG (no alpha), 1024x500 px
+- Email address for the content ratings questionnaire
+- App type and category (see [documentation](https://support.google.com/googleplay/android-developer/answer/9859673))
+- Labels
+- Declarations: *Advertising ID*, *Data safety*, *Health apps*, *Financial features*, and other required forms
+- Age rating: 18+ or made for kids
+- Create an `upload key certificate` for signing the app (see [Key Management](#key-management) section below)
+- Set up MD5, SHA-1, and SHA-256 fingerprints for the `upload key certificate` in the Google Play Console
+- Privacy policy link
+- Testing track emails for Internal, Closed, and Open testing (see [documentation](https://support.google.com/googleplay/android-developer/answer/9845334))
+- Release countries
 
 !!! note "Please complete all required declarations as soon as possible. Some of them are required for uploading the app to the testing tracks."
 
 ## Key Management
 
-You can use *Play App Signing* to have Google generate the key, or you can provide it to Google when you first upload the application. **Using 
-Play App Signing by Google is recommended.** See [Play App Signing](https://support.google.com/googleplay/android-developer/answer/9842756).
+You can use *Play App Signing* to have Google generate the key, or you can provide it to Google when you first upload the application.
+This guide uses [Play App Signing]((https://support.google.com/googleplay/android-developer/answer/9842756)).
 
 ### Understanding the Keys
 - **Upload Key**: Used by developers to sign APK/AAB before Play Console upload.
@@ -89,10 +66,10 @@ Play App Signing by Google is recommended.** See [Play App Signing](https://supp
 
 3. **Generate and Upload Signed Build**
     - Use Android Studio to generate a signed AAB using the upload key created in step 1.
-    - Upload the signed build to a testing track in Google Play Console
-    - If Play App Signing is enabled, Google will automatically generate the App Signing Key
+    - Manually upload the signed build to a testing track for the first time in Google Play Console
+    - Google will automatically generate the App Signing Key
     - After upload, you can locate the SHA-1 fingerprint of your App Signing Key in the Google Play Console under App Signing settings.
 
 !!! info "About Fingerprints"
-    - Do not forget to [add the SHA-1](../project_setup/30_firebase.md#sha-certificate-fingerprints) of the upload key to Firebase Console.
+    - Do not forget to [add the SHA-1](../project_setup/30_firebase.md#sha-certificate-fingerprints) of the **App Signing Key** key to Firebase Console.
     - Ensure all third-party SDKs (Google Maps, Facebook login, etc.) are configured with the correct signing key information.
