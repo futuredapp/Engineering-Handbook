@@ -10,7 +10,6 @@ We usually use [Semantic Versioning](https://semver.org/) (`x.x.x`)
 
 ![](../Resources/release/google_play_release_flow.png)
 
-
 ## Release Flow
 
 1. Create a release branch:
