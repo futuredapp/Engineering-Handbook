@@ -6,7 +6,7 @@ This page describes how to create and set up a Google Play account.
 If the client already has a Google Play account:
 
 1. Invite the Futured account (`ops@futured.app`) to the client's Google Play Console.
-2. Configure the appropriate permissions based on project requirements. We recommend granting *Admin* access, which enables Futured to fully manage the app, including version uploads, tester management, and store presence (descriptions, screenshots, and other assets).
+2. Configure the appropriate permissions based on project requirements. We recommend granting *Admin* access, which enables Futured to fully manage the app, including version uploads, tester management, store presence (descriptions, screenshots, and other assets) and very importantly - [CI/CD setup](./20_ci_cd.md).
 3. Proceed to [Setting up your app in Google Play Console](./10_google_play_app.md).
 
 ## New Google Play Account
