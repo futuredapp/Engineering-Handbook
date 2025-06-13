@@ -57,12 +57,15 @@ This guide uses [Play App Signing](https://support.google.com/googleplay/android
 
 2. **Store the Upload Key**
    
-    Store the following in **Futured Bitwarden** (Android Collection, accessible to the team):
+    Store the upload key credentials inside our **Bitwarden**. Create, or use existing entry for mobile application inside `Android` Collection. Owner should be set to `Futured`.
 
     - Upload key (`.keystore` file)
     - Keystore password
     - Upload key password
     - Upload key alias
+
+    Store the upload key `.keystore` file in repo alongside debug keystore. Make sure the release signing config in Android Gradle Plugin correctly references the keystore file.
+
 
 3. **Generate and Upload Signed Build**
     - Use Android Studio to generate a signed AAB using the upload key created in step 1.
