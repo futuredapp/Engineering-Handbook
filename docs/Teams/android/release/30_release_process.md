@@ -1,20 +1,46 @@
-# Release process overview
+# Release Process
 
-!!! warning "TODO: Please feel free to complete or modify this section as needed."
+## Introduction
 
-1. Review [Git flow](https://www.gitkraken.com/learn/git/git-flow) for guidelines on working with branches.
-2. Examine the release flowchart:
-    ![](../Resources/release/google_play_release_flow.png)
-3. Create a Pull Request from the `develop` branch to the `main` branch.
-    - Use a PR name in the format: `Release/X.X.X`, where `X.X.X` represents the version number.
+The release process involves creating a release branch, merging it to main, and triggering the CI/CD pipeline to publish the app to Google Play Console. For general guidelines on working with branches, review [Git flow](https://www.gitkraken.com/learn/git/git-flow).
 
-4. Wait for the PR to be approved and for the "Check PR" workflow to complete successfully.
-5. Create a new release tag in GitHub.
-    - Use a tag name in the format: `X.X.X`, where `X.X.X` represents the version number.
-    - Populate or generate the release notes.
-6. Wait for CI to build the release.
-7. Verify the release build(s) in the Firebase Console, Google Play Console, or other relevant platforms.
-8. If all checks pass, publish the release to the designated test channels (e.g., Internal, Closed, or Open testing, depending on the project).
-9. Notify the client about the new release 🎉 available in the test channels.
-10. Wait for the client to test the release and provide feedback.
-11. If the client approves the release, proceed to publish it to production 🚀🚀🚀
+We usually use [Semantic Versioning](https://semver.org/) (`x.x.x`)
+
+## Release Flow Diagram
+
+![](../Resources/release/google_play_release_flow.png)
+
+## Release Flow
+
+1. Create a release branch:
+      - Branch name format: `release/<version>`
+      - Create from: `develop` branch
+      - Merge any release-specific fixes to this branch
+
+2. Create a Pull Request:
+      - From: `release/<version>`
+      - To: `main`
+      - PR name format: `Release <version>`
+
+3. Wait for:
+      - PR approval
+      - CI checks
+
+4. After merge to `main`, create a new GitHub release:
+      - Tag name format: `<version>`
+      - Generate release notes
+
+5. Wait for CI to build the release
+
+6. Verify the release build in:
+      - Firebase Console
+      - Google Play Console
+
+7. Publish to test channels (depending on project needs):
+      - Internal testing (default)
+      - Closed testing (optional)
+      - Open testing (optional)
+
+8. Notify the client about the test release
+
+9. After client approval, publish to production
