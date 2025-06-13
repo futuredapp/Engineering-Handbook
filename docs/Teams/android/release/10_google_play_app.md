@@ -1,67 +1,75 @@
-# Setup app in Google Play Console
+# Setting Up Your App in Google Play Console
 
-This page describes **how to set up an app in the Google Play Console**.
+This guide will help you set up your app in the Google Play Console, ensuring all requirements are met for testing and release.
 
 ## Requirements to create an application
-- [ ] Package name. Cannot be changed later.
-- [ ] App name (max 50 characters). Can be changed later.
-- Assets - [docs](https://support.google.com/googleplay/android-developer/answer/9866151).
-    - [ ] App icon: 512x512 px, PNG, 32-bit with alpha, max size: 1024KB. See [Design specifications](https://developer.android.com/distribute/google-play/resources/icon-design-specifications).
-    - [ ] Description: short (80 characters) and long (max 4000 characters) for all supported languages.
-    - [ ] Screenshots for phones or tablets: 2-8 screenshots, JPEG or 24-bit PNG (no alpha), max. 8 MB, ratio: 16:9 or 9:16.
-    - [ ] Feature graphic: JPEG or 24-bit PNG (no alpha), 1024x500 px.
-- [ ] E-mail for the content ratings questionnaire.
-- [ ] App type and category. See [Docs](https://support.google.com/googleplay/android-developer/answer/9859673).
-- [ ] Labels.
-- [ ] Declarations: *Advertising ID*, *Data safety*, *Health apps*, *Financial features*, ... there are multiple forms to fill out.
-- [ ] Age rating: 18+ / made for kids.
-- [ ] To create an `upload key certificate` for signing the app to upload to the Google Play Console, see section: *Upload and App Signing Key* below.
-- [ ] Set up MD5 / SHA-1 / SHA-256 fingerprints for `upload key certificate` in the Google Play Console.
-- [ ] Link to privacy policy.
-- [ ] Set emails for Internal / Closed / Open testing. See [Docs](https://support.google.com/googleplay/android-developer/answer/9845334).
-- [ ] Set countries for release.
+- Application ID (package name) - cannot be changed later
+- App name (maximum 50 characters) - can be changed later
+- Assets (see [documentation](https://support.google.com/googleplay/android-developer/answer/9866151)):
+    - App icon: 512x512 px, PNG, 32-bit with alpha, maximum size: 1024KB (see [design specifications](https://developer.android.com/distribute/google-play/resources/icon-design-specifications))
+    - Description: short (80 characters) and long (maximum 4000 characters) for all supported languages
+    - Screenshots for phones or tablets: 2-8 screenshots, JPEG or 24-bit PNG (no alpha), maximum 8 MB, ratio: 16:9 or 9:16
+    - Feature graphic: JPEG or 24-bit PNG (no alpha), 1024x500 px
+- Email address for the content ratings questionnaire
+- App type and category (see [documentation](https://support.google.com/googleplay/android-developer/answer/9859673))
+- Labels
+- Declarations: *Advertising ID*, *Data safety*, *Health apps*, *Financial features*, and other required forms
+- Age rating: 18+ or made for kids
+- Create an `upload key certificate` for signing the app (see [Key Management](#key-management) section below)
+- Set up MD5, SHA-1, and SHA-256 fingerprints for the `upload key certificate` in the Google Play Console
+- Privacy policy link
+- Testing track emails for Internal, Closed, and Open testing (see [documentation](https://support.google.com/googleplay/android-developer/answer/9845334))
+- Release countries
 
-!!! warning
-    - Requirement for *Closed* testing for personal accounts: at least 12 testers must be opted-in to your closed test continuously for 14 days when you apply for production access. See [Docs](https://support.google.com/googleplay/android-developer/answer/14151465).
+!!! note "Please complete all required declarations as soon as possible. Some of them are required for uploading the app to the testing tracks."
 
+## Key Management
 
-## Upload and App Signing Key
-- The *Upload Key* is used by the developer to sign the APK/AAB before uploading it to the Play Console.
-- The *App Signing Key* is used by Google to re-sign the APK/AAB after upload, ensuring secure delivery to users.
+You can use *Play App Signing* to have Google generate the key, or you can provide it to Google when you first upload the application.
+This guide uses [Play App Signing](https://support.google.com/googleplay/android-developer/answer/9842756).
 
-The *Upload Key* is managed by the developer, while Google manages the *App Signing Key*.
+### Understanding the Keys
+- **Upload Key**: Used by developers to sign APK/AAB before Play Console upload.
+- **App Signing Key**: Used by Google to re-sign APK/AAB after upload for secure delivery.
 
-### Upload key
+### Upload Key Setup
 
-1. **Generate the upload key** using the client's information. You can generate the upload key in several ways:
+1. **Generate the Upload Key**
 
-    - Using Android Studio - **recommended**:
-        - Open the *Build* menu.
-        - Choose *Generate Signed Bundle / APK*.
-        - Choose *Android App Bundle* or *APK* and click *Next*.
-        - Select *Create new...* under the *Key store path* field.
-        - Fill in the required fields and click *OK*.
+    **Option 1: Android Studio (Recommended)**
 
-    - or you can use the `keytool` command to generate the key:
-         ```bash
-          keytool -genkey -v -keystore your-upload-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias your-alias-name
-         ```
+    1. Navigate to the *Build* menu
+    2. Select *Generate Signed Bundle / APK*
+    3. Choose between *Android App Bundle* or *APK*
+    4. Click *Next*
+    5. Select *Create new...* under *Key store path*
+    6. Complete the form and click *OK*
 
-    !!! tip
-        Avoid using generic names for the upload key, such as *upload*, *android*, etc.
+    **Option 2: Command Line**
+    ```bash
+    keytool -genkey -v -keystore your-upload-key.keystore -keyalg RSA -keysize 2048 -validity 10000 -alias your-alias-name
+    ```
 
-2. **Store the upload key** in **Futured Bitwarden**. It should contain:
-    - [ ] Upload key (`.jks` file).
-    - [ ] Upload key password.
-    - [ ] Alias name.
-    - [ ] Alias password.
+    !!! tip "Naming Convention"
+        Avoid generic names like "upload" or "android" for your key aliases. Using generic names will make it harder to inspect GitHub CI logs, as these properties are usually passed as secrets and will get masked.
+        
+        For example, if you use `upload` as the alias name, your logs can contain something like this: `Task :app:****CrashlyticsMappingFile SKIPPED`, etc. Using `android` can be even worse, as many logs contain the word `android` in them.
 
-### App Signing key
-You can use *Play App Signing* to have Google generate the key, or you can provide it to Google when you first upload the application. **Using Play App Signing by Google is recommended.** See [Play App Signing](https://support.google.com/googleplay/android-developer/answer/9842756).
+2. **Store the Upload Key**
+   
+    Store the following in **Futured Bitwarden** (Android Collection, accessible to the team):
 
-- [ ] Add the SHA-1 of the production version of the app to the Firebase Console.
-    1. Go to *Google Play Console / Test and release / Setup / App signing / App signing key certificate* and copy `SHA-1 certificate fingerprint`.
-    2. Paste it into the *Firebase / Settings / Project settings / General tab* in the `SHA certificate fingerprints` field.
+    - Upload key (`.keystore` file)
+    - Keystore password
+    - Upload key password
+    - Upload key alias
 
-!!! info "Important Note"
-    Remember to configure 3rd party SDKs like Google Maps, Facebook login, etc., with the appropriate signing key information.
+3. **Generate and Upload Signed Build**
+    - Use Android Studio to generate a signed AAB using the upload key created in step 1.
+    - Manually upload the signed build to a testing track for the first time in Google Play Console
+    - Google will automatically generate the App Signing Key
+    - After upload, you can locate the SHA-1 fingerprint of your App Signing Key in the Google Play Console under App Signing settings.
+
+!!! info "About Fingerprints"
+    - Do not forget to [add the SHA-1](../project_setup/30_firebase.md#sha-certificate-fingerprints) of the **App Signing Key** key to Firebase Console.
+    - Ensure all third-party SDKs (Google Maps, Facebook login, etc.) are configured with the correct signing key information.
