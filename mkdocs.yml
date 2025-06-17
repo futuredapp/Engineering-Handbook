@@ -61,6 +61,7 @@ nav:
               - Project: Teams/android/project_setup/20_project.md
               - Firebase: Teams/android/project_setup/30_firebase.md
               - CI/CD: Teams/android/project_setup/40_ci_cd.md
+              - Translations: Teams/android/project_setup/50_translations.md
           - Development:
               - Git Flow: Teams/android/development/00_git_flow.md
               - Code Style: Teams/android/development/10_code_style.md
