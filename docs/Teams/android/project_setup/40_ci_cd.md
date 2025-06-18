@@ -28,7 +28,7 @@ The CI/CD setup consists of three main workflows:
 
 **[Enterprise workflow](https://github.com/futuredapp/.github/blob/main/.github/workflows/android-cloud-release-firebaseAppDistribution.yml)** - This workflow is triggered after push/merge to the `develop` branch. It produces an Enterprise build (internal testing build) and publishes it to Firebase App Distribution for testing.
 
-**Required Setup:** described in [## Setup Requirements](#setup-requirements) section
+**Required Setup:** See [Setup Requirements](#setup-requirements) section
 
 **What it does:**
 - Builds the app in enterprise build variant 
@@ -39,7 +39,7 @@ The CI/CD setup consists of three main workflows:
 
 The release workflow is triggered when a GitHub release is created. It builds a production-ready app bundle and uploads it to Google Play Console.
 
-**Required Setup:** described in [## Setup Requirements](#setup-requirements) section
+**Required Setup:** See [Setup Requirements](#setup-requirements) section
 
 **What it does:**
 - Builds signed release AAB
@@ -62,8 +62,8 @@ Before running the PR Check workflow, KMP projects use a **[detect changes](http
 ### Workflow Differences
 
 - **PR Check Workflow**: Same as native projects, but only runs if Android/KMP changes are detected
-- **Enterprise Workflow**: Same as native projects, but includes jobs for Android and also iOS
-- **Release Workflow**: Same as native projects,  but includes jobs for Android and also iOS
+- **Enterprise Workflow**: Same as native projects, but includes jobs for both Android and iOS
+- **Release Workflow**: Same as native projects, but includes jobs for both Android and iOS
 
 ## Setup Requirements
 
