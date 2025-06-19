@@ -2,7 +2,7 @@
 
 Projects created from our templates have default GitHub Actions configuration that contains workflows for pull request checks, Enterprise build distribution, and release on Google Play Store.
 
-Default configuration uses shared workflows for this purpose.
+Default configuration uses [shared workflows](https://github.com/futuredapp/.github) for this purpose.
 
 ## Workflow Overview
 
@@ -19,6 +19,7 @@ The CI/CD setup consists of three main workflows:
 **[PR Check workflow](https://github.com/futuredapp/.github/blob/main/.github/workflows/android-cloud-check.yml)** - This workflow is triggered every time a pull request is created and doesn't require any additional configuration. The main purpose of this workflow is to run lint checks and unit tests. If major shortcomings are found or unit tests are not passing, this workflow will fail and PR merge will be blocked until it's resolved.
 
 **What it does:**
+
 - Runs linting checks
 - Executes unit tests
 - Validates code quality
@@ -31,6 +32,7 @@ The CI/CD setup consists of three main workflows:
 **Required Setup:** See [Setup Requirements](#setup-requirements) section
 
 **What it does:**
+
 - Builds the app in enterprise build variant 
 - Signs the APK with development key
 - Uploads to Firebase App Distribution
@@ -42,6 +44,7 @@ The release workflow is triggered when a GitHub release is created. It builds a 
 **Required Setup:** See [Setup Requirements](#setup-requirements) section
 
 **What it does:**
+
 - Builds signed release AAB
 - Uploads to Google Play Console
 
@@ -54,6 +57,7 @@ Multiplatform projects contain similar workflows as native projects with additio
 Before running the PR Check workflow, KMP projects use a **[detect changes](https://github.com/futuredapp/.github/blob/main/.github/workflows/kmp-cloud-detect-changes.yml)** job to determine if Android/KMP code has been modified. This prevents unnecessary CI/CD runs when only iOS code has changed.
 
 **How it works:**
+
 - Analyzes changed files in the PR
 - Checks if Android/KMP source files were modified
 - Only triggers Android workflows if relevant changes are detected
