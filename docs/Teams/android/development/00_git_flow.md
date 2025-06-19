@@ -1,6 +1,6 @@
 # Git Flow
 
-To ensure smooth collaboration on a project with a large team of developers and to ensure the correct functioning of our CI/CD and Jira integration tools, we have a small set of rules and recommendations to follow.
+To ensure smooth collaboration on a project with a large team of developers and to ensure the correct functioning of our CI/CD and Jira integration tools, we have a small set of rules and recommendations to follow in addition to standard [Git Flow](https://www.gitkraken.com/learn/git/git-flow) rules.
 
 ---
 
@@ -24,7 +24,7 @@ Feature and fix branches should follow a strict naming convention so our Jira in
 **Feature branch:**
 
   - Used when a new feature is developed.
-  - Pattern: 
+  - **Pattern**: 
     ```
     feature/<jira-ticket-id>-<short-description-in-kebab-case>
     ```
@@ -32,7 +32,7 @@ Feature and fix branches should follow a strict naming convention so our Jira in
 **Fix branch:**
 
 - Used when the related Jira task is a bug task.
-- Pattern:
+- **Pattern**:
     ```
     fix/<jira-ticket-id>-<short-description-in-kebab-case>
     ```
@@ -40,7 +40,7 @@ Feature and fix branches should follow a strict naming convention so our Jira in
 **Hotfix branch:**
 
 - Used when we need to deploy a fix to already released code.
-- Pattern:
+- **Pattern**:
     ```
     hotfix/<jira-ticket-id>-<short-description-in-kebab-case>
     ```

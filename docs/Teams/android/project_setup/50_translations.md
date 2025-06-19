@@ -12,7 +12,7 @@ For Android native projects based on our template, the setup is pretty straightf
 
 ## KMP projects 
 
-#### 1. add Sheet happens gradle plugin
+#### 1. Add [sheet-happens](https://github.com/futuredapp/sheet-happens) gradle plugin
 
 Add the Sheet happens plugin to your resource module's `build.gradle.kts` file:
 
@@ -41,6 +41,10 @@ sheetHappens {
 
 !!! warning "API Key Security"
     Always store sensitive API keys securely and never commit them to version control.
+
+!!! note
+
+    If you use Firebase, create the Google Sheets API key in your **Dev Firebase Google Cloud project** (not the production one).
 
 For security reasons, extract the API key to a `local.properties` file that is not part of GitHub versioning:
 
