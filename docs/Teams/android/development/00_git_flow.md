@@ -6,9 +6,12 @@ To ensure smooth collaboration on a project with a large team of developers and 
 
 ## Base Branches
 
-- **main** (formerly master):
+**main** (formerly master):
+
   - The production branch, containing features and fixes that are available in the released version of the app.
-- **develop**:
+
+**develop**:
+
   - Contains the latest features and fixes that are provided to QA for testing purposes. All features go to this branch before release.
 
 ---
@@ -18,19 +21,24 @@ To ensure smooth collaboration on a project with a large team of developers and 
 ### Branch Naming Convention
 Feature and fix branches should follow a strict naming convention so our Jira integration works and tasks are moved automatically.
 
-- **Feature branch:**
+**Feature branch:**
+
   - Used when a new feature is developed.
   - Pattern: 
     ```
     feature/<jira-ticket-id>-<short-description-in-kebab-case>
     ```
-- **Fix branch:**
+
+**Fix branch:**
+
   - Used when the related Jira task is a bug task.
   - Pattern:
     ```
     fix/<jira-ticket-id>-<short-description-in-kebab-case>
     ```
-- **Hotfix branch:**
+
+**Hotfix branch:**
+
   - Used when we need to deploy a fix to already released code.
   - Pattern:
     ```
