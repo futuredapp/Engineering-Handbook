@@ -17,10 +17,6 @@ This handbook describes the best practices and guidelines we use for app develop
 
 * [Architecture](/ios/architecture.md)
 
-## Android
+## Android & KMP
 
-* [New project checklist](/android/new-project.md)
-* [Code style & Project structure](/android/code-style.md)
-
-## KMP
-* [New project checklist](/kmp/new-project.md)
+Visit the new shiny [Android & Kotlin Multiplatform handbook](https://futuredapp.github.io/Engineering-Handbook/Teams/android/).
