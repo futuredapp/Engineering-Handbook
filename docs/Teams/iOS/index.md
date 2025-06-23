@@ -4,9 +4,9 @@ Welcome to the iOS section of the Futured Engineering Handbook. This area contai
 
 ## Key Sections
 
-#### [New project](ios_new_project.md) - How to start a new project
+#### [New Project](ios_new_project.md) - How to start a new project
 
-#### [Customer account](ios_customer_account.md) - What we need to build an app to customer's account
+#### [Customer Account](ios_customer_account.md) - What we need to build an app to customer's account
 
 #### [Builds](ios_builds.md) - Informations about project configurations
 

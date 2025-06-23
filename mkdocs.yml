@@ -51,98 +51,98 @@ nav:
   - Home: index.md
   - Teams:
       - Android & KMP:
-          - Overview: Teams/android/index.md
+          - Overview: teams/android/index.md
           - Architecture:
-              - Android-native: Teams/android/architecture/00_native.md
-              - Kotlin Multiplatform: Teams/android/architecture/10_kmp.md
+              - Android-native: teams/android/architecture/00_native.md
+              - Kotlin Multiplatform: teams/android/architecture/10_kmp.md
           - Project Setup:
-              - First Steps: Teams/android/project_setup/00_new_repo.md
-              - GitHub: Teams/android/project_setup/10_github.md
-              - Project: Teams/android/project_setup/20_project.md
-              - Firebase: Teams/android/project_setup/30_firebase.md
-              - CI/CD: Teams/android/project_setup/40_ci_cd.md
-              - Translations: Teams/android/project_setup/50_translations.md
+              - First Steps: teams/android/project_setup/00_new_repo.md
+              - GitHub: teams/android/project_setup/10_github.md
+              - Project: teams/android/project_setup/20_project.md
+              - Firebase: teams/android/project_setup/30_firebase.md
+              - CI/CD: teams/android/project_setup/40_ci_cd.md
+              - Translations: teams/android/project_setup/50_translations.md
           - Development:
-              - Git Flow: Teams/android/development/00_git_flow.md
-              - Code Style: Teams/android/development/10_code_style.md
-              - Build Distribution: Teams/android/development/20_build_distrubution.md
+              - Git Flow: teams/android/development/00_git_flow.md
+              - Code Style: teams/android/development/10_code_style.md
+              - Build Distribution: teams/android/development/20_build_distrubution.md
           - Release:
-              - Google Play Account: Teams/android/release/00_google_play_account.md
-              - Google Play App: Teams/android/release/10_google_play_app.md
-              - CI/CD: Teams/android/release/20_ci_cd.md
-              - Process Overview: Teams/android/release/30_release_process.md
+              - Google Play Account: teams/android/release/00_google_play_account.md
+              - Google Play App: teams/android/release/10_google_play_app.md
+              - CI/CD: teams/android/release/20_ci_cd.md
+              - Process Overview: teams/android/release/30_release_process.md
       - iOS:
-          - Overview: Teams/iOS/index.md
-          - New project: Teams/iOS/ios_new_project.md
-          - Customer Account: Teams/iOS/ios_customer_account.md
-          - Builds: Teams/iOS/ios_builds.md
-          - Release: Teams/iOS/ios_release.md
-          - CI/CD: Teams/iOS/ios_ci_cd.md
+          - Overview: teams/ios/index.md
+          - New Project: teams/ios/ios_new_project.md
+          - Customer Account: teams/ios/ios_customer_account.md
+          - Builds: teams/ios/ios_builds.md
+          - Release: teams/ios/ios_release.md
+          - CI/CD: teams/ios/ios_ci_cd.md
       - Full-stack:
-          - Overview: Teams/fullstack/index.md
+          - Overview: teams/fullstack/index.md
           - Introduction:
-              - Mission & Values: Teams/fullstack/intro/00_mission.md
+              - Mission & Values: teams/fullstack/intro/00_mission.md
           - Development:
-              - Git Flow: Teams/fullstack/development/00_git_flow.md
-              - Pull Request Guidelines: Teams/fullstack/development/10_pull_request_guidelines.md
-              - Code Review Process: Teams/fullstack/development/20_code_review_process.md
-              - Project Setup: Teams/fullstack/development/30_project_setup.md
+              - Git Flow: teams/fullstack/development/00_git_flow.md
+              - Pull Request Guidelines: teams/fullstack/development/10_pull_request_guidelines.md
+              - Code Review Process: teams/fullstack/development/20_code_review_process.md
+              - Project Setup: teams/fullstack/development/30_project_setup.md
           - Tech Stack:
-              - Frontend: Teams/fullstack/tech_stack/00_frontend.md
-              - Backend: Teams/fullstack/tech_stack/10_backend.md
-              - Database: Teams/fullstack/tech_stack/20_database.md
-              - DevOps: Teams/fullstack/tech_stack/30_devops.md
-              - Integrations: Teams/fullstack/tech_stack/40_integrations.md
+              - Frontend: teams/fullstack/tech_stack/00_frontend.md
+              - Backend: teams/fullstack/tech_stack/10_backend.md
+              - Database: teams/fullstack/tech_stack/20_database.md
+              - DevOps: teams/fullstack/tech_stack/30_devops.md
+              - Integrations: teams/fullstack/tech_stack/40_integrations.md
           - Coding Standards:
-              - Style Guides: Teams/fullstack/coding_standards/00_style_guides.md
-              - Linting: Teams/fullstack/coding_standards/10_linting.md
-              - Secure Coding: Teams/fullstack/coding_standards/20_secure_coding.md
-              - Testing: Teams/fullstack/coding_standards/30_testing.md
-              - Error Handling: Teams/fullstack/coding_standards/40_error_handling.md
+              - Style Guides: teams/fullstack/coding_standards/00_style_guides.md
+              - Linting: teams/fullstack/coding_standards/10_linting.md
+              - Secure Coding: teams/fullstack/coding_standards/20_secure_coding.md
+              - Testing: teams/fullstack/coding_standards/30_testing.md
+              - Error Handling: teams/fullstack/coding_standards/40_error_handling.md
           - Development Environment:
-              - Local Setup: Teams/fullstack/dev_env/00_local_setup.md
-              - Tools: Teams/fullstack/dev_env/10_tools.md
-              - Secrets: Teams/fullstack/dev_env/20_secrets.md
-              - Troubleshooting: Teams/fullstack/dev_env/30_troubleshooting.md
+              - Local Setup: teams/fullstack/dev_env/00_local_setup.md
+              - Tools: teams/fullstack/dev_env/10_tools.md
+              - Secrets: teams/fullstack/dev_env/20_secrets.md
+              - Troubleshooting: teams/fullstack/dev_env/30_troubleshooting.md
           - Deployment:
-              - Process: Teams/fullstack/deployment/00_deployment.md
-              - Rollback: Teams/fullstack/deployment/10_rollback.md
-              - Monitoring: Teams/fullstack/deployment/20_monitoring.md
-              - Incidents: Teams/fullstack/deployment/30_incidents.md
+              - Process: teams/fullstack/deployment/00_deployment.md
+              - Rollback: teams/fullstack/deployment/10_rollback.md
+              - Monitoring: teams/fullstack/deployment/20_monitoring.md
+              - Incidents: teams/fullstack/deployment/30_incidents.md
           - Documentation:
-              - Code Documentation: Teams/fullstack/docs/00_code_docs.md
-              - API Documentation: Teams/fullstack/docs/10_api_docs.md
+              - Code Documentation: teams/fullstack/docs/00_code_docs.md
+              - API Documentation: teams/fullstack/docs/10_api_docs.md
           - Architecture:
-              - Diagrams: Teams/fullstack/architecture/00_diagrams.md
-              - Decisions: Teams/fullstack/architecture/10_decisions.md
-              - Patterns: Teams/fullstack/architecture/20_patterns.md
-              - Scalability: Teams/fullstack/architecture/30_scalability.md
+              - Diagrams: teams/fullstack/architecture/00_diagrams.md
+              - Decisions: teams/fullstack/architecture/10_decisions.md
+              - Patterns: teams/fullstack/architecture/20_patterns.md
+              - Scalability: teams/fullstack/architecture/30_scalability.md
           - Security:
-              - Authentication: Teams/fullstack/security/00_auth.md
-              - Privacy: Teams/fullstack/security/10_privacy.md
-              - Dependencies: Teams/fullstack/security/20_dependencies.md
-              - Vulnerabilities: Teams/fullstack/security/30_vulnerabilities.md
+              - Authentication: teams/fullstack/security/00_auth.md
+              - Privacy: teams/fullstack/security/10_privacy.md
+              - Dependencies: teams/fullstack/security/20_dependencies.md
+              - Vulnerabilities: teams/fullstack/security/30_vulnerabilities.md
           - Quality Assurance:
-              - Testing Strategy: Teams/fullstack/qa/00_testing_strategy.md
-              - Testing: Teams/fullstack/qa/10_testing.md
-              - Checklist: Teams/fullstack/qa/20_checklist.md
+              - Testing Strategy: teams/fullstack/qa/00_testing_strategy.md
+              - Testing: teams/fullstack/qa/10_testing.md
+              - Checklist: teams/fullstack/qa/20_checklist.md
           - Continuous Improvement:
-              - Retrospectives: Teams/fullstack/improvement/00_retrospectives.md
-              - Technical Debt: Teams/fullstack/improvement/10_technical_debt.md
-              - Experimentation: Teams/fullstack/improvement/20_experimentation.md
+              - Retrospectives: teams/fullstack/improvement/00_retrospectives.md
+              - Technical Debt: teams/fullstack/improvement/10_technical_debt.md
+              - Experimentation: teams/fullstack/improvement/20_experimentation.md
           - Learning:
-              - Reading: Teams/fullstack/learning/00_reading.md
-              - Tech Talks: Teams/fullstack/learning/10_tech_talks.md
+              - Reading: teams/fullstack/learning/00_reading.md
+              - Tech Talks: teams/fullstack/learning/10_tech_talks.md
           - Appendices:
-              - Glossary: Teams/fullstack/appendices/00_glossary.md
-              - Scripts: Teams/fullstack/appendices/10_scripts.md
-              - FAQ: Teams/fullstack/appendices/20_faq.md
-              - Templates: Teams/fullstack/appendices/30_templates.md
+              - Glossary: teams/fullstack/appendices/00_glossary.md
+              - Scripts: teams/fullstack/appendices/10_scripts.md
+              - FAQ: teams/fullstack/appendices/20_faq.md
+              - Templates: teams/fullstack/appendices/30_templates.md
 
     # - Design:
-    #   - Overview: Teams/Design/design_page.md
+    #   - Overview: teams/design/design_page.md
     # - QA:
-    #   - Overview: Teams/QA/qa_page.md
+    #   - Overview: teams/qa/qa_page.md
   - Editors: editors.md
 
 copyright: Made with ❤️‍🔥 at Futured
