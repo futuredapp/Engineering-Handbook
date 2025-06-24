@@ -29,6 +29,18 @@ Debug builds are created in Xcode by developers.
 ??? info "Haven't you registered your iOS device yet? Follow these instructions."
     ## Adding to list of devices
     
+    ### Get your device's UDID
+    
+    1. Connect your device to Mac and unlock it
+    2. Open Finder
+    
+        1. Select your device in Locations
+        2. In detail, click the grey metadata under your device name until you see UDID section
+        
+        ![Step 2](Resources/ios_builds_2.png){ width="900" }
+    
+    ### Register your device
+    
     To be able to run a debug build on your device you need to add it to the company's private fastlane repository. Update file `device-list.txt` file. See closed PRs for inspiration or follow these steps:
 
     Each device has to have three columns **separated by tabs**.
@@ -61,7 +73,7 @@ Although it is possible to invite external users to Futured's App Store Connect 
 - internal builds are automatically submited with merged pull request => these builds should be tested first which cannot be guaranteed in internal testing
 - security concerns
 
-![Step 2](Resources/ios_builds_2.png){ width="900" }
+![Step 4](Resources/ios_builds_3.png){ width="900" }
 
 ## Production builds
 
