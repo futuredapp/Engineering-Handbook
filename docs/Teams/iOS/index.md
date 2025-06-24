@@ -4,6 +4,8 @@ Welcome to the iOS section of the Futured Engineering Handbook. This area contai
 
 ## Key Sections
 
+#### [Architecture](ios_architecture.md) - Futured iOS architecture
+
 #### [New Project](ios_new_project.md) - How to start a new project
 
 #### [Git Flow](ios_git_flow.md) - Recommended git flow

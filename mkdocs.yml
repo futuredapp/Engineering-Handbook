@@ -73,6 +73,7 @@ nav:
               - Process Overview: teams/android/release/30_release_process.md
       - iOS:
           - Overview: teams/ios/index.md
+          - Architecture: teams/ios/ios_architecture.md
           - New Project: teams/ios/ios_new_project.md
           - Git Flow: teams/ios/ios_git_flow.md
           - Customer Account: teams/ios/ios_customer_account.md
