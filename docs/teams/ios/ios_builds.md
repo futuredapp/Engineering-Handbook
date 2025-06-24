@@ -1,10 +1,68 @@
-# Build distribution
+# Builds
 
 There are three build configurations.
     
 ## Debug builds
 
-Debug builds are created in Xcode by developers. See project readme to find how you can create a debug build.
+Debug builds are created in Xcode by developers.
+
+### How to run a debug build on device
+
+1. Environment setup - follow the well-written and maintained manual [here](https://www.moncefbelyamani.com/how-to-install-xcode-homebrew-git-rvm-ruby-on-mac/)
+
+2. From Terminal in the project folder:
+
+    - install necessary ruby tools:
+        ```bash
+        bundle install
+        ```
+
+    - download development certificate and provisioning profiles:
+        ```bash
+        bundle exec fastlane provisioning
+        ```
+
+3. Build using Xcode, select your device in run destinations
+
+    ![Step 1](Resources/ios_builds_1.png){ width="900" }
+
+??? info "Haven't you registered your iOS device yet? Follow these instructions."
+    ## Adding to list of devices
+    
+    ### Get your device's UDID
+    
+    1. Connect your device to Mac and unlock it
+    2. Open Finder
+    
+        1. Select your device in Locations
+        2. In detail, click the grey metadata under your device name until you see UDID section
+        
+        ![Step 2](Resources/ios_builds_2.png){ width="900" }
+    
+    ### Register your device
+    
+    To be able to run a debug build on your device you need to add it to the company's private fastlane repository. Update file `device-list.txt` file. See closed PRs for inspiration or follow these steps:
+
+    Each device has to have three columns **separated by tabs**.
+
+    1. Device UDID
+    2. Descriptive name of the device
+    3. Operation system
+
+    `UDID	Owner - Device model	ios/mac`
+
+    ### Regenerating the profiles for new devices
+
+    Project profiles won't regenerate automatically after adding a new device. To regenerate the profiles, follow these steps:
+
+    1. Retrieve the ops Apple ID password from Bitwarden
+    2. Ask someone with ops access to provide you with an authentication code
+    3. In the project directory, call the following command from Terminal:
+        ```bash
+        MATCH_FORCE=true bundle exec fastlane update_provisioning
+        ```
+
+        _If `MATCH_FORCE` environment variable is not provided the profiles are updated only when invalid._
 
 ## Beta builds
 
@@ -15,7 +73,7 @@ Although it is possible to invite external users to Futured's App Store Connect 
 - internal builds are automatically submited with merged pull request => these builds should be tested first which cannot be guaranteed in internal testing
 - security concerns
 
-![Step 1](Resources/ios_builds_1.png){ width="900" }
+![Step 4](Resources/ios_builds_3.png){ width="900" }
 
 ## Production builds
 

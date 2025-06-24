@@ -1,4 +1,4 @@
-# Customer's account
+# Customer's Account
 
 To establish our CI flow and be able to deliver builds to customer's App Store Connect account and maintain app submission we need:
     

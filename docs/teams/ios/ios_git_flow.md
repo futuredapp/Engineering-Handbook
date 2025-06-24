@@ -1,10 +1,10 @@
-# Git flow
+# Git Flow
 
 ## Branches
 
 We use `develop` as the main branch to which the development increments (pull requests) are being integrated.
 
-The `main` branch is the stable branch, keeping the most recently released version. Each merge to `main` should be appropriately tagged with build number of the release (see [Release checklist - iOS](../ios/releases.md)).
+The `main` branch is the stable branch, keeping the most recently released version. Each merge to `main` should be appropriately tagged with build number of the release (see [Release](ios_release.md#source-control-steps-to-release)).
 
 Feature branches, prefixed with `feature/`, are used to implement one specific feature defined in Jira task. When a feature is merged and a fix is required by Jira task (eg. from tester), a `fix/` branch is used. Similarly, a `hotfix/` branch is used if urgent fix of a released version is needed and should be merged only to the `main` branch.
 

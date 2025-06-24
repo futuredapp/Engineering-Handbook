@@ -1,4 +1,4 @@
-# New project
+# New Project
 
 1. Create a new GitHub repository
 
