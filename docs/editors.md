@@ -3,7 +3,7 @@ hide:
   - navigation
 ---
 
-# For Editors
+# Contributing
 
 This guide helps you contribute to the Engineering Handbook using Material for MkDocs.
 
