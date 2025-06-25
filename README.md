@@ -1,4 +1,4 @@
-<img align="right" alt="Engineering handbook logo" src="resources/Engeneering_handbook.svg">
+<img align="right" alt="Engineering handbook logo" src="docs/assets/logo.svg">
 
 # Futured Engineering Handbook
 
