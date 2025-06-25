@@ -2,16 +2,18 @@
   --md-primary-fg-color:        #FF5F00;
   --md-primary-fg-color--light: #FF5F00;
   --md-primary-fg-color--dark:  #FF5F00;
+  --md-menu-hover-color: #FFFFFF;
 }
 
 [data-md-color-scheme="slate"] {
   --md-primary-fg-color:        #FF5F00;
   --md-primary-fg-color--light: #FF5F00;
   --md-primary-fg-color--dark:  #FF5F00;
+  --md-menu-hover-color: #FFFFFF;
 }
 
 a:hover, a:focus {
-    color: var(--md-primary-fg-color) !important;
+    color: var(--md-menu-hover-color) !important;
 }
 
 .md-nav__link:hover {
