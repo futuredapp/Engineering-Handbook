@@ -21,7 +21,7 @@ We believe in open collaboration and sharing knowledge. By making our engineerin
 
 ### Tools & Resources
 
-- **[Editors](editors.md)** - Contribution guidelines
+- **[Contributing](editors.md)** - Contribution guidelines
 
 ## Contributing to the Handbook
 
