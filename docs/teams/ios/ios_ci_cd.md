@@ -1,4 +1,30 @@
 # CI/CD
+
+## Fastlane configuring 
+
+For importing Futured's Fastlane flow to your project, add `fastlane/Fastfile` to project's folder and insert this code:
+
+```ruby
+
+ENV['APP_NAME'] = 'AppName'
+ENV['APP_SCHEME'] = 'AppName'
+ENV['APP_IDENTIFIER'] = 'app.futured.app_name'
+# If you use any app's extension (notification, widget, etc.), uncomment next line and fill all the extension names (comma separated):
+#ENV['APP_EXTENSIONS'] = 'extension1,extension2'
+
+# If you want beta builds with dark badge on app icons, uncomment next line:
+#ENV['BADGE_DARK'] = 'true'
+
+# In case the app is released under partner's developer account setup following variables:
+#ENV['APP_IDENTIFIER_CUSTOMER'] = 'cz.our.futuristic.partner'
+#ENV['TEAM_ID_CUSTOMER'] = 'AAAAAAAAAA'
+# Use these steps to get ASC ID: https://stackoverflow.com/a/46415415/3887546 
+#ENV['ASC_TEAM_ID_CUSTOMER'] = '123456'
+#ENV['CUSTOMERS_BRANCH'] = 'partner'
+
+import_from_git(url: 'git@github.com:futuredapp/fastlane.git')
+
+```
     
 ## Renew provisioning profile
 
