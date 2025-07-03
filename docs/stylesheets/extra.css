@@ -102,11 +102,6 @@
   color: var(--ftrd-brand) !important;
 }
 
-/* Navigation links - default */
-.md-nav__link {
-  color: var(--ftrd-foreground-variant) !important;
-}
-
 /* Navigation links - hover */
 .md-nav__link:hover {
   color: var(--ftrd-brand) !important;
