@@ -38,8 +38,10 @@
   --md-primary-fg-color: var(--ftrd-brand);
   --md-primary-bg-color: var(--ftrd-foreground);
 
-  --md-default-bg-color: var(--ftrd-background);
   --md-default-fg-color: var(--ftrd-foreground);
+  --md-default-bg-color: var(--ftrd-background);
+
+  --md-accent-fg-color: var(--ftrd-brand);
 }
 
 [data-md-color-scheme="slate"] {
@@ -54,8 +56,12 @@
   --md-primary-fg-color: var(--ftrd-brand);
   --md-primary-bg-color: var(--ftrd-foreground);
 
-  --md-default-bg-color: var(--ftrd-background);
   --md-default-fg-color: var(--ftrd-foreground);
+  --md-default-bg-color: var(--ftrd-background);
+
+  --md-accent-fg-color: var(--ftrd-brand);
+  
+  --md-code-bg-color: var(--ftrd-background-variant);
 }
 
 /* Header background */
@@ -113,4 +119,3 @@
 .md-typeset a {
     color: var(--md-primary-fg-color) !important;
 }
-
