@@ -14,7 +14,6 @@ theme:
   favicon: assets/favicon.svg
 
   font:
-    text: Space Grotesk
     code: JetBrains Mono
 
   palette:

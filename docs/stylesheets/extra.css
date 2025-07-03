@@ -1,7 +1,37 @@
+@font-face {
+  font-family: 'Roobert';
+  src: url('../assets/fonts/Roobert-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roobert';
+  src: url('../assets/fonts/Roobert-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roobert';
+  src: url('../assets/fonts/Roobert-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --md-text-font: "Roobert"
+}
+
 [data-md-color-scheme="default"] {
   --ftrd-background: #FFFFFF;
+  --ftrd-background-variant: #0000001A;
   --ftrd-foreground: #222222;
   --ftrd-foreground-variant: #00000099;
+  --ftrd-foreground-variant2: #00000066;
   --ftrd-border: #E7E8E9;
   --ftrd-brand: #FF5F00;
 
@@ -14,8 +44,10 @@
 
 [data-md-color-scheme="slate"] {
   --ftrd-background: #1B1B1B;
+  --ftrd-background-variant: #FFFFFF1A;
   --ftrd-foreground: #E7E8E9;
   --ftrd-foreground-variant: #C2C5C8;
+  --ftrd-foreground-variant2: #C2C5C8;
   --ftrd-border: #292929;
   --ftrd-brand: #FF5F00;
 
@@ -45,6 +77,11 @@
 /* Tab item color */
 .md-tabs__item {
   color: var(--ftrd-foreground) !important;
+}
+
+/* Tab item opacity, gets rid of transition animation, did not find a way to do transition to brand color */
+.md-tabs__link {
+  opacity: 1;
 }
 
 /* Tab item color -- selected */
