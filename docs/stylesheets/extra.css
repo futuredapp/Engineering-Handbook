@@ -1,33 +1,74 @@
 [data-md-color-scheme="default"] {
-  --md-primary-fg-color:        #FF5F00;
-  --md-primary-fg-color--light: #FF5F00;
-  --md-primary-fg-color--dark:  #FF5F00;
-  --md-menu-hover-color: #FFFFFF;
+  --ftrd-background: #FFFFFF;
+  --ftrd-foreground: #222222;
+  --ftrd-foreground-variant: #00000099;
+  --ftrd-border: #E7E8E9;
+  --ftrd-brand: #FF5F00;
+
+  --md-primary-fg-color: var(--ftrd-brand);
+  --md-default-bg-color: var(--ftrd-background);
+  --md-default-fg-color: var(--ftrd-foreground);
 }
 
 [data-md-color-scheme="slate"] {
-  --md-primary-fg-color:        #FF5F00;
-  --md-primary-fg-color--light: #FF5F00;
-  --md-primary-fg-color--dark:  #FF5F00;
-  --md-menu-hover-color: #FFFFFF;
+  --ftrd-background: #1B1B1B;
+  --ftrd-foreground: #E7E8E9;
+  --ftrd-foreground-variant: #C2C5C8;
+  --ftrd-border: #292929;
+  --ftrd-brand: #FF5F00;
+
+  --md-primary-fg-color: var(--ftrd-brand);
+  --md-default-bg-color: var(--ftrd-background);
+  --md-default-fg-color: var(--ftrd-foreground);
 }
 
-a:hover, a:focus {
-    color: var(--md-menu-hover-color) !important;
+/* Header background */
+.md-header {
+  background-color: var(--ftrd-background);
 }
 
-.md-nav__link:hover {
-    color: var(--md-primary-fg-color) !important;
+/* Page title */
+.md-header__topic {
+  color: var(--ftrd-foreground);
 }
 
-.md-sidebar__scrollwrap:hover {
-  scrollbar-color: var(--md-primary-fg-color) #0000;
+/* Tab background */
+.md-tabs {
+  background-color: var(--ftrd-background);
+  border-bottom: 1px solid var(--ftrd-border);
 }
 
+/* Tab item color */
+.md-tabs__item {
+  color: var(--ftrd-foreground) !important;
+}
+
+/* Tab item color -- selected */
+.md-tabs__item--active {
+  color: var(--ftrd-brand) !important;
+}
+
+/* Navigation links - selected */
 .md-nav__link--active {
-  color: var(--md-primary-fg-color) !important;
+  color: var(--ftrd-brand) !important;
 }
 
+/* Navigation links - hover */
+.md-nav__link:hover {
+  color: var(--ftrd-brand) !important;
+}
+
+/* Navigation - scrollbar color */
+.md-sidebar__scrollwrap:hover {
+  scrollbar-color: var(--ftrd-foreground-variant) #0000;
+}
+
+/* Typography - Page title */
+.md-typeset h1 {
+  color: var(--ftrd-foreground) !important;
+}
+
+/* Typography -Link colors */
 .md-typeset a {
     color: var(--md-primary-fg-color) !important;
 }
