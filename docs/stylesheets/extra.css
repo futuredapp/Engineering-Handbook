@@ -6,6 +6,8 @@
   --ftrd-brand: #FF5F00;
 
   --md-primary-fg-color: var(--ftrd-brand);
+  --md-primary-bg-color: var(--ftrd-foreground);
+
   --md-default-bg-color: var(--ftrd-background);
   --md-default-fg-color: var(--ftrd-foreground);
 }
@@ -18,6 +20,8 @@
   --ftrd-brand: #FF5F00;
 
   --md-primary-fg-color: var(--ftrd-brand);
+  --md-primary-bg-color: var(--ftrd-foreground);
+
   --md-default-bg-color: var(--ftrd-background);
   --md-default-fg-color: var(--ftrd-foreground);
 }
@@ -27,9 +31,9 @@
   background-color: var(--ftrd-background);
 }
 
-/* Page title */
-.md-header__topic {
-  color: var(--ftrd-foreground);
+/* Header title margin */
+.md-header__title {
+  margin-left: 0.2rem !important;
 }
 
 /* Tab background */
