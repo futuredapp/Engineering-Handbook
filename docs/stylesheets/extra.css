@@ -29,6 +29,7 @@
 [data-md-color-scheme="default"] {
   --ftrd-background: #FFFFFF;
   --ftrd-background-variant: #0000001A;
+  --ftrd-background-variant2: #0000000D;
   --ftrd-foreground: #222222;
   --ftrd-foreground-variant: #00000099;
   --ftrd-foreground-variant2: #00000066;
@@ -49,6 +50,7 @@
 [data-md-color-scheme="slate"] {
   --ftrd-background: #1B1B1B;
   --ftrd-background-variant: #FFFFFF1A;
+  --ftrd-background-variant2: #FFFFFF0D;
   --ftrd-foreground: #E7E8E9;
   --ftrd-foreground-variant: #C2C5C8;
   --ftrd-foreground-variant2: #C2C5C8;
@@ -76,6 +78,38 @@
 /* Header title margin */
 .md-header__title {
   margin-left: 0.2rem !important;
+}
+
+/* Nav title background in drawer */
+.md-nav--primary .md-nav__title[for=__drawer] {
+  background-color: var(--ftrd-background);
+}
+
+/* Search widget - icon */
+.md-search__icon[for=__search] {
+  color: var(--ftrd-foreground-variant);
+}
+
+/* Search widget - background */
+.md-search__form {
+  background-color: var(--ftrd-background-variant);
+}
+
+/* Search widget - hover */
+.md-search__form:hover {
+  background-color: var(--ftrd-background-variant2);
+}
+
+/* Search widget - input placeholder color */
+.md-search__input::placeholder {
+  color: var(--ftrd-foreground-variant);
+}
+
+/* Palette button colors */
+.md-header__button[for="__palette_0"],
+.md-header__button[for="__palette_1"],
+.md-header__button[for="__palette_2"] {
+  color: var(--ftrd-foreground-variant);
 }
 
 /* Tab background */
