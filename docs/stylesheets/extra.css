@@ -32,6 +32,7 @@
   --ftrd-foreground: #222222;
   --ftrd-foreground-variant: #00000099;
   --ftrd-foreground-variant2: #00000066;
+  --ftrd-foreground-variant3: #22222299;
   --ftrd-border: #E7E8E9;
   --ftrd-brand: #FF5F00;
 
@@ -50,6 +51,7 @@
   --ftrd-foreground: #E7E8E9;
   --ftrd-foreground-variant: #C2C5C8;
   --ftrd-foreground-variant2: #C2C5C8;
+  --ftrd-foreground-variant3: #C2C5C8;
   --ftrd-border: #292929;
   --ftrd-brand: #FF5F00;
 
@@ -100,6 +102,11 @@
   color: var(--ftrd-brand) !important;
 }
 
+/* Navigation links - default */
+.md-nav__link {
+  color: var(--ftrd-foreground-variant) !important;
+}
+
 /* Navigation links - hover */
 .md-nav__link:hover {
   color: var(--ftrd-brand) !important;
@@ -118,4 +125,30 @@
 /* Typography -Link colors */
 .md-typeset a {
     color: var(--md-primary-fg-color) !important;
+}
+/* Footer - background*/
+.md-footer-meta {
+  background-color: var(--ftrd-background);
+  border-top: 1px solid var(--ftrd-border);
+}
+
+/* Footer - Made with ❤️‍🔥 at Futured */
+.md-copyright__highlight {
+  color: var(--ftrd-foreground);
+}
+
+/* Footer - Made with mkdocs */
+.md-copyright {
+  color: var(--ftrd-foreground-variant3);
+}
+
+/* Footer - Made with mkdocs - link */
+.md-copyright a {
+  color: var(--ftrd-foreground-variant3) !important;
+  text-decoration: underline;
+}
+
+/* Footer - social icons */
+.md-social a {
+  color: var(--ftrd-foreground) !important;
 }
