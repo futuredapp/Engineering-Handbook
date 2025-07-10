@@ -1,5 +1,7 @@
 # CI/CD
 
+You may be asked to provide *match password* when calling Fastlane lanes, please use `Fastlane Match password` entry from Futured's Bitwarden.
+
 ## Fastlane configuring 
 
 For importing Futured's Fastlane flow to your project, add `fastlane/Fastfile` to project's folder and insert this code:
@@ -107,12 +109,12 @@ Steps:
     ```
 
     1. you will be sequentially asked to provide the path to:
-        - `.cer` file
-        - `.p12` file
-        - provisioning profile - `.mobileprovisioning` or `.provisioningprofile` file
+        - *.cer* file
+        - *.p12* file
+        - *provisioning profile* - `.mobileprovisioning` or `.provisioningprofile` file
             - it's optional, ignore it, you will create a new provisioning profile later
-        - match password, please use `Fastlane Match password` entry from Futured's Bitwarden
-        - username, use `ops@futured.app`
+        - *match password*, please use `Fastlane Match password` entry from Futured's Bitwarden
+        - *username*, use `ops@futured.app`
 
 3. Generate a new release provisioning profile:
     - see [Renew provisioning profile](#renew-provisioning-profile) on this page

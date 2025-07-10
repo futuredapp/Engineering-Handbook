@@ -76,12 +76,12 @@ nav:
   - iOS:
       - Overview: teams/ios/index.md
       - Architecture: teams/ios/ios_architecture.md
-      - New Project: teams/ios/ios_new_project.md
-      - Git Flow: teams/ios/ios_git_flow.md
-      - Customer Account: teams/ios/ios_customer_account.md
       - Builds: teams/ios/ios_builds.md
-      - Release: teams/ios/ios_release.md
       - CI/CD: teams/ios/ios_ci_cd.md
+      - Customer Account: teams/ios/ios_customer_account.md
+      - Git Flow: teams/ios/ios_git_flow.md
+      - New Project: teams/ios/ios_new_project.md
+      - Release: teams/ios/ios_release.md
   - Full-stack:
       - Overview: teams/fullstack/index.md
       - Introduction:
