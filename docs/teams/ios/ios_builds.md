@@ -23,7 +23,7 @@ Debug builds are created in Xcode by developers.
         ```bash
         bundle exec fastlane provisioning
         ```
-        you will be asked to provide *match password*, please use `Fastlane Match password` entry from Futured's Bitwarden
+        you may be asked to provide *match password*, please use `Fastlane Match password` entry from Futured's Bitwarden
 
 3. Build using Xcode, select your device in run destinations
 
