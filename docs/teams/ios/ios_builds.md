@@ -8,7 +8,9 @@ Debug builds are created in Xcode by developers.
 
 ### How to run a debug build on device
 
-1. Environment setup - follow the well-written and maintained manual [here](https://www.moncefbelyamani.com/how-to-install-xcode-homebrew-git-rvm-ruby-on-mac/)
+1. Environment setup - follow this well-written and maintained manual: 
+
+    - [The fastest and easiest way to install Ruby on a Mac](https://www.moncefbelyamani.com/how-to-install-xcode-homebrew-git-rvm-ruby-on-mac/)
 
 2. From Terminal in the project folder:
 
@@ -21,6 +23,7 @@ Debug builds are created in Xcode by developers.
         ```bash
         bundle exec fastlane provisioning
         ```
+        you will be asked to provide *match password*, please use `Fastlane Match password` entry from Futured's Bitwarden
 
 3. Build using Xcode, select your device in run destinations
 
