@@ -28,4 +28,4 @@ jobs:
       - run: |
           pip install mkdocs-material
           pip install mkdocs-glightbox
-      - run: mkdocs gh-deploy --force --cname engineering.futured.app
+      - run: mkdocs gh-deploy --force
