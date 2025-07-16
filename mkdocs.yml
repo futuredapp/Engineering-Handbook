@@ -80,6 +80,7 @@ nav:
       - CI/CD: teams/ios/ios_ci_cd.md
       - Customer Account: teams/ios/ios_customer_account.md
       - Git Flow: teams/ios/ios_git_flow.md
+      - Localization: teams/ios/ios_localization.md
       - New Project: teams/ios/ios_new_project.md
       - Release: teams/ios/ios_release.md
   - Full-stack:
