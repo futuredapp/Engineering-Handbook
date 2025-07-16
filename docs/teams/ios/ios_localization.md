@@ -73,7 +73,6 @@ For localization, we use a shared Google Docs spreadsheet and the ACKLocalizatio
         ![Step 6](Resources/ios_localization_6.png){ width="900" }
 
 
-    - run the Localization target 
-        - you should see the new localization files upon successful completion
+    - run the Localization target  - you should see the new localization files upon successful completion
         
-    - kudos to our colleagues from Ackee 🖤
+5. Kudos to our colleagues from Ackee 🖤
