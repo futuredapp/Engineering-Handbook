@@ -51,7 +51,7 @@ For localization, we use a shared Google Docs spreadsheet and the ACKLocalizatio
     
         ![Step 5](Resources/ios_localization_5.png){ width="250" }
     
-    - paste the path to the library and uncheck the Based on dependency analysis checkbox
+    - paste the path to the library and uncheck the `Based on dependency analysis` checkbox
     
     
         For standart project:
@@ -75,3 +75,5 @@ For localization, we use a shared Google Docs spreadsheet and the ACKLocalizatio
 
     - run the Localization target 
         - you should see the new localization files upon successful completion
+        
+    - kudos to our colleagues from Ackee 🖤
