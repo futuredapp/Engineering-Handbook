@@ -47,6 +47,11 @@ We use a structured Git branching model to ensure smooth collaboration and maint
   Ideally, each commit message should include the Jira ticket number at the start (e.g., `ABC-123: Update user authentication`).
 - **Clarity**  
   Commit messages should be clear and concise, explaining the purpose of the change. We do not use emojis in commit messages.
+- **Semantic Commit Messages**  
+  We also allow semantic commit messages, which follow the format:  
+  `<type>(<scope>): <description>`, for example: `feat(auth): add user login functionality`. These should also include the Jira ticket number if applicable.
+
+
 
 ### Automated Checks
 
