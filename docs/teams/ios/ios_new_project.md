@@ -88,7 +88,7 @@
             
         - in project folder
 
-            - edit `fastlane/Fastfile` to specify environment variables
+            - edit `fastlane/Fastfile` to specify environment variables - [see CI/CD manual](ios_ci_cd.md/#fastlane-configuring)
             
         - in Terminal
 
