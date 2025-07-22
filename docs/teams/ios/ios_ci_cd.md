@@ -24,6 +24,11 @@ ENV['APP_IDENTIFIER'] = 'app.futured.app_name'
 #ENV['ASC_TEAM_ID_CUSTOMER'] = '123456'
 #ENV['CUSTOMERS_BRANCH'] = 'partner'
 
+# We use our own macros in the native iOS architecture.
+# So the `-skipMacroValidation` flag is required for builds and tests, to ensure successful builds in CI/CD pipelines.
+ENV['ADDITIONAL_BUILD_SETTINGS'] = { xcargs: "-skipMacroValidation" }.to_json
+ENV['ADDITIONAL_TESTS_SETTINGS'] = { xcargs: "-skipMacroValidation" }.to_json
+
 import_from_git(url: 'git@github.com:futuredapp/fastlane.git')
 
 ```
