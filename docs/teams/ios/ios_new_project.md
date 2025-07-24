@@ -94,6 +94,11 @@
 
             - switch to repo root folder
             - call `bundle install` to install gems
+           
+3. Create app in Apple Developer and App Store Connect portals
+
+   ??? note "Steps"
+       
             - create app in Apple Developer and App Store Connect portals
             
                 !!! warning "App Store Connect 2FA"
@@ -126,7 +131,7 @@
                     
                     Once you're familiar with the release process, rerun the above command (no need to worry about duplication)
 
-3. Create a new Xcode project
+4. Create a new Xcode project
 
     ??? note "Steps"
 
@@ -257,7 +262,7 @@
                 
             - build the project
 
-4. Open pull request with the project setup
+5. Open pull request with the project setup
 
     ??? note "Steps"
 
@@ -277,4 +282,4 @@
             
             ![Step 17](Resources/ios_new_project_28.png){ width="500" }
 
-5. Enjoy!
+6. Enjoy!
