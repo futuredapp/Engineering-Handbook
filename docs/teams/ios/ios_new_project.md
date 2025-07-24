@@ -88,7 +88,7 @@
             
         - in project folder
 
-            - edit `fastlane/Fastfile` to specify environment variables
+            - edit `fastlane/Fastfile` to specify environment variables - [see CI/CD manual](ios_ci_cd.md/#fastlane-configuring)
             
         - in Terminal
 
@@ -97,39 +97,39 @@
            
 3. Create app in Apple Developer and App Store Connect portals
 
-   ??? note "Steps"
+    ??? note "Steps"
        
-            - create app in Apple Developer and App Store Connect portals
+        - create app in Apple Developer and App Store Connect portals
+        
+            !!! warning "App Store Connect 2FA"
             
-                !!! warning "App Store Connect 2FA"
-                
-                    If you need a 2FA code for `ops@futured.app` account when running the following Fastlane commands, please contact someone from the iOS team for assistance.
+                If you need a 2FA code for `ops@futured.app` account when running the following Fastlane commands, please contact someone from the iOS team for assistance.
 
-                ??? info "App released from customer's ASC account"
+            ??? info "App released from customer's ASC account"
+            
+                If you filled customer's environment variables in Fastfile
                 
-                    If you filled customer's environment variables in Fastfile
-                    
-                    - call `bundle exec fastlane create_apps`
-                    
-                        - if it's the first app for the account append `company_name:"My Company Inc"` parameter
-                        
-                    - call `bundle exec fastlane update_provisioning include_release:true create_branch:true`
-                    
-                        - `create_branch:true` parameter is needed only for the first time to create customer branch in our [Apple certificates repo](https://github.com/futuredapp/apple-certificates) 
-                    
-                ??? info "App released from Futured's ASC account"
+                - call `bundle exec fastlane create_apps`
                 
-                    - call `bundle exec fastlane create_apps`
-                    - call `bundle exec fastlane update_provisioning include_release:true`
+                    - if it's the first app for the account append `company_name:"My Company Inc"` parameter
                     
-                ??? info "The app's release account is currently unknown"
+                - call `bundle exec fastlane update_provisioning include_release:true create_branch:true`
                 
-                    You can setup release account later
+                    - `create_branch:true` parameter is needed only for the first time to create customer branch in our [Apple certificates repo](https://github.com/futuredapp/apple-certificates) 
                 
-                    - call `bundle exec fastlane create_apps skip_release_app:true`
-                    - call `bundle exec fastlane update_provisioning`
-                    
-                    Once you're familiar with the release process, rerun the above command (no need to worry about duplication)
+            ??? info "App released from Futured's ASC account"
+            
+                - call `bundle exec fastlane create_apps`
+                - call `bundle exec fastlane update_provisioning include_release:true`
+                
+            ??? info "The app's release account is currently unknown"
+            
+                You can setup release account later
+            
+                - call `bundle exec fastlane create_apps skip_release_app:true`
+                - call `bundle exec fastlane update_provisioning`
+                
+                Once you're familiar with the release process, rerun the above command (no need to worry about duplication)
 
 4. Create a new Xcode project
 
