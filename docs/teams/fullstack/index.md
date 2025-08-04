@@ -36,12 +36,10 @@ The Full-stack team is responsible for developing and maintaining our web applic
 - 🚧 [Testing Standards](coding_standards/30_testing.md) - Approaches and tools for testing code
 - 🚧 [Error Handling & Logging](coding_standards/40_error_handling.md) - Best practices for managing errors and logs
 
-## 🚧 Development Environment
+## Development Environment
 
-- 🚧 [Local Setup Instructions](dev_env/00_local_setup.md) - Steps to get the development environment running
-- 🚧 [Required Tools & Versions](dev_env/10_tools.md) - List of software and version requirements
-- [Environment Variables & Secrets Management](dev_env/20_secrets.md) - How to handle sensitive configuration
-- 🚧 [Troubleshooting Common Issues](dev_env/30_troubleshooting.md) - Solutions for frequent setup problems
+- [Local Setup Instructions](dev_env/00_local_setup.md) - Steps to get the development environment running
+- [Environment Variables & Secrets Management](dev_env/10_secrets) - How to handle sensitive configuration
 
 ## 🚧 Deployment & Operations
 

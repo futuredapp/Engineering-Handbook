@@ -106,9 +106,7 @@ nav:
           - Error Handling: teams/fullstack/coding_standards/40_error_handling.md
       - Development Environment:
           - Local Setup: teams/fullstack/dev_env/00_local_setup.md
-          - Tools: teams/fullstack/dev_env/10_tools.md
-          - Secrets: teams/fullstack/dev_env/20_secrets.md
-          - Troubleshooting: teams/fullstack/dev_env/30_troubleshooting.md
+          - Secrets: teams/fullstack/dev_env/10_secrets.md
       - Deployment:
           - Process: teams/fullstack/deployment/00_deployment.md
           - Rollback: teams/fullstack/deployment/10_rollback.md
