@@ -40,7 +40,7 @@ The Full-stack team is responsible for developing and maintaining our web applic
 
 - 🚧 [Local Setup Instructions](dev_env/00_local_setup.md) - Steps to get the development environment running
 - 🚧 [Required Tools & Versions](dev_env/10_tools.md) - List of software and version requirements
-- 🚧 [Environment Variables & Secrets Management](dev_env/20_secrets.md) - How to handle sensitive configuration
+- [Environment Variables & Secrets Management](dev_env/20_secrets.md) - How to handle sensitive configuration
 - 🚧 [Troubleshooting Common Issues](dev_env/30_troubleshooting.md) - Solutions for frequent setup problems
 
 ## 🚧 Deployment & Operations
