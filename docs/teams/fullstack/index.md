@@ -46,43 +46,16 @@ The Full-stack team is responsible for developing and maintaining our web applic
 - 🚧 [Deployment Process](deployment/00_deployment.md) - Steps to release code to production
 - 🚧 [Rollback Procedures](deployment/10_rollback.md) - How to revert changes in case of failure
 - 🚧 [Monitoring & Alerting](deployment/20_monitoring.md) - Tools and practices for tracking system health
-- 🚧 [Incident Response & Postmortems](deployment/30_incidents.md) - Process for handling and learning from incidents
 
 ## 🚧 Documentation
 
 - 🚧 [Code Documentation Standards](docs/00_code_docs.md) - Guidelines for commenting and documenting code
 - 🚧 [API Documentation](docs/10_api_docs.md) - Standards for documenting APIs
 
-## 🚧 Architecture & Design
-
-- 🚧 [System Architecture Diagrams](architecture/00_diagrams.md) - Visual overviews of the system’s structure
-- 🚧 [Key Design Decisions & Rationale](architecture/10_decisions.md) - Explanation of major technical choices
-- 🚧 [Design Patterns Used](architecture/20_patterns.md) - Common patterns implemented in the codebase
-- 🚧 [Scalability & Performance Considerations](architecture/30_scalability.md) - Strategies for handling growth and performance
-
 ## 🚧 Security
 
 - 🚧 [Authentication & Authorization](security/00_auth.md) - How users and services are authenticated and authorized
 - 🚧 [Data Privacy & Compliance](security/10_privacy.md) - Policies for protecting user data and meeting regulations
-- 🚧 [Secure Dependencies Management](security/20_dependencies.md) - Practices for keeping third-party code safe
-- 🚧 [Vulnerability Management](security/30_vulnerabilities.md) - Process for identifying and addressing security issues
-
-## 🚧 Quality Assurance
-
-- 🚧 [Testing Strategy & Coverage Goals](qa/00_testing_strategy.md) - Plan and targets for testing code
-- 🚧 [Manual vs. Automated Testing](qa/10_testing.md) - When and how to use each testing approach
-- 🚧 [QA Checklist Before Release](qa/20_checklist.md) - Steps to verify quality before deployment
-
-## 🚧 Continuous Improvement
-
-- 🚧 [Retrospectives & Feedback Loops](improvement/00_retrospectives.md) - Regular reviews to improve processes
-- 🚧 [Technical Debt Management](improvement/10_technical_debt.md) - How to track and address technical debt
-- 🚧 [Experimentation & Prototyping Guidelines](improvement/20_experimentation.md) - Rules for trying out new ideas safely
-
-## 🚧 Learning & Growth
-
-- 🚧 [Recommended Reading & Courses](learning/00_reading.md) - Resources for skill development
-- 🚧 [Internal Tech Talks & Knowledge Sharing](learning/10_tech_talks.md) - Opportunities for team learning
 
 ## 🚧 Appendices
 
