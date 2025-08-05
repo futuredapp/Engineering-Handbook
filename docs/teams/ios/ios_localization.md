@@ -14,7 +14,7 @@ For localization, we use a shared Google Docs spreadsheet and the ACKLocalizatio
     ![Step 1](Resources/ios_localization_1.png){ width="500" }
     
 3. Set up the integration into the project
-    - add the [ACKLocalization](https://github.com/AckeeCZ/ACKLocalization) library via SPM
+    - add the [ACKLocalization](https://github.com/AckeeCZ/ACKLocalization) library via SPM, you don't need to add it to any target
     - add a `localization.json` file to the project's root:
 
         ```json
