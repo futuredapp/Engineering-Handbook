@@ -65,7 +65,7 @@ In the case of an expired certificate (see the attached CI error screenshot 👆
 - delete provisioning profiles related to the given certificate in the Apple Developer portal
     - there's no need to delete the certificate itself, it will be removed automatically
 
-- remove the corresponding development or distribution certificate (both the `.cer` and `.p12` files) from the `futured/apple-certificates` repository
+- remove the corresponding development or distribution certificate (both the `.cer` and `.p12` files) from the `futuredapp/apple-certificates` repository
 
     ![Step 3](Resources/ios_ci_cd_3.png){ width="500" }
 
