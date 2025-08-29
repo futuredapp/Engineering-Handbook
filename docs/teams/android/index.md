@@ -12,12 +12,13 @@ This area contains our team's guidelines, best practices, and workflows for Andr
 
 ### Project Setup
 
-- [First Steps](project_setup/00_new_repo.md) - How to start a new project
-- [GitHub Configuration](project_setup/10_github.md) - Repository settings and branch protection rules
-- [Project Setup](project_setup/20_project.md) - Project setup
-- [Firebase Setup](project_setup/30_firebase.md) - Everything about Firebase setup
-- [CI/CD Pipeline](project_setup/40_ci_cd.md) - Continuous integration and delivery
-- [Translations](project_setup/50_translations.md) - Multilangual support in apps
+- [KMP Environment setup](project_setup/00_env_setup.md) - Setup tools to build project on both platforms
+- [First Steps](project_setup/10_new_repo.md) - How to start a new project
+- [GitHub Configuration](project_setup/20_github.md) - Repository settings and branch protection rules
+- [Project Setup](project_setup/30_project.md) - Project setup
+- [Firebase Setup](project_setup/40_firebase.md) - Everything about Firebase setup
+- [CI/CD Pipeline](project_setup/50_ci_cd.md) - Continuous integration and delivery
+- [Translations](project_setup/60_translations.md) - Multilangual support in apps
 
 ### Development
 
