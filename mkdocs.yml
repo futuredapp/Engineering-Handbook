@@ -58,12 +58,13 @@ nav:
         - Android-native: teams/android/architecture/00_native.md
         - Kotlin Multiplatform: teams/android/architecture/10_kmp.md
     - Project Setup:
-        - First Steps: teams/android/project_setup/00_new_repo.md
-        - GitHub: teams/android/project_setup/10_github.md
-        - Project: teams/android/project_setup/20_project.md
-        - Firebase: teams/android/project_setup/30_firebase.md
-        - CI/CD: teams/android/project_setup/40_ci_cd.md
-        - Translations: teams/android/project_setup/50_translations.md
+        - KMP Environment setup: teams/android/project_setup/00_env_setup.md
+        - First Steps: teams/android/project_setup/10_new_repo.md
+        - GitHub: teams/android/project_setup/20_github.md
+        - Project: teams/android/project_setup/30_project.md
+        - Firebase: teams/android/project_setup/40_firebase.md
+        - CI/CD: teams/android/project_setup/50_ci_cd.md
+        - Translations: teams/android/project_setup/60_translations.md
     - Development:
         - Git Flow: teams/android/development/00_git_flow.md
         - Code Style: teams/android/development/10_code_style.md
