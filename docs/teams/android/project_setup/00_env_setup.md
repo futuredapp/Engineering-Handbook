@@ -126,6 +126,33 @@ Devices from our test lab are already configured with these settings.
 - Generally: go to Settings → About phone and tap Build number 7–10 times to enable Developer options.
 - Then search for "USB debugging" in Settings and enable it.
 
+#### Quick steps by device/OS
+
+- Pixel / Stock Android (Android 12–15)
+    - Settings → About phone → tap "Build number" 7× (enter PIN)
+    - Settings → System → Developer options → enable "USB debugging"
+
+- Samsung (One UI)
+    - Settings → About phone → Software information → tap "Build number" 7×
+    - Settings → Developer options → enable "USB debugging"
+
+- Xiaomi / Redmi / POCO (MIUI / HyperOS)
+    - Settings → About phone → tap MIUI version (or HyperOS version or OS Vrsion) 7×
+    - Settings → Additional settings → Developer options → enable "USB debugging" and enable "Install via USB"
+    - On MIUI/ HyperOS it may be necessery to sign in with xiaomi account and have SIM card present in the phone
+
+- OnePlus (OxygenOS)
+    - Settings → About device → Version → tap "Build number" 7×
+    - Settings → System settings → Developer options → enable "USB debugging"
+
+- Older Android (8–11) generic
+    - Settings → About phone → tap "Build number" 7×
+    - Settings → Developer options → enable "USB debugging"
+
+Notes:
+- After enabling, connect via USB and accept the RSA fingerprint prompt on device.
+- If you don't see Developer options, use the Settings search for "Developer options" or "USB debugging".
+
 # Android Studio
 
 - Install the Kotlin Multiplatform plugin:
