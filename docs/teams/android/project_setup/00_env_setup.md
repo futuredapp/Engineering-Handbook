@@ -35,7 +35,7 @@ You can install JDK in multiple ways:
 
 ### Java version
 
-Minumum supported version of JDK is JDK 17 but newer versions up to JDK 24 are also supported. If you don't want to care about the version you are using you can always use JDK which is shipped with Android Studio.
+Minimum supported version of JDK is JDK 17 but newer versions up to JDK 24 are also supported. If you don't want to care about the version you are using you can always use JDK which is shipped with Android Studio.
 
 !!! info
     Our CI currently uses Zulu OpenJDK 17: `https://github.com/futuredapp/.github/blob/main/.github/workflows/android-cloud-check.yml`
