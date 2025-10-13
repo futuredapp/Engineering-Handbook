@@ -1,6 +1,6 @@
 # Local Environment Setup
 
-This guide describes how to set up your development environment for Kotlin Multiplatform (KMP) apps and how to run KMP based app on virtual and physical android device. It applies to both Android and iOS developers.
+This guide describes how to set up your development environment for Kotlin Multiplatform (KMP) apps and how to run KMP based app on virtual and physical android device. It is targetted at both Android and iOS developers.
 
 ## Prerequisites
 
