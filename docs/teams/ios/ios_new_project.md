@@ -283,3 +283,7 @@
             ![Step 17](Resources/ios_new_project_28.png){ width="500" }
 
 6. Enjoy!
+
+???+ tip
+
+    Check the **[Accessibility Basics](./ios_a11y.md)** to conform new project to EAA

@@ -82,6 +82,7 @@ nav:
       - Git Flow: teams/ios/ios_git_flow.md
       - Localization: teams/ios/ios_localization.md
       - New Project: teams/ios/ios_new_project.md
+      - Accessibility: teams/ios/ios_a11y.md
       - Release: teams/ios/ios_release.md
   - Full-stack:
       - Overview: teams/fullstack/index.md
