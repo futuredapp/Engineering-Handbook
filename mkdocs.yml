@@ -75,6 +75,7 @@ nav:
         - Process Overview: teams/android/release/30_release_process.md
   - iOS:
       - Overview: teams/ios/index.md
+      - Accessibility: teams/ios/ios_a11y.md
       - Architecture: teams/ios/ios_architecture.md
       - Builds: teams/ios/ios_builds.md
       - CI/CD: teams/ios/ios_ci_cd.md
