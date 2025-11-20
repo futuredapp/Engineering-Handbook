@@ -123,6 +123,10 @@ nav:
           - Scripts: teams/fullstack/appendices/10_scripts.md
           - FAQ: teams/fullstack/appendices/20_faq.md
           - Templates: teams/fullstack/appendices/30_templates.md
+  - Delivery:
+      - Overview: teams/delivery/index.md
+      - Methodology: teams/delivery/00_methodology.md
+      - Nightly builds: teams/delivery/10_nightly_builds.md
 
     # - Design:
     #   - Overview: teams/design/design_page.md
