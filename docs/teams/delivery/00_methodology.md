@@ -4,12 +4,77 @@ Our delivery methodology follows a quality-first approach, ensuring that all bui
 
 ## General Delivery Workflow
 
-The standard delivery process consists of two main stages:
+!!! info "Project-specific workflows"
 
-1. **Internal QA Testing** - Build is distributed to internal QA team for testing
-2. **Client Distribution** - Only after QA approval, build is published to client testing groups
+    The workflow described below is typical for most projects. However, the actual delivery process may vary from project to project based on specific project requirements and client needs.
 
-This two-stage approach ensures that clients receive stable, tested builds and reduces the risk of exposing critical issues to external stakeholders.
+The standard delivery process consists of three main stages:
+
+1. **Internal QA Testing** - Each feature build is distributed to internal QA team for testing
+2. **Client Distribution** - Only after QA approval and when milestone is reached, milestone build is published to client testing groups for UAT
+3. **Production Release** - After client approval, release build is produced and tested (typically by internal QA), then released to App Store and Google Play
+
+This multi-stage approach ensures that clients receive stable, tested builds and reduces the risk of exposing critical issues to external stakeholders. Production releases only occur after successful completion of all internal and client testing cycles.
+
+### Complete Delivery Workflow
+
+The diagram below shows the complete delivery process from development through to production release:
+
+```
+Development Done (PR merged to develop)
+  │
+  │ (Nightly build succeeds) ← See Nightly Builds documentation
+  ↓
+Testing (Internal QA)
+  │
+  │ (Internal QA testing complete)
+  ↓
+Internal QA Done
+  │
+  │ (Feature complete, continues to next feature)
+  │
+  ↓
+[Repeats for each feature until milestone is reached]
+  │
+  ↓
+Milestone Reached
+  │
+  │ (Milestone build published to client testing group)
+  ↓
+Client Testing
+  │
+  │ (Client approval/QA process)
+  ├─→ Issues Found? ──→ (Loop back to Development)
+  │
+  ↓
+Client Approval
+  │
+  │ (Milestone approved, continues)
+  | or
+  │ (Release build produced) ← See platform-specific build documentation
+  ↓
+Release Testing (Internal QA)
+  │
+  │ (Release testing complete)
+  ↓
+Production Release
+  ├─→ Google Play (Android)
+  └─→ App Store (iOS)
+```
+
+**Key Process Points:**
+
+- **Nightly Build** → Automated daily builds with Jira integration (see [Nightly Builds](10_nightly_builds.md))
+- **Internal QA** → Futured QA team tests each feature after development
+- **Feature Loop** → Process repeats for each feature, accumulating until milestone is complete
+- **Client Testing** → Client stakeholders test the complete milestone build and perform UAT
+- **Release Testing** → Final testing on release build before store deployment (typically internal QA)
+- **Production Release** → Final deployment to public app stores after release testing is complete
+
+**Distribution Channels:**
+
+- Android: [Firebase App Distribution](../android/project_setup/30_firebase.md) for internal QA and client testing groups
+- iOS: [TestFlight](../ios/ios_builds.md) with internal and external testing groups
 
 ## Distribution Platforms
 
@@ -39,7 +104,7 @@ We use platform-specific distribution channels to deliver builds to both QA and 
 
 - **Nightly Builds**: Automated builds run daily (typically at night) and are automatically distributed to internal QA
 - **Client Builds**: Distributed manually after QA approval, typically aligned with sprint cycles or client milestones
-- **Hotfix Builds**: Expedited process for critical fixes, may skip nightly cycle with proper testing
+- **Hotfix or Expedited Builds**: Expedited process for critical fixes or quick feedback loop, may skip nightly cycle with proper testing
 
 ## Related Processes
 
