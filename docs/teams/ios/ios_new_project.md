@@ -167,7 +167,6 @@
 
             - write product name in CamelCased style
             - organization identifier is `app.futured`
-            - leave *Include Tests* checked (CI requires tests run)
             
             ![Step 3](Resources/ios_new_project_14.png){ width="500" }
             
