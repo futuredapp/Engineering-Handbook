@@ -76,6 +76,7 @@ nav:
         - Process Overview: teams/android/release/30_release_process.md
   - iOS:
       - Overview: teams/ios/index.md
+      - Accessibility: teams/ios/ios_a11y.md
       - Architecture: teams/ios/ios_architecture.md
       - Builds: teams/ios/ios_builds.md
       - CI/CD: teams/ios/ios_ci_cd.md
@@ -107,43 +108,26 @@ nav:
           - Error Handling: teams/fullstack/coding_standards/40_error_handling.md
       - Development Environment:
           - Local Setup: teams/fullstack/dev_env/00_local_setup.md
-          - Tools: teams/fullstack/dev_env/10_tools.md
-          - Secrets: teams/fullstack/dev_env/20_secrets.md
-          - Troubleshooting: teams/fullstack/dev_env/30_troubleshooting.md
+          - Secrets: teams/fullstack/dev_env/10_secrets.md
       - Deployment:
           - Process: teams/fullstack/deployment/00_deployment.md
           - Rollback: teams/fullstack/deployment/10_rollback.md
           - Monitoring: teams/fullstack/deployment/20_monitoring.md
-          - Incidents: teams/fullstack/deployment/30_incidents.md
       - Documentation:
           - Code Documentation: teams/fullstack/docs/00_code_docs.md
           - API Documentation: teams/fullstack/docs/10_api_docs.md
-      - Architecture:
-          - Diagrams: teams/fullstack/architecture/00_diagrams.md
-          - Decisions: teams/fullstack/architecture/10_decisions.md
-          - Patterns: teams/fullstack/architecture/20_patterns.md
-          - Scalability: teams/fullstack/architecture/30_scalability.md
       - Security:
           - Authentication: teams/fullstack/security/00_auth.md
           - Privacy: teams/fullstack/security/10_privacy.md
-          - Dependencies: teams/fullstack/security/20_dependencies.md
-          - Vulnerabilities: teams/fullstack/security/30_vulnerabilities.md
-      - Quality Assurance:
-          - Testing Strategy: teams/fullstack/qa/00_testing_strategy.md
-          - Testing: teams/fullstack/qa/10_testing.md
-          - Checklist: teams/fullstack/qa/20_checklist.md
-      - Continuous Improvement:
-          - Retrospectives: teams/fullstack/improvement/00_retrospectives.md
-          - Technical Debt: teams/fullstack/improvement/10_technical_debt.md
-          - Experimentation: teams/fullstack/improvement/20_experimentation.md
-      - Learning:
-          - Reading: teams/fullstack/learning/00_reading.md
-          - Tech Talks: teams/fullstack/learning/10_tech_talks.md
       - Appendices:
           - Glossary: teams/fullstack/appendices/00_glossary.md
           - Scripts: teams/fullstack/appendices/10_scripts.md
           - FAQ: teams/fullstack/appendices/20_faq.md
           - Templates: teams/fullstack/appendices/30_templates.md
+  - Delivery:
+      - Overview: teams/delivery/index.md
+      - Methodology: teams/delivery/00_methodology.md
+      - Nightly builds: teams/delivery/10_nightly_builds.md
 
     # - Design:
     #   - Overview: teams/design/design_page.md

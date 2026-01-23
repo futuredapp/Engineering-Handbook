@@ -18,4 +18,6 @@ Welcome to the iOS section of the Futured Engineering Handbook. This area contai
 
 #### [New Project](ios_new_project.md) - How to start a new project
 
+#### [Accessibility](ios_a11y.md) - Accessibility basics
+
 #### [Release](ios_release.md) - How to create a release build

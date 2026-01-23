@@ -40,7 +40,7 @@ import_from_git(url: 'git@github.com:futuredapp/fastlane.git')
 In the case of an expired provisioning profile (see the attached CI error screenshot 👆) or when adding capabilities, it is necessary to take the following steps:
 
 - delete provisioning profile in the Apple Developer portal
-- for renew expired profile run:
+- for renew expired profile run
     ```bash
     bundle exec fastlane update_provisioning # for debug/beta configuration
     ```
@@ -48,7 +48,7 @@ In the case of an expired provisioning profile (see the attached CI error screen
     bundle exec fastlane update_release_provisioning # for release configuration
     ```
 
-- for renew profile after adding capabilities run:
+- for renew profile after adding capabilities run
     ```bash
     MATCH_FORCE=true bundle exec fastlane update_provisioning # for debug/beta configuration
     ```
@@ -73,7 +73,7 @@ In the case of an expired certificate (see the attached CI error screenshot 👆
     - for client's account, find it in the appropriate branch
     - open a PR pointing to the right branch, you can merge it immediately
 
-- for renew expired certificate and corresponding profiles run:
+- for renew expired certificate and corresponding profiles run
     ```bash
     bundle exec fastlane update_provisioning # for debug/beta configuration
     ```
@@ -101,7 +101,7 @@ Clients or previous suppliers should be able to provide this. Note that the cert
 Steps:
 
 1. Create a project branch in `futured/apple-certificates` repository
-2. Import the certificate with following script:
+2. Import the certificate with following script
     ```bash
     fastlane match import \
     —ops@futured.app \
@@ -113,7 +113,7 @@ Steps:
     --clone_branch_directly true
     ```
 
-    1. you will be sequentially asked to provide the path to:
+    1. you will be sequentially asked to provide the path to
         - *.cer* file
         - *.p12* file
         - *provisioning profile* - `.mobileprovisioning` or `.provisioningprofile` file
@@ -121,9 +121,37 @@ Steps:
         - *match password*, please use `Fastlane Match password` entry from Futured's Bitwarden
         - *username*, use `ops@futured.app`
 
-3. Generate a new release provisioning profile:
+3. Generate a new release provisioning profile
     - see [Renew provisioning profile](#renew-provisioning-profile) on this page
     
 The import process should look as follows:
     
 ![Step 4](Resources/ios_ci_cd_4.png){ width="900" }
+
+## Add app extension
+
+In the case of adding app extension (notification, widget, ...), it is necessary to take the following steps:
+
+1. Create a new Xcode target
+
+    `File -> New -> Target -> ___ Extension`
+    
+2. Edit project's `Fastfile`
+    - add extension name (notification, widget, etc.) to `ENV['APP_EXTENSIONS']`
+    - you can add multiple entries separated by comma, for example
+    ```bash
+    ENV['APP_EXTENSIONS'] = 'notification,widget'
+    ```
+    - in Terminal run 
+    ```bash
+    bundle exec fastlane create_apps_for_extension
+    bundle exec fastlane update_provisioning # for debug/beta configuration
+    bundle exec fastlane update_release_provisioning # for release configuration
+    ```
+    
+3. Configure the extension for Continuous Deployment
+    - in extension target `Signing & Capabilities tab`
+        - keep the Automatically manage signing checkbox unchecked
+        - fill all Bundle identifiers - bundle ids are the same as in main target but with extension name suffix (example: `app.futured.{project}.notification`)
+        - select appropriate provisioning profiles for all configurations
+    - in Manage Schemes, set widget project scheme as Shared (should be by default)
