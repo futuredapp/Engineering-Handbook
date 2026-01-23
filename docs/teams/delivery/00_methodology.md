@@ -73,7 +73,7 @@ Production Release
 
 **Distribution Channels:**
 
-- Android: [Firebase App Distribution](../android/project_setup/30_firebase.md) for internal QA and client testing groups
+- Android: [Firebase App Distribution](../android/project_setup/40_firebase.md) for internal QA and client testing groups
 - iOS: [TestFlight](../ios/ios_builds.md) with internal and external testing groups
 
 ## Distribution Platforms
@@ -87,7 +87,7 @@ We use platform-specific distribution channels to deliver builds to both QA and 
 - **Invitation Method**: We prefer using invitation links that clients can share within their organization
   - Clients use the invitation link to add their team members
   - This approach gives clients control over who has access to builds
-  - See [Firebase Setup](../android/project_setup/30_firebase.md) for detailed configuration
+  - See [Firebase Setup](../android/project_setup/40_firebase.md) for detailed configuration
 
 ### iOS: TestFlight
 

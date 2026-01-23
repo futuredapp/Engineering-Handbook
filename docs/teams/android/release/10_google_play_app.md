@@ -74,5 +74,5 @@ This guide uses [Play App Signing](https://support.google.com/googleplay/android
     - After upload, you can locate the SHA-1 fingerprint of your App Signing Key in the Google Play Console under App Signing settings.
 
 !!! info "About Fingerprints"
-    - Do not forget to [add the SHA-1](../project_setup/30_firebase.md#sha-certificate-fingerprints) of the **App Signing Key** key to Firebase Console.
+    - Do not forget to [add the SHA-1](../project_setup/40_firebase.md#sha-certificate-fingerprints) of the **App Signing Key** key to Firebase Console.
     - Ensure all third-party SDKs (Google Maps, Facebook login, etc.) are configured with the correct signing key information.

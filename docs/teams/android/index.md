@@ -35,4 +35,4 @@ This area contains our team's guidelines, best practices, and workflows for Andr
 
 ## Getting Started
 
-If you're starting a new project, begin with the [First Steps](project_setup/00_new_repo.md) guide. For existing projects, familiarize yourself with our [Git Flow](development/00_git_flow.md) and [Code Style](development/10_code_style.md) to ensure you're following team standards.
+If you're starting a new project, begin with the [First Steps](project_setup/10_new_repo.md) guide. For existing projects, familiarize yourself with our [Git Flow](development/00_git_flow.md) and [Code Style](development/10_code_style.md) to ensure you're following team standards.
