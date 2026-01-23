@@ -8,7 +8,6 @@ This guide describes how to set up your development environment for Kotlin Multi
 - JDK 17+
 - Android Studio as the Kotlin + Android IDE
 - Xcode as the Swift IDE
-- (Optional) JetBrains Fleet for IDE users who prefer it
 
 ### kdoctor
 
@@ -80,7 +79,7 @@ The build step that compiles the KMP framework in Xcode also uses the Gradle Wra
 If you installed JDK using a native installer, your JDK may be discoverable via `/usr/libexec/java_home`. If `java_home` returns a JDK path, Xcode does not need a Custom Path.
 
 - `java_home` looks for JDKs in `/Library/Java/JavaVirtualMachines`
-- More info: `https://github.com/sdkman/sdkman-cli/wiki/FAQ#on-mac-usrlibexecjava_home-does-not-detect-alternatives-installed-by-sdkman-what-can-i-do`
+- More info: [SDKMAN Documentation](https://github.com/sdkman/sdkman-cli/wiki/FAQ#on-mac-usrlibexecjava_home-does-not-detect-alternatives-installed-by-sdkman-what-can-i-do`)
 
 # Running KMP project on Android device
 
