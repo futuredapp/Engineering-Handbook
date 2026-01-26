@@ -98,7 +98,7 @@ Our CI workflows authenticate with Firebase using [Service account credentials](
 4. Click Done, navigate to that account, and create a new JSON key in `Keys > Add key`.
 5. Copy contents of this key into `APP_DISTRIBUTION_SERVICE_ACCOUNT` repository secret in GitHub and delete the JSON file from your disk.
 
-More info about CI/CD setup is in the [CI/CD](./40_ci_cd.md) page.
+More info about CI/CD setup is in the [CI/CD](./50_ci_cd.md) page.
 
 !!! tip "Pro tip"
     If you forgot to assign the "Firebase Admin" role to your service account, you can do that in `IAM & Admin > IAM` menu of Cloud Console by clicking the `Edit principal` icon next to service account.

@@ -88,7 +88,7 @@ Before running the PR Check workflow, KMP projects use a **[detect changes](http
 In addition to required inputs:
 
 - `APP_DISTRIBUTION_SERVICE_ACCOUNT` secret in GitHub repository settings
-- Firebase project configured (see [Firebase Setup](./30_firebase.md))
+- Firebase project configured (see [Firebase Setup](./40_firebase.md))
 
 ![](../Resources/project_setup/secrets_config.png)
 

@@ -25,4 +25,4 @@ This is relatively straightforward, as most of the setup is handled by the init 
             - `./gradlew --continue lintCheck`
             - `./gradlew assembleDevDebug`
 3. Commit changes and create the first PR to `develop`.
-4. If the PR was successful, *Status checks* will be visible now. See *Require status checks to pass* in the [Branch Rulesets / Configuration](./10_github.md#configuration) section.
+4. If the PR was successful, *Status checks* will be visible now. See *Require status checks to pass* in the [Branch Rulesets / Configuration](./20_github.md#configuration) section.

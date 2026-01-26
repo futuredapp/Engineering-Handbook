@@ -26,7 +26,7 @@ For platform-specific build and release processes, see:
 
 - [Android Build Distribution](../android/development/20_build_distrubution.md) - Android-specific Firebase App Distribution setup and workflows
 - [iOS Builds](../ios/ios_builds.md) - iOS build types and TestFlight distribution
-- [Firebase Setup](../android/project_setup/30_firebase.md) - Detailed Firebase App Distribution configuration
+- [Firebase Setup](../android/project_setup/40_firebase.md) - Detailed Firebase App Distribution configuration
 - [Android Release Process](../android/release/30_release_process.md) - Complete Android release workflow
 - [iOS Release Process](../ios/ios_release.md) - Complete iOS release workflow
 
