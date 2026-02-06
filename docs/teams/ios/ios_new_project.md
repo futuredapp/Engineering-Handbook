@@ -287,6 +287,11 @@
 
 6. Enjoy!
 
+???+ tip "First app run and it is not in fullscreen? 😱"
+
+    You have to specify the launch screen. Check the [documentation](https://developer.apple.com/documentation/xcode/specifying-your-apps-launch-screen). 
+    👀 TLDR: Add UILaunchScreen key into the project manifest file (Info tab in app's target -> Info.plist)
+
 ???+ tip
 
     Check the **[Accessibility Basics](./ios_a11y.md)** to conform new project to EAA
