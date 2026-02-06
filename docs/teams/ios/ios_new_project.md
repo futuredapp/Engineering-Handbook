@@ -241,7 +241,7 @@
                 ![Step 10](Resources/ios_new_project_21.png){ width="900" }
                 ![Step 11](Resources/ios_new_project_22.png){ width="900" }
                 
-                - disable `User Script Sandboxing` in `Build Settings`
+                - disable `User Script Sandboxing` in `Build Settings at the projects level`
                 
                 ![Step 12](Resources/ios_new_project_23.png){ width="500" }
                 
