@@ -19,6 +19,7 @@ The delivery process encompasses:
 
 - [Methodology](00_methodology.md) - Our general delivery methodology: QA-first testing, client distribution workflows, and platform-specific distribution channels
 - [Nightly Builds](10_nightly_builds.md) - Automated nightly build process with GitHub Actions and Jira integration for efficient continuous delivery
+- [Git Mirror](20_git_mirror.md) - One-way push mirroring to client's repository (GitLab, GitHub, etc.)
 
 ## Related Documentation
 

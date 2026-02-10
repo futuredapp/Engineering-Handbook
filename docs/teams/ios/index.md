@@ -14,7 +14,6 @@ Welcome to the iOS section of the Futured Engineering Handbook. This area contai
 
 #### [Git Flow](ios_git_flow.md) - Recommended git flow
 
-#### [Git Mirror](ios_git_mirror.md) - One-way push mirroring to client's repository
 
 #### [Localization](ios_localization.md) - Localization
 
