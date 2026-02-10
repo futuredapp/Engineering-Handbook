@@ -128,6 +128,7 @@ nav:
       - Overview: teams/delivery/index.md
       - Methodology: teams/delivery/00_methodology.md
       - Nightly builds: teams/delivery/10_nightly_builds.md
+      - Git Mirror: teams/delivery/20_git_mirror.md
 
     # - Design:
     #   - Overview: teams/design/design_page.md
