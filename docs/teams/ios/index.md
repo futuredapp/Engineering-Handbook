@@ -14,7 +14,6 @@ Welcome to the iOS section of the Futured Engineering Handbook. This area contai
 
 #### [Git Flow](ios_git_flow.md) - Recommended git flow
 
-
 #### [Localization](ios_localization.md) - Localization
 
 #### [New Project](ios_new_project.md) - How to start a new project
