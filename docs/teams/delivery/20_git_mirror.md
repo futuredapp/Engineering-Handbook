@@ -66,7 +66,6 @@ on:
   push:
     branches:
       - develop
-      - release
 
 jobs:
   push_to_mirror:
@@ -83,18 +82,4 @@ Replace `<HOST>` with the client's server IP or domain.
 !!! tip
     Use `universal-cloud-backup.yml` instead of `universal-selfhosted-backup.yml` if the client uses a cloud-hosted service (gitlab.com, github.com, etc.).
 
-### 5. (Optional) Create workflow for tag mirroring
 
-If the client also needs release tags, create a separate workflow for tag mirroring.
-
-Note: unlike branch mirroring, tag mirroring uses an inline workflow (not a reusable one) because it includes conditional logic to only push tags that exist on release branches. See [broker-coach-ios tag workflow](https://github.com/futuredapp/broker-coach-ios/blob/develop/.github/workflows/push_tag_to_gitlab.yml) for a working example.
-
-## Existing setups
-
-| Project | Mirror target | Branches mirrored |
-|---------|---------------|-------------------|
-| [broker-coach-ios](https://github.com/futuredapp/broker-coach-ios/tree/develop/.github/workflows) | Self-hosted GitLab (`194.228.235.202`) | `develop`, `release`, `release-sk` + tags |
-| [broker-coach-api](https://github.com/futuredapp/broker-coach-api/tree/develop/.github/workflows) | Self-hosted GitLab (`194.228.235.202`) | Same setup |
-| [alive-app-ios](https://github.com/futuredapp/alive-app-ios/tree/develop/.github/workflows) | Cloud GitLab (`gitlab.com`) | `develop` + releases |
-
-For a full list of projects using the mirror workflow, see [this GitHub search](https://github.com/search?q=org%3Afuturedapp%20universal-selfhosted-backup&type=code).
