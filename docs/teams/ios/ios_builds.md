@@ -85,7 +85,7 @@ Production builds can be either distributed via Futured's or customer's App Stor
 ??? info "App Store submission - first release requirements:"
 
     Here's a list of requirements to be able to successfuly submit the very first build to app review:
-    
+
     ### Xcode project
 
     - app icon
@@ -104,7 +104,7 @@ Production builds can be either distributed via Futured's or customer's App Stor
     - Keywords (limit 100 chars)
         - include one or more keywords that describe your app
         - keywords make App Store search results more accurate
-        - separate keywords with an English comma
+        - separate keywords with an English comma without spaces
     - Support URL
     - Marketing URL (optional)
     - Copyright
@@ -114,13 +114,14 @@ Production builds can be either distributed via Futured's or customer's App Stor
     - build (select uploaded build from TestFlight)
     - App Review Information (if applicable)
         - test account sign in credentials for app review (if there's an account in the app)
+        - notes (crucial for 2FA - provide static code or exact steps)
         - contact information
             - first, last name
             - phone, email
     
     #### `General` -> `App Information` section:
     
-    - Name (limit 17 chars)
+    - Name (limit 30 chars)
     - Subtitle (optional, limit 30 chars)
         - a summary of your app that will appear under your app's name on your App Store product page
     - Content Rights
@@ -128,6 +129,9 @@ Production builds can be either distributed via Futured's or customer's App Stor
         - Primary
         - Secondary (optional)
     - Age Rating
+        - interactive questionnaire (includes questions on violence, gambling, medical data, and AI features)
+    - App Store Regulations & Permits
+        - Digital Services Act (ensure your trader status is declared)
     
     #### `App Store` -> `TRUST & SAFETY` -> `App Privacy` section:
     
@@ -136,7 +140,7 @@ Production builds can be either distributed via Futured's or customer's App Stor
         - a URL where users can modify and delete the data collected from the app, 
         or decide how their data is used and shared
     - privacy nutrition labels
-        - click `Get Started` button
+        - click `Get Started` button and fill out data safety questionnaire
         
     #### `App Store` -> `MONETIZATION` -> `Pricing and Availability` section:
     
