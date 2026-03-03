@@ -4,6 +4,8 @@ Welcome to the iOS section of the Futured Engineering Handbook. This area contai
 
 ## Key Sections
 
+#### [Accessibility](ios_a11y.md) - Accessibility basics
+
 #### [Architecture](ios_architecture.md) - Futured iOS architecture
 
 #### [Builds](ios_builds.md) - Informations about project configurations
@@ -12,12 +14,12 @@ Welcome to the iOS section of the Futured Engineering Handbook. This area contai
 
 #### [Customer Account](ios_customer_account.md) - What we need to build an app to customer's account
 
+#### [First Submission Requirements](ios_app_store_checklist.md) - Requirements for the first App Store submission
+
 #### [Git Flow](ios_git_flow.md) - Recommended git flow
 
 #### [Localization](ios_localization.md) - Localization
 
 #### [New Project](ios_new_project.md) - How to start a new project
-
-#### [Accessibility](ios_a11y.md) - Accessibility basics
 
 #### [Release](ios_release.md) - How to create a release build

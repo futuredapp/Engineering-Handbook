@@ -7,6 +7,10 @@
 - release notes (every version should have different release notes)
 - visually check screenshots if they are up-to-date
 
+!!! info "First submission requirements"
+
+    See the [First Submission Requirements](ios_app_store_checklist.md) for a complete list of requirements for the first App Store submission.
+
 ## Source control steps to release
 
 - in GitHub project repo, go to `Code` -> `Releases`
