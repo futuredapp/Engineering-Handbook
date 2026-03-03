@@ -81,6 +81,7 @@ nav:
       - Builds: teams/ios/ios_builds.md
       - CI/CD: teams/ios/ios_ci_cd.md
       - Customer Account: teams/ios/ios_customer_account.md
+      - First Submission Requirements: teams/ios/ios_app_store_checklist.md
       - Git Flow: teams/ios/ios_git_flow.md
       - Localization: teams/ios/ios_localization.md
       - New Project: teams/ios/ios_new_project.md
