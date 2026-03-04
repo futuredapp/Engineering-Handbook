@@ -216,35 +216,9 @@ async createUser(userData: CreateUserDto): Promise<User> {
 
 ## Logging
 
-### 1. Winston Configuration
+### 1. Pino Configuration
 
-```typescript
-// config/winston.config.ts
-import { WinstonModule } from 'nest-winston';
-import * as winston from 'winston';
-
-export const winstonConfig = WinstonModule.createLogger({
-  transports: [
-    // Console transport for development
-    new winston.transports.Console({
-      format: winston.format.combine(
-        winston.format.timestamp(),
-        winston.format.colorize(),
-        winston.format.simple()
-      ),
-    }),
-    
-    // Google Cloud Logging
-    new winston.transports.Console({
-      format: winston.format.combine(
-        winston.format.timestamp(),
-        winston.format.json()
-      ),
-    }),
-  ],
-  level: process.env.LOG_LEVEL || 'info',
-});
-```
+We use Pino via `nestjs-pino` for structured logging. See [Monitoring & Alerting](../deployment/20_monitoring.md) for the setup.
 
 ### 2. Structured Logging
 
@@ -348,39 +322,6 @@ export class LoggingInterceptor implements NestInterceptor {
     return sanitized;
   }
 }
-```
-
-### 5. Future: Elasticsearch Integration
-
-```typescript
-// config/elasticsearch-logger.config.ts
-import { ElasticsearchTransport } from 'winston-elasticsearch';
-
-const elasticsearchTransport = new ElasticsearchTransport({
-  level: 'info',
-  clientOpts: {
-    node: process.env.ELASTICSEARCH_URL,
-    auth: {
-      username: process.env.ELASTICSEARCH_USERNAME,
-      password: process.env.ELASTICSEARCH_PASSWORD,
-    },
-  },
-  indexPrefix: 'logs',
-  ensureMappingTemplate: true,
-  mappingTemplate: {
-    index_patterns: ['logs-*'],
-    settings: {
-      number_of_shards: 1,
-      number_of_replicas: 0,
-    },
-  },
-});
-
-// Add to winston config
-transports: [
-  // ... existing transports
-  elasticsearchTransport,
-]
 ```
 
 ---

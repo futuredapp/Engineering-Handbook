@@ -42,11 +42,11 @@ The Full-stack team is responsible for developing and maintaining our web applic
 - [Environment Variables & Secrets Management](dev_env/10_secrets.md) - How to handle sensitive configuration
 - [AI-Assisted Development](dev_env/20_ai_tools.md) - Guidelines for using AI tools effectively and safely
 
-## 🚧 Deployment & Operations
+## Deployment & Operations
 
-- 🚧 [Deployment Process](deployment/00_deployment.md) - CI/CD pipeline and environment promotion
-- 🚧 [Rollback Procedures](deployment/10_rollback.md) - How to revert changes in case of failure
-- 🚧 [Monitoring & Alerting](deployment/20_monitoring.md) - Observability stack and health checks
+- [Deployment Process](deployment/00_deployment.md) - CI/CD pipeline and environment promotion
+- [Rollback Procedures](deployment/10_rollback.md) - How to revert changes in case of failure
+- [Monitoring & Alerting](deployment/20_monitoring.md) - Observability stack and health checks
 
 ## Documentation
 
