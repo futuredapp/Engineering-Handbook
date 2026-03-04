@@ -3,7 +3,7 @@
 We enforce consistent code quality and style across all our projects by using a shared set of linting rules, maintained in our public repository:  
 [https://github.com/futuredapp/eslint-config-futured](https://github.com/futuredapp/eslint-config-futured)
 
-Each project imports the appropriate linting configuration from this repository via npm, ensuring that all developers follow the same standards—whether working on frontend (Vue.js) or backend (NestJS) code.
+Each project imports the appropriate linting configuration from this repository via npm/yarn, ensuring that all developers follow the same standards—whether working on frontend (Vue.js) or backend (NestJS) code.
 
 In the future, we will also include Prettier rules in this shared configuration for automated code formatting.
 
@@ -33,9 +33,12 @@ Linting is the process of automatically analyzing code to detect errors, enforce
 - **ESLint**  
   Our primary linting tool for both JavaScript and TypeScript, with custom rule sets for Vue.js (frontend) and NestJS (backend).
 - **Prettier**  
-  Soon to be included in our shared configuration for automated code formatting, ensuring consistent style across all projects.
+  Included in our shared configuration for automated code formatting, ensuring consistent style across all projects. Prettier handles all formatting concerns (indentation, line length, trailing commas, etc.) so ESLint can focus on code quality rules.
 - **Editor Integration**  
-  We encourage developers to set up linting and formatting to run automatically in their code editors for real-time feedback and corrections. We have a guide for automating this setup in out internal documentation.
+  We encourage developers to set up linting and formatting to run automatically in their code editors for real-time feedback and corrections. We have a guide for automating this setup in our internal documentation.
+
+!!! info "Evolving Tooling"
+    The JavaScript/TypeScript linting ecosystem is evolving rapidly. While ESLint with our shared config remains our standard, we keep an eye on emerging tools like ESLint flat config and Biome. Any tooling changes will be evaluated for compatibility with our existing workflows and adopted incrementally.
 
 ---
 
