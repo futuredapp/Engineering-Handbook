@@ -22,7 +22,7 @@ Sentry.init({
 ```
 
 ```typescript
-// common/filters/sentry-exception.filter.ts
+// shared/filters/sentry-exception.filter.ts
 @Catch()
 export class SentryExceptionFilter implements ExceptionFilter {
     catch(exception: unknown, host: ArgumentsHost) {

@@ -20,13 +20,13 @@ The Full-stack team is responsible for developing and maintaining our web applic
 - [Code Review Process](development/20_code_review_process.md) - Steps and criteria for reviewing code
 - [Project Setup](development/30_project_setup.md) - Steps to set up a new project
 
-## 🚧 Tech Stack Overview
+## Tech Stack Overview
 
-- 🚧 [Frontend](tech_stack/00_frontend.md) - Vue 3, Nuxt 3, Composition API, Pinia, Vite
-- 🚧 [Backend](tech_stack/10_backend.md) - NestJS architecture, REST & GraphQL patterns
-- 🚧 [Database](tech_stack/20_database.md) - PostgreSQL, MongoDB, ORM choices and migrations
-- 🚧 [DevOps & Infrastructure](tech_stack/30_devops.md) - Docker, GitHub Actions CI/CD, Terraform
-- 🚧 [Third-Party Integrations & APIs](tech_stack/40_integrations.md) - External services and integration patterns
+- [Frontend](tech_stack/00_frontend.md) - Vue 3, Nuxt 3, Composition API, Pinia, Vite
+- [Backend](tech_stack/10_backend.md) - NestJS architecture, REST & GraphQL patterns
+- [Database](tech_stack/20_database.md) - PostgreSQL, MongoDB, ORM choices and migrations
+- [DevOps & Infrastructure](tech_stack/30_devops.md) - Docker, GitHub Actions CI/CD, Terraform
+- [Third-Party Integrations & APIs](tech_stack/40_integrations.md) - External services and integration patterns
 
 ## Coding Standards
 

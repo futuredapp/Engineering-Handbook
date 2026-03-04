@@ -162,10 +162,10 @@ Firebase Auth can be combined with our own authorization layer (guards, roles) â
 ### Role-Based Access Control (RBAC)
 
 ```typescript
-// common/decorators/roles.decorator.ts
+// shared/decorators/roles.decorator.ts
 export const Roles = (...roles: UserRole[]) => SetMetadata('roles', roles)
 
-// common/guards/roles.guard.ts
+// shared/guards/roles.guard.ts
 @Injectable()
 export class RolesGuard implements CanActivate {
     constructor(private reflector: Reflector) {}
