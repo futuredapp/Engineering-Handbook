@@ -110,6 +110,7 @@ nav:
       - Development Environment:
           - Local Setup: teams/fullstack/dev_env/00_local_setup.md
           - Secrets: teams/fullstack/dev_env/10_secrets.md
+          - AI-Assisted Development: teams/fullstack/dev_env/20_ai_tools.md
       - Deployment:
           - Process: teams/fullstack/deployment/00_deployment.md
           - Rollback: teams/fullstack/deployment/10_rollback.md
