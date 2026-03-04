@@ -19,8 +19,6 @@ We use Docker Compose with environment variables for local development. The conf
 
 #### `docker-compose.yml` (Template)
 ```yaml
-version: '3.7'
-
 services:
   api:
     build:
@@ -50,6 +48,7 @@ services:
 ### Git Configuration
 
 **Never commit these files:**
+
 - `docker-compose.yml` (with actual secrets)
 - `.env`
 - `.env.local`
@@ -57,6 +56,7 @@ services:
 - Any file containing actual secret values
 
 **Always commit these files:**
+
 - `docker-compose.dist.yml` - Template showing required variables
 - `.env.example` - Template showing required variables
 - `.env.dist` - Distribution template (same as .env.example)
@@ -95,7 +95,7 @@ cp docker-compose.dist.yml docker-compose.yml
 nano docker-compose.yml
 
 # Start the application with Docker Compose
-docker-compose up -d
+docker compose up -d
 ```
 
 ### 2. README Documentation
@@ -114,7 +114,7 @@ Include a section in your README.md:
 | Variable | Description | Example |
 |----------|-------------|---------|
 | `DATABASE_URL` | PostgreSQL connection string | `postgresql://user:pass@postgres/db` |
-| `_API_KEY` | API key | `your-api-key` |
+| `API_KEY` | API key | `your-api-key` |
 | `OAUTH_KEY` | OAuth authentication key | `your-oauth-key` |
 | `CLIENT_ID` | Client ID for authentication | `your-client-id` |
 
@@ -144,7 +144,7 @@ gcloud secrets add-iam-policy-binding DATABASE_URL \
     --role="roles/secretmanager.secretAccessor"
 ```
 
-**Note:** You can also create and manage secrets through the Google Cloud Console UI at https://console.cloud.google.com/security/secret-manager
+**Note:** You can also create and manage secrets through the Google Cloud Console UI at [https://console.cloud.google.com/security/secret-manager](https://console.cloud.google.com/security/secret-manager)
 
 #### Cloud Run / App Engine
 ```yaml
