@@ -93,12 +93,35 @@ async getUsers(): Promise<User[]> { … }
 
 #### 4. **Vue.js with TypeScript**
 
-- **Use `<script lang="ts">` in Single File Components**
-- **Define props with types**
+- **Use `<script setup lang="ts">` in Single File Components** (Composition API)
+- **Define props with `defineProps` and TypeScript generics**
+
+```vue
+<script setup lang="ts">
+interface Props {
+    userId: string
+    label?: string
+}
+
+const props = defineProps<Props>()
+</script>
+```
+
+- **Use composables for reusable logic**
 
 ```typescript
-props: {
-    userId: { type: String as PropType, required: true }
+// composables/useUser.ts
+export function useUser(userId: string) {
+    const user = ref<User | null>(null)
+    const loading = ref(false)
+
+    async function fetchUser() {
+        loading.value = true
+        user.value = await userApi.getById(userId)
+        loading.value = false
+    }
+
+    return { user, loading, fetchUser }
 }
 ```
 
