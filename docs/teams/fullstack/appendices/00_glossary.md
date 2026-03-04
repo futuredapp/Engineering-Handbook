@@ -66,6 +66,9 @@ The practice of managing and provisioning infrastructure through machine-readabl
 **IDE (Integrated Development Environment)**  
 Software that provides comprehensive tools for software development, such as code editing, debugging, and testing.
 
+**Jest**  
+A JavaScript and TypeScript testing framework with built-in assertion library, mocking, and code coverage. Used as our standard testing tool for both backend (NestJS) and frontend (Vue) projects.
+
 **JSON (JavaScript Object Notation)**  
 A lightweight data-interchange format, easy for humans to read and write, and easy for machines to parse and generate.
 
@@ -128,9 +131,6 @@ The overall experience a user has when interacting with a product or service, fo
 
 **Version Control**  
 A system (like Git) for tracking changes to code, enabling collaboration and history tracking.
-
-**Vitest**  
-A fast unit testing framework for JavaScript and TypeScript, designed to work natively with Vite and compatible with the Jest API.
 
 **WebSocket**  
 A protocol for full-duplex communication channels over a single TCP connection, commonly used in real-time web applications.
