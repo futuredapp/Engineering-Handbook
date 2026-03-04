@@ -53,10 +53,10 @@ The Full-stack team is responsible for developing and maintaining our web applic
 - [Code Documentation Standards](docs/00_code_docs.md) - Guidelines for documenting code and projects
 - [API Documentation](docs/10_api_docs.md) - Standards for REST (Swagger) and GraphQL documentation
 
-## 🚧 Security
+## Security
 
-- 🚧 [Authentication & Authorization](security/00_auth.md) - JWT, OAuth2, guards, and token management
-- 🚧 [Data Privacy & Compliance](security/10_privacy.md) - GDPR, data handling, and user consent
+- [Authentication & Authorization](security/00_auth.md) - JWT, OAuth2, guards, and token management
+- [Data Privacy & Compliance](security/10_privacy.md) - GDPR, data handling, and user consent
 
 ## Appendices
 
