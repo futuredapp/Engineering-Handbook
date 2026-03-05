@@ -13,8 +13,8 @@ Drops and recreates the database, runs migrations, and seeds development data:
 # scripts/db-reset.sh
 
 echo "Dropping and recreating database..."
-docker compose exec postgres psql -U $POSTGRES_USER -c "DROP DATABASE IF EXISTS $POSTGRES_DB;"
-docker compose exec postgres psql -U $POSTGRES_USER -c "CREATE DATABASE $POSTGRES_DB;"
+docker compose exec postgres psql -U myuser -c "DROP DATABASE IF EXISTS mydb;"
+docker compose exec postgres psql -U myuser -c "CREATE DATABASE mydb;"
 
 echo "Running migrations..."
 docker compose exec api npm run migrate
