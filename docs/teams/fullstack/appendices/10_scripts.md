@@ -29,7 +29,7 @@ echo "Database reset complete."
 
 ```bash
 # Export a database dump
-docker compose exec postgres pg_dump -U myuser mydb > backup.sql
+docker compose exec -T postgres pg_dump -U myuser mydb > backup.sql
 
 # Import a database dump
 docker compose exec -T postgres psql -U myuser mydb < backup.sql
