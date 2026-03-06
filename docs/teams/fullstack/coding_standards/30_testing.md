@@ -2,6 +2,20 @@
 
 This guide covers our testing philosophy, tooling, and conventions for full-stack projects.
 
+!!! warning "Current State"
+
+    Testing is **not consistent** across projects. Some projects have solid test suites, others have minimal or no tests. This section defines what we aspire to and the minimum requirements we are working towards. Frontend testing in particular lags behind backend — there is no established equivalent of testing against a design (e.g. visual regression against Figma), though this is an area we want to explore.
+
+## Minimum Requirements
+
+Every project **must** have at minimum:
+
+- **Backend**: Integration tests for authentication flows and critical business logic (payments, data mutations)
+- **CI gate**: Tests run on every PR — failing tests block the merge
+- **Bug fixes**: A regression test accompanying every bug fix
+
+Everything beyond this is strongly encouraged but depends on the project's scope and timeline.
+
 ## Testing Philosophy
 
 - **Test behavior, not implementation** — tests should verify what the code does, not how it does it

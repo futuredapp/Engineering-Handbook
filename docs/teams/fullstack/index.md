@@ -19,6 +19,7 @@ The Full-stack team is responsible for developing and maintaining our web applic
 - [Pull Request Guidelines](development/10_pull_request_guidelines.md) - How to create and manage pull requests
 - [Code Review Process](development/20_code_review_process.md) - Steps and criteria for reviewing code
 - [Project Setup](development/30_project_setup.md) - Steps to set up a new project
+- [Technical Ownership](development/40_project_ownership.md) - Tech owner role, responsibilities, and handovers
 
 ## Tech Stack Overview
 
@@ -47,6 +48,7 @@ The Full-stack team is responsible for developing and maintaining our web applic
 - [Deployment Process](deployment/00_deployment.md) - CI/CD pipeline and environment promotion
 - [Rollback Procedures](deployment/10_rollback.md) - How to revert changes in case of failure
 - [Monitoring & Alerting](deployment/20_monitoring.md) - Observability stack and health checks
+- [Operations & Access Management](deployment/30_ops.md) - Service accounts, access audits, cloud resource organization
 
 ## Documentation
 

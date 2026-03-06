@@ -1,6 +1,6 @@
 # DevOps & Infrastructure
 
-Our infrastructure is containerized, automated, and deployed via CI/CD pipelines. We run on Google Cloud Platform (GCP) and Digital Ocean, managed with Terraform.
+Our infrastructure is containerized, automated, and deployed via CI/CD pipelines. We run on Google Cloud Platform (GCP) and Digital Ocean, sometimes managed with Terraform.
 
 ## Infrastructure Overview
 
@@ -226,16 +226,34 @@ The choice is made per project based on client requirements, budget, and complex
 
 ## Infrastructure as Code
 
-Some projects use Infrastructure as Code (IaC) to define and manage cloud resources. This is not a default across all projects — it's adopted where the infrastructure complexity justifies it.
+!!! warning "Current State"
 
-- **Terraform** — Currently used on a few projects. Declarative HCL syntax, mature ecosystem, strong GCP and Digital Ocean support.
-- **Pulumi** — We are experimenting with Pulumi as an alternative. It allows defining infrastructure in TypeScript, which fits naturally into our stack.
+    Most projects today do **not** use Infrastructure as Code. Infrastructure is typically set up manually through cloud provider consoles and CLI tools. This is a known gap and one of the team's top priorities to improve.
 
-When IaC is used, the general principles apply:
+### Where We Are
 
-- Infrastructure state is stored remotely (e.g. GCS bucket, Terraform Cloud, Pulumi Cloud)
-- Changes go through PR review, just like application code
-- Environment-specific configuration is separated from the resource definitions
+- Infrastructure for most projects is provisioned manually (cloud consoles, CLI)
+- A handful of projects use **Terraform** with basic GCP or Digital Ocean resource definitions
+- There is no standardized IaC template or workflow across projects
+- Manual setup leads to inconsistent environments, undocumented configuration, and difficult handovers
+
+### Where We Want to Be
+
+Our goal is to adopt **Pulumi** as the primary IaC tool. Pulumi allows defining infrastructure in TypeScript, which fits naturally into our stack and lowers the barrier for full-stack developers.
+
+**Target state:**
+
+- Every new project includes a Pulumi stack defining its cloud resources
+- Infrastructure changes go through PR review, just like application code
+- Infrastructure state is stored remotely (Pulumi Cloud or GCS bucket)
+- Environment-specific configuration is separated from resource definitions
+- Project audits to migrate existing manual infrastructure to code
+
+### Transition Plan
+
+1. **New projects** — Start with a Pulumi template as part of project scaffolding
+2. **Existing projects** — Gradually import existing resources into Pulumi during maintenance windows
+3. **Knowledge sharing** — OPS specialists help teams adopt IaC practices
 
 ## Environment Promotion
 
