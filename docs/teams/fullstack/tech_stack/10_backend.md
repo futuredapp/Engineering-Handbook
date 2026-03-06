@@ -75,6 +75,24 @@ NestJS is our primary backend framework. It provides a structured, opinionated a
 - **TypeScript native** — Designed from the ground up for TypeScript, not retrofitted
 - **Enterprise-grade** — Battle-tested patterns for validation, error handling, logging, and security
 
+**Trade-offs to consider:**
+
+- NestJS adds abstraction overhead — for simple APIs, this can mean higher development cost for clients
+- The learning curve is steeper compared to plain Express/Fastify
+- Some client budgets or project scopes don't justify the full NestJS setup
+
+### Choosing a Backend Framework
+
+NestJS is the **default**, not a mandate. For projects where NestJS is overkill, consider lighter alternatives:
+
+| Framework | When to use |
+|---|---|
+| **NestJS** | Medium-to-large projects, complex business logic, multiple modules, long-term maintenance |
+| **Express / Fastify** | Small APIs, microservices, tight budgets, simple CRUD |
+| **Hono** | Edge-first APIs, serverless functions, minimal footprint |
+
+The decision should be made at project kickoff based on scope, budget, and expected complexity. Document the choice in the project README.
+
 ### Request Lifecycle
 
 Every incoming request passes through a well-defined pipeline of NestJS components:
@@ -218,6 +236,8 @@ export class UsersResolver {
 
 ### Choosing an API Style
 
+**REST is the default.** GraphQL adds complexity (schema management, N+1 queries, caching challenges) and should only be used when its benefits clearly outweigh the cost.
+
 <!-- TODO: Replace Mermaid diagram with a custom-designed SVG/image -->
 ```mermaid
 graph TD
@@ -240,6 +260,11 @@ graph TD
 | Public APIs for third parties | Frontend needs flexible queries |
 | File uploads / downloads | Multiple related entities per request |
 | Webhooks and callbacks | Real-time subscriptions needed |
+| **Most projects (default)** | **Only when justified by data complexity** |
+
+!!! info "GraphQL Considerations"
+
+    GraphQL is powerful but adds operational cost: schema versioning, query complexity limits, caching strategies, and tooling overhead. Don't adopt it just because it's modern — adopt it when the frontend genuinely benefits from flexible queries over multiple related entities.
 
 ## Validation
 
@@ -260,6 +285,29 @@ export class CreateUserDto {
     role: UserRole
 }
 ```
+
+## Architecture: Monolith vs. Services
+
+**Start with a modular monolith.** Only split into dedicated services when there is a clear, justified need.
+
+| Approach | When to use |
+|---|---|
+| **Modular monolith** | Most projects. Single deployable, modules separated by NestJS module boundaries. Simpler ops, easier debugging. |
+| **Dedicated services** | When parts of the system have fundamentally different scaling, deployment, or team ownership needs. |
+
+**Signs you need to split:**
+
+- One part of the system needs independent scaling (e.g. heavy background processing)
+- Different release cadences for different parts
+- Separate teams owning separate domains
+- A module's failure should not bring down the rest
+
+**Rules for services:**
+
+- Each service owns its data — no shared databases
+- Services communicate via REST APIs or message queues, not direct DB access
+- Every service must be independently deployable and have its own CI/CD pipeline
+- Document service boundaries and communication contracts
 
 ## Node.js Runtime
 

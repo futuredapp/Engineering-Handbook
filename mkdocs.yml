@@ -95,6 +95,7 @@ nav:
           - Pull Request Guidelines: teams/fullstack/development/10_pull_request_guidelines.md
           - Code Review Process: teams/fullstack/development/20_code_review_process.md
           - Project Setup: teams/fullstack/development/30_project_setup.md
+          - Technical Ownership: teams/fullstack/development/40_project_ownership.md
       - Tech Stack:
           - Frontend: teams/fullstack/tech_stack/00_frontend.md
           - Backend: teams/fullstack/tech_stack/10_backend.md
@@ -115,6 +116,7 @@ nav:
           - Process: teams/fullstack/deployment/00_deployment.md
           - Rollback: teams/fullstack/deployment/10_rollback.md
           - Monitoring: teams/fullstack/deployment/20_monitoring.md
+          - Operations: teams/fullstack/deployment/30_ops.md
       - Documentation:
           - Code Documentation: teams/fullstack/docs/00_code_docs.md
           - API Documentation: teams/fullstack/docs/10_api_docs.md
