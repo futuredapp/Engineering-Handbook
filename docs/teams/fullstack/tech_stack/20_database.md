@@ -4,39 +4,9 @@ We use PostgreSQL as our primary relational database and MongoDB for specific us
 
 ## Data Architecture
 
-<!-- TODO: Replace Mermaid diagram with a custom-designed SVG/image -->
-```mermaid
-graph TB
-    subgraph Application["Application"]
-        Service([NestJS Service]):::app
-        ORM{{ORM Layer<br/>Prisma / TypeORM}}:::orm
-    end
+![](./Resources/20_database_data_architecture_light.png#only-light){data-gallery="light"}
+![](./Resources/20_database_data_architecture_dark.png#only-dark){data-gallery="dark"}
 
-    subgraph DataStorage["Data Storage"]
-        PG[(PostgreSQL<br/>Primary Database)]:::pg
-        Mongo[(MongoDB<br/>Document Store)]:::mongo
-        Redis[(Redis<br/>Cache & Sessions)]:::redis
-    end
-
-    subgraph Managed["Managed Services"]
-        CloudSQL[/GCP Cloud SQL<br/>DO Managed DB/]:::managed
-        Backups[/Automated Backups<br/>Point-in-Time Recovery/]:::managed
-    end
-
-    Service --> ORM
-    ORM --> PG
-    ORM --> Mongo
-    Service --> Redis
-    PG --> CloudSQL
-    CloudSQL --> Backups
-
-    classDef app fill:#3b82f6,stroke:#1e40af,color:#fff
-    classDef orm fill:#8b5cf6,stroke:#5b21b6,color:#fff
-    classDef pg fill:#336791,stroke:#1e3a5f,color:#fff
-    classDef mongo fill:#4db33d,stroke:#2d6e23,color:#fff
-    classDef redis fill:#dc382d,stroke:#a02a22,color:#fff
-    classDef managed fill:#f59e0b,stroke:#b45309,color:#fff
-```
 
 ## PostgreSQL
 
@@ -107,22 +77,9 @@ These may become recommended alternatives in the future as we gain more experien
 
 Database schema changes are always managed through migrations — never manual DDL.
 
-<!-- TODO: Replace Mermaid diagram with a custom-designed SVG/image -->
-```mermaid
-graph LR
-    Change([Schema Change<br/>in Code]):::code --> Migration{{Generate<br/>Migration File}}:::migration
-    Migration --> Review[[Code Review<br/>in PR]]:::review
-    Review --> CI[[CI Runs<br/>Migration Test]]:::ci
-    CI --> Deploy([Deploy:<br/>Run Migration]):::deploy
-    Deploy --> App([Start<br/>Application]):::success
+![](./Resources/20_database_migration_strategy_light.png#only-light){data-gallery="light"}
+![](./Resources/20_database_migration_strategy_dark.png#only-dark){data-gallery="dark"}
 
-    classDef code fill:#8b5cf6,stroke:#5b21b6,color:#fff
-    classDef migration fill:#3b82f6,stroke:#1e40af,color:#fff
-    classDef review fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef ci fill:#06b6d4,stroke:#0e7490,color:#fff
-    classDef deploy fill:#e11d48,stroke:#9f1239,color:#fff
-    classDef success fill:#22c55e,stroke:#15803d,color:#fff
-```
 
 ### Rules
 

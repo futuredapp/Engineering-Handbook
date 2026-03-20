@@ -4,75 +4,8 @@ Our infrastructure is containerized, automated, and deployed via CI/CD pipelines
 
 ## Infrastructure Overview
 
-<!-- TODO: Replace Mermaid diagram with a custom-designed SVG/image -->
-```mermaid
-graph TB
-    subgraph Dev["Developer"]
-        Code([Code + Push]):::dev
-    end
-
-    subgraph GH["GitHub"]
-        Repo{{Repository}}:::github
-        Actions{{GitHub Actions<br/>CI/CD}}:::github
-        Registry[(Container Registry)]:::github
-    end
-
-    subgraph Cloud["Cloud Platform — GCP / Digital Ocean"]
-        LB[[Load Balancer<br/>SSL Termination]]:::infra
-
-        subgraph Compute["Compute"]
-            API_Dev([API — Dev]):::compute_dev
-            API_Prod([API — Prod]):::compute_prod
-        end
-
-        subgraph Data["Data"]
-            DB_Dev[(DB — Dev)]:::data_dev
-            DB_Prod[(DB — Prod)]:::data_prod
-            Cache_Dev[(Redis — Dev)]:::data_dev
-            Cache_Prod[(Redis — Prod)]:::data_prod
-        end
-
-        subgraph Storage["Storage"]
-            Secrets[/Secret Manager/]:::storage
-            Files[/Cloud Storage / Spaces/]:::storage
-        end
-    end
-
-    subgraph Mon["Monitoring"]
-        Sentry([Sentry]):::monitoring
-        Logs([Cloud Logging]):::monitoring
-    end
-
-    Code --> Repo
-    Repo --> Actions
-    Actions -->|Build & Push| Registry
-    Actions -->|Deploy| API_Dev
-    Actions -->|Deploy| API_Prod
-    LB --> API_Dev
-    LB --> API_Prod
-    API_Dev --> DB_Dev
-    API_Dev --> Cache_Dev
-    API_Prod --> DB_Prod
-    API_Prod --> Cache_Prod
-    API_Dev --> Secrets
-    API_Prod --> Secrets
-    API_Dev --> Files
-    API_Prod --> Files
-    API_Dev --> Sentry
-    API_Prod --> Sentry
-    API_Dev --> Logs
-    API_Prod --> Logs
-
-    classDef dev fill:#64748b,stroke:#334155,color:#fff
-    classDef github fill:#24292e,stroke:#1b1f23,color:#fff
-    classDef infra fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef compute_dev fill:#22c55e,stroke:#15803d,color:#fff
-    classDef compute_prod fill:#e11d48,stroke:#9f1239,color:#fff
-    classDef data_dev fill:#059669,stroke:#065f46,color:#fff
-    classDef data_prod fill:#dc2626,stroke:#991b1b,color:#fff
-    classDef storage fill:#8b5cf6,stroke:#5b21b6,color:#fff
-    classDef monitoring fill:#06b6d4,stroke:#0e7490,color:#fff
-```
+![](./Resources/30_devops_infrastructure_overview_light.png#only-light){data-gallery="light"}
+![](./Resources/30_devops_infrastructure_overview_dark.png#only-dark){data-gallery="dark"}
 
 ## Docker
 
@@ -145,28 +78,9 @@ CMD ["node", "dist/main.js"]
 
 All projects use GitHub Actions for continuous integration and deployment. The specific workflow varies per project, but the process follows the same stages:
 
-<!-- TODO: Replace Mermaid diagram with a custom-designed SVG/image -->
-```mermaid
-graph LR
-    subgraph CI["CI — Every PR"]
-        Lint([Lint<br/>ESLint + Prettier]):::lint --> Test([Test<br/>Unit + Integration]):::test
-        Test --> Build([Build<br/>TypeScript + Docker]):::build
-    end
+![](./Resources/30_devops_cicd_pipeline_light.png#only-light){data-gallery="light"}
+![](./Resources/30_devops_cicd_pipeline_dark.png#only-dark){data-gallery="dark"}
 
-    subgraph CD["CD — On Merge"]
-        Push{{Push Image<br/>to Registry}}:::push --> Deploy_Dev([Deploy to Dev]):::dev
-        Push --> Deploy_Prod([Deploy to Prod]):::prod
-    end
-
-    Build --> Push
-
-    classDef lint fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef test fill:#3b82f6,stroke:#1e40af,color:#fff
-    classDef build fill:#8b5cf6,stroke:#5b21b6,color:#fff
-    classDef push fill:#06b6d4,stroke:#0e7490,color:#fff
-    classDef dev fill:#22c55e,stroke:#15803d,color:#fff
-    classDef prod fill:#e11d48,stroke:#9f1239,color:#fff
-```
 
 1. **Lint** — ESLint + Prettier checks ensure code quality
 2. **Test** — Unit and integration tests verify functionality
@@ -198,22 +112,9 @@ Used for smaller projects or when simpler infrastructure is preferred:
 
 ### Choosing a Platform
 
-<!-- TODO: Replace Mermaid diagram with a custom-designed SVG/image -->
-```mermaid
-graph TD
-    Start{New Project}:::decision --> Q1{Enterprise client?<br/>Complex scaling needs?}:::decision
-    Q1 -->|Yes| GCP([Google Cloud Platform]):::gcp
-    Q1 -->|No| Q2{Tight budget?<br/>Simple infrastructure?}:::decision
-    Q2 -->|Yes| DO([Digital Ocean]):::do
-    Q2 -->|No| Q3{Client preference?}:::decision
-    Q3 -->|GCP| GCP
-    Q3 -->|DO| DO
-    Q3 -->|No preference| DO_Default([Digital Ocean<br/>Simpler default]):::do
+![](./Resources/30_devops_hosting_platform_light.png#only-light){data-gallery="light"}
+![](./Resources/30_devops_hosting_platform_dark.png#only-dark){data-gallery="dark"}
 
-    classDef decision fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef gcp fill:#4285f4,stroke:#1a73e8,color:#fff
-    classDef do fill:#0080ff,stroke:#0060cc,color:#fff
-```
 
 | | GCP | Digital Ocean |
 |---|---|---|
@@ -259,16 +160,9 @@ Our goal is to adopt **Pulumi** as the primary IaC tool. Pulumi allows defining 
 
 Code flows through environments in this order:
 
-<!-- TODO: Replace Mermaid diagram with a custom-designed SVG/image -->
-```mermaid
-graph LR
-    Dev([develop branch<br/>Dev Environment]):::dev --> Staging([staging branch<br/>Staging Environment]):::staging
-    Staging --> Prod([main branch<br/>Production]):::prod
+![](./Resources/30_devops_environment_promotion_light.png#only-light){data-gallery="light"}
+![](./Resources/30_devops_environment_promotion_dark.png#only-dark){data-gallery="dark"}
 
-    classDef dev fill:#22c55e,stroke:#15803d,color:#fff
-    classDef staging fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef prod fill:#e11d48,stroke:#9f1239,color:#fff
-```
 
 Each environment has its own:
 

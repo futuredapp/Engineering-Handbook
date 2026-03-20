@@ -4,48 +4,8 @@ Our frontend stack is built around Vue 3, Nuxt 3, and TypeScript. We prioritize 
 
 ## Architecture Overview
 
-<!-- TODO: Replace Mermaid diagram with a custom-designed SVG/image -->
-```mermaid
-graph TB
-    subgraph Browser["Browser"]
-        UI([Vue Components])
-        Store([Pinia Stores])
-        Composables([Composables])
-        Router([Nuxt Router])
-    end
-
-    subgraph Nuxt["Nuxt Layer"]
-        SSR{{SSR / SPA Engine}}
-        Middleware{{Route Middleware}}
-        Plugins{{Plugins}}
-        ServerRoutes{{Server Routes / API Proxy}}
-    end
-
-    subgraph External["External Services"]
-        API[(Backend API)]
-        Auth>Auth Provider]
-        CDN>Static Assets / CDN]
-    end
-
-    UI --> Store
-    UI --> Composables
-    Router --> Middleware --> UI
-    Plugins --> UI
-    SSR --> UI
-    Composables --> ServerRoutes
-    ServerRoutes --> API
-    Store --> API
-    UI --> Auth
-    UI --> CDN
-
-    classDef browser fill:#42b883,stroke:#35495e,color:#fff
-    classDef nuxt fill:#00dc82,stroke:#003c1c,color:#003c1c
-    classDef external fill:#3b82f6,stroke:#1e40af,color:#fff
-
-    class UI,Store,Composables,Router browser
-    class SSR,Middleware,Plugins,ServerRoutes nuxt
-    class API,Auth,CDN external
-```
+![](./Resources/00_frontend_arch_light.png#only-light){data-gallery="light"}
+![](./Resources/00_frontend_arch_dark.png#only-dark){data-gallery="dark"}
 
 ## Core Technologies
 
@@ -86,18 +46,9 @@ const greeting = computed(() => `Hello, ${user.value?.name}`)
 
 Nuxt 3 is our default framework for Vue applications. It provides a production-ready foundation with conventions that reduce decision fatigue and boilerplate.
 
-<!-- TODO: Replace Mermaid diagram with a custom-designed SVG/image -->
-```mermaid
-graph LR
-    SSR_MODE([SSR<br/>Server-Side Rendering]):::ssr -->|"SEO, public pages,<br/>fast first paint"| USE_SSR[/Public-facing apps<br/>Marketing sites<br/>E-commerce/]:::usecase
-    SPA_MODE([SPA<br/>Single Page Application]):::spa -->|"Rich interactivity,<br/>no SEO needs"| USE_SPA[/Admin panels<br/>Dashboards<br/>Internal tools/]:::usecase
-    SSG_MODE([SSG<br/>Static Site Generation]):::ssg -->|"Pre-rendered<br/>at build time"| USE_SSG[/Documentation<br/>Landing pages<br/>Blogs/]:::usecase
+![](./Resources/00_frontend_nuxt_rendering_light.png#only-light){data-gallery="light"}
+![](./Resources/00_frontend_nuxt_rendering_dark.png#only-dark){data-gallery="dark"}
 
-    classDef ssr fill:#42b883,stroke:#35495e,color:#fff
-    classDef spa fill:#3b82f6,stroke:#1e40af,color:#fff
-    classDef ssg fill:#8b5cf6,stroke:#5b21b6,color:#fff
-    classDef usecase fill:#f1f5f9,stroke:#94a3b8,color:#334155
-```
 
 **Key capabilities:**
 
@@ -166,27 +117,8 @@ export const useAuthStore = defineStore('auth', () => {
 
 ## Data Flow
 
-<!-- TODO: Replace Mermaid diagram with a custom-designed SVG/image -->
-```mermaid
-sequenceDiagram
-    actor User
-    participant Component as Vue Component
-    participant Composable as Composable / Store
-    participant API as Backend API
-
-    User->>Component: Interaction (click, input)
-    activate Component
-    Component->>Composable: Call action
-    activate Composable
-    Composable->>API: $fetch / useFetch
-    activate API
-    API-->>Composable: JSON response
-    deactivate API
-    Composable-->>Component: Reactive state update
-    deactivate Composable
-    Component-->>User: UI update
-    deactivate Component
-```
+![](./Resources/00_frontend_data_flow_light.png#only-light){data-gallery="light"}
+![](./Resources/00_frontend_data_flow_dark.png#only-dark){data-gallery="dark"}
 
 ## Build Tooling
 

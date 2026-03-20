@@ -4,63 +4,8 @@ This page documents common third-party services we integrate with and the patter
 
 ## Integration Architecture
 
-<!-- TODO: Replace Mermaid diagram with a custom-designed SVG/image -->
-```mermaid
-graph TB
-    subgraph App["Our Application"]
-        API([NestJS API]):::app
-        IntLayer{{Integration Layer<br/>Dedicated Modules}}:::integration
-    end
-
-    subgraph Auth["Authentication"]
-        Firebase([Firebase Auth]):::auth
-        Google([Google OAuth]):::auth
-        Apple([Apple Sign-In]):::auth
-    end
-
-    subgraph Comms["Communication"]
-        Email([Email Service<br/>Resend / OneSignal]):::comms
-        FCM([Firebase Cloud Messaging<br/>Push Notifications]):::comms
-        Slack([Slack API<br/>Alerts & Notifications]):::comms
-    end
-
-    subgraph Store["Storage & Data"]
-        CloudStorage[(Cloud Storage<br/>GCS / Spaces / S3)]:::storage
-        DB[(Database)]:::storage
-    end
-
-    subgraph Pay["Payments"]
-        Stripe([Stripe]):::payments
-        GoPay([GoPay]):::payments
-    end
-
-    subgraph Mon["Monitoring"]
-        Sentry([Sentry<br/>Error Tracking]):::monitoring
-        Analytics([Google Analytics]):::monitoring
-    end
-
-    API --> IntLayer
-    IntLayer --> Firebase
-    IntLayer --> Google
-    IntLayer --> Apple
-    IntLayer --> Email
-    IntLayer --> FCM
-    IntLayer --> Slack
-    IntLayer --> CloudStorage
-    IntLayer --> Stripe
-    IntLayer --> GoPay
-    API --> Sentry
-    API --> Analytics
-    API --> DB
-
-    classDef app fill:#3b82f6,stroke:#1e40af,color:#fff
-    classDef integration fill:#8b5cf6,stroke:#5b21b6,color:#fff
-    classDef auth fill:#f59e0b,stroke:#b45309,color:#fff
-    classDef comms fill:#06b6d4,stroke:#0e7490,color:#fff
-    classDef storage fill:#059669,stroke:#065f46,color:#fff
-    classDef payments fill:#e11d48,stroke:#9f1239,color:#fff
-    classDef monitoring fill:#22c55e,stroke:#15803d,color:#fff
-```
+![](./Resources/40_integrations_arch_light.png#only-light){data-gallery="light"}
+![](./Resources/40_integrations_arch_dark.png#only-dark){data-gallery="dark"}
 
 ## Integration Patterns
 
@@ -95,24 +40,8 @@ export class EmailService {
 
 ### Integration Flow
 
-<!-- TODO: Replace Mermaid diagram with a custom-designed SVG/image -->
-```mermaid
-sequenceDiagram
-    participant App as Application Code
-    participant Module as Integration Module
-    participant Provider as External Provider
-
-    App->>Module: emailService.sendWelcome(user)
-    activate Module
-    Module->>Module: Build template, validate data
-    Module->>Provider: POST /api/send (API call)
-    activate Provider
-    Provider-->>Module: 200 OK / Error
-    deactivate Provider
-    Module->>Module: Log result, handle errors
-    Module-->>App: Success / throw exception
-    deactivate Module
-```
+![](./Resources/40_integrations_flow_light.png#only-light){data-gallery="light"}
+![](./Resources/40_integrations_flow_dark.png#only-dark){data-gallery="dark"}
 
 ### Configuration
 
@@ -162,34 +91,8 @@ async getUploadUrl(fileName: string): Promise<string> {
 - **Stripe** — Primary payment processor
 - **GoPay** — Used for Czech/Slovak market projects
 
-<!-- TODO: Replace Mermaid diagram with a custom-designed SVG/image -->
-```mermaid
-sequenceDiagram
-    participant Client as Frontend
-    participant API as Our API
-    participant Stripe as Stripe
-
-    Client->>API: Create payment intent
-    activate API
-    API->>Stripe: POST /payment_intents
-    activate Stripe
-    Stripe-->>API: Payment intent + client_secret
-    deactivate Stripe
-    API-->>Client: client_secret
-    deactivate API
-
-    Client->>Stripe: Confirm payment (card details)
-    activate Stripe
-    Stripe-->>Client: Payment result
-    deactivate Stripe
-
-    Note over Stripe,API: Asynchronous webhook callback
-    Stripe->>API: Webhook: payment_intent.succeeded
-    activate API
-    API->>API: Verify signature, update order
-    API-->>Stripe: 200 OK
-    deactivate API
-```
+![](./Resources/40_integrations_stripe_payment_light.png#only-light){data-gallery="light"}
+![](./Resources/40_integrations_stripe_payment_dark.png#only-dark){data-gallery="dark"}
 
 For payments, we always:
 
