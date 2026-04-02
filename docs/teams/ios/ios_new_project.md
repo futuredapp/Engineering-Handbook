@@ -276,14 +276,6 @@
             - add `test/test` check (for GitHub Actions)
             
             ![Step 16](Resources/ios_new_project_27.png){ width="900" }
-            
-            - add `danger/danger` check (for Any source)
-            
-            ![Step 17](Resources/ios_new_project_28.png){ width="200" }
-            
-            - added checks looks like this
-            
-            ![Step 18](Resources/ios_new_project_29.png){ width="500" }
 
 6. Enjoy!
 
