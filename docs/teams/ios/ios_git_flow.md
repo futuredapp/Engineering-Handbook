@@ -53,6 +53,4 @@ While doing code review, be nice and respect the work of another team member. Pa
 
 ### Continuous Integration
 
-Another required part to merge a PR is successful build on the CI. Pull request with failing build is not possible to merge. CI also sends [Danger](http://danger.systems/ruby/) report to the PR, which checks both git flow rules enforcements and code style issues. Danger rules in use on our projects are available in [futuredapp/danger]( https://github.com/futuredapp/danger/) repository.
-
-Danger reports issues and errors. Errors must be fixed before merging the PR, issues are strongly recommended to fix.
+Another required part to merge a PR is successful build on the CI. Pull request with failing build is not possible to merge.

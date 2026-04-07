@@ -87,7 +87,7 @@ In general, the PR description is optional. If you want to help your colleagues 
 
 ### PR Check
 
-Our pull requests are automatically checked by GitHub Actions to ensure code quality and convention standards. If the PR does not comply with the rules, Danger will report the issues as a comment on the related PR, so the shortcomings can be fixed.
+Our pull requests are automatically checked by GitHub Actions to ensure code quality and convention standards.
 
 
 

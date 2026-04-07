@@ -53,11 +53,6 @@ We use a structured Git branching model to ensure smooth collaboration and maint
 
 
 
-### Automated Checks
-
-- **Dangerfile**  
-  We use a Dangerfile to automatically check commit and pull request parameters, ensuring adherence to our standards.
-
 ### Release Tags
 
 - **Version Tags**  

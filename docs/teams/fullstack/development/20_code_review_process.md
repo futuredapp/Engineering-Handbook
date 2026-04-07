@@ -6,7 +6,7 @@ A thorough code review process helps us maintain high quality, consistency, and 
   Every pull request must receive at least one approving review before it can be merged.
 
 - **Passing Checks**  
-  All automated PR checks (CI, Dangerfile, tests, etc.) must pass before merging.
+  All automated PR checks (CI, tests, etc.) must pass before merging.
 
 - **Draft PRs**  
   Draft pull requests are welcome for early feedback, but they are not reviewed until marked as "Ready for Review."
