@@ -6,6 +6,8 @@ Welcome to the iOS section of the Futured Engineering Handbook. This area contai
 
 #### [Accessibility](ios_a11y.md) - Accessibility basics
 
+#### [Apple Developer Account](ios_apple_developer_account.md) - How to setup Apple Developer organization account
+
 #### [Architecture](ios_architecture.md) - Futured iOS architecture
 
 #### [Builds](ios_builds.md) - Informations about project configurations
