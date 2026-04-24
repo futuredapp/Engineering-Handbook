@@ -22,6 +22,8 @@ Welcome to the iOS section of the Futured Engineering Handbook. This area contai
 
 #### [Localization](ios_localization.md) - Localization
 
+#### [Multiplatform](ios_multiplatform.md) - SwiftUI multiplatform
+
 #### [New Project](ios_new_project.md) - How to start a new project
 
 #### [Release](ios_release.md) - How to create a release build
