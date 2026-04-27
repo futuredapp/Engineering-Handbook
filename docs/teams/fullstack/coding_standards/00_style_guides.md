@@ -34,12 +34,15 @@ const userCount = 10
 function getUserById(id: string) { … }
 ```
 
-- **Classes and interfaces:** PascalCase
+- **Classes and types:** PascalCase
 
 ```typescript
 class UserService { … }
-interface UserData { … }
+type UserData = { … }
 ```
+
+!!! note "Prefer `type` over `interface`"
+    For object shapes, prefer `type` aliases over `interface` declarations. `type` is more flexible (unions, intersections, mapped types) and avoids the surprise of declaration merging across files. Use `interface` only when you genuinely need its merging behavior (rare).
 
 - **Private members:** Prefix with underscore (optional, but consistent if used)
 
@@ -98,7 +101,7 @@ async getUsers(): Promise<User[]> { … }
 
 ```vue
 <script setup lang="ts">
-interface Props {
+type Props = {
     userId: string
     label?: string
 }
