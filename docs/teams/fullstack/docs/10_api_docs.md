@@ -124,8 +124,8 @@ GraphQLModule.forRoot<ApolloDriverConfig>({
 
 ### Schema Conventions
 
-- Use descriptive names for queries and mutations: `createUser`, `updateProjectSettings`
-- Input types end with `Input`: `CreateUserInput`, `UpdateProjectInput`
+- Name queries and mutations entity-first: `userCreate`, `projectSettingsUpdate` (groups operations by entity in schema explorers and IDE autocomplete instead of scattering them under `create*` / `update*`)
+- Input types end with `Input`, matching the operation name: `UserCreateInput`, `ProjectSettingsUpdateInput`
 - Return the mutated object from mutations (not just a success boolean)
 - Document nullable fields and their meaning
 
