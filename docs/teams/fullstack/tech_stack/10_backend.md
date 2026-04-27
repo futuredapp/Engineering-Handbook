@@ -188,6 +188,31 @@ export class CreateUserDto {
 }
 ```
 
+!!! warning "Nested data with class-validator"
+    `class-validator` does **not** recursively validate nested objects or arrays of objects by default — and the failure mode is silent. To validate a nested DTO you need both `@ValidateNested()` (from `class-validator`) and `@Type(() => NestedDto)` (from `class-transformer`). Forget either one and the nested payload passes through unchecked, even with `ValidationPipe` enabled.
+
+    ```typescript
+    export class CreateOrderDto {
+        @IsString()
+        customerId: string
+
+        @ValidateNested({ each: true })
+        @Type(() => OrderItemDto)
+        items: OrderItemDto[]
+    }
+
+    export class OrderItemDto {
+        @IsUUID()
+        productId: string
+
+        @IsInt()
+        @Min(1)
+        quantity: number
+    }
+    ```
+
+    Always configure `ValidationPipe` with `whitelist: true` and `forbidNonWhitelisted: true` so unknown fields are rejected at the API boundary rather than silently ignored. Discriminated unions and generic types are also poorly supported — if your payloads need them, consider Zod for that DTO instead.
+
 ## Architecture: Monolith vs. Services
 
 **Start with a modular monolith.** Only split into dedicated services when there is a clear, justified need.
