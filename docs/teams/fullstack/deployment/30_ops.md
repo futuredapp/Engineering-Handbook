@@ -72,7 +72,7 @@ Quarterly access audit checklist per project:
 - Set up image retention policies — auto-delete images older than 90 days (except tagged releases)
 - Scan images for vulnerabilities in CI (e.g. `trivy`, `grype`)
 - Use multi-stage builds to minimize image size and attack surface
-- Pin base image versions (e.g. `node:20.11-alpine`, not `node:latest`)
+- Pin base image versions (e.g. `node:24.0-alpine`, not `node:latest`)
 
 ## Cloud Resource Organization
 

@@ -55,24 +55,33 @@ volumes:
 Production containers use multi-stage builds for minimal image size:
 
 ```dockerfile
-# Build stage
-FROM node:20-alpine AS builder
+# Build stage — installs all dependencies (incl. dev) and compiles the app
+FROM node:24-alpine AS builder
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 COPY . .
 RUN npm run build
 
-# Production stage
-FROM node:20-alpine
+# Deps stage — installs production dependencies only, used for the runtime image
+FROM node:24-alpine AS deps
 WORKDIR /app
+COPY package*.json ./
+RUN npm ci --omit=dev
+
+# Runtime stage — minimal image with build artifacts and prod-only node_modules
+FROM node:24-alpine
+WORKDIR /app
+ENV NODE_ENV=production
+COPY --from=deps /app/node_modules ./node_modules
 COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package.json ./
+COPY package.json ./
 
 EXPOSE 8080
 CMD ["node", "dist/main.js"]
 ```
+
+The dev-dependency split matters: the build stage needs the TypeScript compiler, NestJS CLI, and friends to produce `dist/`, but shipping those in the runtime image bloats it and increases the attack surface. Running `npm ci --omit=dev` in a separate stage keeps the runtime `node_modules` lean.
 
 ## CI/CD Pipeline
 
@@ -134,7 +143,7 @@ The choice is made per project based on client requirements, budget, and complex
 ### Where We Are
 
 - Infrastructure for most projects is provisioned manually (cloud consoles, CLI)
-- A handful of projects use **Terraform** with basic GCP or Digital Ocean resource definitions
+- A single legacy project actively uses **Terraform**; older Terraform setups exist on a couple of projects but are no longer actively maintained
 - There is no standardized IaC template or workflow across projects
 - Manual setup leads to inconsistent environments, undocumented configuration, and difficult handovers
 
