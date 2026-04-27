@@ -49,6 +49,14 @@ Most projects start with REST. Use GraphQL when the frontend needs outgrow simpl
 git checkout develop
 git pull origin develop
 git checkout -b feature/ABC-123-short-description
+
+# ...make changes, commit...
+
+# Always run tests (and lint) locally before pushing
+yarn test
+yarn lint
+
+git push -u origin feature/ABC-123-short-description
 ```
 
 See [Git Flow](../development/00_git_flow.md) for the full branching model.
