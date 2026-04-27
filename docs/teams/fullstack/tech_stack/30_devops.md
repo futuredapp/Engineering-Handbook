@@ -58,16 +58,16 @@ Production containers use multi-stage builds for minimal image size:
 # Build stage — installs all dependencies (incl. dev) and compiles the app
 FROM node:24-alpine AS builder
 WORKDIR /app
-COPY package*.json ./
-RUN npm ci
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
 COPY . .
-RUN npm run build
+RUN yarn build
 
 # Deps stage — installs production dependencies only, used for the runtime image
 FROM node:24-alpine AS deps
 WORKDIR /app
-COPY package*.json ./
-RUN npm ci --omit=dev
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile --production
 
 # Runtime stage — minimal image with build artifacts and prod-only node_modules
 FROM node:24-alpine
@@ -81,7 +81,7 @@ EXPOSE 8080
 CMD ["node", "dist/main.js"]
 ```
 
-The dev-dependency split matters: the build stage needs the TypeScript compiler, NestJS CLI, and friends to produce `dist/`, but shipping those in the runtime image bloats it and increases the attack surface. Running `npm ci --omit=dev` in a separate stage keeps the runtime `node_modules` lean.
+The dev-dependency split matters: the build stage needs the TypeScript compiler, NestJS CLI, and friends to produce `dist/`, but shipping those in the runtime image bloats it and increases the attack surface. Running `yarn install --frozen-lockfile --production` in a separate stage keeps the runtime `node_modules` lean.
 
 ## CI/CD Pipeline
 

@@ -93,20 +93,20 @@ Database schema changes are always managed through migrations — never manual D
 
 ```bash
 # Create a migration after changing schema.prisma
-npx prisma migrate dev --name add_user_role
+yarn prisma migrate dev --name add_user_role
 
 # Apply migrations in production
-npx prisma migrate deploy
+yarn prisma migrate deploy
 ```
 
 ### Example: TypeORM Migrations
 
 ```bash
 # Generate a migration from entity changes
-npx typeorm migration:generate -n AddUserRole
+yarn typeorm migration:generate -n AddUserRole
 
 # Run pending migrations
-npx typeorm migration:run
+yarn typeorm migration:run
 ```
 
 ## Connection Management

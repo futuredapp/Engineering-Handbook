@@ -90,7 +90,7 @@ Every project repository must have a `README.md` with:
 1. **Project description** — What it does, who it's for
 2. **Quick start** — Steps to get the project running locally
 3. **Environment variables** — Table of required variables with descriptions
-4. **Available scripts** — What `npm run dev`, `npm run test`, etc. do
+4. **Available scripts** — What `yarn dev`, `yarn test`, etc. do
 5. **Architecture overview** — Brief description of the project structure (for larger projects)
 6. **Deployment** — How and where the project is deployed
 
@@ -107,7 +107,7 @@ Brief description of the project.
 2. `cp docker-compose.dist.yml docker-compose.yml`
 3. Fill in environment variables
 4. `docker compose up -d`
-5. `docker compose exec api npm run migrate`
+5. `docker compose exec api yarn migrate`
 
 ## Environment Variables
 
@@ -120,10 +120,10 @@ Brief description of the project.
 
 | Script | Description |
 |---|---|
-| `npm run dev` | Start development server |
-| `npm run build` | Build for production |
-| `npm run test` | Run tests |
-| `npm run lint` | Lint and format check |
+| `yarn dev` | Start development server |
+| `yarn build` | Build for production |
+| `yarn test` | Run tests |
+| `yarn lint` | Lint and format check |
 
 ## Architecture
 

@@ -57,8 +57,8 @@ Brief description of what this project does.
 2. `cp docker-compose.dist.yml docker-compose.yml`
 3. Fill in environment variables (ask a team member for values)
 4. `docker compose up -d`
-5. `docker compose exec api npm run migrate`
-6. `docker compose exec api npm run seed`
+5. `docker compose exec api yarn migrate`
+6. `docker compose exec api yarn seed`
 
 ### Development
 
@@ -70,10 +70,10 @@ Brief description of what this project does.
 
 | Script | Description |
 |---|---|
-| `npm run dev` | Start dev server with hot reload |
-| `npm run build` | Build for production |
-| `npm run test` | Run tests |
-| `npm run lint` | Lint and format |
+| `yarn dev` | Start dev server with hot reload |
+| `yarn build` | Build for production |
+| `yarn test` | Run tests |
+| `yarn lint` | Lint and format |
 
 ## Environment Variables
 

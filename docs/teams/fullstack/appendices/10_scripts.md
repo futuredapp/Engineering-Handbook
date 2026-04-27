@@ -17,10 +17,10 @@ docker compose exec postgres psql -U myuser -c "DROP DATABASE IF EXISTS mydb;"
 docker compose exec postgres psql -U myuser -c "CREATE DATABASE mydb;"
 
 echo "Running migrations..."
-docker compose exec api npm run migrate
+docker compose exec api yarn migrate
 
 echo "Seeding development data..."
-docker compose exec api npm run seed
+docker compose exec api yarn seed
 
 echo "Database reset complete."
 ```
@@ -39,14 +39,14 @@ docker compose exec -T postgres psql -U myuser mydb < backup.sql
 
 ```bash
 # Prisma
-docker compose exec api npx prisma migrate dev --name description_of_change
-docker compose exec api npx prisma generate
-docker compose exec api npx prisma studio   # Visual database browser
+docker compose exec api yarn prisma migrate dev --name description_of_change
+docker compose exec api yarn prisma generate
+docker compose exec api yarn prisma studio   # Visual database browser
 
 # TypeORM
-docker compose exec api npx typeorm migration:generate -n MigrationName
-docker compose exec api npx typeorm migration:run
-docker compose exec api npx typeorm migration:revert
+docker compose exec api yarn typeorm migration:generate -n MigrationName
+docker compose exec api yarn typeorm migration:run
+docker compose exec api yarn typeorm migration:revert
 ```
 
 ## Docker Scripts
@@ -82,7 +82,7 @@ docker compose logs --tail=100 api
 docker compose exec api sh
 
 # Run a one-off command
-docker compose exec api npm run lint
+docker compose exec api yarn lint
 ```
 
 ## Development Helpers
@@ -91,35 +91,35 @@ docker compose exec api npm run lint
 
 ```bash
 # Generate a complete CRUD module
-npx nest generate resource users
+yarn nest generate resource users
 
 # Generate individual components
-npx nest generate module users
-npx nest generate service users
-npx nest generate controller users
+yarn nest generate module users
+yarn nest generate service users
+yarn nest generate controller users
 ```
 
 ### Quick Dependency Check
 
 ```bash
 # Check for outdated packages
-npm outdated
+yarn outdated
 
 # Check for security vulnerabilities
-npm audit
+yarn audit
 
 # Update all packages to latest within semver range
-npm update
+yarn upgrade
 ```
 
 ### TypeScript Type Checking
 
 ```bash
 # Run type checker without emitting files
-npx tsc --noEmit
+yarn tsc --noEmit
 
 # Watch mode for continuous type checking
-npx tsc --noEmit --watch
+yarn tsc --noEmit --watch
 ```
 
 ## Git Helpers
@@ -141,7 +141,7 @@ git fetch origin
 git rebase origin/develop
 ```
 
-## npm Scripts Convention
+## Scripts Convention
 
 Every project should define these scripts in `package.json`:
 

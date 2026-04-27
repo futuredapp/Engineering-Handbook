@@ -18,12 +18,12 @@ CI runs automatically on every pull request. The goal is to catch issues before 
 
 **Every CI pipeline should include:**
 
-1. **Install dependencies** — `npm ci` (or `yarn install --frozen-lockfile`)
+1. **Install dependencies** — `yarn install --frozen-lockfile`
 2. **Lint** — Run ESLint + Prettier checks
 3. **Test** — Run unit and integration tests
 4. **Build** — Verify the project compiles successfully
 
-Some projects also run type checking (`tsc --noEmit`) or security audits (`npm audit`) as part of CI.
+Some projects also run type checking (`tsc --noEmit`) or security audits (`yarn audit`) as part of CI.
 
 If the project has integration tests that need a database, the workflow should spin up a PostgreSQL (or other) service container for the test run.
 

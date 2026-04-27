@@ -61,7 +61,7 @@ class CreateUserDto {
 
 - **Regularly update** your Node.js, Vue.js, NestJS, and other dependencies to patch security vulnerabilities.
 - **Example:**  
-  Use `npm audit` or Dependabot to monitor for vulnerabilities.
+  Use `yarn audit` or Dependabot to monitor for vulnerabilities.
 
 ### 7. **Error Handling and Logging**
 

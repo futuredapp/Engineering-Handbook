@@ -137,11 +137,11 @@ The correct migration command is always specified in the project's `package.json
 
 ```bash
 # Run migrations inside the API container
-docker compose exec api npm run migrate
+docker compose exec api yarn migrate
 
 # Or if using a specific migration tool
-docker compose exec api npx prisma migrate dev
-docker compose exec api npx typeorm migration:run
+docker compose exec api yarn prisma migrate dev
+docker compose exec api yarn typeorm migration:run
 ```
 
 **Always check the project's documentation for the correct command.**
@@ -152,10 +152,10 @@ The correct seed command is always specified in the project's `package.json` and
 
 ```bash
 # Run seed scripts
-docker compose exec api npm run seed
+docker compose exec api yarn seed
 
 # Or manually seed if needed
-docker compose exec api npm run seed:dev
+docker compose exec api yarn seed:dev
 ```
 
 **Always check the project's documentation for the correct command.**
@@ -197,13 +197,13 @@ git checkout -b feature/your-feature-name
 
 ```bash
 # Run tests
-docker compose exec api npm test
+docker compose exec api yarn test
 
 # Run linting
-docker compose exec api npm run lint
+docker compose exec api yarn lint
 
 # Run type checking
-docker compose exec api npm run type-check
+docker compose exec api yarn type-check
 ```
 
 ### 3. Hot Reloading

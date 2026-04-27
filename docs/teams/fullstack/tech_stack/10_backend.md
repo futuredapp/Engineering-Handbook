@@ -239,5 +239,5 @@ export class CreateUserDto {
 ## Node.js Runtime
 
 - We use the LTS version of Node.js specified in each project's `.nvmrc`
-- Package manager: **yarn** (primary) — some projects may use npm
+- Package manager: **yarn** (primary across all projects); a transition to **pnpm** is currently being explored on selected projects
 - All projects include `engines` field in `package.json` to enforce Node.js version

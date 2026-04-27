@@ -3,7 +3,7 @@
 We enforce consistent code quality and style across all our projects by using a shared set of linting rules, maintained in our public repository:  
 [https://github.com/futuredapp/eslint-config-futured](https://github.com/futuredapp/eslint-config-futured)
 
-Each project imports the appropriate linting configuration from this repository via npm/yarn, ensuring that all developers follow the same standards—whether working on frontend (Vue.js) or backend (NestJS) code.
+Each project imports the appropriate linting configuration from this repository via yarn, ensuring that all developers follow the same standards—whether working on frontend (Vue.js) or backend (NestJS) code.
 
 In the future, we will also include Prettier rules in this shared configuration for automated code formatting.
 

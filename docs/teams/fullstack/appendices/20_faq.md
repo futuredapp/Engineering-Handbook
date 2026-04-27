@@ -61,14 +61,9 @@ Always use migrations. Never modify the database schema manually. See the migrat
 
 Docker ensures everyone runs the same environment regardless of their OS. It eliminates "works on my machine" issues, makes onboarding faster, and keeps dependencies (PostgreSQL, Redis, etc.) isolated from your system.
 
-### How do I add a new npm package?
+### How do I add a new package?
 
 ```bash
-# npm
-npm install package-name        # production dependency
-npm install -D package-name     # development dependency
-
-# yarn
 yarn add package-name           # production dependency
 yarn add -D package-name        # development dependency
 ```

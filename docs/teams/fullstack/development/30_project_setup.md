@@ -165,7 +165,7 @@ Brief description of what this project does and why it exists.
  cd your-project-name
 
 # Install dependencies
-npm install
+yarn install
 
 # Copy environment template
 cp docker-compose.dist.yml docker-compose.yml
