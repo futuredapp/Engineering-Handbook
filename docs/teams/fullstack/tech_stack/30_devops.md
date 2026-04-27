@@ -31,7 +31,7 @@ services:
       - cache
 
   postgres:
-    image: postgres:16-alpine
+    image: postgres:18-alpine
     environment:
       POSTGRES_DB: myapp
       POSTGRES_USER: myapp
