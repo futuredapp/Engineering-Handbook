@@ -155,15 +155,17 @@ project/
 ├── plugins/            # Nuxt plugins (Sentry, etc.)
 ├── server/             # Server routes and middleware
 │   └── api/
+├── utils/              # Auto-imported helper functions
 ├── types/              # TypeScript type definitions
 └── nuxt.config.ts      # Nuxt configuration
 ```
 
 ### Key Conventions
 
-- **Auto-imports**: Nuxt auto-imports Vue APIs and composables — no need for manual imports in most cases
-- **CSS**: Use scoped styles in components. For shared styles, use a CSS framework or utility classes as appropriate for the project
-- **API calls**: Use Nuxt's `$fetch` or `useFetch` composable for data fetching with built-in SSR support
+- **Auto-imports**: Nuxt auto-imports Vue APIs, composables, components, and the contents of `utils/` — no manual imports needed in most cases
+- **CSS**: Use **Tailwind** for utility classes. Reach for `<style scoped>` only for one-off component tweaks that don't fit utilities (animations, third-party widget overrides)
+- **API calls**: Use the **generated API client** built from the backend's OpenAPI/Swagger spec — this gives us typed requests and responses out of the box and keeps frontend and backend contracts in sync. Hand-rolled `useFetch`/`$fetch` calls are reserved for the rare endpoints that aren't part of the generated spec (third-party APIs, server routes)
+- **i18n**: Wire up `@nuxtjs/i18n` from day one **even on single-language projects**. Retrofitting i18n later means touching every string in the app — the upfront cost is far smaller than the migration cost
 
 ## Browser Support
 
