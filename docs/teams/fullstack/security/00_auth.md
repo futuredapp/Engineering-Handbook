@@ -85,6 +85,9 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
 }
 ```
 
+!!! note "Don't fetch the user from the database on every request"
+    `validate()` returns the payload as-is on purpose. The whole point of JWT is stateless verification — the signature proves the token was issued by us, and the payload (`sub`, `role`, …) carries everything a guard needs. Fetching the user from the database on every request reintroduces the round-trip cost of session-based auth and defeats the main reason to use JWT. Hit the database only on endpoints that actually need fresh user data beyond the payload.
+
 ### Token Storage (Frontend)
 
 | Storage | Pros | Cons | Use when |
@@ -212,4 +215,4 @@ export class AdminUsersController {
 - **Refresh tokens** should be stored securely and rotated on use
 - **Rate limit** authentication endpoints to prevent brute force attacks
 - **Never log** tokens, passwords, or authentication payloads
-- **Invalidate sessions** on password change
+- **Revoke refresh tokens** on password change and other security-sensitive events — access tokens expire on their own thanks to the short TTL, so rotating/revoking refresh tokens prevents the client from obtaining a new access token. JWT itself is stateless and has no "sessions" to invalidate; if you need to kill an active access token before it expires, you need a deny-list or a `tokensInvalidatedAt` timestamp on the user record
