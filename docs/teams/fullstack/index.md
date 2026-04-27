@@ -23,7 +23,7 @@ The Full-stack team is responsible for developing and maintaining our web applic
 
 ## Tech Stack Overview
 
-- [Frontend](tech_stack/00_frontend.md) - Vue 3, Nuxt 3, Composition API, Pinia, Vite
+- [Frontend](tech_stack/00_frontend.md) - Vue 3, Nuxt 4, Composition API, Pinia, Vite
 - [Backend](tech_stack/10_backend.md) - NestJS architecture, REST & GraphQL patterns
 - [Database](tech_stack/20_database.md) - PostgreSQL, MongoDB, ORM choices and migrations
 - [DevOps & Infrastructure](tech_stack/30_devops.md) - Docker, GitHub Actions CI/CD, Terraform

@@ -1,6 +1,6 @@
 # Frontend
 
-Our frontend stack is built around Vue 3, Nuxt 3, and TypeScript. We prioritize type safety, developer experience, and performance.
+Our frontend stack is built around Vue 3, Nuxt 4, and TypeScript. We prioritize type safety, developer experience, and performance.
 
 ## Architecture Overview
 
@@ -18,7 +18,7 @@ Vue 3 with the Composition API is our primary UI framework. We use `<script setu
 import { ref, computed } from 'vue'
 import { useUser } from '~/composables/useUser'
 
-interface Props {
+type Props = {
     projectId: string
 }
 
@@ -42,9 +42,9 @@ const greeting = computed(() => `Hello, ${user.value?.name}`)
 - Performant reactivity system with fine-grained updates
 - Active community and long-term maintenance by a dedicated core team
 
-### Nuxt 3
+### Nuxt 4
 
-Nuxt 3 is our default framework for Vue applications. It provides a production-ready foundation with conventions that reduce decision fatigue and boilerplate.
+Nuxt 4 is our default framework for Vue applications. It provides a production-ready foundation with conventions that reduce decision fatigue and boilerplate.
 
 ![](./Resources/00_frontend_nuxt_rendering_light.png#only-light){data-gallery="light"}
 ![](./Resources/00_frontend_nuxt_rendering_dark.png#only-dark){data-gallery="dark"}

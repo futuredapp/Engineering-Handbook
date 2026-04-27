@@ -41,7 +41,7 @@ Brief description of what this project does.
 ## Tech Stack
 
 - **Backend**: NestJS, TypeScript, PostgreSQL
-- **Frontend**: Vue 3 / Nuxt 3, TypeScript
+- **Frontend**: Vue 3 / Nuxt 4, TypeScript
 - **Infrastructure**: Docker, GitHub Actions, GCP / Digital Ocean
 
 ## Quick Start
