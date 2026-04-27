@@ -13,8 +13,9 @@ The architecture is organized into layers, each with a specific responsibility. 
 
 The **User Interface** is built with **SwiftUI** using **Components** and **ComponentModels**. A Component and its corresponding ComponentModel form a single "scene".
 
-- each `Component<Model>` is a `struct` conforming to `View`, parameterized with a `Model` that is retained as an `ObservableObject`
+- each `Component<Model>` is a `struct` conforming to `View`, parameterized with a `Model` retained via `@State`
 - components bind to a `ComponentModelProtocol` to allow mock implementations for seamless scene testing (e.g., `#Preview` feedback)
+- child components receive their model as a plain property (not wrapped)
 - user interactions are forwarded to the `ComponentModel` as simple function calls (e.g., `model.onButtonTapped()`)
 
 ### Presentation Layer
@@ -24,6 +25,7 @@ At the **presentation layer**, we employ an extended MVVM-C style approach with 
 - **Flow Coordinators** conform to `Coordinator` and manage creation, lifetime, navigation stacks, tabs, and modal presentations
   - `TabViewFlow` for tabbed flows
   - `NavigationStackFlow` for push/pop flows
+- coordinators are `@Observable` classes with explicit `@MainActor` conformance
 - coordinators control their flow using events emitted by `ComponentModels`
 - **Flow Providers** encapsulate reusable sub-flows shared across multiple coordinators
 
@@ -33,10 +35,11 @@ This layer handles shared state, business logic, and dependencies.
 
 #### DataCache
 
-The **`DataCache`** is an `actor`-based, generic container that serves as the **Single Source of Truth** for shared application data.
+The **`DataCache`** is an `@Observable @MainActor` class that serves as the **Single Source of Truth** for shared application data.
 
-- serializes all write operations for thread safety
-- `ComponentModels` subscribe to the `DataCache` to receive state updates
+- reads and writes are synchronous from any `@MainActor` context (access via `dataCache.value`)
+- `ComponentModels` use computed properties to derive data from the `DataCache`; observation tracking is automatic
+- `Services` use `async/await` for asynchronous operations (networking, persistence) and update the `DataCache` with results
 - can be used globally (one per app) or privately within a coordinator to provide flow-specific data
 
 #### Services
@@ -48,4 +51,11 @@ Business logic, such as networking or data processing, is encapsulated in **`Ser
 
 #### Container
 
-The **`Container`** acts as a simple dependency injection hub. It is created at the app's root and passed down to each `Coordinator`. It is responsible for instantiating and providing shared dependencies such as the `DataCache` and other `Services`.  
+The **`Container`** acts as a simple dependency injection hub. It is created at the app's root and passed down to each `Coordinator`. It is responsible for instantiating and providing shared dependencies such as the `DataCache` and other `Services`. Side effects that react to cache changes are co-located in the Container's `listeningTask`.
+
+### Futured Macros
+
+We use [futuredapp/futured-macros](https://github.com/futuredapp/futured-macros) to reduce boilerplate:
+
+- **`@EnumIdentable`** — auto-conforms enums to `Identifiable` (used on coordinator `Destination` enums, marked `nonisolated`)
+- **`@ProxyMembers`** — generates dynamic member lookup forwarding to reduce boilerplate

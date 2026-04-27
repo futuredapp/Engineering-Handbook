@@ -77,6 +77,7 @@ nav:
   - iOS:
       - Overview: teams/ios/index.md
       - Accessibility: teams/ios/ios_a11y.md
+      - Apple Developer Account: teams/ios/ios_apple_developer_account.md
       - Architecture: teams/ios/ios_architecture.md
       - Builds: teams/ios/ios_builds.md
       - CI/CD: teams/ios/ios_ci_cd.md

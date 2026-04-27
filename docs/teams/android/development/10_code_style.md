@@ -47,15 +47,9 @@ The config file is located at `config/detekt.yml`.
 
 Link to [current config](https://github.com/futuredapp/kmp-futured-template/blob/develop/config/detekt.yml)
 
-### Danger
-
-[Danger](https://danger.systems/) provides an easier way to craft Continuous Integration scripts. It runs during your CI, and automates common code review chores, hence providing additional continuous integration and enforcement of specific standards before merging any code.
-
-Each repository should have its own `Dangerfile`, adapted to specific needs. We also apply company-wide [danger rules](https://github.com/futuredapp/danger) across all our projects. The `Dangerfile` refers to these rules.
-
 ## How to be a good developer
 
 1. Set your Android Studio code style to the default settings - let `.editorconfig` define your IDE's formatting style.
 2. Either install the KtLint IDEA plugin or run the `ktLintFormat` gradle task before making a commit.
 3. When you are ready to create a PR, ensure you run the `lintCheck` gradle task first and fix any reported issues to keep the codebase clean.
-4. During a PR check, the `lintCheck` gradle task is run again to catch any remaining issues, which are then reported by Danger.
+4. During a PR check, the `lintCheck` gradle task is run again to catch any remaining issues.

@@ -1,5 +1,8 @@
 # Customer's Account
 
+!!! info
+    If the client does not have an Apple Developer account yet, start with [Apple Developer Organization Account Setup](ios_apple_developer_account.md).
+
 To establish our CI flow and be able to deliver builds to customer's App Store Connect account and maintain app submission we need:
     
 1. add `ops@futured.app` user to customer's App Store Connect account
