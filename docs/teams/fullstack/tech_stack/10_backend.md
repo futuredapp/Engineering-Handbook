@@ -36,7 +36,6 @@ NestJS is the **default**, not a mandate. For projects where NestJS is overkill,
 |---|---|
 | **NestJS** | Medium-to-large projects, complex business logic, multiple modules, long-term maintenance |
 | **Express / Fastify** | Small APIs, microservices, tight budgets, simple CRUD |
-| **Hono** | Edge-first APIs, serverless functions, minimal footprint |
 
 The decision should be made at project kickoff based on scope, budget, and expected complexity. Document the choice in the project README.
 
