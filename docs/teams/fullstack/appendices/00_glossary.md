@@ -114,6 +114,9 @@ A software distribution model in which applications are hosted by a provider and
 **SPA (Single Page Application)**  
 A web application that loads a single HTML page and dynamically updates content as the user interacts with the app.
 
+**SSG (Static Site Generation)**  
+A technique where pages are rendered to static HTML at build time rather than per request. The generated files can be served straight from a CDN for the fastest possible page loads, at the cost of needing a rebuild whenever content changes.
+
 **SSR (Server-Side Rendering)**  
 A technique where web pages are rendered on the server and sent as fully formed HTML to the client, improving initial load performance and SEO.
 
