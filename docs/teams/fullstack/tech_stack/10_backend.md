@@ -106,17 +106,17 @@ export class UsersController {
     constructor(private readonly usersService: UsersService) {}
 
     @Get()
-    findAll(@Query() query: PaginationDto): Promise<PaginatedResponse<User>> {
+    findAll(@Query() query: PaginationDto): Promise<PaginatedResponse<UserResponseDto>> {
         return this.usersService.findAll(query)
     }
 
     @Get(':id')
-    findOne(@Param('id', ParseUUIDPipe) id: string): Promise<User> {
+    findOne(@Param('id', ParseUUIDPipe) id: string): Promise<UserResponseDto> {
         return this.usersService.findOne(id)
     }
 
     @Post()
-    create(@Body() dto: CreateUserDto): Promise<User> {
+    create(@Body() dto: CreateUserDto): Promise<UserResponseDto> {
         return this.usersService.create(dto)
     }
 }
@@ -127,22 +127,22 @@ export class UsersController {
 For complex data requirements or when the frontend needs flexible queries, we use GraphQL with the code-first approach:
 
 ```typescript
-@Resolver(() => User)
+@Resolver(() => UserType)
 export class UsersResolver {
     constructor(private readonly usersService: UsersService) {}
 
-    @Query(() => [User])
-    async users(): Promise<User[]> {
+    @Query(() => [UserType])
+    async users(): Promise<UserType[]> {
         return this.usersService.findAll()
     }
 
-    @Mutation(() => User)
-    async createUser(@Args('input') input: CreateUserInput): Promise<User> {
+    @Mutation(() => UserType)
+    async userCreate(@Args('input') input: UserCreateInput): Promise<UserType> {
         return this.usersService.create(input)
     }
 
-    @ResolveField(() => [Project])
-    async projects(@Parent() user: User): Promise<Project[]> {
+    @ResolveField(() => [ProjectType])
+    async projects(@Parent() user: UserType): Promise<ProjectType[]> {
         return this.usersService.getProjects(user.id)
     }
 }
