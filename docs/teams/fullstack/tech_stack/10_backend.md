@@ -158,15 +158,15 @@ export class UsersResolver {
 
 | Use REST when... | Use GraphQL when... |
 |---|---|
-| Simple CRUD operations | Complex nested data relationships |
-| Public APIs for third parties | Frontend needs flexible queries |
-| File uploads / downloads | Multiple related entities per request |
-| Webhooks and callbacks | Real-time subscriptions needed |
-| **Most projects (default)** | **Only when justified by data complexity** |
+| Simple CRUD operations | Multiple clients with diverging field requirements |
+| Public APIs for third parties | Frontend needs flexible queries across many entities per request |
+| File uploads / downloads | Real-time subscriptions needed |
+| Webhooks and callbacks | Schema-driven typed clients are a hard requirement |
+| **Most projects (default)** | **Only when justified by a concrete need above** |
 
 !!! info "GraphQL Considerations"
 
-    GraphQL is powerful but adds operational cost: schema versioning, query complexity limits, caching strategies, and tooling overhead. Don't adopt it just because it's modern — adopt it when the frontend genuinely benefits from flexible queries over multiple related entities.
+    GraphQL is powerful but adds operational cost: schema management, query complexity limits, caching strategies, and tooling overhead. **"Complex data" alone is not a strong enough signal** — in practice, frontends often end up consuming GraphQL the same way they would REST (one query per screen, fixed shape), at which point you have all the GraphQL costs without the benefits. Adopt it only when there's a concrete problem REST can't solve well (multiple clients with diverging field needs, real-time subscriptions, deep partial fetching) and you have a plan for breaking changes. We don't currently have a robust schema versioning story beyond suffixing types and operations (`UserTypeV2`, `userCreateV2`), which is another reason to be conservative.
 
 ## Validation
 
