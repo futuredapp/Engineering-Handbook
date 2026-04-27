@@ -20,10 +20,11 @@ CI runs automatically on every pull request. The goal is to catch issues before 
 
 1. **Install dependencies** — `yarn install --frozen-lockfile`
 2. **Lint** — Run ESLint + Prettier checks
-3. **Test** — Run unit and integration tests
-4. **Build** — Verify the project compiles successfully
+3. **Type check** — `tsc --noEmit` (or `vue-tsc --noEmit` for Vue projects). Modern build tools (esbuild, swc, Vite) skip type checking entirely, so this step is often the only place types get verified.
+4. **Test** — Run unit and integration tests
+5. **Build** — Verify the project compiles successfully
 
-Some projects also run type checking (`tsc --noEmit`) or security audits (`yarn audit`) as part of CI.
+Some projects also run security audits (`yarn audit`) as part of CI.
 
 If the project has integration tests that need a database, the workflow should spin up a PostgreSQL (or other) service container for the test run.
 
