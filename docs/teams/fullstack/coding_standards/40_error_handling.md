@@ -62,65 +62,80 @@ throw new InternalServerErrorException({
 
 ### 2. REST API Error Handling (Non-GraphQL Apps)
 
-For applications that don't use GraphQL, use standard HTTP exceptions with structured responses:
+For applications that don't use GraphQL, prefer a **centralized error catalog** instead of inlining error objects at every throw site. Define a base `ApplicationError`, an enum of error codes, and a catalog of static factory methods. This keeps message wording, error codes, and HTTP status mapped in one place.
+
+**Define the base error and the code enum:**
 
 ```typescript
-// REST API error handling
-import { 
-  HttpException, 
-  HttpStatus 
-} from '@nestjs/common';
-
-// Custom error response structure
-interface ErrorResponse {
-  statusCode: number;
-  message: string;
-  error: string;
-  timestamp: string;
-  path: string;
-  details?: any;
+// errors/error-code.enum.ts
+export enum ErrorCodeEnum {
+  BAD_USER_INPUT = 'BAD_USER_INPUT',
+  RESOURCE_NOT_FOUND = 'RESOURCE_NOT_FOUND',
+  CONFLICT = 'CONFLICT',
+  UNAUTHORIZED = 'UNAUTHORIZED',
+  FORBIDDEN = 'FORBIDDEN',
+  INTERNAL_ERROR = 'INTERNAL_ERROR',
 }
 
-// Usage examples for REST APIs
-throw new HttpException({
-  statusCode: HttpStatus.NOT_FOUND,
-  message: 'User not found',
-  error: 'Not Found',
-  timestamp: new Date().toISOString(),
-  path: '/api/users/123',
-  details: {
-    userId: '123',
-    resourceType: 'User'
+// errors/application.error.ts
+export class ApplicationError extends HttpException {
+  constructor(
+    message: string,
+    public readonly errorCode: ErrorCodeEnum,
+    httpStatus: HttpStatus,
+  ) {
+    super({ message, errorCode }, httpStatus);
   }
-}, HttpStatus.NOT_FOUND);
-
-throw new HttpException({
-  statusCode: HttpStatus.BAD_REQUEST,
-  message: 'Validation failed',
-  error: 'Bad Request',
-  timestamp: new Date().toISOString(),
-  path: '/api/users',
-  details: {
-    field: 'email',
-    value: 'invalid-email',
-    constraint: 'email_format'
-  }
-}, HttpStatus.BAD_REQUEST);
-
-throw new HttpException({
-  statusCode: HttpStatus.CONFLICT,
-  message: 'User already exists',
-  error: 'Conflict',
-  timestamp: new Date().toISOString(),
-  path: '/api/users',
-  details: {
-    resourceId: 'user@example.com',
-    resourceType: 'User',
-    constraint: 'email_unique'
-  }
-}, HttpStatus.CONFLICT);
-
+}
 ```
+
+**Group reusable errors in a catalog with static factory methods:**
+
+```typescript
+// errors/common-errors.ts
+export class CommonErrors {
+  static InvalidInputData() {
+    return new ApplicationError(
+      'Request body does not match any of the expected types for this operation.',
+      ErrorCodeEnum.BAD_USER_INPUT,
+      HttpStatus.BAD_REQUEST,
+    );
+  }
+
+  static UserNotFound(userId: string) {
+    return new ApplicationError(
+      `User with id "${userId}" was not found.`,
+      ErrorCodeEnum.RESOURCE_NOT_FOUND,
+      HttpStatus.NOT_FOUND,
+    );
+  }
+
+  static EmailAlreadyTaken(email: string) {
+    return new ApplicationError(
+      `User with email "${email}" already exists.`,
+      ErrorCodeEnum.CONFLICT,
+      HttpStatus.CONFLICT,
+    );
+  }
+}
+```
+
+**Throw sites stay one-liners:**
+
+```typescript
+throw CommonErrors.InvalidInputData();
+throw CommonErrors.UserNotFound(userId);
+throw CommonErrors.EmailAlreadyTaken(email);
+```
+
+**Why this beats inline `HttpException` literals:**
+
+- One place to fix wording, error codes, or status mappings — no grepping the codebase when QA flags an inconsistent message
+- Drift-free: identical errors at different call sites are guaranteed to stay identical
+- Easier auditing: every error the API can return is enumerable in one file (great for QA, frontend, and i18n)
+- Domain catalogs scale naturally — keep `CommonErrors` generic and add `UserErrors`, `OrderErrors`, etc. as the codebase grows
+
+Ancillary fields like `timestamp` and `path` belong in the global exception filter (next section), **not at the throw site** — the filter sees the request and adds them to every response uniformly.
 
 
 ### 3. Global Exception Filter
@@ -134,16 +149,18 @@ export class HttpExceptionFilter implements ExceptionFilter {
     const response = ctx.getResponse<Response>();
     const request = ctx.getRequest<Request>();
     const status = exception.getStatus();
+    const payload = exception.getResponse();
+    const body = typeof payload === 'string'
+      ? { message: payload }
+      : (payload as Record<string, unknown>);
 
     const errorResponse = {
       statusCode: status,
       timestamp: new Date().toISOString(),
       path: request.url,
-      message: exception.message,
-      error: exception.getResponse(),
+      ...body, // spreads `message`, `errorCode`, etc. from ApplicationError
     };
 
-    // Log the error
     this.logger.error('HTTP Exception', {
       ...errorResponse,
       stack: exception.stack,
@@ -180,34 +197,23 @@ export class ValidationPipe extends DefaultValidationPipe {
 ### 5. Async Error Handling
 
 ```typescript
-// Always use try-catch with async operations
+// Catch only the errors you can translate into a domain error.
+// Re-throw anything else — the global filter turns unknown errors into 500s uniformly.
 async createUser(userData: CreateUserDto): Promise<User> {
   try {
-    const user = await this.userRepository.create(userData);
-    return user;
+    return await this.userRepository.create(userData);
   } catch (error) {
     this.logger.error('Failed to create user', {
       error: error.message,
       userData,
       stack: error.stack,
     });
-    
+
     if (error.code === '23505') { // PostgreSQL unique constraint
-      throw new ConflictException({
-        message: 'User already exists',
-        error: 'CONFLICT',
-        resourceId: userData.email,
-        resourceType: 'User',
-        constraint: 'email_unique'
-      });
+      throw CommonErrors.EmailAlreadyTaken(userData.email);
     }
-    
-    throw new InternalServerErrorException({
-      message: 'Internal server error',
-      error: 'INTERNAL_ERROR',
-      operation: 'create_user',
-      details: error.message
-    });
+
+    throw error; // unknown failure — let the global filter handle it
   }
 }
 ```
@@ -329,9 +335,11 @@ export class LoggingInterceptor implements NestInterceptor {
 ## Best Practices
 
 ### Error Handling
+- Centralize REST errors in an `ApplicationError` + `CommonErrors` catalog instead of inlining `HttpException` literals at throw sites
+- Keep `path`, `timestamp`, and other request-scoped fields in the global exception filter, not at the throw site
 - Use built-in GraphQL exceptions for consistent error responses
 - Implement global exception filters for centralized error handling
-- Handle async errors with try-catch blocks
+- Handle async errors with try-catch blocks; only translate errors you understand and re-throw the rest
 - Don't expose internal errors to clients
 - Log all errors with sufficient context
 
