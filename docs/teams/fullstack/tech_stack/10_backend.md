@@ -161,7 +161,7 @@ export class UsersResolver {
 | Simple CRUD operations | Multiple clients with diverging field requirements |
 | Public APIs for third parties | Frontend needs flexible queries across many entities per request |
 | File uploads / downloads | Real-time subscriptions needed |
-| Webhooks and callbacks | Schema-driven typed clients are a hard requirement |
+| Webhooks, callbacks, and scheduled jobs (external scheduler hits an API-key-protected endpoint) | Schema-driven typed clients are a hard requirement |
 | **Most projects (default)** | **Only when justified by a concrete need above** |
 
 !!! info "GraphQL Considerations"

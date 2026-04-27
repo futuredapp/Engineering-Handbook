@@ -38,7 +38,7 @@ Whatever you use, make sure ESLint and Prettier are configured to run on save.
 
 See the [Backend](../tech_stack/10_backend.md) page for a comparison table. In short:
 
-- **REST** for simple CRUD, public APIs, file operations, webhooks
+- **REST** for simple CRUD, public APIs, file operations, webhooks, and scheduled jobs (external scheduler calls an API-key-protected endpoint)
 - **GraphQL** for complex data relationships, flexible frontend queries, real-time subscriptions
 
 Most projects start with REST. Use GraphQL when the frontend needs outgrow simple endpoints.
