@@ -86,8 +86,10 @@ Aim to start a review within the same business day. If you can't review in time,
 1. **Correctness** — Does the code do what it's supposed to?
 2. **Security** — Are there any vulnerabilities (SQL injection, XSS, exposed secrets)?
 3. **Architecture** — Does it fit the project structure? Is it in the right module?
-4. **Edge cases** — What happens with empty input, null values, concurrent requests?
-5. **Tests** — Are critical paths tested?
+4. **Readability** — Are names clear, is the structure easy to follow, would a teammate understand this in six months without context?
+5. **Edge cases** — What happens with empty input, null values, concurrent requests?
+6. **Tests** — Are critical paths tested?
+7. **Efficiency** — Are there obvious performance footguns (N+1 queries, unnecessary loops, blocking I/O on the request path)?
 
 See [Code Review Process](../development/20_code_review_process.md) for the full guidelines.
 
