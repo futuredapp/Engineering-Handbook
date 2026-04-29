@@ -9,8 +9,8 @@ We use GitHub for code collaboration and follow best practices to ensure our pul
 - **Include Jira Ticket Numbers**  
   Reference the relevant Jira ticket number in the PR title and description to link code changes to tracked work. When it is properly linked, the PR will automatically update the ticket status in Jira.
 
-- **Review Before Submitting**  
-  Test and review your own changes before opening a PR. This helps catch errors early and improves the quality of the review process.
+- **Self-Review on GitHub**  
+  Open your PR and review the diff on GitHub before assigning reviewers. Reading changes in the GitHub UI often catches things you miss in your local editor. Mark the PR as draft while you're still reviewing or if CI is running.
 
 - **English, Czech and Slovak Only**  
   All PR titles, descriptions, and comments must be written in these languages to ensure clarity for all collaborators.
@@ -30,7 +30,7 @@ We use GitHub for code collaboration and follow best practices to ensure our pul
   Assign your pull request to at least one teammate who is familiar with the relevant codebase or feature area. If unsure, consult your team lead or refer to the code ownership guidelines.
 
 - **When to Assign**  
-  Assign reviewers immediately after opening the pull request. This ensures timely feedback and helps keep the development process moving smoothly. 
+  Assign reviewers once CI checks pass and the PR is ready for review. There's no point in requesting a review while tests are still failing — you may end up rewriting the approach. Use draft PRs for work-in-progress, and convert to "Ready for Review" + assign reviewers when CI is green.
 
 - **Sync Regularly**  
   Regularly update your branch with the latest changes from the base branch (`develop` or `main`) to minimize merge conflicts and ensure your code is tested against the most recent version.

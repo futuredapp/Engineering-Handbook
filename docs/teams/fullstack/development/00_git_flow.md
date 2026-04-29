@@ -53,10 +53,39 @@ We use a structured Git branching model to ensure smooth collaboration and maint
 
 
 
-### Release Tags
+### Automated Checks
 
-- **Version Tags**  
-  Optionally, we tag commits with release version numbers (e.g., `v1.2.0`) to mark stable points in our codebase.
+- **Dangerfile**  
+  We use a Dangerfile to automatically check commit and pull request parameters, ensuring adherence to our standards.
+
+### Release Tags & Changelog
+
+- **Version Tags**
+  Every production release **must** be tagged with a semantic version number (e.g., `v1.2.0`). Tags are created on the `main` branch after a successful production deployment.
+
+- **Tagging Convention**
+  We follow [Semantic Versioning](https://semver.org/): `MAJOR.MINOR.PATCH`
+    - `MAJOR` — Breaking changes
+    - `MINOR` — New features, backward-compatible
+    - `PATCH` — Bug fixes
+
+- **Changelog**
+  Every project maintains a `CHANGELOG.md` in the repository root. Changes are documented per release using the [Keep a Changelog](https://keepachangelog.com/) format:
+
+    ```markdown
+    ## [1.2.0] - 2026-03-06
+    ### Added
+    - User profile editing endpoint
+    ### Fixed
+    - Login timeout on slow connections
+    ### Changed
+    - Increased pagination default from 10 to 20
+    ```
+
+  Changelog entries should be written as part of the PR process — each PR that adds user-facing or API-impacting changes updates the `[Unreleased]` section. On release, `[Unreleased]` is renamed to the version number.
+
+- **Conventional Commits (Encouraged)**
+  Using conventional commit messages (`feat:`, `fix:`, `chore:`, `docs:`, `refactor:`) makes changelog generation easier and can be automated with tools like `standard-version` or `release-please`.
 
 
 ### Environments

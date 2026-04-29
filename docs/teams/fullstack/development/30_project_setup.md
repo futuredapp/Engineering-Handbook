@@ -20,7 +20,7 @@ This guide walks you through setting up a new project in the Futured Github orga
 
 ### Branch Protection Rules
 
-Set up branch protection for the `main` and `dev` branches:
+Set up branch protection for the `main` and `develop` branches:
 
 #### Main Branch Protection
 ```
@@ -34,9 +34,9 @@ Require branches to be up to date before merging: ✓
 Restrict pushes that create files larger than 100 MB: ✓
 ```
 
-#### Dev Branch Protection
+#### Develop Branch Protection
 ```
-Branch name pattern: dev
+Branch name pattern: develop
 Require a pull request before merging: ✓
 Require approvals: 1
 Dismiss stale PR approvals when new commits are pushed: ✓
@@ -54,6 +54,9 @@ Our internal template repository contains pre-configured templates for common pr
 
 
 **Note:** These templates are currently internal to the Futured organization and not publicly available. We plan to open-source these templates in the future to share our best practices with the broader developer community.
+
+!!! info "AI-Assisted Project Scaffolding"
+    We are preparing Claude-ready scripts and prompts that will be able to generate the correct project template based on your requirements (API type, database, frontend framework, etc.). Stay tuned for updates.
 
 ### Available Templates
 
@@ -83,8 +86,6 @@ Our internal template repository contains pre-configured templates for common pr
 #### Update Docker Configuration
 ```yaml
 # docker-compose.dist.yml
-version: '3.7'
-
 services:
   postgres:
     environment:
@@ -164,7 +165,7 @@ Brief description of what this project does and why it exists.
  cd your-project-name
 
 # Install dependencies
-npm install
+yarn install
 
 # Copy environment template
 cp docker-compose.dist.yml docker-compose.yml
@@ -173,7 +174,7 @@ cp docker-compose.dist.yml docker-compose.yml
 nano docker-compose.yml
 
 # Start the application
-docker-compose up -d
+docker compose up -d
 ```
 
 ## 4. Set Up CI/CD Pipeline

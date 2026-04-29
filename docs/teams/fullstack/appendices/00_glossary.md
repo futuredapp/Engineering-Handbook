@@ -9,14 +9,20 @@ The server-side part of an application responsible for business logic, database 
 **Caching**  
 The process of storing frequently accessed data in memory to improve performance and reduce database load (e.g., using Redis or Memcached).
 
-**CI (Continuous Integration)**  
-A practice where code changes are automatically built and tested to detect issues early in the development cycle.
-
 **CD (Continuous Deployment/Delivery)**  
 Automated processes for deploying code to production or staging environments after passing automated tests.
 
+**CI (Continuous Integration)**  
+A practice where code changes are automatically built and tested to detect issues early in the development cycle.
+
 **CMS (Content Management System)**  
 Software that allows users to create, manage, and modify website content without needing to code.
+
+**Composable**  
+A reusable function in Vue 3's Composition API that encapsulates and shares stateful logic across components. Composables follow the `use` prefix convention (e.g., `useUser`, `useFetch`).
+
+**Container Orchestration**  
+The automated management of containerized applications, including deployment, scaling, networking, and health monitoring. Tools include Docker Compose (for development) and Google Cloud Run (for production).
 
 **CSS (Cascading Style Sheets)**  
 A language used to describe the presentation and layout of web pages.
@@ -36,6 +42,9 @@ A major update to JavaScript that introduced new syntax and features, making the
 **DOM (Document Object Model)**  
 A programming interface that represents the structure of HTML or XML documents as a tree of objects, allowing scripts to update content, structure, and style.
 
+**E2E (End-to-End) Testing**  
+A testing methodology that validates the entire application flow from the user's perspective, simulating real user interactions through a browser or API client.
+
 **Frontend**  
 The client-side part of an application that users interact with directly, typically built with HTML, CSS, and JavaScript.
 
@@ -51,8 +60,14 @@ The standard language for creating web pages and web applications.
 **HTTP/HTTPS (HyperText Transfer Protocol / Secure)**  
 Protocols for transferring data over the web; HTTPS adds encryption for security.
 
+**IaC (Infrastructure as Code)**  
+The practice of managing and provisioning infrastructure through machine-readable configuration files (e.g., Terraform, Pulumi) rather than manual processes.
+
 **IDE (Integrated Development Environment)**  
 Software that provides comprehensive tools for software development, such as code editing, debugging, and testing.
+
+**Jest**  
+A JavaScript and TypeScript testing framework with built-in assertion library, mocking, and code coverage. Used as our standard testing tool for both backend (NestJS) and frontend (Vue) projects.
 
 **JSON (JavaScript Object Notation)**  
 A lightweight data-interchange format, easy for humans to read and write, and easy for machines to parse and generate.
@@ -63,14 +78,23 @@ A programming language used to create dynamic and interactive effects within web
 **JWT (JSON Web Token)**  
 A compact, URL-safe token format used for securely transmitting information between parties, commonly used for authentication and authorization.
 
+**LLM (Large Language Model)**  
+An AI model trained on large amounts of text data, capable of generating and understanding natural language. Used in development tools like GitHub Copilot, Claude, and ChatGPT.
+
 **Load Balancer**  
 A system that distributes incoming network traffic across multiple servers to ensure reliability and scalability.
 
 **Middleware**  
 Software that acts as a bridge between different systems or layers, commonly used in web frameworks to process requests and responses.
 
+**Monorepo**  
+A software development strategy where code for multiple projects or packages is stored in a single repository, enabling shared tooling and easier cross-project changes.
+
 **NoSQL**  
 A category of database systems that store and retrieve data in formats other than relational tables, such as key-value, document, columnar, or graph formats. Popular NoSQL databases include MongoDB, Cassandra, and Redis.
+
+**OpenAPI (Swagger)**  
+A specification for describing RESTful APIs in a machine-readable format, enabling automatic documentation generation, client SDK generation, and API testing.
 
 **ORM (Object-Relational Mapping)**  
 A programming technique for converting data between incompatible type systems in object-oriented programming languages. It allows developers to interact with a database using objects instead of SQL queries.
@@ -90,12 +114,17 @@ A software distribution model in which applications are hosted by a provider and
 **SPA (Single Page Application)**  
 A web application that loads a single HTML page and dynamically updates content as the user interacts with the app.
 
+**SSG (Static Site Generation)**  
+A technique where pages are rendered to static HTML at build time rather than per request. The generated files can be served straight from a CDN for the fastest possible page loads, at the cost of needing a rebuild whenever content changes.
+
+**SSR (Server-Side Rendering)**  
+A technique where web pages are rendered on the server and sent as fully formed HTML to the client, improving initial load performance and SEO.
+
 **SQL (Structured Query Language)**  
 A standard language for managing and manipulating relational databases.
 
 **TypeScript**  
 A strongly-typed superset of JavaScript that adds static typing, interfaces, and other features to improve code quality and maintainability, commonly used in both frontend and backend (Node.js) development.
-
 
 **UI (User Interface)**  
 The visual elements of an application that users interact with.

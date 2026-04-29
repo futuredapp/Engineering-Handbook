@@ -18,7 +18,7 @@ We recommend using Node Version Manager (nvm) for Node.js:
 
 ```bash
 # Install nvm (if not already installed)
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 
 # Restart your terminal or run:
 source ~/.bashrc
@@ -43,8 +43,8 @@ cd <project-name>
 git fetch origin
 
 # Checkout the development branch
-git checkout dev
-git pull origin dev
+git checkout develop
+git pull origin develop
 
 ```
 
@@ -59,6 +59,18 @@ nano docker-compose.yml
 ```
 
 **Important:** Never commit `docker-compose.yml` with actual secrets to version control.
+
+### 3. Configure Local Domains (if required)
+
+Some projects use custom local domains instead of `localhost`. Check the project README — if it requires a local domain, add it to your hosts file:
+
+```bash
+# Edit hosts file
+sudo nano /etc/hosts
+
+# Add the required entry (example)
+127.0.0.1 my-project.local
+```
 
 ### 4. Request Environment Variables
 
@@ -87,25 +99,25 @@ If you don't have the required environment variables:
 
 ```bash
 # Build all services (first time or after changes)
-docker-compose build
+docker compose build
 
 # Start all services in detached mode
-docker-compose up -d
+docker compose up -d
 
 # Check service status
-docker-compose ps
+docker compose ps
 ```
 
 ### 2. Verify Services Are Running
 
 ```bash
 # Check all containers are healthy
-docker-compose ps
+docker compose ps
 
 # View logs for any issues
-docker-compose logs api
-docker-compose logs postgres
-docker-compose logs cache
+docker compose logs api
+docker compose logs postgres
+docker compose logs cache
 ```
 
 ### 3. Access Your Application
@@ -125,11 +137,11 @@ The correct migration command is always specified in the project's `package.json
 
 ```bash
 # Run migrations inside the API container
-docker-compose exec api npm run migrate
+docker compose exec api yarn migrate
 
 # Or if using a specific migration tool
-docker-compose exec api npx prisma migrate dev
-docker-compose exec api npx typeorm migration:run
+docker compose exec api yarn prisma migrate dev
+docker compose exec api yarn typeorm migration:run
 ```
 
 **Always check the project's documentation for the correct command.**
@@ -140,10 +152,10 @@ The correct seed command is always specified in the project's `package.json` and
 
 ```bash
 # Run seed scripts
-docker-compose exec api npm run seed
+docker compose exec api yarn seed
 
 # Or manually seed if needed
-docker-compose exec api npm run seed:dev
+docker compose exec api yarn seed:dev
 ```
 
 **Always check the project's documentation for the correct command.**
@@ -157,6 +169,7 @@ We recommend using GUI tools for database access:
 - **pgAdmin** - PostgreSQL-specific administration tool
 
 Connect using these credentials (from your `docker-compose.yml`):
+
 - **Host**: localhost
 - **Port**: 5432
 - **Database**: (check your docker-compose.yml)
@@ -184,21 +197,36 @@ git checkout -b feature/your-feature-name
 
 ```bash
 # Run tests
-docker-compose exec api npm test
+docker compose exec api yarn test
 
 # Run linting
-docker-compose exec api npm run lint
+docker compose exec api yarn lint
 
 # Run type checking
-docker-compose exec api npm run type-check
+docker compose exec api yarn type-check
 ```
 
 ### 3. Hot Reloading
 
 The development environment includes hot reloading:
+
 - API changes trigger automatic restarts
 - Frontend changes are reflected immediately
 - Database changes require manual migration runs
+
+### 4. Rebuilding After Dependency Changes
+
+When `package.json` changes (new packages added, versions updated), you need to rebuild the Docker image for that service:
+
+```bash
+# Rebuild the affected service
+docker compose build api
+
+# Restart with the new image
+docker compose up -d
+```
+
+Source code changes don't require a rebuild — they're picked up automatically via volume mounts. Only dependency or Dockerfile changes need a rebuild.
 
 ---
 
@@ -223,7 +251,7 @@ sudo systemctl stop conflicting-service
 docker system prune -f
 
 # Rebuild without cache
-docker-compose build --no-cache
+docker compose build --no-cache
 
 # Restart Docker Desktop (if on macOS/Windows)
 ```
@@ -231,22 +259,22 @@ docker-compose build --no-cache
 #### 3. Database Connection Issues
 ```bash
 # Check if database is running
-docker-compose ps postgres
+docker compose ps postgres
 
 # View database logs
-docker-compose logs postgres
+docker compose logs postgres
 
 # Reset database container
-docker-compose restart postgres
+docker compose restart postgres
 ```
 
 #### 4. Environment Variable Problems
 ```bash
 # Verify environment variables are loaded
-docker-compose exec api env | grep DATABASE_URL
+docker compose exec api env | grep DATABASE_URL
 
 # Check docker-compose.yml syntax
-docker-compose config
+docker compose config
 ```
 
 ### Performance Issues
@@ -254,7 +282,7 @@ docker-compose config
 #### 1. Slow Builds
 ```bash
 # Use build cache
-docker-compose build --parallel
+docker compose build --parallel
 
 # Optimize Dockerfile with multi-stage builds
 # Use .dockerignore to exclude unnecessary files
@@ -275,6 +303,7 @@ volumes:
 ### Check README.md
 
 Always check the project's README.md for:
+
 - Project-specific setup instructions
 - Additional dependencies
 - Special configuration requirements
@@ -283,6 +312,7 @@ Always check the project's README.md for:
 ### Environment Differences
 
 Different projects may require:
+
 - Different Node.js versions
 - Additional services (Redis, MongoDB, etc.)
 - Specific environment variables
@@ -293,7 +323,7 @@ Different projects may require:
 ## Best Practices
 
 ### 1. Git Workflow
-- Always work from the latest `dev` branch
+- Always work from the latest `develop` branch
 - Pull latest changes regularly
 
 ### 2. Docker Usage
@@ -307,8 +337,8 @@ Different projects may require:
 - Use database migrations for schema changes
 
 ### 4. Troubleshooting
-- Check logs first: `docker-compose logs <service>`
+- Check logs first: `docker compose logs <service>`
 - Verify environment variables are set correctly
-- Ensure all services are running: `docker-compose ps`
+- Ensure all services are running: `docker compose ps`
 - Check for port conflicts
-- Restart services when in doubt: `docker-compose restart`
+- Restart services when in doubt: `docker compose restart`
