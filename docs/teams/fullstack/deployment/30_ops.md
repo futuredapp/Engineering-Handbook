@@ -12,13 +12,13 @@ This guide covers operational practices for managing project infrastructure, acc
 
 **Never use personal accounts for project infrastructure.** All external services, cloud resources, and third-party integrations should use dedicated service accounts.
 
-### Naming Convention Example
+### Naming Convention
 
-```
-Service email:    ops+<project-name>@futured.app
-Cloud accounts:   <project-name>-service@<org>.iam.gserviceaccount.com
-GitHub bot:       futured-bot (org-level)
-```
+- **Service emails** — owned by Futured, not by individuals; one address per project role
+- **Cloud service accounts** — scoped to a single project, follow the cloud provider's required format
+- **GitHub bot** — a dedicated org-level bot account performs automated tasks (releases, dependency updates, CI commits) instead of personal credentials
+
+The concrete alias scheme, bot username, and naming patterns live in our internal Ops runbook.
 
 ### What Needs a Service Account
 
@@ -37,15 +37,15 @@ GitHub bot:       futured-bot (org-level)
 - API keys and tokens are stored in the cloud provider's secret manager, never in code or personal password managers
 - When a team member leaves, their personal access is revoked — service accounts remain unaffected
 
-## Email Configuration Example
+## Email Roles
 
-Every project should have standardized email addresses:
+Every project provisions standardized email roles backed by Futured-owned aliases, never personal addresses:
 
-```
-ops+<project>@futured.app       — Infrastructure alerts, monitoring
-noreply+<project>@futured.app   — Transactional emails (password resets, notifications)
-support+<project>@futured.app   — User-facing support (if applicable)
-```
+- **Operations / monitoring** — receives infrastructure alerts, on-call notifications, and automated reports
+- **Transactional sender** — `From:` address for password resets, account notifications, etc.; not a monitored inbox
+- **Support** — user-facing inbox for projects that expose external support
+
+The concrete alias pattern is documented internally.
 
 ## Access Audit
 
@@ -53,7 +53,7 @@ Quarterly access audit checklist per project:
 
 - [ ] List all service accounts and their permissions — remove unused ones
 - [ ] Verify no personal accounts are used for infrastructure
-- [ ] Rotate API keys and tokens that haven't been rotated in 90+ days
+- [ ] Rotate API keys and tokens that have exceeded their defined rotation window
 - [ ] Review cloud IAM roles — remove overly broad permissions
 - [ ] Ensure all team members have appropriate access (not too much, not too little)
 - [ ] Verify GitHub repository access matches current team composition
