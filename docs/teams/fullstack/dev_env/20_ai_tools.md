@@ -86,33 +86,9 @@ AI code review tools (CodeRabbit, Copilot) are part of our PR workflow, but they
 - Context-specific decisions
 - Edge cases that depend on domain knowledge
 
-## AI Workflows We're Exploring
+## Beyond Code Assistance
 
-Beyond code assistance, we're actively exploring AI in other parts of our workflow:
-
-### Test Generation
-
-- **Claude Code / Copilot** — Generate test scaffolding from existing code. Particularly useful for generating integration test boilerplate and edge case coverage.
-- **Goal**: Every new feature PR includes AI-assisted test suggestions as a starting point for the developer to review and refine.
-
-### Figma to Code
-
-- Exploring tools that translate Figma designs into Vue/React components
-- Current state: experimental, not part of any production workflow yet
-- Key challenge: generated code needs significant cleanup to match our component structure and coding standards
-- **Goal**: Reduce the time from design handoff to initial component implementation
-
-### AI-Assisted UI Testing
-
-- Exploring visual regression testing where AI compares screenshots against Figma designs before merge
-- Could catch visual regressions that traditional tests miss (layout shifts, styling issues, responsive breakpoints)
-- **Goal**: Automated visual QA check as part of the PR pipeline
-
-### Project Management
-
-- Jira automation: AI-assisted task breakdown from feature descriptions
-- Sprint planning: Using AI to estimate complexity based on codebase analysis
-- **Goal**: Reduce overhead of task management, not replace human judgment on priorities
+We actively experiment with AI in adjacent parts of the development workflow — test scaffolding, design handoff, QA, and project management. The team's current experiments and their status are tracked internally; this guide intentionally focuses on the practices that have stabilized, since experimental tooling shifts faster than we'd want this page to.
 
 ## Keeping Up
 

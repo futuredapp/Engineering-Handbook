@@ -181,10 +181,13 @@ services:
 
 ### 1. Secret Rotation
 
-- **JWT Secrets**: Rotate every 90 days
-- **API Keys**: Rotate every 6 months
-- **Database Passwords**: Rotate every 12 months
-- **Service Account Keys**: Rotate every 90 days
+Rotate secrets on a defined cadence — shorter intervals for high-impact, machine-issued credentials (JWT signing keys, service account keys), longer for stable credentials (database passwords, long-lived integration keys). The exact schedule per credential type is documented in our internal Ops runbook.
+
+Always rotate immediately when:
+
+- A team member with access to the secret leaves
+- A leak or suspected leak is detected
+- A dependency or third party that handled the secret is compromised
 
 ### 2. Access Control
 
