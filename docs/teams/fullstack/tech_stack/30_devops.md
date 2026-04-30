@@ -121,8 +121,8 @@ Used for smaller projects or when simpler infrastructure is preferred:
 
 ### Choosing a Platform
 
-![](./Resources/30_devops_hosting_platform_light.png#only-light){data-gallery="light"}
-![](./Resources/30_devops_hosting_platform_dark.png#only-dark){data-gallery="dark"}
+![](./Resources/30_devops_hosting_platform_light.png#only-light){data-gallery="light" width=400"}
+![](./Resources/30_devops_hosting_platform_dark.png#only-dark){data-gallery="dark" width=400"}
 
 
 | | GCP | Digital Ocean |
