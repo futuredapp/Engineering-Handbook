@@ -151,8 +151,8 @@ export class UsersResolver {
 
 **REST is the default.** GraphQL adds complexity (schema management, N+1 queries, caching challenges) and should only be used when its benefits clearly outweigh the cost.
 
-![](./Resources/10_backend_rest_vs_graphql_light.png#only-light){data-gallery="light"}
-![](./Resources/10_backend_rest_vs_graphql_dark.png#only-dark){data-gallery="dark"}
+![](./Resources/10_backend_rest_vs_graphql_light.png#only-light){data-gallery="light" width=400"}
+![](./Resources/10_backend_rest_vs_graphql_dark.png#only-dark){data-gallery="dark" width=400"}
 
 
 | Use REST when... | Use GraphQL when... |
