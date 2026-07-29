@@ -136,4 +136,6 @@ Deployed via GitHub Actions to [platform]. See `.github/workflows/` for details.
 
 ## Changelog
 
-For projects with external consumers (APIs used by other teams or clients), maintain a `CHANGELOG.md` following the [Keep a Changelog](https://keepachangelog.com/) format. For internal projects, git history and PR descriptions are sufficient.
+Projects based on our full-stack template generate their changelog automatically from commit messages and publish it as GitHub Releases — no `CHANGELOG.md` is kept in the repository. See [Releases & Versioning](../development/00_git_flow.md#releases-versioning).
+
+For other projects with external consumers (APIs used by other teams or clients), maintain a `CHANGELOG.md` following the [Keep a Changelog](https://keepachangelog.com/) format. For internal projects, git history and PR descriptions are sufficient.

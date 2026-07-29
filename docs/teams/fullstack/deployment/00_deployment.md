@@ -63,7 +63,7 @@ Before merging to `main` (production):
 
 ### Tagging
 
-We tag Docker images with the git commit SHA so every deployed version is traceable back to a specific commit. For production releases, we may also add a semantic version tag (e.g., `v1.2.3`).
+We tag Docker images with the git commit SHA so every deployed version is traceable back to a specific commit. In template-based projects the matching semantic version tag (e.g., `v1.2.3`) is created automatically on merge to `main` — see [Releases & Versioning](../development/00_git_flow.md#releases-versioning).
 
 ### Container Registry
 
