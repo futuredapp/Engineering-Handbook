@@ -85,9 +85,6 @@ Projects based on our full-stack template release automatically. Merging into `m
 - **What a Release Produces**
   A `vX.Y.Z` tag on `main` and a GitHub Release whose notes are grouped by commit type. The template deliberately keeps **no `CHANGELOG.md`** — the GitHub Releases page *is* the changelog, and the release commits nothing back to the repository. Nothing is published to any package registry.
 
-- **Business-Friendly Release Notes**
-  Once semantic-release succeeds, `.github/scripts/business-release-notes.py` rewrites the GitHub Release body using OpenAI. The result is a `## What's new for you` section in plain language for clients and project managers, with the original technical notes preserved below in a collapsible block for developers. This step requires an `OPENAI_API_KEY` repository secret and fails soft — if the key is missing or the API call fails, the release itself is unaffected and you simply keep the technical notes.
-
 #### Release Flow
 
 1. `feature/*` and `bugfix/*` branches are merged into `develop` — no release happens here.
@@ -114,8 +111,6 @@ The release setup lives in the repository root, in `.releaserc.json`:
 ```
 
 The root `package.json` is private, holds the semantic-release dependencies and the `release` / `release:dry` scripts, and stays at version `0.0.0` — the real version lives only in the git tag. The repository is not a pnpm workspace: `api/` and `admin/` have their own `package.json` files and are versioned together by the single repository-level tag.
-
-When bootstrapping a new project from the template, rename the placeholder in the root `package.json` `name` field and add the `OPENAI_API_KEY` secret. `GITHUB_TOKEN` is provided by GitHub Actions automatically — no personal access token is needed.
 
 !!! note "Dry run"
 
