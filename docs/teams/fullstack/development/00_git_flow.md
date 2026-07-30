@@ -50,43 +50,71 @@ We use a structured Git branching model to ensure smooth collaboration and maint
 - **Semantic Commit Messages**  
   We also allow semantic commit messages, which follow the format:  
   `<type>(<scope>): <description>`, for example: `feat(auth): add user login functionality`. These should also include the Jira ticket number if applicable.
-
-
+- **Projects with Automated Releases**  
+  In projects based on our full-stack template, the semantic format is **required**, not optional — the version bump and release notes are generated from it. See [Releases & Versioning](#releases-versioning) below.
 
 ### Automated Checks
 
 - **Dangerfile**  
   We use a Dangerfile to automatically check commit and pull request parameters, ensuring adherence to our standards.
 
-### Release Tags & Changelog
+### Releases & Versioning
 
-- **Version Tags**
-  Every production release **must** be tagged with a semantic version number (e.g., `v1.2.0`). Tags are created on the `main` branch after a successful production deployment.
+Projects based on our full-stack template release automatically. Merging into `main` triggers the `Release` workflow (`.github/workflows/release.yml`), which runs [semantic-release](https://www.npmjs.com/package/@semantic-release/npm) — it reads the commit messages since the last release, decides the version, creates the git tag and publishes a GitHub Release. Nobody tags manually.
 
-- **Tagging Convention**
+- **Versioning**
   We follow [Semantic Versioning](https://semver.org/): `MAJOR.MINOR.PATCH`
     - `MAJOR` — Breaking changes
     - `MINOR` — New features, backward-compatible
     - `PATCH` — Bug fixes
 
-- **Changelog**
-  Every project maintains a `CHANGELOG.md` in the repository root. Changes are documented per release using the [Keep a Changelog](https://keepachangelog.com/) format:
+  The bump is **derived from your commit messages**, not chosen by a human. Tags use the format `v${version}`, e.g. `v1.2.0`.
 
-    ```markdown
-    ## [1.2.0] - 2026-03-06
-    ### Added
-    - User profile editing endpoint
-    ### Fixed
-    - Login timeout on slow connections
-    ### Changed
-    - Increased pagination default from 10 to 20
-    ```
+- **Commit Types and the Version Bump**
+  Only [Conventional Commits](https://www.conventionalcommits.org/) affect the release:
 
-  Changelog entries should be written as part of the PR process — each PR that adds user-facing or API-impacting changes updates the `[Unreleased]` section. On release, `[Unreleased]` is renamed to the version number.
+    | Commit | Release |
+    |---|---|
+    | `fix: ...` | Patch — `1.2.0` → `1.2.1` |
+    | `feat: ...` | Minor — `1.2.0` → `1.3.0` |
+    | `feat!: ...` or `BREAKING CHANGE:` in the commit body | Major — `1.2.0` → `2.0.0` |
+    | `chore:`, `docs:`, `refactor:`, `test:`, `ci:`, `style:`, `perf:`, `build:` | No release |
 
-- **Conventional Commits (Encouraged)**
-  Using conventional commit messages (`feat:`, `fix:`, `chore:`, `docs:`, `refactor:`) makes changelog generation easier and can be automated with tools like `standard-version` or `release-please`.
+  A commit that does not match the format is **silently ignored** — it will not appear in the release notes and will not influence the version. The Dangerfile warns about such commits on the pull request, but it does not block the merge, so it is on you to get them right. Watch out for an **empty scope**: `feat(): add thing` is invalid — write either `feat:` or `feat(auth):`. Jira ticket numbers go into the description, e.g. `feat(auth): ABC-123 add refresh token` (see [Commit Messages](#commit-messages) above).
 
+- **What a Release Produces**
+  A `vX.Y.Z` tag on `main` and a GitHub Release whose notes are grouped by commit type. The template deliberately keeps **no `CHANGELOG.md`** — the GitHub Releases page *is* the changelog, and the release commits nothing back to the repository. Nothing is published to any package registry.
+
+#### Release Flow
+
+1. `feature/*` and `bugfix/*` branches are merged into `develop` — no release happens here.
+2. When `develop` is ready to ship, open a pull request from `develop` into `main`.
+3. Merging it runs the `Release` workflow: tag, GitHub Release, business-friendly notes.
+4. Production deployment follows from the same merge — see [Deployment Process](../deployment/00_deployment.md).
+
+Hotfixes go from `hotfix/*` straight into `main` and produce their own release (usually a patch), and are then merged back into `develop`. Releases are serialized, so two merges in quick succession cannot race each other.
+
+#### Configuration
+
+The release setup lives in the repository root, in `.releaserc.json`:
+
+```json
+{
+  "branches": ["main"],
+  "tagFormat": "v${version}",
+  "plugins": [
+    ["@semantic-release/commit-analyzer", { "preset": "conventionalcommits" }],
+    ["@semantic-release/release-notes-generator", { "preset": "conventionalcommits" }],
+    ["@semantic-release/github", { "successComment": false, "failComment": false, "releasedLabels": false }]
+  ]
+}
+```
+
+The root `package.json` is private, holds the semantic-release dependencies and the `release` / `release:dry` scripts, and stays at version `0.0.0` — the real version lives only in the git tag. The repository is not a pnpm workspace: `api/` and `admin/` have their own `package.json` files and are versioned together by the single repository-level tag.
+
+!!! note "Dry run"
+
+    To see which version would be released without actually releasing it, run `pnpm release:dry` (`semantic-release --dry-run --no-ci`).
 
 ### Environments
 
