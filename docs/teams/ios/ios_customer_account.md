@@ -72,6 +72,10 @@ To establish our CI flow and be able to deliver builds to customer's App Store C
             ??? info "First App Store Connect API usage"
             
                 In case you haven't granted App Store Connect API permission yet:
+
+                !!! warning "Account Holder required"
+
+                    Only the customer's `Account Holder` can request access the first time. Once access is granted, `Admin` role is enough to create further keys - see [Role permissions](https://developer.apple.com/help/app-store-connect/reference/account-management/role-permissions/).
         
                 - click `Request Access` button
         
