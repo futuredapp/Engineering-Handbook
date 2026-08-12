@@ -105,11 +105,7 @@ To establish our CI flow and be able to deliver builds to customer's App Store C
                 ![Step 6](Resources/ios_customer_account_9.png){ width="500" }
                 
         - add customer's App Store Connect API key to project's repo secrets
-
-            !!! tip "Prefer environment-scoped secrets"
-
-                Instead of plain repository secrets, add these as secrets on a GitHub `production` environment with a deployment branch rule limited to `main`. This way the key is only readable by workflow runs triggered from `main`, not from any branch/PR.
-
+        
             - go to your project GitHub repo
 
                 ![Step 7](Resources/ios_customer_account_10.png){ width="900" }
@@ -117,10 +113,6 @@ To establish our CI flow and be able to deliver builds to customer's App Store C
                 1. open `Settings` (you need repo admin role to see `Settings` option)
                 2. select `Secrets and variables` section and `Actions` subsection
                 3. click `New repository secret` button
-
-                !!! tip "Environment secrets instead"
-
-                    To restrict the secrets to `main` only, go to `Settings` → `Environments` instead, create/select the `production` environment, under `Deployment branches and tags` set the rule to `Selected branches and tags` → `main`, then add the secrets there and reference the `production` environment in the CI workflow job.
             
             - add following secrets (keep naming!):
                 - `APP_STORE_CONNECT_API_KEY_ISSUER_ID_CUSTOMER` = `Issuer ID`
