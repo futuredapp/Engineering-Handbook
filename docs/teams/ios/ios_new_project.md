@@ -214,6 +214,30 @@
                 
                     ![Step 9](Resources/ios_new_project_20.png){ width="900" }
                 
+            - add [SwiftFormat](https://github.com/nicklockwood/SwiftFormat)
+            
+                - if you don't have installed SwiftFormat locally call `brew install swiftformat` from Terminal
+                - the project template already contains the `.swiftformat` configuration
+                - go to `Build Phases` tab
+                - click `+` button
+                - click `New Run Script Phase`
+                - rename phase to `SwiftFormat` and move it before `Compile sources` phase (and before the `SwiftLint` phase from the next step, so files are formatted before they are linted)
+                - paste script bellow
+
+                ```bash
+                if test -d "/opt/homebrew/bin/"; then
+                  PATH="/opt/homebrew/bin/:${PATH}"
+                fi
+
+                export PATH
+
+                if which swiftformat >/dev/null; then
+                    swiftformat "$SRCROOT"
+                else
+                    echo "warning: SwiftFormat not installed, run: brew install swiftformat"
+                fi
+                ```
+                
             - add [SwiftLint](https://github.com/realm/SwiftLint)
             
                 - if you don't have installed SwiftLint locally call `brew install swiftlint` from Terminal
