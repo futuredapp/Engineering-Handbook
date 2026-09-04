@@ -214,17 +214,28 @@
                 
                     ![Step 9](Resources/ios_new_project_20.png){ width="900" }
                 
-            - add [SwiftFormat](https://github.com/nicklockwood/SwiftFormat)
+            - set up [SwiftFormat](https://github.com/nicklockwood/SwiftFormat) and [SwiftLint](https://github.com/realm/SwiftLint)
             
-                - if you don't have installed SwiftFormat locally call `brew install swiftformat` from Terminal
-                - the project template already contains the `.swiftformat` configuration
+                - if you don't have them installed locally call `brew install swiftformat swiftlint` from Terminal
+                - the project template already contains the `.swiftformat` and `.swiftlint.yml` configuration
+                - the Xcode template already adds the `SwiftFormat` and `SwiftLint` run script phases and disables `User Script Sandboxing` for the app target, so no script needs to be pasted
                 - go to `Build Phases` tab
-                - click `+` button
-                - click `New Run Script Phase`
-                - rename phase to `SwiftFormat` and move it before `Compile sources` phase (and before the `SwiftLint` phase from the next step, so files are formatted before they are linted)
-                - paste script bellow
+                - drag the `SwiftFormat` phase and then the `SwiftLint` phase above `Compile Sources`, in that order (Xcode templates can only append phases, so both are appended after `Compile Sources` when the project is created; the `#warning` in `{project_name}App.swift` reminds you about it and disappears once you remove it)
+                - the phases must be ordered `SwiftFormat` -> `SwiftLint` -> `Compile Sources`, so files are formatted first and SwiftLint then reports what remains
+                
+                ![Step 10](Resources/ios_new_project_21.png){ width="900" }
+                ![Step 11](Resources/ios_new_project_22.png){ width="900" }
+                
+                - for reference, these are the scripts the template generates (the same ones used in current iOS projects); both skip Xcode preview builds
+                
+                `SwiftFormat` phase:
 
                 ```bash
+                if [[ "${BUILD_DIR}" =~ "Previews" ]]; then
+                    echo "SwiftFormat not enabled when compiling for previews"
+                    exit
+                fi
+
                 if test -d "/opt/homebrew/bin/"; then
                   PATH="/opt/homebrew/bin/:${PATH}"
                 fi
@@ -237,17 +248,15 @@
                     echo "warning: SwiftFormat not installed, run: brew install swiftformat"
                 fi
                 ```
-                
-            - add [SwiftLint](https://github.com/realm/SwiftLint)
-            
-                - if you don't have installed SwiftLint locally call `brew install swiftlint` from Terminal
-                - go to `Build Phases` tab
-                - click `+` button
-                - click `New Run Script Phase`
-                - rename phase to `SwiftLint` and move it before `Compile sources` phase
-                - paste script bellow
+
+                `SwiftLint` phase:
 
                 ```bash
+                if [[ "${BUILD_DIR}" =~ "Previews" ]]; then
+                    echo "SwiftLint not enabled when compiling for previews"
+                    exit
+                fi
+
                 if test -d "/opt/homebrew/bin/"; then
                   PATH="/opt/homebrew/bin/:${PATH}"
                 fi
@@ -255,19 +264,12 @@
                 export PATH
 
                 if which swiftlint >/dev/null; then
-                    swiftlint --fix # remove `swiftlint --fix` if you want to fix linting issues manually
+                    swiftlint --fix --quiet
                     swiftlint
                 else
                     echo "error: SwiftLint not installed, run: brew install swiftlint"
                 fi
                 ```
-                
-                ![Step 10](Resources/ios_new_project_21.png){ width="900" }
-                ![Step 11](Resources/ios_new_project_22.png){ width="900" }
-                
-                - disable `User Script Sandboxing` in `Build Settings at the projects level`
-                
-                ![Step 12](Resources/ios_new_project_23.png){ width="500" }
                 
             - configure the project for Continuous Deployment
 
