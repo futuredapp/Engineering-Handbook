@@ -224,9 +224,6 @@
                 - drag the `SwiftFormat` phase and then the `SwiftLint` phase above `Compile Sources`, in that order (Xcode templates can only append phases, so both are appended after `Compile Sources` when the project is created; the `#warning` in `{project_name}App.swift` reminds you about it and disappears once you remove it)
                 - the phases must be ordered `SwiftFormat` -> `SwiftLint` -> `Compile Sources`, so files are formatted first and SwiftLint then reports what remains
                 
-                ![Step 10](Resources/ios_new_project_21.png){ width="900" }
-                ![Step 11](Resources/ios_new_project_22.png){ width="900" }
-                
                 - for reference, these are the scripts the template generates (the same ones used in current iOS projects); both skip Xcode preview builds
                 
                 `SwiftFormat` phase:
