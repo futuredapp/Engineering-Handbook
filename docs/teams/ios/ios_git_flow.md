@@ -25,11 +25,11 @@ Examples of pretty branch names:
 
 ## Commits
 
-Commit messages should be in the imperative present tense, start with a capital letter and have no period at the end. Keep your commits short. For more guidance read [this blog post](https://chris.beams.io/posts/git-commit/).
+Commit messages follow [Conventional Commits](https://www.conventionalcommits.org): `type(scope): description`. Write the description in the imperative present tense, keep the subject under 50 characters with no period at the end; wrap an optional body at 72 characters. Types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`, `perf`, `ci`. The scope is the affected area (`auth`, `ui`, `api`, …). Keep your commits short and focused. The `/commit` skill from the Futured Claude marketplace generates messages in this format.
 
 ```
 // Preferred
-Add employee avatar in list of employees
+feat(employees): add avatar to employee list
 
 // Not preferred
 Added image view to display image for employee in employees table view controller.

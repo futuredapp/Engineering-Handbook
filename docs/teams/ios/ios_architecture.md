@@ -53,6 +53,16 @@ Business logic, such as networking or data processing, is encapsulated in **`Ser
 
 The **`Container`** acts as a simple dependency injection hub. It is created at the app's root and passed down to each `Coordinator`. It is responsible for instantiating and providing shared dependencies such as the `DataCache` and other `Services`. Side effects that react to cache changes are co-located in the Container's `listeningTask`.
 
+### Scene State
+
+The FuturedKit Xcode app template generates a small state layer used by every data-driven scene. It lives in the app target, not in the package, so projects can adapt it.
+
+- **`ComponentState`** — `ready`, `loading`, `empty(StateInfoConfig)`, `error(StateInfoConfig)`; the empty and error cases require a `StateInfoConfig` (icon, title, message, actions), so no state ships undesigned
+- **`CacheProjection`** — a `nonisolated struct` deriving a scene's `state` and `data` from the `DataCacheModel`; the `ComponentModel` exposes it as a computed property (`XCacheProjection.data(from: dataCache.value) ?? .empty(state: .loading)`), which keeps observation automatic
+- **`ComponentStateView`** — renders the populated view, or `StateInfoView` for the empty and error states; loading reuses the populated view redacted as a placeholder
+- **`ItemState`** — the same idea for a single item inside a populated scene, rendered by `ItemStateView`
+- use the **Projection Scene** variant of the Xcode Scene template for data-driven scenes; `StateInfoView` is a baseline to be replaced with the project's design system
+
 ### Futured Macros
 
 We use [futuredapp/futured-macros](https://github.com/futuredapp/futured-macros) to reduce boilerplate:
