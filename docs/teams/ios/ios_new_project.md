@@ -202,6 +202,7 @@
                 
                     ![Step 7](Resources/ios_new_project_18.png){ width="500" }
                 
+                - add `futured-macros` package dependency - [https://github.com/futuredapp/futured-macros.git](https://github.com/futuredapp/futured-macros.git) and add `FuturedMacros` to main project target (the template files use `@EnumIdentable` and `@ProxyMembers`)
                 - go to the `{project_name}App.swift` file and remove error at line 10
                 
                     ```swift
