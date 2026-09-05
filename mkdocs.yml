@@ -85,6 +85,7 @@ nav:
       - First Submission Requirements: teams/ios/ios_app_store_checklist.md
       - Git Flow: teams/ios/ios_git_flow.md
       - Localization: teams/ios/ios_localization.md
+      - Multiplatform: teams/ios/ios_multiplatform.md
       - New Project: teams/ios/ios_new_project.md
       - Release: teams/ios/ios_release.md
   - Full-stack:
