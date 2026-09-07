@@ -37,8 +37,8 @@ Everything beyond this is strongly encouraged but depends on the project's scope
 
 | Layer | What it tests | Tools | Speed |
 |---|---|---|---|
-| Unit | Pure functions, utilities, isolated logic | Jest | Fast |
-| Integration | Service methods with database, API endpoints | Jest + test DB | Medium |
+| Unit | Pure functions, utilities, isolated logic | Vitest | Fast |
+| Integration | Service methods with database, API endpoints | Vitest + test DB | Medium |
 | E2E | Full user flows through the browser or API | Playwright / Cypress | Slow |
 
 ## Backend Testing
@@ -187,7 +187,7 @@ Use `data-testid` attributes for E2E selectors instead of CSS classes or element
 
 | Tool | Purpose |
 |---|---|
-| **Jest** | Unit and integration testing (default) |
+| **Vitest** | Unit and integration testing (default) |
 | **Playwright** | E2E browser testing (preferred) |
 | **Cypress** | E2E browser testing (legacy projects) |
 | **supertest** | HTTP endpoint testing in NestJS |

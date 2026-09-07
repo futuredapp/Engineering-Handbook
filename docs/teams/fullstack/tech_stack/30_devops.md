@@ -1,6 +1,6 @@
 # DevOps & Infrastructure
 
-Our infrastructure is containerized, automated, and deployed via CI/CD pipelines. We run on Google Cloud Platform (GCP) and Digital Ocean, sometimes managed with Terraform.
+Our infrastructure is containerized, automated, and deployed via CI/CD pipelines. We run primarily on Google Cloud Platform (GCP), with Digital Ocean used for smaller internal applications.
 
 ## Infrastructure Overview
 
@@ -113,7 +113,7 @@ Used for larger or more complex projects:
 
 ### Digital Ocean
 
-Used for smaller projects or when simpler infrastructure is preferred:
+Used primarily for our own internal smaller applications. Client projects run on GCP.
 
 - **App Platform** — Container and static site hosting
 - **Managed Database** — PostgreSQL and Redis
@@ -127,43 +127,30 @@ Used for smaller projects or when simpler infrastructure is preferred:
 
 | | GCP | Digital Ocean |
 |---|---|---|
-| Best for | Complex apps, scaling needs, enterprise clients | Simpler apps, tighter budgets, quick setup |
+| Best for | Complex apps, scaling needs, enterprise clients | Internal apps, simpler setups |
 | Pricing model | Pay-per-use | Predictable monthly pricing |
 | Managed services | Extensive (50+ services) | Focused (core services) |
-| Terraform support | Full | Full |
 
 The choice is made per project based on client requirements, budget, and complexity.
 
 ## Infrastructure as Code
 
-!!! warning "Current State"
+!!! info "Current State"
 
-    Most projects today do **not** use Infrastructure as Code. Infrastructure is typically set up manually through cloud provider consoles and CLI tools. This is a known gap and one of the team's top priorities to improve.
+    New projects use the standardized IaC template from [fullstack-template](https://github.com/futuredapp/fullstack-template). Infrastructure state is stored in a GCS bucket per project. Infrastructure changes are applied by running Pulumi locally, in cooperation with the DevOps team.
 
 ### Where We Are
 
-- Infrastructure for most projects is provisioned manually (cloud consoles, CLI)
-- A single legacy project actively uses **Terraform**; older Terraform setups exist on a couple of projects but are no longer actively maintained
-- There is no standardized IaC template or workflow across projects
-- Manual setup leads to inconsistent environments, undocumented configuration, and difficult handovers
+- Older projects have infrastructure provisioned manually or have legacy Terraform setups that are no longer actively maintained
+- A standardized IaC template is available in [fullstack-template](https://github.com/futuredapp/fullstack-template) and is used for new projects
+- Infrastructure state is stored in a GCS bucket per project
+- Infrastructure changes are applied by running Pulumi locally, in cooperation with the DevOps team
 
 ### Where We Want to Be
 
-Our goal is to adopt **Pulumi** as the primary IaC tool. Pulumi allows defining infrastructure in TypeScript, which fits naturally into our stack and lowers the barrier for full-stack developers.
-
-**Target state:**
-
-- Every new project includes a Pulumi stack defining its cloud resources
+- Every new project uses the IaC template from `fullstack-template` from day one
 - Infrastructure changes go through PR review, just like application code
-- Infrastructure state is stored remotely (Pulumi Cloud or GCS bucket)
-- Environment-specific configuration is separated from resource definitions
-- Project audits to migrate existing manual infrastructure to code
-
-### Transition Plan
-
-1. **New projects** — Start with a Pulumi template as part of project scaffolding
-2. **Existing projects** — Gradually import existing resources into Pulumi during maintenance windows
-3. **Knowledge sharing** — OPS specialists help teams adopt IaC practices
+- Infrastructure deployments are automated via CI/CD, eliminating the need for manual applies
 
 ## Environment Promotion
 
