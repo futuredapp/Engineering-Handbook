@@ -1,6 +1,6 @@
 # Database
 
-We use PostgreSQL as our primary relational database and MongoDB for specific use cases. Database access is primarily through an ORM or query builder. Raw SQL queries are acceptable when the query is too complex to express cleanly with the ORM.
+We use PostgreSQL as our primary relational database and MongoDB for specific use cases. Database access is through an ORM — **Drizzle** for new projects, **TypeORM** in legacy projects. Raw SQL queries are acceptable when the query is too complex to express cleanly with the ORM.
 
 ## Data Architecture
 
@@ -39,9 +39,32 @@ MongoDB is used in projects where the data model is inherently document-oriented
 
 ## ORM Choices
 
-### TypeORM
+### Drizzle
 
-TypeORM is our most commonly used ORM, with deep NestJS integration via `@nestjs/typeorm`.
+**Drizzle is the default ORM for all new projects.** It is lightweight, SQL-first, and provides full TypeScript type safety with minimal abstraction over the underlying database.
+
+```typescript
+// db/schema/users.ts
+import { pgTable, uuid, varchar, timestamp } from 'drizzle-orm/pg-core'
+
+export const users = pgTable('users', {
+    id: uuid('id').defaultRandom().primaryKey(),
+    email: varchar('email', { length: 255 }).notNull().unique(),
+    name: varchar('name', { length: 255 }).notNull(),
+    createdAt: timestamp('created_at').defaultNow().notNull(),
+})
+```
+
+**Why Drizzle:**
+
+- **SQL-first** — Schema and queries closely mirror SQL, making behavior predictable and transparent
+- **Full type safety** — Query results are fully typed without code generation at runtime
+- **Lightweight** — Minimal overhead, no hidden magic
+- **Great DX** — `drizzle-kit` handles migrations, schema introspection, and studio
+
+### TypeORM (Legacy)
+
+TypeORM is used in older projects and is **not recommended for new ones**. It relies heavily on decorators and runtime reflection, which adds complexity and makes behavior harder to predict.
 
 ```typescript
 // entities/user.entity.ts
@@ -64,14 +87,7 @@ export class User {
 }
 ```
 
-### Prisma & Drizzle (Experimental)
-
-We are experimenting with **Prisma** and **Drizzle** in prototypes and internal projects. Neither is currently used in production.
-
-- **Prisma** — Type-safe query API, schema-first approach, excellent migration tooling
-- **Drizzle** — Lightweight, SQL-like control with full type safety and minimal overhead
-
-These may become recommended alternatives in the future as we gain more experience with them in real projects.
+Existing projects using TypeORM should continue using it — there is no need to migrate actively.
 
 ## Migration Strategy
 
@@ -89,17 +105,17 @@ Database schema changes are always managed through migrations — never manual D
 4. **Never edit an existing migration** that has been applied to any environment
 5. **Test migrations** against a copy of production data when possible
 
-### Example: Prisma Migrations
+### Example: Drizzle Migrations
 
 ```bash
-# Create a migration after changing schema.prisma
-yarn prisma migrate dev --name add_user_role
+# Generate a migration after changing the schema
+yarn drizzle-kit generate
 
-# Apply migrations in production
-yarn prisma migrate deploy
+# Apply migrations
+yarn drizzle-kit migrate
 ```
 
-### Example: TypeORM Migrations
+### Example: TypeORM Migrations (Legacy)
 
 ```bash
 # Generate a migration from entity changes

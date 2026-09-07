@@ -140,8 +140,8 @@ The correct migration command is always specified in the project's `package.json
 docker compose exec api yarn migrate
 
 # Or if using a specific migration tool
-docker compose exec api yarn prisma migrate dev
-docker compose exec api yarn typeorm migration:run
+docker compose exec api yarn drizzle-kit migrate        # new projects (Drizzle)
+docker compose exec api yarn typeorm migration:run      # legacy projects (TypeORM)
 ```
 
 **Always check the project's documentation for the correct command.**
