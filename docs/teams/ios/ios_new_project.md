@@ -289,15 +289,14 @@
 
     ??? note "Steps"
 
-        - update `.github/CODEOWNERS` file
-            
-            - change `@futuredapp/ios` to `@{github_username}` of teammate/teammates (or person who will perform code reviews)
+        - set the repository variables `PROJECT_REVIEWER` and `FEATURE_REVIEWER_SLACK` and fill in `## Red zones` in `AGENTS.md` (see [Code Review setup](ios_code_review.md#setup-for-a-project))
 
         - update project README and fill in all the strike-through points
         - commit everything and open PR
-        - after CI checks the PR, `test` check is now available to be added in `default branch protection` ruleset
+        - after CI checks the PR, `test` and `review-gate` checks are now available to be added in `default branch protection` ruleset
         
-            - add `test/test` check (for GitHub Actions)
+            - add `test/test` check (for GitHub Actions) and the `review-gate` status check
+            - set required approvals to `0`
             
             ![Step 16](Resources/ios_new_project_27.png){ width="900" }
 

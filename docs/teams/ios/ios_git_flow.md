@@ -39,18 +39,14 @@ Added image view to display image for employee in employees table view controlle
 
 All pull request should point to `develop` branch, except `release/` and `hotfix/`, which are intended to `main`.
 
-Attachments and more detailed information about the PR is welcomed, such as:
-
-* A screenshot of an UI, if PR implements or fixes it
-* A gif image if an animation is part of the PR
-* Text description of what reviewers should pay attention to during code review
+Every pull request carries an `## Evidence` section: screenshots or a screen recording for UI changes, a test that fails without the fix for bug fixes. The `/pull-request` skill writes it with you.
 
 ### Code review
 
-Code review is obligatory before merging the pull request. A pull request should get at least one approval from another member of a team to get merged. If possible, cross-reviewing from a member of a different team is preferred.
+A pull request does not need an approval from a colleague. The AI review bot comments on every PR, and a human reviews only PRs labeled `needs-human` (red zones, or whenever the author asks). Finished features are reviewed in the app instead of in the diff. See [Code Review](ios_code_review.md) for the whole process.
 
-While doing code review, be nice and respect the work of another team member. Pay attention to the functional, structural and style issues. GitHub offers some of a good advice on offering and responding to feedback [in their blog post](https://blog.github.com/2015-01-21-how-to-write-the-perfect-pull-request/).
+When you do review, be nice and respect the work of another team member.
 
 ### Continuous Integration
 
-Another required part to merge a PR is successful build on the CI. Pull request with failing build is not possible to merge.
+Another required part to merge a PR is successful build on the CI, and the `review-gate` check. Pull request with failing build is not possible to merge.
