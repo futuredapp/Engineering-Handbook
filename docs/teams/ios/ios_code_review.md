@@ -28,7 +28,7 @@ Each project adds its own zones in the `## Red zones` section of its `AGENTS.md`
 The time saved on reading diffs goes into trying finished features in the app. This is a second iOS expert's look at the feature as a whole, not QA: QA tests acceptance criteria, the feature reviewer looks for what passes them and is still wrong on iOS.
 
 - The author of the PR that completes a functional whole (a flow, a screen, an animation, Liquid Glass support…) adds the `feature-complete` label and a `## What to try` section. `/pull-request` asks about both.
-- After the nightly build containing the PR is uploaded, a Slack message mentions the project reviewer with the PR and its What to try text.
+- After the nightly or on-demand build containing the PR is uploaded, a Slack message mentions the project reviewer with the PR and its What to try text. An on-demand build with a custom changelog sends no message.
 - The reviewer installs the build from TestFlight and spends 15–30 minutes on it:
     - does the feature behave as an iOS user expects, does the navigation make sense (back, swipe back, modals, deep links)
     - is a custom component used where a system one exists
@@ -39,7 +39,7 @@ The time saved on reading diffs goes into trying finished features in the app. T
 
 Organisation secrets, set once by an org admin: `ANTHROPIC_API_KEY`, `CLAUDE_MARKETPLACE_TOKEN`, `SLACK_WEBHOOK_FEATURE_REVIEW`.
 
-1. Copy `.github/workflows/ai-review.yml`, `review-gate.yml`, the updated `nightly-build.yml` and `.github/pull_request_template.md` from the [iOS project template](https://github.com/futuredapp/iOS-project-template).
+1. Copy `.github/workflows/ai-review.yml`, `review-gate.yml`, the updated `nightly-build.yml` and `on-demand-build.yml`, and `.github/pull_request_template.md` from the [iOS project template](https://github.com/futuredapp/iOS-project-template).
 2. Set repository variables (Settings → Secrets and variables → Actions → Variables):
     - `PROJECT_REVIEWER` — GitHub login (or `org/team`) of the project reviewer, requested on `needs-human` PRs
     - `FEATURE_REVIEWER_SLACK` — Slack mention for the feature review message, e.g. `<@U0123456>`
