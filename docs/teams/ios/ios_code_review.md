@@ -6,22 +6,34 @@ A PR does not need an approval from a colleague. It needs an author who understa
 
 1. **The author owns the code.** You merge only what you understand and can explain. `/ios-review` is there to help you before opening the PR: conventions, patterns and code drift (duplicates, leftovers, custom code where a system component fits).
 2. **Every PR carries evidence.** Screenshots or a screen recording for UI changes, a test that fails without the fix for bug fixes, "No behaviour change." for refactors, what and why for config. `/pull-request` writes the `## Evidence` section with you.
-3. **The review bot comments once.** When a PR is opened or marked ready, the bot runs `/ios-pr-check` and posts a single comment: risk, whether the diff matches the description, evidence, and at most five verified serious findings plus code drift. Findings never block the merge; you decide what to fix.
+3. **The review bot reviews every push.** When a ready PR into `develop` is opened or updated, the bot runs `/ios-pr-check` and keeps a single comment up to date: risk, whether the diff matches the description, evidence, verified serious findings and code drift. Findings never block the merge; you decide what to fix.
 4. **A human looks only at red zones.** When the change touches a red zone, the bot labels the PR `needs-human`, requests the project reviewer and lists the 1–3 places to look at. Add the label yourself whenever you want a second pair of eyes: an architecture decision, an SDK you have not used before, anything you are unsure about.
-5. **The `review-gate` check** turns green once the bot has commented on the PR and, for `needs-human` PRs, someone approved. Pushes after the bot's comment do not re-trigger it.
+5. **The `review-gate` check** is green when the bot reviewed the latest commit and found low risk, or when someone with write access other than the author approved the latest commit. High risk and the `needs-human` label always need that approval; removing the label does not lower a high-risk result.
 
-### Commands in a PR comment
+### When the bot can't help
 
-| Comment | What happens |
+| Situation | What to do |
 |---|---|
-| `/review` | The bot reviews the PR again and updates its comment |
-| `/review deep` | Full multi-lens `/ios-review` instead of the fast check; takes longer |
+| The bot failed or the Claude API is down | Comment `/review` to retry, or get an approval of the latest commit — it turns the gate green on its own |
+| Dependabot or another bot opened the PR | The bot skips it: comment `/review`, or approve it |
+| A release or hotfix PR into `main` | The gate passes automatically; the `main` ruleset decides what else is required |
+
+`/review` must be the whole comment. The bot reads the project's rules (`AGENTS.md`, `CLAUDE.md`) from the base branch, so a PR cannot change the rules it is judged by; changes to those files, to `.claude/` and to CI are red zones themselves.
+
+The gate protects against mistakes, not against a colleague who wants to bypass it: anyone with write access could set the status by hand, just as an admin can merge without checks today.
 
 ### Red zones
 
-The shared list: money (purchases, payment SDKs, price computation), identity (login, tokens, Keychain, biometrics), user data (persistence schema and migrations, deleting data, personal data in analytics or logs), app infrastructure (request pipeline, DI container, app lifecycle, root navigation, deep links) and release (new dependencies, entitlements, privacy manifest, build settings, CI, Fastlane). A new endpoint or a new screen is not a red zone; changing what every request goes through is.
+The shared list:
 
-Each project adds its own zones in the `## Red zones` section of its `AGENTS.md`, one line each.
+- **Money:** purchases, payment SDKs, price computation.
+- **Identity:** login, tokens, Keychain, biometrics.
+- **User data:** persistence schema and migrations, deleting data, personal data in analytics or logs.
+- **App infrastructure:** request pipeline, DI container, app lifecycle, root navigation, deep links.
+- **Release:** new dependencies, entitlements, privacy manifest, build settings, CI, Fastlane.
+- **Review rules:** `AGENTS.md`, `CLAUDE.md`, `.claude/`.
+
+A new endpoint or a new screen is not a red zone; changing what every request goes through is. Each project adds its own zones in the `## Red zones` section of its `AGENTS.md`, one line each.
 
 ## Feature review in the app
 
@@ -35,13 +47,27 @@ The time saved on reading diffs goes into trying finished features in the app. T
     - do Dynamic Type, dark mode, the keyboard, animations and transitions work
 - Findings go to the Slack thread or a Jira ticket. Edge-case input testing stays with QA.
 
-## Setup for a project
+## Setup
 
-Organisation secrets, set once by an org admin: `ANTHROPIC_API_KEY`, `CLAUDE_MARKETPLACE_TOKEN`, `SLACK_WEBHOOK_FEATURE_REVIEW`.
+### Once per organisation (org admin)
 
-1. Copy `.github/workflows/ai-review.yml`, `review-gate.yml`, the updated `nightly-build.yml` and `on-demand-build.yml`, and `.github/pull_request_template.md` from the [iOS project template](https://github.com/futuredapp/iOS-project-template).
-2. Set repository variables (Settings → Secrets and variables → Actions → Variables):
-    - `PROJECT_REVIEWER` — GitHub login (or `org/team`) of the project reviewer, requested on `needs-human` PRs
+- Org secrets, shared with the iOS repositories:
+    - `ANTHROPIC_API_KEY`
+    - `CLAUDE_MARKETPLACE_TOKEN` — a fine-grained token with read-only **Contents** access to `futuredapp/FTClaudeMarketplace` only
+    - `SLACK_WEBHOOK_FEATURE_REVIEW` — an incoming webhook for the default channel. A project that wants its own channel sets a repository secret of the same name.
+
+### New project
+
+Everything is in the [iOS project template](https://github.com/futuredapp/iOS-project-template): `.github/workflows/code-review.yml`, the `feature-review` jobs in `nightly-build.yml` and `on-demand-build.yml`, and `.github/pull_request_template.md`. Then:
+
+1. Set repository variables (Settings → Secrets and variables → Actions → Variables):
+    - `PROJECT_REVIEWER` — GitHub login of the project reviewer, requested on `needs-human` PRs
     - `FEATURE_REVIEWER_SLACK` — Slack mention for the feature review message, e.g. `<@U0123456>`
-3. In the `default branch protection` ruleset set required approvals to `0` and add the required status checks `test` and `review-gate`. The `needs-human` and `feature-complete` labels are created by the first bot run.
-4. Fill in `## Red zones` in `AGENTS.md`.
+2. In the `default branch protection` ruleset, set required approvals to `0` and add the required status checks `test/test` and `review-gate` (both appear after the first PR). The `needs-human` and `feature-complete` labels are created by the first bot run.
+3. Fill in `## Red zones` in `AGENTS.md`.
+
+### Existing project
+
+1. Add `.github/workflows/code-review.yml` and `.github/pull_request_template.md` from the template as they are.
+2. In `nightly-build.yml` and `on-demand-build.yml`, bump the shared workflow refs to the template's version and add the template's `feature-review` job below `build`; keep the project's own inputs.
+3. Remove `.github/CODEOWNERS` (it requests reviewers on every PR) and turn off "Require review from Code Owners" in the ruleset, then follow steps 1–3 of a new project.

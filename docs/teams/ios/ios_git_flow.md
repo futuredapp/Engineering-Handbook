@@ -43,7 +43,7 @@ Every pull request carries an `## Evidence` section: screenshots or a screen rec
 
 ### Code review
 
-A pull request does not need an approval from a colleague. The AI review bot comments on every PR, and a human reviews only PRs labeled `needs-human` (red zones, or whenever the author asks). Finished features are reviewed in the app instead of in the diff. See [Code Review](ios_code_review.md) for the whole process.
+A pull request does not need an approval from a colleague. The AI review bot reviews every push, and a human reviews only red-zone PRs and PRs labeled `needs-human` (whenever the author asks). Finished features are reviewed in the app instead of in the diff. See [Code Review](ios_code_review.md) for the whole process.
 
 When you do review, be nice and respect the work of another team member.
 

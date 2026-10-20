@@ -58,7 +58,7 @@
                 
                     ![Step 9](Resources/ios_new_project_9.png){ width="500" }
                 
-                    1. set `Required approvals` to 1
+                    1. set `Required approvals` to 0 — the `review-gate` check asks for a human only when needed, see [Code Review](ios_code_review.md)
                     2. enable `Dismiss stale pull request approvals when new commits are pushed`
                     
                 5. keep `Require status checks to pass` unchecked for the moment (we'll set it up later)
@@ -289,14 +289,13 @@
 
     ??? note "Steps"
 
-        - set the repository variables `PROJECT_REVIEWER` and `FEATURE_REVIEWER_SLACK` and fill in `## Red zones` in `AGENTS.md` (see [Code Review setup](ios_code_review.md#setup-for-a-project))
+        - set the repository variables `PROJECT_REVIEWER` and `FEATURE_REVIEWER_SLACK` and fill in `## Red zones` in `AGENTS.md` (see [Code Review setup](ios_code_review.md#new-project))
 
         - update project README and fill in all the strike-through points
         - commit everything and open PR
         - after CI checks the PR, `test` and `review-gate` checks are now available to be added in `default branch protection` ruleset
         
             - add `test/test` check (for GitHub Actions) and the `review-gate` status check
-            - set required approvals to `0`
             
             ![Step 16](Resources/ios_new_project_27.png){ width="900" }
 
