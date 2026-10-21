@@ -63,7 +63,7 @@
                     
                 5. keep `Require status checks to pass` unchecked for the moment (we'll set it up later)
                 
-                    - don't forget to add the `test` action rule after opening your first PR (actions will appear in the list after their first run)
+                    - don't forget to add the `test/test` and `review-gate` checks after opening your first PR (actions will appear in the list after their first run)
                     
                     ![Step 10](Resources/ios_new_project_10.png){ width="500" }
                     
@@ -293,7 +293,7 @@
 
         - update project README and fill in all the strike-through points
         - commit everything and open PR
-        - after CI checks the PR, `test` and `review-gate` checks are now available to be added in `default branch protection` ruleset
+        - after CI checks the PR, `test/test` and `review-gate` checks are now available to be added in `default branch protection` ruleset
         
             - add `test/test` check (for GitHub Actions) and the `review-gate` status check
             
