@@ -14,7 +14,7 @@ A PR does not need an approval from a colleague. It needs an author who understa
 
 | Situation | What to do |
 |---|---|
-| The bot failed or the Claude API is down | Comment `/review` to retry, or get an approval of the latest commit — it turns the gate green on its own |
+| The bot failed, Claude is down or the subscription's usage limit is reached | Comment `/review` to retry, or get an approval of the latest commit — it turns the gate green on its own |
 | Dependabot or another bot opened the PR | The bot skips it: comment `/review`, or approve it |
 | A release or hotfix PR into `main` | The gate passes automatically; the `main` ruleset decides what else is required. If the same branch also has a PR into `develop`, the check follows that PR. |
 
@@ -52,7 +52,7 @@ The time saved on reading diffs goes into trying finished features in the app. T
 ### Once per organisation (org admin)
 
 - Org secrets, shared with the iOS repositories:
-    - `ANTHROPIC_API_KEY`
+    - `CLAUDE_CODE_OAUTH_TOKEN` — the bot runs on a Claude subscription, not on API tokens. Create the token with `claude setup-token` while logged in to the subscription account the reviews should use; it is long-lived, so renew it before it expires. Reviews count against that account's usage limits.
     - `CLAUDE_MARKETPLACE_TOKEN` — a fine-grained token with read-only **Contents** access to `futuredapp/FTClaudeMarketplace` only
     - `SLACK_WEBHOOK_FEATURE_REVIEW` — an incoming webhook for the default channel. A project that wants its own channel sets a repository secret of the same name.
 
