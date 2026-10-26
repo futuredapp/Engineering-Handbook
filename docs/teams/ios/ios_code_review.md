@@ -52,8 +52,11 @@ The time saved on reading diffs goes into trying finished features in the app. T
 ### Once per organisation (org admin)
 
 - Org secrets, shared with the iOS repositories:
-    - `CLAUDE_CODE_OAUTH_TOKEN` — the bot runs on a Claude subscription, not on API tokens. Create the token with `claude setup-token` while logged in to the subscription account the reviews should use; it is long-lived, so renew it before it expires. Reviews count against that account's usage limits.
-    - `CLAUDE_MARKETPLACE_TOKEN` — a fine-grained token with read-only **Contents** access to `futuredapp/FTClaudeMarketplace` only
+    - `CLAUDE_CODE_OAUTH_TOKEN` — the bot runs on a Claude subscription, not on API tokens. Create the token with `claude setup-token` while logged in to the subscription account the reviews should use; it is long-lived, so renew it before it expires. Reviews count against that account's usage limits. A project on another account sets a repository secret of the same name, which takes precedence; an environment secret is not used.
+    - `CLAUDE_MARKETPLACE_SSH_KEY` — the private half of a read-only deploy key on `futuredapp/FTClaudeMarketplace`. It belongs to the repository, not to a person, and does not expire:
+        1. `ssh-keygen -t ed25519 -N "" -C "ai-pr-review" -f marketplace-deploy-key`
+        2. Add `marketplace-deploy-key.pub` in FTClaudeMarketplace → Settings → Deploy keys, without write access
+        3. Store the content of `marketplace-deploy-key` as the org secret, then delete both files
     - `SLACK_WEBHOOK_FEATURE_REVIEW` — an incoming webhook for the default channel. A project that wants its own channel sets a repository secret of the same name.
 
 ### New project
