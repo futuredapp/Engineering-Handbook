@@ -32,45 +32,8 @@
             5. disable `Projects` (we do not use it)
             6. enable `Allow auto-merge`
             7. enable `Automatically delete head branches` (there is no need to delete branches manually after each PR merge)
-            8. select `Rules` section
+            8. set up the `default branch protection` ruleset with the command in [Code Review setup](ios_code_review.md#new-project) (step 2)
 
-                1. select `Rulesets` subsection
-                2. click `New ruleset` button
-                3. click `New branch ruleset` option from dropdown
-            
-                    ![Step 5](Resources/ios_new_project_5.png){ width="900" }
-                    
-            9. set new branch ruleset
-            
-                ![Step 6](Resources/ios_new_project_6.png){ width="900" }
-                
-                1. fill `default branch protection` to `Ruleset Name`
-                2. change `Enforcement status` to `Active`
-                
-                    ![Step 7](Resources/ios_new_project_7.png){ width="500" }
-                    
-                3. click `Include default branch` to add default branch as target branch 
-                
-                    ![Step 8a](Resources/ios_new_project_8a.png){ width="500" }
-                    ![Step 8b](Resources/ios_new_project_8b.png){ width="500" }
-                    
-                4. enable `Require a pull request before merging`
-                
-                    ![Step 9](Resources/ios_new_project_9.png){ width="500" }
-                
-                    1. set `Required approvals` to 0 — the `review-gate` check asks for a human only when needed, see [Code Review](ios_code_review.md)
-                    2. enable `Dismiss stale pull request approvals when new commits are pushed`
-                    
-                5. keep `Require status checks to pass` unchecked for the moment (we'll set it up later)
-                
-                    - don't forget to add the `test/test` and `review-gate` checks after opening your first PR (actions will appear in the list after their first run)
-                    
-                    ![Step 10](Resources/ios_new_project_10.png){ width="500" }
-                    
-                6. click `Create` button, new ruleset appears in the list
-                
-                    ![Step 11](Resources/ios_new_project_11.png){ width="500" }
-                    
 2. Configure Ruby environment and Fastlane
 
     ??? note "Steps"
@@ -289,15 +252,10 @@
 
     ??? note "Steps"
 
-        - set the repository variables `PROJECT_REVIEWER` and `FEATURE_REVIEWER_SLACK` and fill in `## Red zones` in `AGENTS.md` (see [Code Review setup](ios_code_review.md#new-project))
+        - set the repository variable `PROJECT_REVIEWER` and add the project's own zones to `## Red zones` in `AGENTS.md`, if any (see [Code Review setup](ios_code_review.md#new-project))
 
         - update project README and fill in all the strike-through points
         - commit everything and open PR
-        - after CI checks the PR, `test/test` and `review-gate` checks are now available to be added in `default branch protection` ruleset
-        
-            - add `test / test` and `review-gate`, both GitHub Actions; pick `review-gate` without a slash, the entries with `/` are jobs that pass even when the PR still needs a human
-            
-            ![Step 16](Resources/ios_new_project_27.png){ width="900" }
 
 6. Enjoy!
 
