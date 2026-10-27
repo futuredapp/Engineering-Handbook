@@ -66,7 +66,7 @@ Everything is in the [iOS project template](https://github.com/futuredapp/iOS-pr
 1. Set repository variables (Settings → Secrets and variables → Actions → Variables):
     - `PROJECT_REVIEWER` — GitHub login of the project reviewer, requested on `needs-human` PRs
     - `FEATURE_REVIEWER_SLACK` — Slack mention for the feature review message, e.g. `<@U0123456>`
-2. In the `default branch protection` ruleset, set required approvals to `0` and add the required status checks `test/test` and `review-gate` (both appear after the first PR). The `needs-human` and `feature-complete` labels are created by the first bot run.
+2. In the `default branch protection` ruleset, set required approvals to `0` and add the required status checks `test / test` and `review-gate` (both appear after the first PR; pick `review-gate` without a slash, the entries with `/` are jobs that pass even when the PR still needs a human). The `needs-human` and `feature-complete` labels are created by the first bot run.
 3. Fill in `## Red zones` in `AGENTS.md`.
 
 ### Existing project

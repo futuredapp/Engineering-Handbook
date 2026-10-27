@@ -295,7 +295,7 @@
         - commit everything and open PR
         - after CI checks the PR, `test/test` and `review-gate` checks are now available to be added in `default branch protection` ruleset
         
-            - add `test/test` check (for GitHub Actions) and the `review-gate` status check
+            - add `test / test` and `review-gate`, both GitHub Actions; pick `review-gate` without a slash, the entries with `/` are jobs that pass even when the PR still needs a human
             
             ![Step 16](Resources/ios_new_project_27.png){ width="900" }
 
