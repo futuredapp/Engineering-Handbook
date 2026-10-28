@@ -8,13 +8,14 @@ A PR does not need an approval from a colleague. It needs an author who understa
 2. **Every PR carries evidence.** Screenshots or a screen recording for UI changes, a test that fails without the fix for bug fixes, "No behaviour change." for refactors, what and why for config. `/pull-request` writes the `## Evidence` section with you.
 3. **The review bot reviews every push.** When a ready PR into `develop` is opened or updated, the bot runs `/ios-pr-check` and keeps a single comment up to date: risk, whether the diff matches the description, evidence, verified serious findings and code drift. Findings never block the merge; you decide what to fix.
 4. **A human looks only at red zones.** When the change touches a red zone, the bot labels the PR `needs-human`, requests the project reviewer and lists the 1–3 places to look at. Add the label yourself whenever you want a second pair of eyes: an architecture decision, an SDK you have not used before, anything you are unsure about.
-5. **The `review-gate` check** is green when the bot reviewed the latest commit and found low risk, or when someone with write access other than the author approved the latest commit. High risk and the `needs-human` label always need that approval; removing the label does not lower a high-risk result. Changes to CI, `AGENTS.md`/`CLAUDE.md`/`.claude/`, dependency lockfiles, Fastlane, entitlements, the privacy manifest, `.xcconfig` files, `.gitattributes`, `.gitmodules`, build script phases and source files git shows as binary are always high risk, whatever the bot concludes.
+5. **The `review-gate` check** is green when the bot reviewed the latest commit and found low risk, or when someone with write access other than the author approved the latest commit. High risk and the `needs-human` label always need that approval; removing the label does not lower a high-risk result. Changes to CI, agent hooks and permissions (`.claude/settings.json`, `.claude/hooks/`), dependency lockfiles, Fastlane, entitlements, the privacy manifest, `.xcconfig` files, `.gitattributes`, `.gitmodules`, build script phases and source files git shows as binary are always high risk, whatever the bot concludes.
 
 ### When the bot can't help
 
 | Situation | What to do |
 |---|---|
 | The bot failed, Claude is down or the subscription's usage limit is reached | Comment `/review` to retry, or get an approval of the latest commit — it turns the gate green on its own |
+| You added evidence or changed the description after the bot ran | Editing the description does not re-run the bot. Comment `/review` if you want the comment updated; the gate does not depend on it |
 | Dependabot or another bot opened the PR | The bot skips it: comment `/review`, or approve it (if the check stays pending after the approval, comment `/review`) |
 | A release or hotfix PR into `main` | The gate passes automatically; the `main` ruleset decides what else is required. If the same branch also has a PR into `develop`, the check follows that PR. |
 
@@ -30,8 +31,7 @@ The shared list:
 - **Identity:** login, tokens, Keychain, biometrics.
 - **User data:** persistence schema and migrations, deleting data, personal data in analytics or logs.
 - **App infrastructure:** request pipeline, DI container, app lifecycle, root navigation, deep links.
-- **Release:** new dependencies, entitlements, privacy manifest, build settings, CI, Fastlane.
-- **Review rules:** `AGENTS.md`, `CLAUDE.md`, `.claude/`.
+- **Release:** new dependencies, entitlements, privacy manifest, build settings, CI, Fastlane, agent hooks and permissions.
 
 A new endpoint or a new screen is not a red zone; changing what every request goes through is. Each project adds its own zones in the `## Red zones` section of its `AGENTS.md`, one line each.
 
