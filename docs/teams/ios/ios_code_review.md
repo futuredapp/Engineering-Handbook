@@ -15,7 +15,7 @@ A PR does not need an approval from a colleague. It needs an author who understa
 | Situation | What to do |
 |---|---|
 | The bot failed, Claude is down or the subscription's usage limit is reached | Comment `/review` to retry, or get an approval of the latest commit — it turns the gate green on its own |
-| You added evidence or changed the description after the bot ran | Editing the description does not re-run the bot. Comment `/review` if you want the comment updated; the gate does not depend on it |
+| You changed the description or retargeted the PR to `develop` after the bot ran | Neither re-runs the bot. Comment `/review` to update the comment; after a retarget the gate waits for it |
 | Dependabot or another bot opened the PR | The bot skips it: comment `/review`, or approve it (if the check stays pending after the approval, comment `/review`) |
 | A release or hotfix PR into `main` | The gate passes automatically; the `main` ruleset decides what else is required. If the same branch also has a PR into `develop`, the check follows that PR. |
 
