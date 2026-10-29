@@ -14,6 +14,8 @@ Welcome to the iOS section of the Futured Engineering Handbook. This area contai
 
 #### [CI/CD](ios_ci_cd.md) - Informations about Futured's CI/CD
 
+#### [Code Review](ios_code_review.md) - AI review bot, human review for red zones, feature review in the app
+
 #### [Customer Account](ios_customer_account.md) - What we need to build an app to customer's account
 
 #### [First Submission Requirements](ios_app_store_checklist.md) - Requirements for the first App Store submission

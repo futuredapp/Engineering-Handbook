@@ -81,6 +81,7 @@ nav:
       - Architecture: teams/ios/ios_architecture.md
       - Builds: teams/ios/ios_builds.md
       - CI/CD: teams/ios/ios_ci_cd.md
+      - Code Review: teams/ios/ios_code_review.md
       - Customer Account: teams/ios/ios_customer_account.md
       - First Submission Requirements: teams/ios/ios_app_store_checklist.md
       - Git Flow: teams/ios/ios_git_flow.md
