@@ -7,8 +7,8 @@ A PR does not need an approval from a colleague. It needs an author who understa
 1. **The author owns the code.** You merge only what you understand and can explain. `/ios-review` is there to help you before opening the PR: conventions, patterns and code drift (duplicates, leftovers, custom code where a system component fits).
 2. **Every PR carries evidence.** Screenshots or a screen recording for UI changes, a test that fails without the fix for bug fixes, "No behaviour change." for refactors, what and why for config. `/pull-request` writes the `## Evidence` section with you. Screenshots can only be attached on GitHub after the PR exists, so open such a PR as a draft, attach them, then mark it ready: the bot starts on ready PRs and would not see them otherwise.
 3. **The review bot reviews every push.** When a ready PR into `develop` is opened or updated, the bot runs `/ios-pr-check` and keeps a single comment up to date: risk, whether the diff matches the description, evidence, verified serious findings and code drift. Findings never block the merge; you decide what to fix.
-4. **A human looks only at red zones.** When the change touches a red zone, the bot labels the PR `needs-human`, requests the project reviewer and lists the 1–3 places to look at. Add the label yourself whenever you want a second pair of eyes: an architecture decision, an SDK you have not used before, anything you are unsure about.
-5. **The `review-gate` check** is green when the bot reviewed the latest commit and found low risk, or when someone with write access other than the author approved the latest commit. High risk and the `needs-human` label always need that approval; removing the label does not lower a high-risk result. Changes to CI, agent hooks and permissions (`.claude/settings.json`, `.claude/hooks/`), dependency lockfiles, Fastlane, entitlements, the privacy manifest, `.xcconfig` files, `.gitattributes`, `.gitmodules`, build script phases and source files git shows as binary are always high risk, whatever the bot concludes.
+4. **A human looks only at red zones.** When the change touches a red zone, the bot labels the PR `needs-human`, requests the project reviewer and lists up to three places to look at, each with what can break there. Add the label yourself whenever you want a second pair of eyes: an architecture decision, an SDK you have not used before, anything you are unsure about.
+5. **The `review-gate` check** is green when the bot reviewed the latest commit and found low risk, or when someone with write access other than the author approved the latest commit. High risk and the `needs-human` label always need that approval; removing the label does not lower a high-risk result. Changes to CI, agent hooks and permissions (`.claude/settings.json`, `.claude/hooks/`), dependency manifests and lockfiles (`Gemfile`, `Podfile`, `Cartfile`, `Package.resolved`), Fastlane, entitlements, the privacy manifest, `.xcconfig` files, `.gitattributes`, `.gitmodules`, build script phases and source files git shows as binary are always high risk, whatever the bot concludes.
 
 ### When the bot can't help
 
@@ -51,14 +51,14 @@ The time saved on reading diffs goes into trying finished features in the app. T
 
 ### Once per organisation (org admin)
 
-- Org secrets, shared with the iOS repositories:
+- Org secrets, with repository access set to **Private repositories** (not All: a public repository's workflow could expose them to a fork PR):
     - `CLAUDE_CODE_OAUTH_TOKEN` — the bot runs on a Claude subscription, not on API tokens. Create the token with `claude setup-token` while logged in to the subscription account the reviews should use; it is long-lived, so renew it before it expires. Reviews count against that account's usage limits. A project on another account sets a repository secret of the same name, which takes precedence; an environment secret is not used.
     - `CLAUDE_MARKETPLACE_SSH_KEY` — the private half of a read-only deploy key on `futuredapp/FTClaudeMarketplace`. It belongs to the repository, not to a person, and does not expire:
         1. `ssh-keygen -t ed25519 -N "" -C "ai-pr-review" -f marketplace-deploy-key`
         2. Add `marketplace-deploy-key.pub` in FTClaudeMarketplace → Settings → Deploy keys, without write access
         3. Store the content of `marketplace-deploy-key` as the org secret, then delete both files
     - `SLACK_WEBHOOK_FEATURE_REVIEW` — an incoming webhook for the default channel. A project that wants its own channel sets a repository secret of the same name.
-- Org variable `SLACK_USER_IDS`, shared with the iOS repositories: the Slack member ID of every project reviewer, `{"github-login": "U0123456"}`. The feature review message mentions the project's `PROJECT_REVIEWER` through it; add a reviewer here once, not per project.
+- Org variable `SLACK_USER_IDS`, also for private repositories: the Slack member ID of every project reviewer, `{"github-login": "U0123456"}`. The feature review message mentions the project's `PROJECT_REVIEWER` through it; add a reviewer here once, not per project.
 
 ### New project
 
