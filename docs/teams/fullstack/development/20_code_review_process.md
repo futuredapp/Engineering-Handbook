@@ -16,7 +16,7 @@ Projects without the bot keep the [classic process](#projects-without-the-bot) b
     Screenshots can only be attached on GitHub after the PR exists, so open such a PR as a draft, attach them, then mark it ready: the bot starts on ready PRs and would not see them otherwise.
 3. **The review bot reviews every push.** When a ready PR into `develop` is opened or updated, the bot runs `/node-pr-check` and keeps a single comment up to date: risk, whether the diff matches the description, evidence, serious findings (each one verified by a second agent that tries to refute it) and code drift. Each place in the comment links to its lines. Findings never block the merge; you decide what to fix, and a new commit gets a new review.
 4. **A human looks only at red zones.** When the change touches a red zone, the bot labels the PR `needs-human`, requests the project reviewer and lists up to three places to look at, each with what can break there. Add the label yourself whenever you want a second pair of eyes: an architecture decision, a library you have not used before, anything you are unsure about.
-5. **The `review-gate` check** is green when the bot reviewed the latest commit and found low risk, or when someone with write access other than the author approved the latest commit. High risk and the `needs-human` label always need that approval; removing the label does not lower a high-risk result. Some paths are always high risk, whatever the bot concludes: CI and git hooks, agent hooks and permissions (`.claude/settings*.json`, `.claude/hooks/`), the lockfile, Dockerfiles and docker-compose, migrations and the database schema, auth, guards and the decorators that open or restrict routes, app-wide config and module wiring, and infrastructure. Each project lists them in `protected_paths` of its `code-review.yml`.
+5. **The `review-gate` check** is green when the bot reviewed the latest commit and found low risk, or when someone with write access other than the author approved the latest commit. High risk and the `needs-human` label always need that approval; removing the label does not lower a high-risk result. Some paths are always high risk, whatever the bot concludes: CI and git hooks, agent hooks and permissions, the lockfile, Dockerfiles and docker-compose, migrations and the database schema, auth, guards and the decorators that open or restrict routes, app-wide config and module wiring, and infrastructure.
 
 Human comments still count: resolve every thread a colleague opened before you merge. The bot's comment is not a thread; it is answered by a new commit.
 
@@ -49,16 +49,11 @@ A new endpoint, page or module is not a red zone; changing what every request go
 
 ## Setup
 
-The organisation secrets (`CLAUDE_CODE_OAUTH_TOKEN`, `CLAUDE_MARKETPLACE_SSH_KEY`) are shared with iOS and already set; see the [iOS Code Review page](../../ios/ios_code_review.md#once-per-organisation-org-admin) for how they are created and renewed.
+New projects get the bot from the project template; the team lead adds it to an existing project. Either way the project needs:
 
-For a project:
-
-1. Add `.github/workflows/code-review.yml`, which calls the shared `universal-cloud-ai-pr-review` workflow with the skill `node-review-plugin:node-pr-check` (the plugin's README has the full file), with `protected_paths` matching the project's layout. Add the PR template from [Templates](../appendices/30_templates.md) as `.github/pull_request_template.md`.
-2. Add `AGENTS.md` to the repository root with the project's rules, `## Red zones` and exemplars, and import it from `CLAUDE.md` (`@AGENTS.md`).
-3. Set the reviewer: `gh variable set PROJECT_REVIEWER --repo futuredapp/<project> --body <github-login>`. Pick a person, not a team (the workflow cannot request a team), ideally one who writes fewer of the project's PRs: the bot does not request the author.
-4. In the branch protection of `develop` (Settings → Branches, repository admin): **Require approvals** `0`, **Require review from Code Owners** off, and `review-gate` added to the required status checks next to the existing ones. Pick `review-gate` without a slash; the entries with `/` are jobs that pass even when the PR still needs a human. Remove `.github/CODEOWNERS` if the project has one.
-
-The `needs-human` label is created by the first bot run.
+- its own red zones in `AGENTS.md`, if it has any
+- a project reviewer: one person, ideally one who writes fewer of the project's PRs, since the bot never requests the author
+- branch protection on `develop` with no required approvals and `review-gate` among the required checks
 
 ## Projects without the bot
 
