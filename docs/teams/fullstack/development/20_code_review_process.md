@@ -1,6 +1,6 @@
 On projects with the AI review bot, a PR does not need an approval from a colleague. It needs an author who understands every line, a green `review-gate` check, green CI and evidence that it works. People review where their judgment matters: red zones, and anything the author asks a second pair of eyes for.
 
-The bot runs on [futured-space-monorepo](https://github.com/futuredapp/futured-space-monorepo) since November 2026 and comes to new projects with the project template. Projects without it keep the [classic process](#projects-without-the-bot) below.
+Projects without the bot keep the [classic process](#projects-without-the-bot) below.
 
 ## The flow
 
@@ -45,7 +45,7 @@ The shared list:
 - **App infrastructure:** `main.ts`, global pipes, guards, filters and interceptors, config and env validation, app-wide module wiring, global Nuxt middleware and plugins, `runtimeConfig`, proxying server routes, queues and scheduled jobs.
 - **Release:** a new dependency, Dockerfile or docker-compose, CI, Pulumi and deploy configuration, agent hooks and permissions.
 
-A new endpoint, page or module is not a red zone; changing what every request goes through is. Each project adds its own zones in the `## Red zones` section of its `AGENTS.md`, one line each — for example "Reservations — one person holds at most one work seat per span". Keep them narrow: a zone that matches half of the PRs sends half of the PRs to a human.
+A new endpoint, page or module is not a red zone; changing what every request goes through is. Each project adds its own zones in the `## Red zones` section of its `AGENTS.md`, one line each — for example a domain rule the code must never break, with the module it lives in. Keep them narrow: a zone that matches half of the PRs sends half of the PRs to a human.
 
 ## Setup
 
@@ -53,7 +53,7 @@ The organisation secrets (`CLAUDE_CODE_OAUTH_TOKEN`, `CLAUDE_MARKETPLACE_SSH_KEY
 
 For a project:
 
-1. Copy `.github/workflows/code-review.yml` and `.github/pull_request_template.md` from futured-space-monorepo. In `code-review.yml`, adjust `protected_paths` to the project's layout and drop `review-lab` from `review_base_branches`.
+1. Add `.github/workflows/code-review.yml`, which calls the shared `universal-cloud-ai-pr-review` workflow with the skill `node-review-plugin:node-pr-check` (the plugin's README has the full file), with `protected_paths` matching the project's layout. Add the PR template from [Templates](../appendices/30_templates.md) as `.github/pull_request_template.md`.
 2. Add `AGENTS.md` to the repository root with the project's rules, `## Red zones` and exemplars, and import it from `CLAUDE.md` (`@AGENTS.md`).
 3. Set the reviewer: `gh variable set PROJECT_REVIEWER --repo futuredapp/<project> --body <github-login>`. Pick a person, not a team (the workflow cannot request a team), ideally one who writes fewer of the project's PRs: the bot does not request the author.
 4. In the branch protection of `develop` (Settings → Branches, repository admin): **Require approvals** `0`, **Require review from Code Owners** off, and `review-gate` added to the required status checks next to the existing ones. Pick `review-gate` without a slash; the entries with `/` are jobs that pass even when the PR still needs a human. Remove `.github/CODEOWNERS` if the project has one.
