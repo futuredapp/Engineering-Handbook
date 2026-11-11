@@ -87,7 +87,7 @@ Before adding a package, check:
 
 ### How quickly should I review a PR?
 
-Aim to start a review within the same business day. If you can't review in time, let the author know so they can find another reviewer.
+When a PR is waiting for you — the bot requested you on a `needs-human` PR, or the project has no bot yet — start within the same business day. If you can't, let the author know so they can find another reviewer. PRs the bot found low risk need nobody.
 
 ### What should I focus on during code review?
 
@@ -103,7 +103,7 @@ See [Code Review Process](../development/20_code_review_process.md) for the full
 
 ### Can I use AI tools for code review?
 
-Yes. We use Copilot and CodeRabbit for automated analysis. They catch common issues and provide suggestions. However, AI review supplements — it doesn't replace — human review. Always verify AI suggestions against the project context.
+Yes. Run `/node-review` from the `node-review-plugin` in Claude Code before opening a PR; projects with the review bot get an AI review on every ready PR. See [Code Review Process](../development/20_code_review_process.md) for when a human still has to approve.
 
 ## Deployment
 

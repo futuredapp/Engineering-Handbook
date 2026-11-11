@@ -38,9 +38,9 @@ Restrict pushes that create files larger than 100 MB: ✓
 ```
 Branch name pattern: develop
 Require a pull request before merging: ✓
-Require approvals: 1
+Require approvals: 0 with the AI review bot (review-gate below), 1 without it
 Dismiss stale PR approvals when new commits are pushed: ✓
-Require status checks to pass before merging: ✓
+Require status checks to pass before merging: ✓ (with the bot, add review-gate)
 Require branches to be up to date before merging: ✓
 ```
 
