@@ -12,8 +12,7 @@ AI tools have become an integral part of modern software development. This guide
 
 ### Code Review
 
-- **CodeRabbit** — Automated PR analysis that flags potential issues, suggests improvements, and provides summaries.
-- **GitHub Copilot in PRs** — Summarizes changes and suggests improvements directly in pull requests.
+- **`node-review-plugin`** — `/node-review` before you open a PR, and the review bot on every ready PR. See [Code Review](../development/20_code_review_process.md).
 
 ### Documentation & Communication
 
@@ -69,7 +68,7 @@ AI tools have become an integral part of modern software development. This guide
 
 ## AI in Code Review
 
-AI code review tools (CodeRabbit, Copilot) are part of our PR workflow, but they supplement — not replace — human review.
+The review bot reviews every ready PR on projects that have it, and a human approves only red zones and PRs labelled `needs-human`; see [Code Review](../development/20_code_review_process.md). Whatever approves the PR, the author remains responsible for every line.
 
 **What AI review catches well:**
 

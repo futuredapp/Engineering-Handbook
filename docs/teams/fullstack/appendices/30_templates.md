@@ -7,28 +7,15 @@ Reusable templates for common documents and processes.
 Save as `.github/pull_request_template.md` in your repository:
 
 ```markdown
-## Description
+## Summary
 
-<!-- What does this PR do? Reference the Jira ticket. -->
+<!-- What does this PR do and why? Reference the Jira ticket. -->
 
-[ABC-123](https://futured.atlassian.net/browse/ABC-123)
+## Evidence
+<!-- UI change: screenshots or a screen recording. Endpoint: a test or a request/response sample. Fix: the test that fails without it. Migration: what it does to existing rows. Refactor: "No behaviour change." Config or infrastructure: what changed and why. -->
 
-## Changes
-
--
-
-## How to Test
-
-<!-- Steps for the reviewer to verify this PR. -->
-
-1.
-
-## Checklist
-
-- [ ] Self-reviewed on GitHub
-- [ ] CI checks pass
-- [ ] Tests added/updated for new functionality
-- [ ] No secrets or credentials committed
+## What to try
+<!-- Optional: 1-3 lines telling a reviewer where to go and what to look at. Delete otherwise. -->
 ```
 
 ## Project README Template

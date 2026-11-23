@@ -54,7 +54,7 @@ Code flows through environments in a strict order:
 Before merging to `main` (production):
 
 - [ ] All CI checks pass
-- [ ] PR has been reviewed and approved
+- [ ] PR passed the review: `review-gate` is green, or a teammate approved it on projects without the bot
 - [ ] Changes have been tested on the dev environment
 - [ ] Database migrations are backward-compatible (see below)
 - [ ] No breaking API changes without versioning
