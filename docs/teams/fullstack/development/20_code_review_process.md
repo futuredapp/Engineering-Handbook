@@ -3,7 +3,10 @@ On projects with the AI review bot, a pull request does not need an approval fro
 ### Review Flow
 
 - **The Author Owns the Code**  
-  Merge only what you understand and can explain, whoever or whatever wrote it. Before opening the PR, run `/node-review` from the `node-review-plugin` in Claude Code. It checks your changes against the project's `AGENTS.md`, its patterns, and code drift: duplicates, leftovers, hand-built code where the framework already has a way.
+  Merge only what you understand and can explain, whoever or whatever wrote it.
+
+- **Two Ways to a Review**  
+  Mark the PR ready and read the bot's comment, or run `/node-review` from the `node-review-plugin` in Claude Code before you open it. The bot looks for risk and serious defects and runs on the project's account. `/node-review` also checks your changes against the project's `AGENTS.md`, its patterns, and code drift: duplicates, leftovers, hand-built code where the framework already has a way. It runs on your own Claude account and uses up its limit quickly; `/node-review --model sonnet` costs about half. Most PRs need only the bot; reach for `/node-review` on a larger change or when you want feedback on conventions before the PR.
 
 - **Every PR Carries Evidence**  
   Fill the `## Evidence` section of the PR: screenshots or a recording for a UI change, a test or a request/response sample for an endpoint, the test that fails without it for a fix, the effect on existing rows for a migration, "No behaviour change." for a refactor, what changed and why for config or infrastructure.
