@@ -15,8 +15,10 @@ A PR does not need an approval from a colleague. It needs an author who understa
 | Situation | What to do |
 |---|---|
 | The bot failed, Claude is down or the subscription's usage limit is reached | Comment `/review` to retry, or get an approval of the latest commit — it turns the gate green on its own |
-| You changed the description or retargeted the PR to `develop` after the bot ran | Neither re-runs the bot. Comment `/review` to update the comment; after a retarget the gate waits for it |
+| You attached screenshots or a recording after the bot ran | It re-runs on its own when it found the evidence lacking |
+| You changed the description otherwise, or retargeted the PR to `develop`, after the bot ran | Neither re-runs the bot. Comment `/review` to update the comment; after a retarget the gate waits for it |
 | Dependabot or another bot opened the PR | The bot skips it: comment `/review`, or approve it (if the check stays pending after the approval, comment `/review`) |
+| The "Bump shared workflows" PR | Low risk without a human when it only moves the shared workflow refs to a release: merge it once the checks are green |
 | A release or hotfix PR into `main` | The gate passes automatically; the `main` ruleset decides what else is required. If the same branch also has a PR into `develop`, the check follows that PR. |
 
 `/review` must be the whole comment, from someone with write access. The bot reads the project's rules (`AGENTS.md`, `CLAUDE.md`) from the base branch, so a PR cannot change the rules it is judged by. It can read only the repository: no shell, no network, nothing outside the checkout.
@@ -34,6 +36,8 @@ The shared list:
 - **Release:** new dependencies, entitlements, privacy manifest, build settings, CI, Fastlane, agent hooks and permissions.
 
 A new endpoint or a new screen is not a red zone; changing what every request goes through is. Each project adds its own zones in the `## Red zones` section of its `AGENTS.md`, one line each.
+
+A red zone decides who reviews a change, never what the change does. Design for the task and touch a zone whenever it needs it; the template's `AGENTS.md` says so to coding agents too, which otherwise tend to work around a zone to skip the human review.
 
 ## Feature review in the app
 
