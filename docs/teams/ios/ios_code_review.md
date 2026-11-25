@@ -15,8 +15,7 @@ A PR does not need an approval from a colleague. It needs an author who understa
 | Situation | What to do |
 |---|---|
 | The bot failed, Claude is down or the subscription's usage limit is reached | Comment `/review` to retry, or get an approval of the latest commit — it turns the gate green on its own |
-| You attached screenshots or a recording after the bot ran | It re-runs on its own when it found the evidence lacking |
-| You changed the description otherwise, or retargeted the PR to `develop`, after the bot ran | Neither re-runs the bot. Comment `/review` to update the comment; after a retarget the gate waits for it |
+| You changed the description or retargeted the PR to `develop` after the bot ran | Neither re-runs the bot. Comment `/review` to update the comment; after a retarget the gate waits for it |
 | Dependabot or another bot opened the PR | The bot skips it: comment `/review`, or approve it (if the check stays pending after the approval, comment `/review`) |
 | The "Bump shared workflows" PR from `futured-bot` (a user account, so the bot does review it) | Low risk without a human when it only moves the shared workflow refs to the latest release: merge it once the checks are green |
 | A release or hotfix PR into `main` | The gate passes automatically; the `main` ruleset decides what else is required. If the same branch also has a PR into `develop`, the check follows that PR. |
